@@ -2,7 +2,7 @@ import './App.css';
 
 import React, { Component } from 'react';
 
-import Key from './components/Key';
+import Keyboard from './components/Keyboard';
 import Tone from 'tone';
 import notes from './notes.json';
 
@@ -53,12 +53,9 @@ class App extends Component {
       <div>
         <header>
           <h1>bc-010</h1>
-          {this.state.notes.map(note => (
-            <Key 
+          <Keyboard 
             keyPress={this.keyPress}
-            note={note.note}
-            />
-          ))}
+          />
         </header>
       </div>
     );
