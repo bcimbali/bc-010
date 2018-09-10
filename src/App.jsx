@@ -2,9 +2,8 @@ import './App.css';
 
 import React, { Component } from 'react';
 
-import Keyboard from './components/Keyboard';
+import OuterCasing from './components/OuterCasing';
 import Tone from 'tone';
-import notes from './notes.json';
 
 class App extends Component {
 
@@ -19,7 +18,6 @@ class App extends Component {
       attackCurve: "exponential",
       harmonicity: 0.5,
       modulationType: "sine",
-      notes,
       oscillator: "amtriangle",
       portamento: 0.05
     }
@@ -53,7 +51,7 @@ class App extends Component {
       <div>
         <header>
           <h1>bc-010</h1>
-          <Keyboard 
+          <OuterCasing
             keyPress={this.keyPress}
           />
         </header>

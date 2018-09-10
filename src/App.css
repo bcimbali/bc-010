@@ -1,4 +1,10 @@
 
+.controlPanel {
+    border: 2px solid purple;
+    display: flex;
+    padding: 10vh;
+}
+
 .key {
   border: 2px solid black;
   margin: auto;
@@ -9,5 +15,13 @@
 .keyboard {
   border: 2px solid green;
   display: flex;
+  padding: 10vh;
+}
+
+.outerCasing {
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
   padding: 10vh;
 }
