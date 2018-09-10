@@ -10,6 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.keyPress = this.keyPress.bind(this);
+    this.toggleOscillator = this.toggleOscillator.bind(this);
     this.state = {
       attack: 0.001,
       decay: 0.2,
@@ -41,8 +42,36 @@ class App extends Component {
     }).toMaster();
   }
 
+  componentDidUpdate() {
+    this.synth = new Tone.Synth({
+      "oscillator" : {
+        "type" : this.state.oscillator,
+        "harmonicity" : this.state.harmonicity,
+        "modulationType" : this.state.modulationType
+      },
+      "envelope" : {
+        "attackCurve" : this.state.attackCurve,
+        "attack" : this.state.attack,
+        "decay" : this.state.decay,
+        "sustain" : this.state.sustain,
+        "release" : this.state.release,
+      },
+      "portamento" : this.state.portamento
+    }).toMaster();
+  }
+
   keyPress(note) {
     this.synth.triggerAttackRelease(note, "8n");
+  }
+
+  toggleOscillator() {
+    // alert('in toggle oscillator');
+    if (this.state.oscillator === 'amtriangle') {
+      this.setState({oscillator: 'triangle'});
+    }
+    if (this.state.oscillator === 'triangle') {
+      this.setState({oscillator: 'amtriangle'});
+    }
   }
   
   render() {
@@ -53,6 +82,7 @@ class App extends Component {
           <h1>bc-010</h1>
           <OuterCasing
             keyPress={this.keyPress}
+            toggleOscillator={this.toggleOscillator}
           />
         </header>
       </div>

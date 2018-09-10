@@ -5,7 +5,9 @@ import React from 'react';
 function OuterCasing(props) {
   return(
     <div className="outerCasing">
-      <ControlPanel />
+      <ControlPanel 
+        toggleOscillator={props.toggleOscillator}
+      />
       <Keyboard 
         keyPress={props.keyPress}
       />
