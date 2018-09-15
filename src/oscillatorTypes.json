@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "type": "sine"
+  },
+  {
+    "id": 2,
+    "type": "square"
+  },
+  {
+    "id": 3,
+    "type": "triangle"
+  },
+  {
+    "id": 4,
+    "type": "sawtooth"
+  }
+]

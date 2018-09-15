@@ -16,37 +16,29 @@ class App extends Component {
       decay: 0.2,
       sustain: 0.2,
       release: 1.5,
-      attackCurve: "exponential",
-      harmonicity: 0.5,
-      modulationType: "sine",
-      oscillator: "amtriangle",
+      oscillator: "square",
       portamento: 0.05
     }
   }
 
+  // Function to actually play the note on the synth:
   keyPress(note) {
     this.synth.triggerAttackRelease(note, "8n");
   }
 
-  toggleOscillator() {
+  // Function to handle the oscillator toggle:
+  toggleOscillator(oscType) {
     // alert('in toggle oscillator');
-    if (this.state.oscillator === 'amtriangle') {
-      this.setState({oscillator: 'triangle'});
-    }
-    if (this.state.oscillator === 'triangle') {
-      this.setState({oscillator: 'amtriangle'});
-    }
+      this.setState({oscillator: oscType});
   }
   
   render() {
+    // Create a new synth on render & updates synth timbre based on state
     this.synth = new Tone.Synth({
       "oscillator" : {
         "type" : this.state.oscillator,
-        "harmonicity" : this.state.harmonicity,
-        "modulationType" : this.state.modulationType
       },
       "envelope" : {
-        "attackCurve" : this.state.attackCurve,
         "attack" : this.state.attack,
         "decay" : this.state.decay,
         "sustain" : this.state.sustain,
@@ -55,6 +47,7 @@ class App extends Component {
       "portamento" : this.state.portamento
     }).toMaster();
     
+    // Console log the synth parameters/state to check that it's updating correctly:
     console.log('this.synth is, in render: ', this.synth);
 
     return (

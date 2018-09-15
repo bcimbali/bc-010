@@ -1,11 +1,17 @@
+import OscillatorBtn from './../OscillatorBtn';
 import React from 'react';
+import oscillatorTypes from './../../oscillatorTypes.json';
 
 function ControlPanel(props) {
   return(
     <div className="controlPanel">
-      <div className="btn-toggle" onClick={props.toggleOscillator}>
-        Toggle Oscillator
-      </div>
+      {oscillatorTypes.map(oscType => (
+        <OscillatorBtn 
+          key={`${oscType.id}-${oscType.type}`}
+          toggleOscillator={props.toggleOscillator}
+          type={oscType.type}
+        />
+      ))}
     </div>
   );
 };
