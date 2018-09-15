@@ -6,9 +6,11 @@ function OuterCasing(props) {
   return(
     <div className="outerCasing">
       <ControlPanel 
+        key="control-panel"
         toggleOscillator={props.toggleOscillator}
       />
-      <Keyboard 
+      <Keyboard
+        key="keyboard"
         keyPress={props.keyPress}
       />
     </div>

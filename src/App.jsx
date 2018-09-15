@@ -24,42 +24,6 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    this.synth = new Tone.Synth({
-      "oscillator" : {
-        "type" : this.state.oscillator,
-        "harmonicity" : this.state.harmonicity,
-        "modulationType" : this.state.modulationType
-      },
-      "envelope" : {
-        "attackCurve" : this.state.attackCurve,
-        "attack" : this.state.attack,
-        "decay" : this.state.decay,
-        "sustain" : this.state.sustain,
-        "release" : this.state.release,
-      },
-      "portamento" : this.state.portamento
-    }).toMaster();
-  }
-
-  componentDidUpdate() {
-    this.synth = new Tone.Synth({
-      "oscillator" : {
-        "type" : this.state.oscillator,
-        "harmonicity" : this.state.harmonicity,
-        "modulationType" : this.state.modulationType
-      },
-      "envelope" : {
-        "attackCurve" : this.state.attackCurve,
-        "attack" : this.state.attack,
-        "decay" : this.state.decay,
-        "sustain" : this.state.sustain,
-        "release" : this.state.release,
-      },
-      "portamento" : this.state.portamento
-    }).toMaster();
-  }
-
   keyPress(note) {
     this.synth.triggerAttackRelease(note, "8n");
   }
@@ -75,16 +39,32 @@ class App extends Component {
   }
   
   render() {
+    this.synth = new Tone.Synth({
+      "oscillator" : {
+        "type" : this.state.oscillator,
+        "harmonicity" : this.state.harmonicity,
+        "modulationType" : this.state.modulationType
+      },
+      "envelope" : {
+        "attackCurve" : this.state.attackCurve,
+        "attack" : this.state.attack,
+        "decay" : this.state.decay,
+        "sustain" : this.state.sustain,
+        "release" : this.state.release,
+      },
+      "portamento" : this.state.portamento
+    }).toMaster();
     
+    console.log('this.synth is, in render: ', this.synth);
+
     return (
       <div>
-        <header>
-          <h1>bc-010</h1>
-          <OuterCasing
-            keyPress={this.keyPress}
-            toggleOscillator={this.toggleOscillator}
-          />
-        </header>
+        <h1>bc-010</h1>
+        <OuterCasing
+          key='outerCasing'
+          keyPress={this.keyPress}
+          toggleOscillator={this.toggleOscillator}
+        />
       </div>
     );
   }

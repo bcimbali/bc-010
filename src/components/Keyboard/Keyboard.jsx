@@ -7,6 +7,7 @@ function Keyboard(props) {
     <div className="keyboard">
       {notes.map(note => (
         <Key 
+        key={`${note.id}-${note.note}`}
         keyPress={props.keyPress}
         note={note.note}
         />
