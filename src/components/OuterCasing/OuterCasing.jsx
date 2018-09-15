@@ -5,7 +5,8 @@ import React from 'react';
 function OuterCasing(props) {
   return(
     <div className="outerCasing">
-      <ControlPanel 
+      <ControlPanel
+        envelopeSliderChange={props.envelopeSliderChange} 
         key="control-panel"
         toggleOscillator={props.toggleOscillator}
       />

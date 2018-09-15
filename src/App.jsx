@@ -9,6 +9,7 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+    this.envelopeSliderChange = this.envelopeSliderChange.bind(this);
     this.keyPress = this.keyPress.bind(this);
     this.toggleOscillator = this.toggleOscillator.bind(this);
     this.state = {
@@ -21,19 +22,23 @@ class App extends Component {
     }
   }
 
-  // Function to actually play the note on the synth:
+  // Actually plays the note on the synth:
   keyPress(note) {
     this.synth.triggerAttackRelease(note, "8n");
   }
 
-  // Function to handle the oscillator toggle:
+  // Handles change in oscillator type via btn clicks:
   toggleOscillator(oscType) {
-    // alert('in toggle oscillator');
       this.setState({oscillator: oscType});
+  }
+
+  // Handles change in envelope sliders in control panel
+  envelopeSliderChange(sliderValue) {
+    this.setState({attack: sliderValue})
   }
   
   render() {
-    // Create a new synth on render & updates synth timbre based on state
+    // Create a new Tone.js synth on render & update synth timbre based on App.jsx state
     this.synth = new Tone.Synth({
       "oscillator" : {
         "type" : this.state.oscillator,
@@ -49,11 +54,13 @@ class App extends Component {
     
     // Console log the synth parameters/state to check that it's updating correctly:
     console.log('this.synth is, in render: ', this.synth);
+    console.log('attack value in app.js: ', this.state.attack);
 
     return (
       <div>
         <h1>bc-010</h1>
         <OuterCasing
+          envelopeSliderChange={this.envelopeSliderChange}
           key='outerCasing'
           keyPress={this.keyPress}
           toggleOscillator={this.toggleOscillator}

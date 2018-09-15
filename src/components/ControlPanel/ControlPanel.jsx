@@ -1,3 +1,4 @@
+import EnvelopeSlider from './../EnvelopeSlider';
 import OscillatorBtn from './../OscillatorBtn';
 import React from 'react';
 import oscillatorTypes from './../../oscillatorTypes.json';
@@ -12,6 +13,9 @@ function ControlPanel(props) {
           type={oscType.type}
         />
       ))}
+      <EnvelopeSlider 
+        envelopeSliderChange={props.envelopeSliderChange} 
+      />
     </div>
   );
 };
