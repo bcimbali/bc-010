@@ -13,7 +13,7 @@ class App extends Component {
     this.keyPress = this.keyPress.bind(this);
     this.toggleOscillator = this.toggleOscillator.bind(this);
     this.state = {
-      attack: 0.001,
+      attack: 0.0001,
       decay: 0.2,
       sustain: 0.2,
       release: 1.5,
@@ -33,8 +33,25 @@ class App extends Component {
   }
 
   // Handles change in envelope sliders in control panel
-  envelopeSliderChange(sliderValue) {
-    this.setState({attack: sliderValue})
+  envelopeSliderChange(envelopeType, sliderValue) {
+    console.log('- In App.jsx, envelopeSliderChange(',envelopeType,',', sliderValue,')');
+    
+
+    if (envelopeType === 'attack') {
+      console.log('- ATTACK value before setState', this.state.attack);
+      this.setState({attack: sliderValue});
+      console.log('- ATTACK value after setState', this.state.attack);
+    }
+    if (envelopeType === 'decay') {
+      this.setState({decay: sliderValue});
+    }
+    if (envelopeType === 'sustain') {
+      this.setState({sustain: sliderValue});
+    }
+    if (envelopeType === 'release') {
+      this.setState({release: sliderValue});
+    }
+    console.log('- ATTACK value after setState conditional biz: ', this.state.attack);
   }
   
   render() {
@@ -53,13 +70,25 @@ class App extends Component {
     }).toMaster();
     
     // Console log the synth parameters/state to check that it's updating correctly:
-    console.log('this.synth is, in render: ', this.synth);
-    console.log('attack value in app.js: ', this.state.attack);
+    console.log('---------------------------------------');
+    console.log('In R E N D E R( )')
+    console.log('- ATTACK is: ', this.synth.envelope.attack);
+    console.log('- DECAY is: ', this.synth.envelope.decay);
+    console.log('- SUSTAIN is: ', this.synth.envelope.sustain);
+    console.log('- RELEASE is: ', this.synth.envelope.release);
+    // console.log('!! attack value in app.js: ', this.state.attack);
+    // console.log('!! decay value in app.js: ', this.state.decay);
+    // console.log('!! sustain value in app.js: ', this.state.sustain);
+    // console.log('!! release value in app.js: ', this.state.release);
 
     return (
       <div>
         <h1>bc-010</h1>
         <OuterCasing
+          attackValue={this.state.attack}
+          decayValue={this.state.decay}
+          sustainValue={this.state.sustain}
+          releaseValue={this.state.release}
           envelopeSliderChange={this.envelopeSliderChange}
           key='outerCasing'
           keyPress={this.keyPress}

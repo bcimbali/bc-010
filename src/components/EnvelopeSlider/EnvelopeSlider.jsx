@@ -7,18 +7,23 @@ class EnvelopeSlider extends Component {
     this.updateValue = this.updateValue.bind(this);
     this.updateSynthValue = this.updateSynthValue.bind(this);
     this.state = {
-      value: 0.001
+      value: 1
     }
   }
 
+  // Calls the function in App.jsx to update the synth timbre
   updateSynthValue() {
-    this.props.envelopeSliderChange(this.state.value);
+    console.log('C H A N G I N G');
+    console.log('- In EnvelopeSlider.jsx, envelopeSliderChange(',this.props.adsr,',',this.state.value,')');
+    this.props.envelopeSliderChange(this.props.adsr, this.state.value);
   }
 
+  // Actually updates state in this slider instance
   updateValue(event) {
     this.setState({value: event.target.value});
   }
 
+  // Handles slider changes
   handleChange(event) {
     this.updateValue(event);
     this.updateSynthValue();
@@ -27,15 +32,17 @@ class EnvelopeSlider extends Component {
   render() { 
     return(
       <div className="envelopeSlider">
-        <input 
+        <label htmlFor={this.props.adsr}>{this.props.adsr}</label>
+        <input
+          adsr={this.props.type}
           type="range" 
-          min="0.001" 
-          max="1"
+          min={this.props.min} 
+          max={this.props.max}
           onChange={this.handleChange}
-          step="0.0001" 
-          value={this.state.value}
+          step={this.props.step}
+          value={this.props.value}
         />
-        {console.log('slider value: ', this.state.value)}
+        <p>{this.props.value}</p>
       </div>
     );
   }

@@ -6,6 +6,10 @@ function OuterCasing(props) {
   return(
     <div className="outerCasing">
       <ControlPanel
+        attackValue={props.attackValue}
+        decayValue={props.decayValue}
+        sustainValue={props.sustainValue}
+        releaseValue={props.releaseValue}
         envelopeSliderChange={props.envelopeSliderChange} 
         key="control-panel"
         toggleOscillator={props.toggleOscillator}

@@ -1,6 +1,6 @@
-import EnvelopeSlider from './../EnvelopeSlider';
 import OscillatorBtn from './../OscillatorBtn';
 import React from 'react';
+import SliderBank from '../SliderBank/SliderBank';
 import oscillatorTypes from './../../oscillatorTypes.json';
 
 function ControlPanel(props) {
@@ -13,7 +13,11 @@ function ControlPanel(props) {
           type={oscType.type}
         />
       ))}
-      <EnvelopeSlider 
+      <SliderBank
+        attackValue={props.attackValue}
+        decayValue={props.decayValue}
+        sustainValue={props.sustainValue}
+        releaseValue={props.releaseValue} 
         envelopeSliderChange={props.envelopeSliderChange} 
       />
     </div>
