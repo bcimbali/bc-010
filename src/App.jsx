@@ -16,7 +16,7 @@ class App extends Component {
       attack: 0.0001,
       decay: 0.2,
       sustain: 0.2,
-      release: 1.5,
+      release: 1,
       oscillator: "square",
       portamento: 0.05
     }
@@ -49,9 +49,11 @@ class App extends Component {
       this.setState({sustain: sliderValue});
     }
     if (envelopeType === 'release') {
+      console.log('- RELEASE value before setState', this.state.release);
       this.setState({release: sliderValue});
+      console.log('- RELEASE value after setState', this.state.release);
     }
-    console.log('- ATTACK value after setState conditional biz: ', this.state.attack);
+    console.log('- RELEASE value after setState conditional biz: ', this.state.release);
   }
   
   render() {
@@ -76,10 +78,7 @@ class App extends Component {
     console.log('- DECAY is: ', this.synth.envelope.decay);
     console.log('- SUSTAIN is: ', this.synth.envelope.sustain);
     console.log('- RELEASE is: ', this.synth.envelope.release);
-    // console.log('!! attack value in app.js: ', this.state.attack);
-    // console.log('!! decay value in app.js: ', this.state.decay);
-    // console.log('!! sustain value in app.js: ', this.state.sustain);
-    // console.log('!! release value in app.js: ', this.state.release);
+    console.log('// RELEASE from this.STATE: ', this.state.release);
 
     return (
       <div>

@@ -24,7 +24,7 @@
     "id": 4,
     "max": 10,
     "min": 1,
-    "step": 0.5,
+    "step": 1,
     "type": "release"
   }
 ]
