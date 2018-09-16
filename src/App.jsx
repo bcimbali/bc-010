@@ -34,26 +34,22 @@ class App extends Component {
 
   // Handles change in envelope sliders in control panel
   envelopeSliderChange(envelopeType, sliderValue) {
-    console.log('- In App.jsx, envelopeSliderChange(',envelopeType,',', sliderValue,')');
-    
+    // Make sure the number passed into Tone.Synth is a float. It will complain if it's a string.
+    let sliderValueNumber = parseFloat(sliderValue);
 
+    // Check the envelope type, and update the correct envelope state in App.js
     if (envelopeType === 'attack') {
-      console.log('- ATTACK value before setState', this.state.attack);
-      this.setState({attack: sliderValue});
-      console.log('- ATTACK value after setState', this.state.attack);
+      this.setState({attack: sliderValueNumber});
     }
     if (envelopeType === 'decay') {
-      this.setState({decay: sliderValue});
+      this.setState({decay: sliderValueNumber});
     }
     if (envelopeType === 'sustain') {
-      this.setState({sustain: sliderValue});
+      this.setState({sustain: sliderValueNumber});
     }
     if (envelopeType === 'release') {
-      console.log('- RELEASE value before setState', this.state.release);
-      this.setState({release: sliderValue});
-      console.log('- RELEASE value after setState', this.state.release);
+      this.setState({release: sliderValueNumber});
     }
-    console.log('- RELEASE value after setState conditional biz: ', this.state.release);
   }
   
   render() {
@@ -66,19 +62,20 @@ class App extends Component {
         "attack" : this.state.attack,
         "decay" : this.state.decay,
         "sustain" : this.state.sustain,
-        "release" : this.state.release,
+        "release" : this.state.release
       },
       "portamento" : this.state.portamento
     }).toMaster();
     
     // Console log the synth parameters/state to check that it's updating correctly:
-    console.log('---------------------------------------');
-    console.log('In R E N D E R( )')
-    console.log('- ATTACK is: ', this.synth.envelope.attack);
-    console.log('- DECAY is: ', this.synth.envelope.decay);
-    console.log('- SUSTAIN is: ', this.synth.envelope.sustain);
-    console.log('- RELEASE is: ', this.synth.envelope.release);
-    console.log('// RELEASE from this.STATE: ', this.state.release);
+    // console.log('---------------------------------------');
+    // console.log('In R E N D E R( )')
+    // console.log('- ATTACK is: ', this.synth.envelope.attack);
+    // console.log('- DECAY is: ', this.synth.envelope.decay);
+    // console.log('- SUSTAIN is: ', this.synth.envelope.sustain);
+    // console.log('- RELEASE is: ', this.synth.envelope.release);
+    // console.log('this.synth is: ', this.synth);
+    // console.log('// RELEASE from this.STATE: ', this.state.release);
 
     return (
       <div>

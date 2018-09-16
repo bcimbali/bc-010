@@ -13,8 +13,6 @@ class EnvelopeSlider extends Component {
 
   // Calls the function in App.jsx to update the synth timbre
   updateSynthValue() {
-    console.log('C H A N G I N G');
-    console.log('- In EnvelopeSlider.jsx, envelopeSliderChange(',this.props.adsr,',',this.state.value,')');
     this.props.envelopeSliderChange(this.props.adsr, this.state.value);
   }
 
