@@ -6,7 +6,7 @@ function Key(props) {
       className="key" 
       onClick={() => props.keyPress(props.note)}
     >
-
+    {props.note}
     </div>
   );
 };

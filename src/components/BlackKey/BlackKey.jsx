@@ -6,7 +6,7 @@ function Key(props) {
       className={`key-black key ${props.id === 3 ? 'm-left-3' : props.id === 1 ? 'm-left' : ''}`}
       onClick={() => props.keyPress(props.note)}
     >
-
+    {props.note}
     </div>
   );
 };

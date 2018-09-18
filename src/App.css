@@ -38,13 +38,13 @@
 .black-keys {
   border: 2px solid yellowgreen;
   display: flex;
-  height: 10vh;
-  /* margin-left: 5vw; */
+  height: 20vh;
   width: 100%;
 }
 
 /* .key-black {
-  margin-right: 2vw;
+  position: relative;
+  left: 5vw;
 } */
 
 .m-left {
@@ -58,14 +58,12 @@
 .white-keys {
   border: 2px solid paleturquoise;
   display: flex;
-  height: 10vh;
+  height: 20vh;
   width: 100%;
 }
 
 .key {
   border: 2px solid black;
-  /* margin: auto; */
-  padding: 10px;
   width: 10vw;
 }
 
