@@ -12,12 +12,13 @@ class App extends Component {
     this.envelopeSliderChange = this.envelopeSliderChange.bind(this);
     this.keyPress = this.keyPress.bind(this);
     this.toggleOscillator = this.toggleOscillator.bind(this);
+    this.keyboardLetterPress = this.keyboardLetterPress.bind(this);
     this.state = {
       attack: 0.0001,
       decay: 0.2,
       sustain: 0.2,
       release: 1,
-      oscillator: "square",
+      oscillator: "sawtooth",
       portamento: 0.05
     }
   }
@@ -25,6 +26,53 @@ class App extends Component {
   // Actually plays the note on the synth:
   keyPress(note) {
     this.synth.triggerAttackRelease(note, "8n");
+  }
+
+  // Handle the (computer) keyboard letter presses
+  keyboardLetterPress(event) {
+    let keyPressed = event.charCode;
+    // Log the character code to the console
+    console.log(keyPressed);
+    if (keyPressed === 97) {
+      this.keyPress('C4');
+    }
+    if (keyPressed === 119) {
+      this.keyPress('Db4');
+    }
+    if (keyPressed === 115) {
+      this.keyPress('D4');
+    }
+    if (keyPressed === 101) {
+      this.keyPress('Eb4');
+    }
+    if (keyPressed === 100) {
+      this.keyPress('E4');
+    }
+    if (keyPressed === 102) {
+      this.keyPress('F4');
+    }
+    if (keyPressed === 116) {
+      this.keyPress('Gb4');
+    }
+    if (keyPressed === 103) {
+      this.keyPress('G4');
+    }
+    if (keyPressed === 121) {
+      this.keyPress('Ab4');
+    }
+    if (keyPressed === 104) {
+      this.keyPress('A4');
+    }
+    if (keyPressed === 117) {
+      this.keyPress('Bb4');
+    }
+    if (keyPressed === 106) {
+      this.keyPress('B4');
+    }
+    if (keyPressed === 107) {
+      this.keyPress('C5');
+    }
+
   }
 
   // Handles change in oscillator type via btn clicks:
@@ -37,7 +85,7 @@ class App extends Component {
     // Make sure the number passed into Tone.Synth is a float. It will complain if it's a string.
     let sliderValueNumber = parseFloat(sliderValue);
 
-    // Check the envelope type, and update the correct envelope state in App.js
+    // Check the envelope type, and update the correct envelope state in App.jsx
     if (envelopeType === 'attack') {
       this.setState({attack: sliderValueNumber});
     }
@@ -50,6 +98,11 @@ class App extends Component {
     if (envelopeType === 'release') {
       this.setState({release: sliderValueNumber});
     }
+  }
+
+  // Add an event listener for global keyboard clicks. This will play the synth with the computer keyboard
+  componentWillMount() {
+    document.addEventListener('keypress',this.keyboardLetterPress);
   }
   
   render() {
@@ -66,16 +119,6 @@ class App extends Component {
       },
       "portamento" : this.state.portamento
     }).toMaster();
-    
-    // Console log the synth parameters/state to check that it's updating correctly:
-    // console.log('---------------------------------------');
-    // console.log('In R E N D E R( )')
-    // console.log('- ATTACK is: ', this.synth.envelope.attack);
-    // console.log('- DECAY is: ', this.synth.envelope.decay);
-    // console.log('- SUSTAIN is: ', this.synth.envelope.sustain);
-    // console.log('- RELEASE is: ', this.synth.envelope.release);
-    // console.log('this.synth is: ', this.synth);
-    // console.log('// RELEASE from this.STATE: ', this.state.release);
 
     return (
       <div>
