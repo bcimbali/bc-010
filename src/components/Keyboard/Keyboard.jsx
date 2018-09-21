@@ -1,8 +1,8 @@
-import BlackKey from './../BlackKey';
 import React, { Component } from 'react';
+
+import BlackKey from './../BlackKey';
 import WhiteKey from './../WhiteKey';
-import blackKeys from './../../blackKeys.json';
-import whiteKeys from './../../whiteKeys.json';
+import keys from './../../keys.json';
 
 class Keyboard extends Component {
   constructor(props) {
@@ -18,29 +18,41 @@ class Keyboard extends Component {
     console.log(keyPressed);
 
     // Filter the array for the object that contains
-    const result = whiteKeys.filter((key) =>  {
+    const result = keys.filter((key) =>  {
       return key.keyCode === keyPressed
     })
 
-    let letterNote = result[0].note;
+    // Save the note object to this variable.
+    let letterNote = result[0];
 
+    // Make sure the result from the filter isn't undefined. If it's not...
+    // ... then call the synth keyPress function and pass in the keyboard note.
+    if (typeof letterNote !== 'undefined') {
+      this.props.keyPress(letterNote.note);
+    }
 
-    console.log('letternote ', letterNote); 
-
-    // Call the synth keyPress function and pass in the keyboard note.
-    this.props.keyPress(letterNote);
   }
 
-  // Add the keypress event listener before the component mounts.
+  // Add the keypress event listener to the document before the component mounts.
   componentWillMount() {
     document.addEventListener('keypress',this.keyboardLetterPress);
   }
 
   render() {
+    // Filter the keys data for just white keys
+    const whiteKeysArray = keys.filter((key) => {
+      return key.type === 'white'
+    })
+
+    // Filter the keys data for just black keys
+    const blackKeysArray = keys.filter((key) => {
+      return key.type === 'black'
+    })
+    
     return(
       <div className="keyboard">
         <div className="black-keys">
-          {blackKeys.map(note => (
+          {blackKeysArray.map(note => (
             <BlackKey
             id={note.id}
             key={`${note.id}-${note.note}`}
@@ -50,7 +62,7 @@ class Keyboard extends Component {
           ))}
         </div>
         <div className="white-keys">
-          {whiteKeys.map(note => (
+          {whiteKeysArray.map(note => (
             <WhiteKey 
             key={`${note.id}-${note.note}`}
             keyPress={this.props.keyPress}
