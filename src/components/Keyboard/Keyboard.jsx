@@ -10,19 +10,18 @@ class Keyboard extends Component {
     this.keyboardLetterPress = this.keyboardLetterPress.bind(this);
   }
   
-  // Handle the (computer) keyboard letter presses
+  // Handle the (computer) keyboard letter presses:
   keyboardLetterPress(event) {
-    // Save character 
+    
+    // Save character code in variable:
     let keyPressed = event.charCode;
-    // Log the character code to the console
-    console.log(keyPressed);
 
     // Filter the array for the object that contains
     const result = keys.filter((key) =>  {
       return key.keyCode === keyPressed
     })
 
-    // Save the note object to this variable.
+    // Save the note object to this variable:
     let letterNote = result[0];
 
     // Make sure the result from the filter isn't undefined. If it's not...
