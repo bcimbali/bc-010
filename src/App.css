@@ -78,7 +78,7 @@ body {
 }
 
 .key:hover {
-  background-color: gray;
+  background-color: lightcoral;
   cursor: pointer;
 }
 
@@ -88,6 +88,11 @@ body {
   flex-direction: column;
   height: 100vh;
   padding: 1vh;
+}
+
+/* Keyboard press piano note color change */
+.keyboard-click {
+  background-color: lightskyblue;
 }
 
 /*------------------------- 
@@ -104,4 +109,3 @@ body {
   padding: 5vh;
   min-width: 100%;
 }
-
