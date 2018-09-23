@@ -30,16 +30,19 @@ class EnvelopeSlider extends Component {
   render() { 
     return(
       <div className="envelopeSlider">
+        <div className="slider-container">
+          <input
+            adsr={this.props.type}
+            className="html-slider"
+            type="range" 
+            min={this.props.min} 
+            max={this.props.max}
+            onChange={this.handleChange}
+            step={this.props.step}
+            value={this.props.value}
+          />
+        </div>
         <label htmlFor={this.props.adsr}>{this.props.adsr}</label>
-        <input
-          adsr={this.props.type}
-          type="range" 
-          min={this.props.min} 
-          max={this.props.max}
-          onChange={this.handleChange}
-          step={this.props.step}
-          value={this.props.value}
-        />
         <p>{this.props.value}</p>
       </div>
     );
