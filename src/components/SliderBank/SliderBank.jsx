@@ -7,6 +7,7 @@ function SliderBank(props) {
     <div className="slider-bank">
       {envelopeSliders.map(slider => (
         <EnvelopeSlider
+          abbr={slider.abbr}
           adsr={slider.type}
           envelopeSliderChange={props.envelopeSliderChange}
           key={`${slider.id}-${slider.type}`} 
