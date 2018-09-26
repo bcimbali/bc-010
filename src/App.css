@@ -15,7 +15,7 @@ body {
   flex-direction: column;
   height: 70vh;
   padding: 2.5vh;
-  min-width: 100%;
+  max-width: 100%;
 }
 
 /*--------------------------------------------------------------------------------------------------- 
@@ -55,35 +55,47 @@ body {
 
 /* Slider bank to hold all the sliders */
 .slider-bank {
+  align-self: flex-end;
   border: 2px solid palevioletred;
   display: flex;
-  height: auto;
+  height: 75%;
 }
 
 .envelopeSlider {
-  /* align-self: flex-end; */
   border: 2px solid gold;
   display: flex;
   /* height: auto; */
+  width: 5vw;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .slider-container {
-  width: 100%;
+  height: 100%;
+  width: 5vw;
+  padding: 9vh 3vw 0 0;
+}
+
+.slider-number {
+  margin: 0;
+  text-align: center;
 }
 
 /* Actual slider */
+.slider-label {
+  text-align: center;
+}
+
 .html-slider {
-  -webkit-transform:rotate(270deg); 
-  -moz-transform:rotate(270deg); 
-  -o-transform:rotate(270deg); 
-  -ms-transform:rotate(270deg); 
+  -webkit-transform:rotate(270deg);
+  -moz-transform:rotate(270deg);
+  -o-transform:rotate(270deg);
+  -ms-transform:rotate(270deg);
   transform:rotate(270deg);
-  -webkit-appearance: none;  /* Override default CSS styles */
+  -webkit-appearance: none;
   appearance: none;
-  width: 10vw;
-  height: 0.75vh; /* Specified height */
+  width: 5vw; /* This is actually the height of the slider */
+  height: 3px; /* This is actually the fatness of the slider */
   background: #8f8e8e; /* Grey background */
   outline: none; /* Remove outline */
 }

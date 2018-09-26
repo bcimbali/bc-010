@@ -42,8 +42,8 @@ class EnvelopeSlider extends Component {
             value={this.props.value}
           />
         </div>
-        <label htmlFor={this.props.adsr}>{this.props.adsr}</label>
-        <p>{this.props.value}</p>
+        <label className="slider-label" htmlFor={this.props.adsr}>{this.props.adsr}</label>
+        <p className="slider-number" >{this.props.value}</p>
       </div>
     );
   }
