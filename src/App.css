@@ -14,8 +14,8 @@ body {
   border: 2px solid red;
   display: flex;
   flex-direction: column;
-  height: 70vh;
-  padding: 2.5vh;
+  height: 90vh;
+  /* padding: 2.5vh; */
   max-width: 100%;
 }
 
@@ -28,7 +28,7 @@ body {
 .controlPanel {
     border: 2px solid purple;
     display: flex;
-    height: 100vh;
+    height: 50vh;
     justify-content: space-evenly;
 }
 
@@ -59,34 +59,70 @@ body {
   align-self: flex-end;
   border: 2px solid palevioletred;
   display: flex;
-  height: 75%;
+  height: 40vh;
 }
 
+/* Outer container for each slider strip */
 .envelopeSlider {
   border: 2px solid gold;
   display: flex;
-  /* height: auto; */
+  /* height: 30vh; */
   width: 5vw;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
+/* Container that holds the actual html range input tag as its child */
 .slider-container {
-  height: 100%;
-  width: 5vw;
-  padding: 9vh 3vw 0 0;
+  align-self: center;
+  /* border: 1px dashed purple; */
 }
 
+/* Div that holds the slider container and its html input */
+.slider-housing {
+  display: flex;
+  justify-content: center;
+/*   height:25vh; */
+  width: 100%;
+}
+
+/* Div container for the number displayed for range slider value */
+.slider-number-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: 1vw;
+  height: 5vh;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Styling for actual slider number */
 .slider-number {
   margin: 0;
   text-align: center;
 }
 
-/* Actual slider */
+/* Div container for the slider name at top of slider strip */
+.slider-label-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5vw;
+  height: 5vh;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Styling for slider label name at top */
 .slider-label {
+  font-weight: bold;
   text-align: center;
 }
 
+/* Custom styling for HTML Range Input slider */
 .html-slider {
   -webkit-transform:rotate(270deg);
   -moz-transform:rotate(270deg);
@@ -95,8 +131,9 @@ body {
   transform:rotate(270deg);
   -webkit-appearance: none;
   appearance: none;
-  width: 5vw; /* This is actually the height of the slider */
-  height: 3px; /* This is actually the fatness of the slider */
+  cursor: pointer;
+  width: 25vh; /* This is actually the height of the slider - don't be deceived by the width property */
+  height: 0.75vw; /*  This is actually the fatness of the slider */
   background: #8f8e8e; /* Grey background */
   outline: none; /* Remove outline */
 }
@@ -106,7 +143,7 @@ body {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
   width: 0.5vw; /* Set a specific slider handle width */
-  height: 2.25vh; /* Slider handle height */
+  height: 1.75vw; /* Slider handle height */
   background: #c300ff; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
@@ -145,7 +182,7 @@ body {
   border: 2px solid green;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 40vh;
   padding: 1vh;
 }
 
