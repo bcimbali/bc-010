@@ -72,8 +72,8 @@ class App extends Component {
     }).toMaster();
 
     return (
-      <div>
-        <h1>bc-010</h1>
+      <div >
+        <h1 className="header">bc-010</h1>
         <OuterCasing
           attackValue={this.state.attack}
           decayValue={this.state.decay}

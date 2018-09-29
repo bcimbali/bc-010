@@ -1,7 +1,18 @@
 body {
   box-sizing:border-box;
   font-family: 'Roboto Mono', monospace;
-  width: 100%;
+  /* width: 100%; */
+}
+
+/*--------------------------------------------------------------------------------------------------- 
+*
+*                                            HEADER SECTION
+*
+*----------------------------------------------------------------------------------------------------*/
+
+.header {
+  font-size: 2vw;
+  font-weight: bold;
 }
 
 /*--------------------------------------------------------------------------------------------------- 
@@ -15,7 +26,6 @@ body {
   display: flex;
   flex-direction: column;
   height: 90vh;
-  /* padding: 2.5vh; */
   max-width: 100%;
 }
 
@@ -34,22 +44,27 @@ body {
 
 /********************************* Button Section ************************************/
 .btn-toggle {
+  align-items: center;
   align-self: center;
-  border: 2px solid orange;
+  border: 2px solid black;
+  display: flex;
   height: 5vh;
+  justify-content: center;
+  padding: 0.25vw;
   text-align: center;
   vertical-align: middle;
-  width: 5vw;
+  /* width: 5vw; */
 }
 
 .btn-toggle:hover {
-  background-color: orange;
+  background-color: #5e5d5d;
   color: white;
   cursor: pointer;
 }
 
-.vertical-middle {
-  vertical-align: middle;
+.btn-text {
+  font-size: 1.5vw;
+  font-weight: bold;
 }
 
 /**************************** Enveloper Slider Section *******************************/
@@ -64,7 +79,7 @@ body {
 
 /* Outer container for each slider strip */
 .envelopeSlider {
-  border: 2px solid gold;
+  border: 2px solid brown;
   display: flex;
   /* height: 30vh; */
   width: 5vw;
@@ -134,7 +149,7 @@ body {
   cursor: pointer;
   width: 25vh; /* This is actually the height of the slider - don't be deceived by the width property */
   height: 0.75vw; /*  This is actually the fatness of the slider */
-  background: #8f8e8e; /* Grey background */
+  background: burlywood; /* Grey background */
   outline: none; /* Remove outline */
 }
 
@@ -144,16 +159,16 @@ body {
   appearance: none;
   width: 0.5vw; /* Set a specific slider handle width */
   height: 1.75vw; /* Slider handle height */
-  background: #c300ff; /* Green background */
+  background: #02b91a; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
 
 .html-slider:hover::-webkit-slider-thumb {
-  background: #fbff00;
+  background: #57ff09;
 }
 
 .html-slider:active::-webkit-slider-thumb {
-  background: #02e40e;
+  background: #57ff09;
 }
 
 /* Thumb slider styling for Firefox */
@@ -165,7 +180,7 @@ body {
 }
 
 .html-slider:hover::-webkit-slider-thumb {
-  background: #fbff00;
+  background: #57ff09;
 }
 
 .html-slider:active::-moz-range-thumb {

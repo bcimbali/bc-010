@@ -6,8 +6,8 @@ function OscillatorBtn(props) {
         className="btn-toggle" 
         onClick={() => props.toggleOscillator(props.type)}
       >
-        <p className="vertical-middle">
-          {props.type}
+        <p className="btn-text">
+          {props.abbr}
         </p>
       </div>
   );

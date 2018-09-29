@@ -6,20 +6,22 @@ import oscillatorTypes from './../../oscillatorTypes.json';
 function ControlPanel(props) {
   return(
     <div className="controlPanel">
-      {oscillatorTypes.map(oscType => (
-        <OscillatorBtn 
-          key={`${oscType.id}-${oscType.type}`}
-          toggleOscillator={props.toggleOscillator}
-          type={oscType.type}
-        />
-      ))}
-      <SliderBank
+    <SliderBank
         attackValue={props.attackValue}
         decayValue={props.decayValue}
         sustainValue={props.sustainValue}
         releaseValue={props.releaseValue} 
         envelopeSliderChange={props.envelopeSliderChange} 
-      />
+    />
+      {oscillatorTypes.map(oscType => (
+        <OscillatorBtn
+          abbr={oscType.abbr} 
+          key={`${oscType.id}-${oscType.type}`}
+          toggleOscillator={props.toggleOscillator}
+          type={oscType.type}
+        />
+      ))}
+      
     </div>
   );
 };
