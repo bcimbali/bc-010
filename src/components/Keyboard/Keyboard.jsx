@@ -44,7 +44,7 @@ class Keyboard extends Component {
     // Save character code in variable:
     let keyPressed = event.charCode;
 
-    // Filter the array for the object that contains
+    // Filter the array for the object that contains key pressed charCode
     const result = keys.filter((key) =>  {
       return key.keyCode === keyPressed
     })
