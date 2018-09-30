@@ -163,20 +163,20 @@ body {
   cursor: pointer; /* Cursor on hover */
 }
 
-.html-slider:hover::-webkit-slider-thumb {
-  background: #57ff09;
-}
-
-.html-slider:active::-webkit-slider-thumb {
-  background: #57ff09;
-}
-
 /* Thumb slider styling for Firefox */
 .html-slider::-moz-range-thumb {
   width: 0.5vw; /* Set a specific slider handle width */
   height: 2.25vh; /* Slider handle height */
   background: #c300ff; /* Green background */
   cursor: pointer; /* Cursor on hover */
+}
+
+.html-slider:hover::-webkit-slider-thumb {
+  background: #57ff09;
+}
+
+.html-slider:active::-webkit-slider-thumb {
+  background: #57ff09;
 }
 
 .html-slider:hover::-webkit-slider-thumb {
@@ -251,4 +251,28 @@ body {
 
 .key-white {
   margin: 0.5vw;
+}
+
+/*--------------------------------------------------------------------------------------------------- 
+******************************************************************************************************
+******************************************** MEDIA QUERIES *******************************************
+******************************************************************************************************
+*----------------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 768px) {
+  .html-slider {
+    height: 4.5vw;
+  }
+
+  /* Responsive thumb slider styling for Chrome, Opera, Safari & Edge */
+.html-slider::-webkit-slider-thumb {
+  width: 1.5vw; /* Set a specific slider handle width */
+  height: 4.5vw; /* Slider handle height */
+}
+
+/* Responsive thumb slider styling for Firefox */
+.html-slider::-moz-range-thumb {
+  width: 0.5vw; /* Set a specific slider handle width */
+  height: 1.75vw; /* Slider handle height */
+}
 }
