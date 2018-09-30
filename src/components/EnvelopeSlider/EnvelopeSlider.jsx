@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import SliderLabel from './../SliderLabel';
+import SliderNumberDisplay from './../SliderNumberDisplay';
+
 class EnvelopeSlider extends Component {
   constructor(props) {
     super(props);
@@ -30,11 +33,10 @@ class EnvelopeSlider extends Component {
   render() { 
     return(
       <div className="envelopeSlider">
-        <div className="slider-label-container">
-          <label className="slider-label" htmlFor={this.props.adsr}>
-            {this.props.abbr}
-          </label>
-        </div>
+        <SliderLabel
+          abbr={this.props.abbr}
+          adsr={this.props.type}
+        />
         <div className="slider-housing">
           <div className="slider-container">
             <input
@@ -49,11 +51,9 @@ class EnvelopeSlider extends Component {
             />
           </div>
         </div>
-        <div className="slider-number-container">
-          <p className="slider-number" >
-            {this.props.value}
-          </p>
-        </div>
+        <SliderNumberDisplay 
+          value={this.props.value}
+        />
       </div>
     );
   }
