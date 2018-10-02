@@ -16,7 +16,8 @@ function ControlPanel(props) {
     />
     <FilterSliderBank 
       envelopeSliderChange={props.envelopeSliderChange}
-      filterValue={props.filterValue} 
+      filterValue={props.filterValue}
+      lfoValue={props.lfoValue} 
     />
       {oscillatorTypes.map(oscType => (
         <OscillatorBtn

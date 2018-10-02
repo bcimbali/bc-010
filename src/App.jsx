@@ -68,6 +68,10 @@ class App extends Component {
       filterParams.baseFrequency = sliderValueNumber;
       this.setState({filterParams});
     }
+    if (envelopeType === 'lfo') {
+      filterParams.frequency = sliderValueNumber;
+      this.setState({filterParams});
+    }
   }
   
   render() {
@@ -100,6 +104,7 @@ class App extends Component {
           filterValue={this.state.filterParams.baseFrequency}
           key='outerCasing'
           keyPress={this.keyPress}
+          lfoValue={this.state.filterParams.frequency}
           toggleOscillator={this.toggleOscillator}
         />
       </div>

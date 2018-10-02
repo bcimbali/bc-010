@@ -12,11 +12,13 @@ function FilterSliderBank(props) {
           envelopeSliderChange={props.envelopeSliderChange}
           filterValue={props.filterValue} 
           key={`${slider.id}-${slider.type}`}
+          lfoValue={props.lfoValue}
           type="range" 
           min={slider.min} 
           max={slider.max}
           step={slider.step}
-          value={`${(slider.type === 'filter') ? props.filterValue : ''}`} 
+          value={`${(slider.type === 'filter') ? props.filterValue : 
+                    (slider.type === 'lfo') ? props.lfoValue : ''}`} 
         />
       ))}
     </div>

@@ -13,6 +13,7 @@ function OuterCasing(props) {
         envelopeSliderChange={props.envelopeSliderChange}
         filterValue={props.filterValue} 
         key="control-panel"
+        lfoValue={props.lfoValue}
         toggleOscillator={props.toggleOscillator}
       />
       <Keyboard
