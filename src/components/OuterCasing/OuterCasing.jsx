@@ -10,7 +10,8 @@ function OuterCasing(props) {
         decayValue={props.decayValue}
         sustainValue={props.sustainValue}
         releaseValue={props.releaseValue}
-        envelopeSliderChange={props.envelopeSliderChange} 
+        envelopeSliderChange={props.envelopeSliderChange}
+        filterValue={props.filterValue} 
         key="control-panel"
         toggleOscillator={props.toggleOscillator}
       />

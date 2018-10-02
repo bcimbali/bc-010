@@ -1,3 +1,4 @@
+import FilterSliderBank from './../FilterSliderBank';
 import OscillatorBtn from './../OscillatorBtn';
 import React from 'react';
 import SliderBank from '../SliderBank/SliderBank';
@@ -7,11 +8,15 @@ function ControlPanel(props) {
   return(
     <div className="controlPanel">
     <SliderBank
-        attackValue={props.attackValue}
-        decayValue={props.decayValue}
-        sustainValue={props.sustainValue}
-        releaseValue={props.releaseValue} 
-        envelopeSliderChange={props.envelopeSliderChange} 
+      attackValue={props.attackValue}
+      decayValue={props.decayValue}
+      sustainValue={props.sustainValue}
+      releaseValue={props.releaseValue} 
+      envelopeSliderChange={props.envelopeSliderChange} 
+    />
+    <FilterSliderBank 
+      envelopeSliderChange={props.envelopeSliderChange}
+      filterValue={props.filterValue} 
     />
       {oscillatorTypes.map(oscType => (
         <OscillatorBtn

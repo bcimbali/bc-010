@@ -19,7 +19,19 @@ class App extends Component {
       sustain: 0.2,
       release: 1,
       oscillator: "sawtooth",
-      portamento: 0.05
+      portamento: 0.05,
+      filterParams: {
+        frequency: 0,
+        type: "sine",
+        depth: 1,
+        baseFrequency: 500,
+        octaves: 2.6,
+        filter: {
+                  type: "lowpass",
+                  rolloff: -12,
+                  Q: 1
+                }
+        }
     }
   }
 
@@ -37,6 +49,7 @@ class App extends Component {
   envelopeSliderChange(envelopeType, sliderValue) {
     // Make sure the number passed into Tone.Synth is a float. It will complain if it's a string.
     let sliderValueNumber = parseFloat(sliderValue);
+    let filterParams = Object.assign({}, this.state.filterParams);
 
     // Check the envelope type, and update the correct envelope state in App.jsx
     if (envelopeType === 'attack') {
@@ -51,12 +64,16 @@ class App extends Component {
     if (envelopeType === 'release') {
       this.setState({release: sliderValueNumber});
     }
+    if (envelopeType === 'filter') {
+      filterParams.baseFrequency = sliderValueNumber;
+      this.setState({filterParams});
+    }
   }
-
-  // Add an event listener for global keyboard clicks. This will play the synth with the computer keyboard
-
   
   render() {
+    // Start of adding a filter to synth
+    this.filter = new Tone.AutoFilter(this.state.filterParams).toMaster().start();
+
     // Create a new Tone.js synth on render & update synth timbre based on App.jsx state
     this.synth = new Tone.Synth({
       "oscillator" : {
@@ -69,7 +86,7 @@ class App extends Component {
         "release" : this.state.release
       },
       "portamento" : this.state.portamento
-    }).toMaster();
+    }).connect(this.filter);
 
     return (
       <div >
@@ -80,6 +97,7 @@ class App extends Component {
           sustainValue={this.state.sustain}
           releaseValue={this.state.release}
           envelopeSliderChange={this.envelopeSliderChange}
+          filterValue={this.state.filterParams.baseFrequency}
           key='outerCasing'
           keyPress={this.keyPress}
           toggleOscillator={this.toggleOscillator}
