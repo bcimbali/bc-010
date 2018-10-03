@@ -216,6 +216,21 @@ body {
   background-color: rgb(135, 250, 160);
 }
 
+.key-display {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.letter-name {
+  color: #aaaaaa;
+  display: flex;
+  font-size: 5vw;
+  justify-content: center;
+  width: 100%;
+}
+
 /********************************* Black Keys ************************************/
 .black-keys {
   border: 2px solid yellowgreen;
@@ -274,5 +289,9 @@ body {
 .html-slider::-moz-range-thumb {
   width: 0.5vw; /* Set a specific slider handle width */
   height: 1.75vw; /* Slider handle height */
+}
+
+.letter-name {
+  color: transparent;
 }
 }

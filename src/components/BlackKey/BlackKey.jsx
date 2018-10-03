@@ -8,7 +8,15 @@ function Key(props) {
                   ${props.id === 7 ? 'm-left-3' : props.id === 2 ? 'm-left' : ''}`}
       onClick={() => props.keyPress(props.note)}
     >
-    {props.note}
+      <div className="key-display">
+        <div>
+          {props.note}
+        </div>
+        <div className="letter-name">
+          <p>{props.letter}</p>
+        </div>
+      </div>
+      
     </div>
   );
 };

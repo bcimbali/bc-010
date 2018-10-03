@@ -85,6 +85,7 @@ class Keyboard extends Component {
             keyCode={note.keyCode}
             keyPress={this.props.keyPress}
             highlightKey={this.state.highlightKey}
+            letter={note.letter}
             note={note.note}
             />
           ))}
@@ -96,6 +97,7 @@ class Keyboard extends Component {
             key={`${note.id}-${note.note}`}
             keyCode={note.keyCode}
             keyPress={this.props.keyPress}
+            letter={note.letter}
             note={note.note}
             />
           ))}
