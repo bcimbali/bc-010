@@ -75,36 +75,47 @@ class App extends Component {
   }
   
   render() {
+    // Destructure state
+    const {
+      attack,
+      decay,
+      sustain,
+      release,
+      filterParams,
+      oscillator,
+      portamento
+    } = this.state;
+    
     // Start of adding a filter to synth
-    this.filter = new Tone.AutoFilter(this.state.filterParams).toMaster().start();
+    this.filter = new Tone.AutoFilter(filterParams).toMaster().start();
 
     // Create a new Tone.js synth on render & update synth timbre based on App.jsx state
     this.synth = new Tone.Synth({
       "oscillator" : {
-        "type" : this.state.oscillator,
+        "type" : oscillator,
       },
       "envelope" : {
-        "attack" : this.state.attack,
-        "decay" : this.state.decay,
-        "sustain" : this.state.sustain,
-        "release" : this.state.release
+        "attack" : attack,
+        "decay" : decay,
+        "sustain" : sustain,
+        "release" : release
       },
-      "portamento" : this.state.portamento
+      "portamento" : portamento
     }).connect(this.filter);
 
     return (
       <div >
         <h1 className="header">bc-010</h1>
         <OuterCasing
-          attackValue={this.state.attack}
-          decayValue={this.state.decay}
-          sustainValue={this.state.sustain}
-          releaseValue={this.state.release}
+          attackValue={attack}
+          decayValue={decay}
+          sustainValue={sustain}
+          releaseValue={release}
           envelopeSliderChange={this.envelopeSliderChange}
-          filterValue={this.state.filterParams.baseFrequency}
+          filterValue={filterParams.baseFrequency}
           key='outerCasing'
           keyPress={this.keyPress}
-          lfoValue={this.state.filterParams.frequency}
+          lfoValue={filterParams.frequency}
           toggleOscillator={this.toggleOscillator}
         />
       </div>

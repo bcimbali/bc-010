@@ -2,23 +2,33 @@ import ControlPanel from './../ControlPanel';
 import Keyboard from './../Keyboard';
 import React from 'react';
 
-function OuterCasing(props) {
+function OuterCasing({
+  attackValue,
+  decayValue,
+  sustainValue,
+  releaseValue,
+  envelopeSliderChange,
+  filterValue,
+  lfoValue,
+  toggleOscillator,
+  keyPress
+}) {
   return(
     <div className="outerCasing">
       <ControlPanel
-        attackValue={props.attackValue}
-        decayValue={props.decayValue}
-        sustainValue={props.sustainValue}
-        releaseValue={props.releaseValue}
-        envelopeSliderChange={props.envelopeSliderChange}
-        filterValue={props.filterValue} 
+        attackValue={attackValue}
+        decayValue={decayValue}
+        sustainValue={sustainValue}
+        releaseValue={releaseValue}
+        envelopeSliderChange={envelopeSliderChange}
+        filterValue={filterValue} 
         key="control-panel"
-        lfoValue={props.lfoValue}
-        toggleOscillator={props.toggleOscillator}
+        lfoValue={lfoValue}
+        toggleOscillator={toggleOscillator}
       />
       <Keyboard
         key="keyboard"
-        keyPress={props.keyPress}
+        keyPress={keyPress}
       />
     </div>
   );

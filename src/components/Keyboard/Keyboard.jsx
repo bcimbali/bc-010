@@ -34,8 +34,9 @@ class Keyboard extends Component {
   }
 
   fireNote(letterNote) {
+    const {keyPress} = this.props;
     if (typeof letterNote !== 'undefined') {
-      this.props.keyPress(letterNote.note);
+      keyPress(letterNote.note);
     }
   }
 
@@ -74,6 +75,16 @@ class Keyboard extends Component {
     const blackKeysArray = keys.filter((key) => {
       return key.type === 'black'
     })
+
+    // Destructure props
+    const {
+      keyPress,
+    } = this.props;
+
+    // Destructure state
+    const {
+      highlightKey
+    } = this.state;
     
     return(
       <div className="keyboard">
@@ -83,8 +94,8 @@ class Keyboard extends Component {
             id={note.id}
             key={`${note.id}-${note.note}`}
             keyCode={note.keyCode}
-            keyPress={this.props.keyPress}
-            highlightKey={this.state.highlightKey}
+            keyPress={keyPress}
+            highlightKey={highlightKey}
             letter={note.letter}
             note={note.note}
             />
@@ -93,10 +104,10 @@ class Keyboard extends Component {
         <div className="white-keys">
           {whiteKeysArray.map(note => (
             <WhiteKey 
-            highlightKey={this.state.highlightKey}
+            highlightKey={highlightKey}
             key={`${note.id}-${note.note}`}
             keyCode={note.keyCode}
-            keyPress={this.props.keyPress}
+            keyPress={keyPress}
             letter={note.letter}
             note={note.note}
             />
