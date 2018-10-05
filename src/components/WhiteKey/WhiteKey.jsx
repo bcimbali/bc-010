@@ -1,18 +1,18 @@
 import React from 'react';
 
-function Key(props) {
+function Key({highlightKey, keyCode, keyPress, note, letter}) {
   return(
     <div
       className={`key key-white 
-                  ${props.highlightKey === props.keyCode ? 'keyboard-click' : ''}`} 
-      onClick={() => props.keyPress(props.note)}
+                  ${highlightKey === keyCode ? 'keyboard-click' : ''}`} 
+      onClick={() => keyPress(note)}
     >
       <div className="key-display">
         <div>
-          {props.note}
+          {note}
         </div>
         <div className="letter-name">
-          <p>{props.letter}</p>
+          <p>{letter}</p>
         </div>
       </div>
     
