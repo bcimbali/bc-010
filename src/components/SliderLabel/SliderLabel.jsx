@@ -1,10 +1,10 @@
 import React from 'react';
 
-function SliderLabel(props) {
+function SliderLabel({abbr, adsr}) {
   return(
     <div className="slider-label-container">
-      <label className="slider-label" htmlFor={props.adsr}>
-        {props.abbr}
+      <label className="slider-label" htmlFor={adsr}>
+        {abbr}
       </label>
   </div>
   );

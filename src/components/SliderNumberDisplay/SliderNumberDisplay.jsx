@@ -1,10 +1,10 @@
 import React from 'react';
 
-function SliderNumberDisplay(props) {
+function SliderNumberDisplay({value}) {
   return(
     <div className="slider-number-container">
       <p className="slider-number" >
-        {props.value}
+        {value}
       </p>
     </div>
   );

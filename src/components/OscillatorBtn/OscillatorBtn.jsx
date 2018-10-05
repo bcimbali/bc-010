@@ -1,13 +1,13 @@
 import React from 'react';
 
-function OscillatorBtn(props) {
+function OscillatorBtn({abbr, toggleOscillator, type}) {
   return(
       <div 
         className="btn-toggle" 
-        onClick={() => props.toggleOscillator(props.type)}
+        onClick={() => toggleOscillator(type)}
       >
         <p className="btn-text">
-          {props.abbr}
+          {abbr}
         </p>
       </div>
   );

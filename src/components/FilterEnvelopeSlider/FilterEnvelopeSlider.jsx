@@ -30,29 +30,37 @@ class FilterEnvelopeSlider extends Component {
     this.updateSynthValue();
   }
 
-  render() { 
+  render() {
+    const {
+      abbr,
+      type,
+      min,
+      max,
+      step,
+      value
+    } = this.props;
     return(
       <div className="envelopeSlider">
         <SliderLabel
-          abbr={this.props.abbr}
-          adsr={this.props.type}
+          abbr={abbr}
+          adsr={type}
         />
         <div className="slider-housing">
           <div className="slider-container">
             <input
-              adsr={this.props.type}
+              adsr={type}
               className="html-slider"
               type="range" 
-              min={this.props.min} 
-              max={this.props.max}
+              min={min} 
+              max={max}
               onChange={this.handleChange}
-              step={this.props.step}
-              value={this.props.value}
+              step={step}
+              value={value}
             />
           </div>
         </div>
         <SliderNumberDisplay 
-          value={this.props.value}
+          value={value}
         />
       </div>
     );
