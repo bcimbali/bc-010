@@ -143,32 +143,36 @@ body {
   -moz-transform:rotate(270deg);
   -o-transform:rotate(270deg);
   -ms-transform:rotate(270deg);
-  transform:rotate(270deg);
   -webkit-appearance: none;
   appearance: none;
-  cursor: pointer;
-  width: 25vh; /* This is actually the height of the slider - don't be deceived by the width property */
-  height: 0.75vw; /*  This is actually the fatness of the slider */
   background: burlywood; /* Grey background */
+  cursor: pointer;
+  height: 0.75vw; /*  This is actually the fatness of the slider */
   outline: none; /* Remove outline */
+  transform:rotate(270deg);
+  width: 25vh; /* This is actually the height of the slider - don't be deceived by the width property */
 }
 
 /* Thumb slider styling for Chrome, Opera, Safari & Edge */
 .html-slider::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
-  width: 0.5vw; /* Set a specific slider handle width */
-  height: 1.75vw; /* Slider handle height */
-  background: #02b91a; /* Green background */
+  background: #a8a8a8; /* Green background */
+  border-left: 0.25vw solid #148a10;
+  border-right: 0.25vw solid #148a10;
   cursor: pointer; /* Cursor on hover */
+  height: 1.75vw; /* Slider handle height */
+  width: 1vw; /* Set a specific slider handle width */
 }
 
 /* Thumb slider styling for Firefox */
 .html-slider::-moz-range-thumb {
-  width: 0.5vw; /* Set a specific slider handle width */
-  height: 2.25vh; /* Slider handle height */
-  background: #c300ff; /* Green background */
+  background: #353535; /* Green background */
+  border-left: 0.25vw solid #148a10;
+  border-right: 0.25vw solid #148a10;
   cursor: pointer; /* Cursor on hover */
+  height: 2.25vh; /* Slider handle height */
+  width: 1vw; /* Set a specific slider handle width */
 }
 
 .html-slider:hover::-webkit-slider-thumb {
@@ -281,7 +285,9 @@ body {
 
   /* Responsive thumb slider styling for Chrome, Opera, Safari & Edge */
 .html-slider::-webkit-slider-thumb {
-  width: 1.5vw; /* Set a specific slider handle width */
+  border-left: 1.25vw solid #047000;
+  border-right: 1.25vw solid #047000;
+  width: 3vw; /* Set a specific slider handle width */
   height: 4.5vw; /* Slider handle height */
 }
 
