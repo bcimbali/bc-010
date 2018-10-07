@@ -1,25 +1,57 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-// Needs to be tweaked to be included as working component
-function VerticalSlider(props) {
-  return(
-    <div className="slider-housing">
-      <div className="slider-container">
-        <input
-          adsr={props.type}
-          className="html-slider"
-          type="range" 
-          min={props.min} 
-          max={props.max}
-          onChange={props.handleChange}
-          step={props.step}
-          // value={props.value}
-          defaultValue={props.value}
-          placeholder={props.value}
-        />
+class VerticalSlider extends Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.updateValue = this.updateValue.bind(this);
+    this.updateSynthValue = this.updateSynthValue.bind(this);
+    this.state = {
+      value: 1
+    }
+  }
+
+  // Calls the function in App.jsx to update the synth timbre
+  updateSynthValue() {
+    this.props.envelopeSliderChange(this.props.adsr, this.state.value);
+  }
+
+  // Actually updates state in this slider instance
+  updateValue(event) {
+    this.setState({value: event.target.value});
+  }
+
+  // Handles slider changes
+  handleChange(event) {
+    this.updateValue(event);
+    this.updateSynthValue();
+  }
+
+  render() {
+    const {
+      adsr,
+      max,
+      min,
+      step,
+      value
+    } = this.props;
+    return(
+      <div className="slider-housing">
+        <div className="slider-container">
+          <input
+            adsr={adsr}
+            className="html-slider"
+            type="range" 
+            min={min} 
+            max={max}
+            onChange={this.handleChange}
+            step={step}
+            value={value}
+          />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default VerticalSlider;
