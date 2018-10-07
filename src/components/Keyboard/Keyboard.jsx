@@ -89,27 +89,27 @@ class Keyboard extends Component {
     return(
       <div className="keyboard">
         <div className="black-keys">
-          {blackKeysArray.map(note => (
+          {blackKeysArray.map(({id, keyCode, letter, note}) => (
             <BlackKey
-            id={note.id}
-            key={`${note.id}-${note.note}`}
-            keyCode={note.keyCode}
+            id={id}
+            key={`${id}-${note}`}
+            keyCode={keyCode}
             keyPress={keyPress}
             highlightKey={highlightKey}
-            letter={note.letter}
-            note={note.note}
+            letter={letter}
+            note={note}
             />
           ))}
         </div>
         <div className="white-keys">
-          {whiteKeysArray.map(note => (
+          {whiteKeysArray.map(({id, keyCode, letter, note,}) => (
             <WhiteKey 
             highlightKey={highlightKey}
-            key={`${note.id}-${note.note}`}
-            keyCode={note.keyCode}
+            key={`${id}-${note}`}
+            keyCode={keyCode}
             keyPress={keyPress}
-            letter={note.letter}
-            note={note.note}
+            letter={letter}
+            note={note}
             />
           ))}
         </div>

@@ -5,20 +5,27 @@ import filterSliders from './../../filterSliders.json';
 function FilterSliderBank({envelopeSliderChange, filterValue, lfoValue}) {
   return(
     <div className="slider-bank">
-      {filterSliders.map(slider => (
+      {filterSliders.map(({
+        abbr,
+        id,
+        max,
+        min,
+        step,
+        type
+      }) => (
         <FilterEnvelopeSlider
-          abbr={slider.abbr}
-          adsr={slider.type}
+          abbr={abbr}
+          adsr={type}
           envelopeSliderChange={envelopeSliderChange}
           filterValue={filterValue} 
-          key={`${slider.id}-${slider.type}`}
+          key={`${id}-${type}`}
           lfoValue={lfoValue}
           type="range" 
-          min={slider.min} 
-          max={slider.max}
-          step={slider.step}
-          value={`${(slider.type === 'filter') ? filterValue : 
-                    (slider.type === 'lfo') ? lfoValue : ''}`} 
+          min={min} 
+          max={max}
+          step={step}
+          value={`${(type === 'filter') ? filterValue : 
+                    (type === 'lfo') ? lfoValue : ''}`} 
         />
       ))}
     </div>

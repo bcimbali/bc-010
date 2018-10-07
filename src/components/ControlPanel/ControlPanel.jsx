@@ -28,12 +28,12 @@ function ControlPanel({
       filterValue={filterValue}
       lfoValue={lfoValue} 
     />
-      {oscillatorTypes.map(oscType => (
+      {oscillatorTypes.map(({abbr, id, type}) => (
         <OscillatorBtn
-          abbr={oscType.abbr} 
-          key={`${oscType.id}-${oscType.type}`}
+          abbr={abbr} 
+          key={`${id}-${type}`}
           toggleOscillator={toggleOscillator}
-          type={oscType.type}
+          type={type}
         />
       ))}
       

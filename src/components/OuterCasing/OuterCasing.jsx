@@ -9,9 +9,9 @@ function OuterCasing({
   releaseValue,
   envelopeSliderChange,
   filterValue,
+  keyPress,
   lfoValue,
-  toggleOscillator,
-  keyPress
+  toggleOscillator
 }) {
   return(
     <div className="outerCasing">

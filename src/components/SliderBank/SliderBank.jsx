@@ -11,20 +11,27 @@ function SliderBank({
 }) {
   return(
     <div className="slider-bank">
-      {envelopeSliders.map(slider => (
+      {envelopeSliders.map(({
+        abbr,
+        id,
+        max,
+        min,
+        step,
+        type
+      }) => (
         <EnvelopeSlider
-          abbr={slider.abbr}
-          adsr={slider.type}
+          abbr={abbr}
+          adsr={type}
           envelopeSliderChange={envelopeSliderChange}
-          key={`${slider.id}-${slider.type}`} 
+          key={`${id}-${type}`} 
           type="range" 
-          min={slider.min} 
-          max={slider.max}
-          step={slider.step}
-          value={`${(slider.type === 'attack') ? attackValue : 
-                    (slider.type === 'decay') ? decayValue : 
-                    (slider.type === 'sustain') ? sustainValue : 
-                    (slider.type === 'release') ? releaseValue : ''}`} 
+          min={min} 
+          max={max}
+          step={step}
+          value={`${(type === 'attack') ? attackValue : 
+                    (type === 'decay') ? decayValue : 
+                    (type === 'sustain') ? sustainValue : 
+                    (type === 'release') ? releaseValue : ''}`} 
         />
       ))}
     </div>
