@@ -7,8 +7,10 @@ function OuterCasing({
   decayValue,
   sustainValue,
   releaseValue,
+  decreaseOctave,
   envelopeSliderChange,
   filterValue,
+  increaseOctave,
   keyPress,
   lfoValue,
   octave,
@@ -21,10 +23,13 @@ function OuterCasing({
         decayValue={decayValue}
         sustainValue={sustainValue}
         releaseValue={releaseValue}
+        decreaseOctave={decreaseOctave}
         envelopeSliderChange={envelopeSliderChange}
         filterValue={filterValue} 
+        increaseOctave={increaseOctave}
         key="control-panel"
         lfoValue={lfoValue}
+        octave={octave}
         toggleOscillator={toggleOscillator}
       />
       <Keyboard

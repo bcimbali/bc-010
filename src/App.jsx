@@ -10,7 +10,9 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+    this.decreaseOctave = this.decreaseOctave.bind(this);
     this.envelopeSliderChange = this.envelopeSliderChange.bind(this);
+    this.increaseOctave = this.increaseOctave.bind(this);
     this.keyPress = this.keyPress.bind(this);
     this.toggleOscillator = this.toggleOscillator.bind(this);
     this.state = {
@@ -45,6 +47,19 @@ class App extends Component {
   // Handles change in oscillator type via btn clicks:
   toggleOscillator(oscType) {
       this.setState({oscillator: oscType});
+  }
+
+  decreaseOctave() {
+    this.setState((prevState) => ({
+      octave: prevState.octave - 1
+    }))
+  }
+
+  // Start of function to raise keyboard octave
+  increaseOctave() {
+    this.setState((prevState) => ({
+      octave: prevState.octave + 1
+    }))
   }
 
   // Handles change in envelope sliders in control panel
@@ -116,8 +131,10 @@ class App extends Component {
           decayValue={decay}
           sustainValue={sustain}
           releaseValue={release}
+          decreaseOctave={this.decreaseOctave}
           envelopeSliderChange={this.envelopeSliderChange}
           filterValue={baseFrequency}
+          increaseOctave={this.increaseOctave}
           key='outerCasing'
           keyPress={this.keyPress}
           lfoValue={frequency}

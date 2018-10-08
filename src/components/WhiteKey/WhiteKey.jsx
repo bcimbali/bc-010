@@ -10,7 +10,7 @@ function Key({highlightKey, keyCode, keyPress, note, letter, displayOctave, star
     >
       <div className="key-display">
         <div>
-          {note}{displayOctave}--{startingOctave}
+          {note}{displayOctave}
         </div>
         <div className="letter-name">
           <p>{letter}</p>

@@ -1,4 +1,5 @@
 import FilterSliderBank from './../FilterSliderBank';
+import OctaveContainer from './../OctaveContainer';
 import OscillatorBtn from './../OscillatorBtn';
 import React from 'react';
 import SliderBank from '../SliderBank/SliderBank';
@@ -9,9 +10,12 @@ function ControlPanel({
   decayValue,
   sustainValue,
   releaseValue,
+  decreaseOctave,
   envelopeSliderChange,
   filterValue,
+  increaseOctave,
   lfoValue,
+  octave,
   toggleOscillator
 }) {
   return(
@@ -28,14 +32,20 @@ function ControlPanel({
       filterValue={filterValue}
       lfoValue={lfoValue} 
     />
-      {oscillatorTypes.map(({abbr, id, type}) => (
-        <OscillatorBtn
-          abbr={abbr} 
-          key={`${id}-${type}`}
-          toggleOscillator={toggleOscillator}
-          type={type}
-        />
-      ))}
+    <OctaveContainer
+      key="octave-container"
+      decreaseOctave={decreaseOctave}
+      increaseOctave={increaseOctave}
+      octave={octave}
+    />
+    {oscillatorTypes.map(({abbr, id, type}) => (
+      <OscillatorBtn
+        abbr={abbr} 
+        key={`${id}-${type}`}
+        toggleOscillator={toggleOscillator}
+        type={type}
+      />
+    ))}
       
     </div>
   );

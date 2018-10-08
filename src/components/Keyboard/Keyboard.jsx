@@ -37,18 +37,15 @@ class Keyboard extends Component {
 
   // Make sure the correct octave is associated with the key note
   updateNoteOctave(letterNote) {
-    const {octave} = this.props;
-    let updatedOctave = letterNote.startingOctave + octave;
+    let updatedOctave = letterNote.startingOctave + this.props.octave;
     let updatedNote = letterNote.note + updatedOctave;
     return updatedNote;
   }
 
   // ...handler for the note object
   handleNoteObj(letterNote) {
-    const {keyPress} = this.props;
     let noteClicked = this.updateNoteOctave(letterNote);
-    console.log('noteClicked in handleNoteObj() is: ', noteClicked);
-    keyPress(noteClicked);
+    this.props.keyPress(noteClicked);
   }
 
   // See if the letter pressed object is undefined...
@@ -76,6 +73,7 @@ class Keyboard extends Component {
     // ... then call the synth keyPress function and pass in the keyboard note.
     this.isObjUndefined(letterNote);
 
+    // Call function to highlight the keyboard letter pressed
     this.highlightKeyHandler(keyPressed);
   }
 

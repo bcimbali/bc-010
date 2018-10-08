@@ -67,6 +67,36 @@ body {
   font-weight: bold;
 }
 
+/**************************** Octave Select Section *******************************/
+
+.octave-container {
+  align-self: center;
+  border: 2px solid greenyellow;
+  display: flex;
+  flex-direction: column;
+}
+
+.octave-controls {
+  display: flex;
+  font-size: 2vw;
+  justify-content: space-between;
+}
+
+.octave-btn {
+  border: 2px dashed rosybrown;
+}
+
+.octave-btn:hover {
+  background-color: #cccccc;
+  cursor: pointer;
+}
+
+.octave-header {
+  display: flex;
+  font-size: 1.5vw;
+  justify-content: center;
+}
+
 /**************************** Enveloper Slider Section *******************************/
 
 /* Slider bank to hold all the sliders */
