@@ -18,6 +18,7 @@ class App extends Component {
       decay: 0.2,
       sustain: 0.2,
       release: 1,
+      octave: 5,
       oscillator: "sawtooth",
       portamento: 0.05,
       filterParams: {
@@ -37,6 +38,7 @@ class App extends Component {
 
   // Actually plays the note on the synth:
   keyPress(note) {
+    console.log('note is: ', note);
     this.synth.triggerAttackRelease(note, "8n");
   }
 
@@ -84,6 +86,7 @@ class App extends Component {
       filterParams,
       filterParams: {baseFrequency},
       filterParams: {frequency},
+      octave,
       oscillator,
       portamento
     } = this.state;
@@ -118,6 +121,7 @@ class App extends Component {
           key='outerCasing'
           keyPress={this.keyPress}
           lfoValue={frequency}
+          octave={octave}
           toggleOscillator={this.toggleOscillator}
         />
       </div>

@@ -11,6 +11,7 @@ function OuterCasing({
   filterValue,
   keyPress,
   lfoValue,
+  octave,
   toggleOscillator
 }) {
   return(
@@ -29,6 +30,7 @@ function OuterCasing({
       <Keyboard
         key="keyboard"
         keyPress={keyPress}
+        octave={octave}
       />
     </div>
   );

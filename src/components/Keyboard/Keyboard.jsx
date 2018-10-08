@@ -7,11 +7,13 @@ import keys from './../../keys.json';
 class Keyboard extends Component {
   constructor(props) {
     super(props);
-    this.fireNote = this.fireNote.bind(this);
+    this.isObjUndefined = this.isObjUndefined.bind(this);
     this.keyboardLetterPress = this.keyboardLetterPress.bind(this);
+    this.handleNoteObj = this.handleNoteObj.bind(this);
     this.highlightKeyHandler = this.highlightKeyHandler.bind(this);
     this.resetHighlightedKey = this.resetHighlightedKey.bind(this);
     this.updateHighlightedKey = this.updateHighlightedKey.bind(this);
+    this.updateNoteOctave = this.updateNoteOctave.bind(this);
     this.state = {
       highlightKey: 0
     }
@@ -33,10 +35,27 @@ class Keyboard extends Component {
     this.resetHighlightedKey();
   }
 
-  fireNote(letterNote) {
+  // Make sure the correct octave is associated with the key note
+  updateNoteOctave(letterNote) {
+    const {octave} = this.props;
+    let updatedOctave = letterNote.startingOctave + octave;
+    let updatedNote = letterNote.note + updatedOctave;
+    return updatedNote;
+  }
+
+  // ...handler for the note object
+  handleNoteObj(letterNote) {
     const {keyPress} = this.props;
+    let noteClicked = this.updateNoteOctave(letterNote);
+    console.log('noteClicked in handleNoteObj() is: ', noteClicked);
+    keyPress(noteClicked);
+  }
+
+  // See if the letter pressed object is undefined...
+  isObjUndefined(letterNote) {
+    console.log('letterNote in keyboard.jsx is: ', letterNote);
     if (typeof letterNote !== 'undefined') {
-      keyPress(letterNote.note);
+      this.handleNoteObj(letterNote)
     }
   }
 
@@ -55,7 +74,7 @@ class Keyboard extends Component {
 
     // Make sure the result from the filter isn't undefined. If it's not...
     // ... then call the synth keyPress function and pass in the keyboard note.
-    this.fireNote(letterNote);
+    this.isObjUndefined(letterNote);
 
     this.highlightKeyHandler(keyPressed);
   }
@@ -79,6 +98,7 @@ class Keyboard extends Component {
     // Destructure props
     const {
       keyPress,
+      octave
     } = this.props;
 
     // Destructure state
@@ -89,8 +109,9 @@ class Keyboard extends Component {
     return(
       <div className="keyboard">
         <div className="black-keys">
-          {blackKeysArray.map(({id, keyCode, letter, note}) => (
+          {blackKeysArray.map(({id, keyCode, letter, note, startingOctave}) => (
             <BlackKey
+            displayOctave={octave + startingOctave}
             id={id}
             key={`${id}-${note}`}
             keyCode={keyCode}
@@ -98,18 +119,22 @@ class Keyboard extends Component {
             highlightKey={highlightKey}
             letter={letter}
             note={note}
+            octave={octave}
+            startingOctave={startingOctave}
             />
           ))}
         </div>
         <div className="white-keys">
-          {whiteKeysArray.map(({id, keyCode, letter, note,}) => (
+          {whiteKeysArray.map(({id, keyCode, letter, note, startingOctave}) => (
             <WhiteKey 
+            displayOctave={octave + startingOctave}
             highlightKey={highlightKey}
             key={`${id}-${note}`}
             keyCode={keyCode}
             keyPress={keyPress}
             letter={letter}
             note={note}
+            startingOctave={startingOctave}
             />
           ))}
         </div>

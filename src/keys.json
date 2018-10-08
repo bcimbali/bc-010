@@ -1,93 +1,106 @@
 [
   {
     "id": 1,
-    "note": "C4",
+    "note": "C",
     "keyCode": 97,
     "letter": "A",
+    "startingOctave": 0,
     "type": "white"
   },
   {
     "id": 2,
-    "note": "Db4",
+    "note": "Db",
     "keyCode": 119,
     "letter": "W",
+    "startingOctave": 0,
     "type": "black"
   },
   {
     "id": 3,
-    "note": "D4",
+    "note": "D",
     "keyCode": 115,
     "letter": "S",
+    "startingOctave": 0,
     "type": "white"
   },
   {
     "id": 4,
-    "note": "Eb4",
+    "note": "Eb",
     "keyCode": 101,
     "letter": "E",
+    "startingOctave": 0,
     "type": "black"
   },
   {
     "id": 5,
-    "note": "E4",
+    "note": "E",
     "keyCode": 100,
     "letter": "D",
+    "startingOctave": 0,
     "type": "white"
   },
   {
     "id": 6,
-    "note": "F4",
+    "note": "F",
     "keyCode": 102,
     "letter": "F",
+    "startingOctave": 0,
     "type": "white"
   },
   {
     "id": 7,
-    "note": "Gb4",
+    "note": "Gb",
     "keyCode": 116,
     "letter": "T",
+    "startingOctave": 0,
     "type": "black"
   },
   {
     "id": 8,
-    "note": "G4",
+    "note": "G",
     "keyCode": 103,
     "letter": "G",
+    "startingOctave": 0,
     "type": "white"
   },
   {
     "id": 9,
-    "note": "Ab4",
+    "note": "Ab",
     "keyCode": 121,
     "letter": "Y",
+    "startingOctave": 0,
     "type": "black"
   },
   {
     "id": 10,
-    "note": "A4",
+    "note": "A",
     "keyCode": 104,
     "letter": "H",
+    "startingOctave": 0,
     "type": "white"
   },
   {
     "id": 11,
-    "note": "Bb4",
+    "note": "Bb",
     "keyCode": 117,
     "letter": "U",
+    "startingOctave": 0,
     "type": "black"
   },
   {
     "id": 12,
-    "note": "B4",
+    "note": "B",
     "keyCode": 106,
     "letter": "J",
+    "startingOctave": 0,
     "type": "white"
   },
   {
     "id": 13,
-    "note": "C5",
+    "note": "C",
     "keyCode": 107,
     "letter": "K",
+    "startingOctave": 1,
     "type": "white"
   }
 ]
