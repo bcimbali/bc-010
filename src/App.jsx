@@ -75,13 +75,15 @@ class App extends Component {
   }
   
   render() {
-    // Destructure state
+    // Destructure state and pull out nested params in filterParams
     const {
       attack,
       decay,
       sustain,
       release,
       filterParams,
+      filterParams: {baseFrequency},
+      filterParams: {frequency},
       oscillator,
       portamento
     } = this.state;
@@ -112,10 +114,10 @@ class App extends Component {
           sustainValue={sustain}
           releaseValue={release}
           envelopeSliderChange={this.envelopeSliderChange}
-          filterValue={filterParams.baseFrequency}
+          filterValue={baseFrequency}
           key='outerCasing'
           keyPress={this.keyPress}
-          lfoValue={filterParams.frequency}
+          lfoValue={frequency}
           toggleOscillator={this.toggleOscillator}
         />
       </div>
