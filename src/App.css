@@ -87,8 +87,13 @@ body {
 }
 
 .octave-btn:hover {
-  background-color: #cccccc;
+  background-color: #5e5d5d;
+  color: white;
   cursor: pointer;
+}
+
+.octave-display {
+  border: 2px dashed rgb(138, 138, 255);
 }
 
 .octave-header {

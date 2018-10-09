@@ -14,7 +14,7 @@ function OctaveContainer({decreaseOctave ,increaseOctave, octave}) {
           >
             -
           </div>
-          <div>
+          <div className="octave-display">
             {octave}
           </div>
           <div 
