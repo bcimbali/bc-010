@@ -40,7 +40,6 @@ class App extends Component {
 
   // Actually plays the note on the synth:
   keyPress(note) {
-    console.log('note is: ', note);
     this.synth.triggerAttackRelease(note, "8n");
   }
 
@@ -139,6 +138,7 @@ class App extends Component {
           keyPress={this.keyPress}
           lfoValue={frequency}
           octave={octave}
+          oscillator={oscillator}
           toggleOscillator={this.toggleOscillator}
         />
       </div>

@@ -50,7 +50,6 @@ class Keyboard extends Component {
 
   // See if the letter pressed object is undefined...
   isObjUndefined(letterNote) {
-    console.log('letterNote in keyboard.jsx is: ', letterNote);
     if (typeof letterNote !== 'undefined') {
       this.handleNoteObj(letterNote)
     }

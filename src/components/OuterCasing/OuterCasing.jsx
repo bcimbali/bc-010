@@ -14,6 +14,7 @@ function OuterCasing({
   keyPress,
   lfoValue,
   octave,
+  oscillator,
   toggleOscillator
 }) {
   return(
@@ -30,6 +31,7 @@ function OuterCasing({
         key="control-panel"
         lfoValue={lfoValue}
         octave={octave}
+        oscillator={oscillator}
         toggleOscillator={toggleOscillator}
       />
       <Keyboard

@@ -1,9 +1,9 @@
 import React from 'react';
 
-function OscillatorBtn({abbr, toggleOscillator, type}) {
+function OscillatorBtn({abbr, oscillator, toggleOscillator, type}) {
   return(
       <div 
-        className="btn-toggle" 
+        className={`btn-toggle ${type === oscillator ? 'btn-selected' : ''}`}
         onClick={() => toggleOscillator(type)}
       >
         <p className="btn-text">

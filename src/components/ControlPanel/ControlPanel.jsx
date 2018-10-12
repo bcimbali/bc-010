@@ -16,6 +16,7 @@ function ControlPanel({
   increaseOctave,
   lfoValue,
   octave,
+  oscillator,
   toggleOscillator
 }) {
   return(
@@ -42,6 +43,7 @@ function ControlPanel({
       <OscillatorBtn
         abbr={abbr} 
         key={`${id}-${type}`}
+        oscillator={oscillator}
         toggleOscillator={toggleOscillator}
         type={type}
       />
