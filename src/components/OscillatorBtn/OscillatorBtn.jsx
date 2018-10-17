@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 function OscillatorBtn({abbr, oscillator, toggleOscillator, type}) {
@@ -11,6 +12,13 @@ function OscillatorBtn({abbr, oscillator, toggleOscillator, type}) {
         </p>
       </div>
   );
+};
+
+OscillatorBtn.propTypes = {
+  abbr: PropTypes.string,
+  oscillator: PropTypes.string,
+  toggleOscillator: PropTypes.func,
+  type: PropTypes.string
 };
 
 export default OscillatorBtn;

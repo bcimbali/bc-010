@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 function SliderLabel({abbr, adsr}) {
@@ -9,5 +10,11 @@ function SliderLabel({abbr, adsr}) {
   </div>
   );
 };
+
+SliderLabel.propTypes = {
+  abbr: PropTypes.string,
+  adsr: PropTypes.string,
+};
+
 
 export default SliderLabel;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import PropTypes from 'prop-types';
 import SliderLabel from './../SliderLabel';
 import SliderNumberDisplay from './../SliderNumberDisplay';
 
@@ -65,6 +66,16 @@ class FilterEnvelopeSlider extends Component {
       </div>
     );
   }
+};
+
+FilterEnvelopeSlider.propTypes = {
+  abbr: PropTypes.string,
+  envelopeSliderChange: PropTypes.func,
+  max: PropTypes.number,
+  min: PropTypes.number,
+  step: PropTypes.number,
+  type: PropTypes.string,
+  value: PropTypes.string
 };
 
 export default FilterEnvelopeSlider;

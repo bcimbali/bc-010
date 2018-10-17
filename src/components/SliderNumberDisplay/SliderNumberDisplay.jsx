@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 function SliderNumberDisplay({value}) {
@@ -8,6 +9,10 @@ function SliderNumberDisplay({value}) {
       </p>
     </div>
   );
+};
+
+SliderNumberDisplay.propTypes = {
+  value: PropTypes.string
 };
 
 export default SliderNumberDisplay;

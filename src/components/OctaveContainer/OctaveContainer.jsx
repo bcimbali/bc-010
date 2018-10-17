@@ -1,4 +1,5 @@
 import OctaveHeader from './../OctaveHeader';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 function OctaveContainer({decreaseOctave ,increaseOctave, octave}) {
@@ -24,6 +25,12 @@ function OctaveContainer({decreaseOctave ,increaseOctave, octave}) {
       </div>
     </div>
   );
+};
+
+OctaveContainer.propTypes = {
+  decreaseOctave: PropTypes.func,
+  increaseOctave: PropTypes.func,
+  octave: PropTypes.number
 };
 
 export default OctaveContainer;

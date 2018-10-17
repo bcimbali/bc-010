@@ -1,16 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-Key.propTypes = {
-  displayOctave: PropTypes.number,
-  highlightKey: PropTypes.number,
-  keyCode: PropTypes.number,
-  keyPress: PropTypes.func.isRequired,
-  letter: PropTypes.string,
-  note: PropTypes.string
-};
-
-function Key({highlightKey, keyCode, keyPress, note, letter, displayOctave, startingOctave}) {
+function Key({displayOctave, highlightKey, keyCode, keyPress, letter, note}) {
   let octaveNote = note + displayOctave;
   return(
     <div
@@ -26,11 +17,17 @@ function Key({highlightKey, keyCode, keyPress, note, letter, displayOctave, star
           <p>{letter}</p>
         </div>
       </div>
-      {console.log('displayOctave: ', displayOctave)}
     </div>
   );
 };
 
-
+Key.propTypes = {
+  displayOctave: PropTypes.number,
+  highlightKey: PropTypes.number,
+  keyCode: PropTypes.number,
+  keyPress: PropTypes.func.isRequired,
+  letter: PropTypes.string,
+  note: PropTypes.string
+};
 
 export default Key;

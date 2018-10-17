@@ -1,13 +1,14 @@
 import EnvelopeSlider from './../EnvelopeSlider';
+import PropTypes from 'prop-types';
 import React from 'react';
 import envelopeSliders from './../../envelopeSliders.json';
 
 function SliderBank({
-  envelopeSliderChange,
   attackValue,
   decayValue,
   sustainValue,
-  releaseValue
+  releaseValue,
+  envelopeSliderChange
 }) {
   return(
     <div className="slider-bank">
@@ -36,6 +37,14 @@ function SliderBank({
       ))}
     </div>
   );
+};
+
+SliderBank.propTypes = {
+  attackValue: PropTypes.number,
+  decayValue: PropTypes.number,
+  sustainValue: PropTypes.number,
+  releaseValue: PropTypes.number,
+  envelopeSliderChange: PropTypes.func,
 };
 
 export default SliderBank;

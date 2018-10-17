@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import SliderLabel from './../SliderLabel';
 import SliderNumberDisplay from './../SliderNumberDisplay';
@@ -33,6 +34,17 @@ function EnvelopeSlider({
       />
     </div>
   );
+};
+
+EnvelopeSlider.propTypes = {
+  abbr: PropTypes.string,
+  adsr: PropTypes.string,
+  envelopeSliderChange: PropTypes.func,
+  max: PropTypes.number,
+  min: PropTypes.number,
+  step: PropTypes.number,
+  type: PropTypes.string,
+  value: PropTypes.string
 };
 
 export default EnvelopeSlider;

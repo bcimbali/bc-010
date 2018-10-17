@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import BlackKey from './../BlackKey';
+import PropTypes from 'prop-types';
 import WhiteKey from './../WhiteKey';
 import keys from './../../keys.json';
 
@@ -117,7 +118,6 @@ class Keyboard extends Component {
             letter={letter}
             note={note}
             octave={octave}
-            startingOctave={startingOctave}
             />
           ))}
         </div>
@@ -131,7 +131,6 @@ class Keyboard extends Component {
             keyPress={keyPress}
             letter={letter}
             note={note}
-            startingOctave={startingOctave}
             />
           ))}
         </div>
@@ -139,6 +138,11 @@ class Keyboard extends Component {
     );
   }
   
+};
+
+Keyboard.propTypes = {
+  keyPress: PropTypes.func,
+  octave: PropTypes.number
 };
 
 export default Keyboard;

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import PropTypes from 'prop-types';
+
 class VerticalSlider extends Component {
   constructor(props) {
     super(props);
@@ -52,6 +54,16 @@ class VerticalSlider extends Component {
       </div>
     );
   }
+};
+
+VerticalSlider.propTypes = {
+  adsr: PropTypes.string,
+  envelopeSliderChange: PropTypes.func,
+  max: PropTypes.number,
+  min: PropTypes.number,
+  step: PropTypes.number,
+  type: PropTypes.string,
+  value: PropTypes.string
 };
 
 export default VerticalSlider;

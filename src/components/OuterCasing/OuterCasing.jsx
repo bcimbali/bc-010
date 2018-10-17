@@ -1,5 +1,6 @@
 import ControlPanel from './../ControlPanel';
 import Keyboard from './../Keyboard';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 function OuterCasing({
@@ -41,6 +42,22 @@ function OuterCasing({
       />
     </div>
   );
+};
+
+OuterCasing.propTypes = {
+  attackValue: PropTypes.number,
+  decayValue: PropTypes.number,
+  sustainValue: PropTypes.number,
+  releaseValue: PropTypes.number,
+  decreaseOctave: PropTypes.func,
+  envelopeSliderChange: PropTypes.func,
+  filterValue: PropTypes.number,
+  increaseOctave: PropTypes.func,
+  keyPress: PropTypes.func,
+  lfoValue: PropTypes.number,
+  octave: PropTypes.number,
+  oscillator: PropTypes.string,
+  toggleOscillator: PropTypes.func
 };
 
 export default OuterCasing;

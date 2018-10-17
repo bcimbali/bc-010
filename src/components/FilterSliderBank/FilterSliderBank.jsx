@@ -1,4 +1,5 @@
 import FilterEnvelopeSlider from './../FilterEnvelopeSlider';
+import PropTypes from 'prop-types';
 import React from 'react';
 import filterSliders from './../../filterSliders.json';
 
@@ -17,9 +18,7 @@ function FilterSliderBank({envelopeSliderChange, filterValue, lfoValue}) {
           abbr={abbr}
           adsr={type}
           envelopeSliderChange={envelopeSliderChange}
-          filterValue={filterValue} 
           key={`${id}-${type}`}
-          lfoValue={lfoValue}
           type="range" 
           min={min} 
           max={max}
@@ -30,6 +29,12 @@ function FilterSliderBank({envelopeSliderChange, filterValue, lfoValue}) {
       ))}
     </div>
   );
+};
+
+FilterSliderBank.propTypes = {
+  envelopeSliderChange: PropTypes.func,
+  filterValue: PropTypes.number,
+  lfoValue: PropTypes.number
 };
 
 export default FilterSliderBank;
