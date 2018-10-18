@@ -1,1 +1,1 @@
-export {default} from './FilterSliderBank.jsx';
+export { default } from "./FilterSliderBank.jsx";

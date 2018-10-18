@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import BlackKey from './../BlackKey';
-import PropTypes from 'prop-types';
-import WhiteKey from './../WhiteKey';
-import keys from './../../keys.json';
+import BlackKey from "./../BlackKey";
+import PropTypes from "prop-types";
+import WhiteKey from "./../WhiteKey";
+import keys from "./../../keys.json";
 
 class Keyboard extends Component {
   constructor(props) {
@@ -17,17 +17,17 @@ class Keyboard extends Component {
     this.updateNoteOctave = this.updateNoteOctave.bind(this);
     this.state = {
       highlightKey: 0
-    }
+    };
   }
-  
+
   resetHighlightedKey() {
     setTimeout(() => {
-      this.setState({highlightKey: 0})
+      this.setState({ highlightKey: 0 });
     }, 90);
   }
 
   updateHighlightedKey(keyPressed) {
-    this.setState({highlightKey: keyPressed});
+    this.setState({ highlightKey: keyPressed });
   }
 
   // Fires both keyboard click/'highlightedKey' setState functions
@@ -51,8 +51,8 @@ class Keyboard extends Component {
 
   // See if the letter pressed object is undefined...
   isObjUndefined(letterNote) {
-    if (typeof letterNote !== 'undefined') {
-      this.handleNoteObj(letterNote)
+    if (typeof letterNote !== "undefined") {
+      this.handleNoteObj(letterNote);
     }
   }
 
@@ -62,9 +62,9 @@ class Keyboard extends Component {
     let keyPressed = event.charCode;
 
     // Filter the array for the object that contains key pressed charCode
-    const result = keys.filter((key) =>  {
-      return key.keyCode === keyPressed
-    })
+    const result = keys.filter(key => {
+      return key.keyCode === keyPressed;
+    });
 
     // Save the note object to this variable:
     let letterNote = result[0];
@@ -79,66 +79,64 @@ class Keyboard extends Component {
 
   // Add the keypress event listener to the document before the component mounts.
   componentWillMount() {
-    document.addEventListener('keypress',this.keyboardLetterPress);
+    document.addEventListener("keypress", this.keyboardLetterPress);
   }
 
   render() {
     // Filter the keys data for just white keys
-    const whiteKeysArray = keys.filter((key) => {
-      return key.type === 'white'
-    })
+    const whiteKeysArray = keys.filter(key => {
+      return key.type === "white";
+    });
 
     // Filter the keys data for just black keys
-    const blackKeysArray = keys.filter((key) => {
-      return key.type === 'black'
-    })
+    const blackKeysArray = keys.filter(key => {
+      return key.type === "black";
+    });
 
     // Destructure props
-    const {
-      keyPress,
-      octave
-    } = this.props;
+    const { keyPress, octave } = this.props;
 
     // Destructure state
-    const {
-      highlightKey
-    } = this.state;
-    
-    return(
+    const { highlightKey } = this.state;
+
+    return (
       <div className="keyboard">
         <div className="black-keys">
-          {blackKeysArray.map(({id, keyCode, letter, note, startingOctave}) => (
-            <BlackKey
-            displayOctave={octave + startingOctave}
-            id={id}
-            key={`${id}-${note}`}
-            keyCode={keyCode}
-            keyPress={keyPress}
-            highlightKey={highlightKey}
-            letter={letter}
-            note={note}
-            octave={octave}
-            />
-          ))}
+          {blackKeysArray.map(
+            ({ id, keyCode, letter, note, startingOctave }) => (
+              <BlackKey
+                displayOctave={octave + startingOctave}
+                id={id}
+                key={`${id}-${note}`}
+                keyCode={keyCode}
+                keyPress={keyPress}
+                highlightKey={highlightKey}
+                letter={letter}
+                note={note}
+                octave={octave}
+              />
+            )
+          )}
         </div>
         <div className="white-keys">
-          {whiteKeysArray.map(({id, keyCode, letter, note, startingOctave}) => (
-            <WhiteKey 
-            displayOctave={octave + startingOctave}
-            highlightKey={highlightKey}
-            key={`${id}-${note}`}
-            keyCode={keyCode}
-            keyPress={keyPress}
-            letter={letter}
-            note={note}
-            />
-          ))}
+          {whiteKeysArray.map(
+            ({ id, keyCode, letter, note, startingOctave }) => (
+              <WhiteKey
+                displayOctave={octave + startingOctave}
+                highlightKey={highlightKey}
+                key={`${id}-${note}`}
+                keyCode={keyCode}
+                keyPress={keyPress}
+                letter={letter}
+                note={note}
+              />
+            )
+          )}
         </div>
       </div>
     );
   }
-  
-};
+}
 
 Keyboard.propTypes = {
   keyPress: PropTypes.func,

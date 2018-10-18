@@ -1,17 +1,18 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from "prop-types";
+import React from "react";
 
-function Key({displayOctave, highlightKey, keyCode, keyPress, letter, note}) {
+function Key({ displayOctave, highlightKey, keyCode, keyPress, letter, note }) {
   let octaveNote = note + displayOctave;
-  return(
+  return (
     <div
       className={`key key-white 
-                  ${highlightKey === keyCode ? 'keyboard-click' : ''}`} 
+                  ${highlightKey === keyCode ? "keyboard-click" : ""}`}
       onClick={() => keyPress(octaveNote)}
     >
       <div className="key-display">
         <div>
-          {note}{displayOctave}
+          {note}
+          {displayOctave}
         </div>
         <div className="letter-name">
           <p>{letter}</p>
@@ -19,7 +20,7 @@ function Key({displayOctave, highlightKey, keyCode, keyPress, letter, note}) {
       </div>
     </div>
   );
-};
+}
 
 Key.propTypes = {
   displayOctave: PropTypes.number,

@@ -1,10 +1,10 @@
-import FilterSliderBank from './../FilterSliderBank';
-import OctaveContainer from './../OctaveContainer';
-import OscillatorBtn from './../OscillatorBtn';
-import PropTypes from 'prop-types';
-import React from 'react';
-import SliderBank from '../SliderBank/SliderBank';
-import oscillatorTypes from './../../oscillatorTypes.json';
+import FilterSliderBank from "./../FilterSliderBank";
+import OctaveContainer from "./../OctaveContainer";
+import OscillatorBtn from "./../OscillatorBtn";
+import PropTypes from "prop-types";
+import React from "react";
+import SliderBank from "../SliderBank/SliderBank";
+import oscillatorTypes from "./../../oscillatorTypes.json";
 
 function ControlPanel({
   attackValue,
@@ -20,39 +20,38 @@ function ControlPanel({
   oscillator,
   toggleOscillator
 }) {
-  return(
+  return (
     <div className="controlPanel">
-    <SliderBank
-      attackValue={attackValue}
-      decayValue={decayValue}
-      sustainValue={sustainValue}
-      releaseValue={releaseValue} 
-      envelopeSliderChange={envelopeSliderChange} 
-    />
-    <FilterSliderBank 
-      envelopeSliderChange={envelopeSliderChange}
-      filterValue={filterValue}
-      lfoValue={lfoValue} 
-    />
-    <OctaveContainer
-      key="octave-container"
-      decreaseOctave={decreaseOctave}
-      increaseOctave={increaseOctave}
-      octave={octave}
-    />
-    {oscillatorTypes.map(({abbr, id, type}) => (
-      <OscillatorBtn
-        abbr={abbr} 
-        key={`${id}-${type}`}
-        oscillator={oscillator}
-        toggleOscillator={toggleOscillator}
-        type={type}
+      <SliderBank
+        attackValue={attackValue}
+        decayValue={decayValue}
+        sustainValue={sustainValue}
+        releaseValue={releaseValue}
+        envelopeSliderChange={envelopeSliderChange}
       />
-    ))}
-      
+      <FilterSliderBank
+        envelopeSliderChange={envelopeSliderChange}
+        filterValue={filterValue}
+        lfoValue={lfoValue}
+      />
+      <OctaveContainer
+        key="octave-container"
+        decreaseOctave={decreaseOctave}
+        increaseOctave={increaseOctave}
+        octave={octave}
+      />
+      {oscillatorTypes.map(({ abbr, id, type }) => (
+        <OscillatorBtn
+          abbr={abbr}
+          key={`${id}-${type}`}
+          oscillator={oscillator}
+          toggleOscillator={toggleOscillator}
+          type={type}
+        />
+      ))}
     </div>
   );
-};
+}
 
 ControlPanel.propTypes = {
   attackValue: PropTypes.number,

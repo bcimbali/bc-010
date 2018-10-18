@@ -1,1 +1,1 @@
-export {default} from './BlackKey.jsx';
+export { default } from "./BlackKey.jsx";

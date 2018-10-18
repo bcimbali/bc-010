@@ -1,1 +1,1 @@
-export {default} from './SliderNumberDisplay.jsx';
+export { default } from "./SliderNumberDisplay.jsx";

@@ -1,1 +1,1 @@
-export {default} from './OuterCasing.jsx';
+export { default } from "./OuterCasing.jsx";

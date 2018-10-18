@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import PropTypes from 'prop-types';
-import SliderLabel from './../SliderLabel';
-import SliderNumberDisplay from './../SliderNumberDisplay';
+import PropTypes from "prop-types";
+import SliderLabel from "./../SliderLabel";
+import SliderNumberDisplay from "./../SliderNumberDisplay";
 
 class FilterEnvelopeSlider extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class FilterEnvelopeSlider extends Component {
     this.updateSynthValue = this.updateSynthValue.bind(this);
     this.state = {
       value: 1
-    }
+    };
   }
 
   // Calls the function in App.jsx to update the synth timbre
@@ -22,7 +22,7 @@ class FilterEnvelopeSlider extends Component {
 
   // Actually updates state in this slider instance
   updateValue(event) {
-    this.setState({value: event.target.value});
+    this.setState({ value: event.target.value });
   }
 
   // Handles slider changes
@@ -32,27 +32,17 @@ class FilterEnvelopeSlider extends Component {
   }
 
   render() {
-    const {
-      abbr,
-      type,
-      min,
-      max,
-      step,
-      value
-    } = this.props;
-    return(
+    const { abbr, type, min, max, step, value } = this.props;
+    return (
       <div className="envelopeSlider">
-        <SliderLabel
-          abbr={abbr}
-          adsr={type}
-        />
+        <SliderLabel abbr={abbr} adsr={type} />
         <div className="slider-housing">
           <div className="slider-container">
             <input
               adsr={type}
               className="html-slider"
-              type="range" 
-              min={min} 
+              type="range"
+              min={min}
               max={max}
               onChange={this.handleChange}
               step={step}
@@ -60,13 +50,11 @@ class FilterEnvelopeSlider extends Component {
             />
           </div>
         </div>
-        <SliderNumberDisplay 
-          value={value}
-        />
+        <SliderNumberDisplay value={value} />
       </div>
     );
   }
-};
+}
 
 FilterEnvelopeSlider.propTypes = {
   abbr: PropTypes.string,

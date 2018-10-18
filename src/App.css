@@ -1,5 +1,5 @@
 body {
-  box-sizing:border-box;
+  box-sizing: border-box;
   font-family: 'Roboto Mono', monospace;
   /* width: 100%; */
 }
@@ -36,13 +36,14 @@ body {
 *----------------------------------------------------------------------------------------------------*/
 
 .controlPanel {
-    border: 2px solid purple;
-    display: flex;
-    height: 50vh;
-    justify-content: space-evenly;
+  border: 2px solid purple;
+  display: flex;
+  height: 50vh;
+  justify-content: space-evenly;
 }
 
 /********************************* Button Section ************************************/
+
 .btn-toggle {
   align-items: center;
   align-self: center;
@@ -109,6 +110,7 @@ body {
 /**************************** Enveloper Slider Section *******************************/
 
 /* Slider bank to hold all the sliders */
+
 .slider-bank {
   align-self: flex-end;
   border: 2px solid palevioletred;
@@ -117,6 +119,7 @@ body {
 }
 
 /* Outer container for each slider strip */
+
 .envelopeSlider {
   border: 2px solid brown;
   display: flex;
@@ -127,20 +130,23 @@ body {
 }
 
 /* Container that holds the actual html range input tag as its child */
+
 .slider-container {
   align-self: center;
   /* border: 1px dashed purple; */
 }
 
 /* Div that holds the slider container and its html input */
+
 .slider-housing {
   display: flex;
   justify-content: center;
-/*   height:25vh; */
+  /*   height:25vh; */
   width: 100%;
 }
 
 /* Div container for the number displayed for range slider value */
+
 .slider-number-container {
   align-items: center;
   display: flex;
@@ -153,12 +159,14 @@ body {
 }
 
 /* Styling for actual slider number */
+
 .slider-number {
   margin: 0;
   text-align: center;
 }
 
 /* Div container for the slider name at top of slider strip */
+
 .slider-label-container {
   align-items: center;
   display: flex;
@@ -171,47 +179,64 @@ body {
 }
 
 /* Styling for slider label name at top */
+
 .slider-label {
   font-weight: bold;
   text-align: center;
 }
 
 /* Custom styling for HTML Range Input slider */
+
 .html-slider {
-  -webkit-transform:rotate(270deg);
-  -moz-transform:rotate(270deg);
-  -o-transform:rotate(270deg);
-  -ms-transform:rotate(270deg);
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
   -webkit-appearance: none;
   appearance: none;
-  background: burlywood; /* Grey background */
+  background: burlywood;
+  /* Grey background */
   cursor: pointer;
-  height: 0.75vw; /*  This is actually the fatness of the slider */
-  outline: none; /* Remove outline */
-  transform:rotate(270deg);
-  width: 25vh; /* This is actually the height of the slider - don't be deceived by the width property */
+  height: 0.75vw;
+  /*  This is actually the fatness of the slider */
+  outline: none;
+  /* Remove outline */
+  transform: rotate(270deg);
+  width: 25vh;
+  /* This is actually the height of the slider - don't be deceived by the width property */
 }
 
 /* Thumb slider styling for Chrome, Opera, Safari & Edge */
+
 .html-slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
+  -webkit-appearance: none;
+  /* Override default look */
   appearance: none;
-  background: #a8a8a8; /* Green background */
+  background: #a8a8a8;
+  /* Green background */
   border-left: 0.25vw solid #148a10;
   border-right: 0.25vw solid #148a10;
-  cursor: pointer; /* Cursor on hover */
-  height: 1.75vw; /* Slider handle height */
-  width: 1vw; /* Set a specific slider handle width */
+  cursor: pointer;
+  /* Cursor on hover */
+  height: 1.75vw;
+  /* Slider handle height */
+  width: 1vw;
+  /* Set a specific slider handle width */
 }
 
 /* Thumb slider styling for Firefox */
+
 .html-slider::-moz-range-thumb {
-  background: #353535; /* Green background */
+  background: #353535;
+  /* Green background */
   border-left: 0.25vw solid #148a10;
   border-right: 0.25vw solid #148a10;
-  cursor: pointer; /* Cursor on hover */
-  height: 2.25vh; /* Slider handle height */
-  width: 1vw; /* Set a specific slider handle width */
+  cursor: pointer;
+  /* Cursor on hover */
+  height: 2.25vh;
+  /* Slider handle height */
+  width: 1vw;
+  /* Set a specific slider handle width */
 }
 
 .html-slider:hover::-webkit-slider-thumb {
@@ -255,6 +280,7 @@ body {
 }
 
 /* Changes color for keyboard letter press */
+
 .keyboard-click {
   background-color: rgb(135, 250, 160);
 }
@@ -275,6 +301,7 @@ body {
 }
 
 /********************************* Black Keys ************************************/
+
 .black-keys {
   border: 2px solid yellowgreen;
   display: flex;
@@ -300,6 +327,7 @@ body {
 }
 
 /********************************* White Keys ************************************/
+
 .white-keys {
   border: 2px solid paleturquoise;
   display: flex;
@@ -321,22 +349,23 @@ body {
   .html-slider {
     height: 4.5vw;
   }
-
   /* Responsive thumb slider styling for Chrome, Opera, Safari & Edge */
-.html-slider::-webkit-slider-thumb {
-  border-left: 1.25vw solid #047000;
-  border-right: 1.25vw solid #047000;
-  width: 3vw; /* Set a specific slider handle width */
-  height: 4.5vw; /* Slider handle height */
-}
-
-/* Responsive thumb slider styling for Firefox */
-.html-slider::-moz-range-thumb {
-  width: 0.5vw; /* Set a specific slider handle width */
-  height: 1.75vw; /* Slider handle height */
-}
-
-.letter-name {
-  color: transparent;
-}
+  .html-slider::-webkit-slider-thumb {
+    border-left: 1.25vw solid #047000;
+    border-right: 1.25vw solid #047000;
+    width: 3vw;
+    /* Set a specific slider handle width */
+    height: 4.5vw;
+    /* Slider handle height */
+  }
+  /* Responsive thumb slider styling for Firefox */
+  .html-slider::-moz-range-thumb {
+    width: 0.5vw;
+    /* Set a specific slider handle width */
+    height: 1.75vw;
+    /* Slider handle height */
+  }
+  .letter-name {
+    color: transparent;
+  }
 }

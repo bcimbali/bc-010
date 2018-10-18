@@ -1,1 +1,1 @@
-export {default} from './FilterEnvelopeSlider.jsx';
+export { default } from "./FilterEnvelopeSlider.jsx";

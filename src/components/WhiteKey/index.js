@@ -1,1 +1,1 @@
-export {default} from './WhiteKey.jsx';
+export { default } from "./WhiteKey.jsx";

@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import SliderLabel from './../SliderLabel';
-import SliderNumberDisplay from './../SliderNumberDisplay';
-import VerticalSlider from './../VerticalSlider';
+import PropTypes from "prop-types";
+import React from "react";
+import SliderLabel from "./../SliderLabel";
+import SliderNumberDisplay from "./../SliderNumberDisplay";
+import VerticalSlider from "./../VerticalSlider";
 
 function EnvelopeSlider({
   abbr,
@@ -16,25 +16,20 @@ function EnvelopeSlider({
 }) {
   return (
     <div className="envelopeSlider">
-      <SliderLabel
-        abbr={abbr}
-        adsr={type}
-      />
+      <SliderLabel abbr={abbr} adsr={type} />
       <VerticalSlider
         adsr={adsr}
-        envelopeSliderChange={envelopeSliderChange} 
+        envelopeSliderChange={envelopeSliderChange}
         max={max}
         min={min}
         step={step}
         type={type}
         value={value}
       />
-      <SliderNumberDisplay 
-        value={value}
-      />
+      <SliderNumberDisplay value={value} />
     </div>
   );
-};
+}
 
 EnvelopeSlider.propTypes = {
   abbr: PropTypes.string,

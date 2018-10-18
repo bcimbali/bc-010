@@ -1,13 +1,12 @@
-import './reset.css';
-import './App.css';
+import "./reset.css";
+import "./App.css";
 
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import OuterCasing from './components/OuterCasing';
-import Tone from 'tone';
+import OuterCasing from "./components/OuterCasing";
+import Tone from "tone";
 
 class App extends Component {
-
   constructor(props) {
     super(props);
     this.decreaseOctave = this.decreaseOctave.bind(this);
@@ -30,12 +29,12 @@ class App extends Component {
         baseFrequency: 500,
         octaves: 2.6,
         filter: {
-                  type: "lowpass",
-                  rolloff: -12,
-                  Q: 1
-                }
+          type: "lowpass",
+          rolloff: -12,
+          Q: 1
         }
-    }
+      }
+    };
   }
 
   // Actually plays the note on the synth:
@@ -45,20 +44,20 @@ class App extends Component {
 
   // Handles change in oscillator type via btn clicks:
   toggleOscillator(oscType) {
-      this.setState({oscillator: oscType});
+    this.setState({ oscillator: oscType });
   }
 
   decreaseOctave() {
-    this.setState((prevState) => ({
+    this.setState(prevState => ({
       octave: prevState.octave - 1
-    }))
+    }));
   }
 
   // Start of function to raise keyboard octave
   increaseOctave() {
-    this.setState((prevState) => ({
+    this.setState(prevState => ({
       octave: prevState.octave + 1
-    }))
+    }));
   }
 
   // Handles change in envelope sliders in control panel
@@ -68,28 +67,28 @@ class App extends Component {
     let filterParams = Object.assign({}, this.state.filterParams);
 
     // Check the envelope type, and update the correct envelope state in App.jsx
-    if (envelopeType === 'attack') {
-      this.setState({attack: sliderValueNumber});
+    if (envelopeType === "attack") {
+      this.setState({ attack: sliderValueNumber });
     }
-    if (envelopeType === 'decay') {
-      this.setState({decay: sliderValueNumber});
+    if (envelopeType === "decay") {
+      this.setState({ decay: sliderValueNumber });
     }
-    if (envelopeType === 'sustain') {
-      this.setState({sustain: sliderValueNumber});
+    if (envelopeType === "sustain") {
+      this.setState({ sustain: sliderValueNumber });
     }
-    if (envelopeType === 'release') {
-      this.setState({release: sliderValueNumber});
+    if (envelopeType === "release") {
+      this.setState({ release: sliderValueNumber });
     }
-    if (envelopeType === 'filter') {
+    if (envelopeType === "filter") {
       filterParams.baseFrequency = sliderValueNumber;
-      this.setState({filterParams});
+      this.setState({ filterParams });
     }
-    if (envelopeType === 'lfo') {
+    if (envelopeType === "lfo") {
       filterParams.frequency = sliderValueNumber;
-      this.setState({filterParams});
+      this.setState({ filterParams });
     }
   }
-  
+
   render() {
     // Destructure state and pull out nested params in filterParams
     const {
@@ -98,32 +97,32 @@ class App extends Component {
       sustain,
       release,
       filterParams,
-      filterParams: {baseFrequency},
-      filterParams: {frequency},
+      filterParams: { baseFrequency },
+      filterParams: { frequency },
       octave,
       oscillator,
       portamento
     } = this.state;
-    
+
     // Start of adding a filter to synth
     this.filter = new Tone.AutoFilter(filterParams).toMaster().start();
 
     // Create a new Tone.js synth on render & update synth timbre based on App.jsx state
     this.synth = new Tone.Synth({
-      "oscillator" : {
-        "type" : oscillator,
+      oscillator: {
+        type: oscillator
       },
-      "envelope" : {
-        "attack" : attack,
-        "decay" : decay,
-        "sustain" : sustain,
-        "release" : release
+      envelope: {
+        attack: attack,
+        decay: decay,
+        sustain: sustain,
+        release: release
       },
-      "portamento" : portamento
+      portamento: portamento
     }).connect(this.filter);
 
     return (
-      <div >
+      <div>
         <h1 className="header">bc-010</h1>
         <OuterCasing
           attackValue={attack}
@@ -134,7 +133,7 @@ class App extends Component {
           envelopeSliderChange={this.envelopeSliderChange}
           filterValue={baseFrequency}
           increaseOctave={this.increaseOctave}
-          key='outerCasing'
+          key="outerCasing"
           keyPress={this.keyPress}
           lfoValue={frequency}
           octave={octave}

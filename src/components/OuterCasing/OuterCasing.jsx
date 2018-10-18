@@ -1,7 +1,7 @@
-import ControlPanel from './../ControlPanel';
-import Keyboard from './../Keyboard';
-import PropTypes from 'prop-types';
-import React from 'react';
+import ControlPanel from "./../ControlPanel";
+import Keyboard from "./../Keyboard";
+import PropTypes from "prop-types";
+import React from "react";
 
 function OuterCasing({
   attackValue,
@@ -18,7 +18,7 @@ function OuterCasing({
   oscillator,
   toggleOscillator
 }) {
-  return(
+  return (
     <div className="outerCasing">
       <ControlPanel
         attackValue={attackValue}
@@ -27,7 +27,7 @@ function OuterCasing({
         releaseValue={releaseValue}
         decreaseOctave={decreaseOctave}
         envelopeSliderChange={envelopeSliderChange}
-        filterValue={filterValue} 
+        filterValue={filterValue}
         increaseOctave={increaseOctave}
         key="control-panel"
         lfoValue={lfoValue}
@@ -35,14 +35,10 @@ function OuterCasing({
         oscillator={oscillator}
         toggleOscillator={toggleOscillator}
       />
-      <Keyboard
-        key="keyboard"
-        keyPress={keyPress}
-        octave={octave}
-      />
+      <Keyboard key="keyboard" keyPress={keyPress} octave={octave} />
     </div>
   );
-};
+}
 
 OuterCasing.propTypes = {
   attackValue: PropTypes.number,
