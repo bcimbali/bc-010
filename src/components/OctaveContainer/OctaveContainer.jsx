@@ -1,8 +1,15 @@
+// @flow
 import OctaveHeader from "./../OctaveHeader";
 import PropTypes from "prop-types";
 import React from "react";
 
-function OctaveContainer({ decreaseOctave, increaseOctave, octave }) {
+type Props = {
+  decreaseOctave: Function,
+  increaseOctave: Function,
+  octave: number
+};
+
+function OctaveContainer({ decreaseOctave, increaseOctave, octave }: Props) {
   return (
     <div className="octave-container">
       <OctaveHeader />

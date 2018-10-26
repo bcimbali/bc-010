@@ -1,7 +1,15 @@
+// @flow
 import PropTypes from "prop-types";
 import React from "react";
 
-function OscillatorBtn({ abbr, oscillator, toggleOscillator, type }) {
+type Props = {
+  abbr: string,
+  oscillator: string,
+  toggleOscillator: Function,
+  type: string
+};
+
+function OscillatorBtn({ abbr, oscillator, toggleOscillator, type }: Props) {
   return (
     <div
       className={`btn-toggle ${type === oscillator ? "btn-selected" : ""}`}
