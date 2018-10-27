@@ -1,7 +1,13 @@
+// @flow
 import PropTypes from "prop-types";
 import React from "react";
 
-function SliderLabel({ abbr, adsr }) {
+type Props = {
+  abbr: string,
+  adsr: string
+};
+
+function SliderLabel({ abbr, adsr }: Props) {
   return (
     <div className="slider-label-container">
       <label className="slider-label" htmlFor={adsr}>
