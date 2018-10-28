@@ -1,3 +1,4 @@
+// @flow
 import "./reset.css";
 import "./App.css";
 
@@ -6,9 +7,22 @@ import React, { Component } from "react";
 import OuterCasing from "./components/OuterCasing";
 import Tone from "tone";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+type Props = {};
+
+type State = {
+  attack: number,
+  decay: number,
+  sustain: number,
+  release: number,
+  octave: number,
+  oscillator: string,
+  portamento: number,
+  filterParams: Object
+};
+
+class App extends Component<Props, State> {
+  constructor() {
+    super();
     this.decreaseOctave = this.decreaseOctave.bind(this);
     this.envelopeSliderChange = this.envelopeSliderChange.bind(this);
     this.increaseOctave = this.increaseOctave.bind(this);
@@ -37,16 +51,24 @@ class App extends Component {
     };
   }
 
+  /* Flow would complain this.synth and this.filter weren't defined below, in keyPress(), 
+    so this solved it. Maybe this.synth and this.filter should be declared here first? */
+  synth = {};
+  filter = {};
+
   // Actually plays the note on the synth:
-  keyPress(note) {
+  keyPress: Function;
+  keyPress(note: string) {
     this.synth.triggerAttackRelease(note, "8n");
   }
 
   // Handles change in oscillator type via btn clicks:
-  toggleOscillator(oscType) {
+  toggleOscillator: Function;
+  toggleOscillator(oscType: string) {
     this.setState({ oscillator: oscType });
   }
 
+  decreaseOctave: Function;
   decreaseOctave() {
     this.setState(prevState => ({
       octave: prevState.octave - 1
@@ -54,6 +76,7 @@ class App extends Component {
   }
 
   // Start of function to raise keyboard octave
+  increaseOctave: Function;
   increaseOctave() {
     this.setState(prevState => ({
       octave: prevState.octave + 1
@@ -61,7 +84,8 @@ class App extends Component {
   }
 
   // Handles change in envelope sliders in control panel
-  envelopeSliderChange(envelopeType, sliderValue) {
+  envelopeSliderChange: Function;
+  envelopeSliderChange(envelopeType: string, sliderValue: number) {
     // Make sure the number passed into Tone.Synth is a float. It will complain if it's a string.
     let sliderValueNumber = parseFloat(sliderValue);
     let filterParams = Object.assign({}, this.state.filterParams);
