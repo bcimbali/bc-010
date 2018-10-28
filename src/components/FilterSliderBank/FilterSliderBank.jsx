@@ -1,9 +1,20 @@
+// @flow
 import FilterEnvelopeSlider from "./../FilterEnvelopeSlider";
 import PropTypes from "prop-types";
 import React from "react";
 import filterSliders from "./../../filterSliders.json";
 
-function FilterSliderBank({ envelopeSliderChange, filterValue, lfoValue }) {
+type Props = {
+  envelopeSliderChange: Function,
+  filterValue: number,
+  lfoValue: number
+};
+
+function FilterSliderBank({
+  envelopeSliderChange,
+  filterValue,
+  lfoValue
+}: Props) {
   return (
     <div className="slider-bank">
       {filterSliders.map(({ abbr, id, max, min, step, type }) => (

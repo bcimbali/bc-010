@@ -1,7 +1,24 @@
+// @flow
 import ControlPanel from "./../ControlPanel";
 import Keyboard from "./../Keyboard";
 import PropTypes from "prop-types";
 import React from "react";
+
+type Props = {
+  attackValue: number,
+  decayValue: number,
+  sustainValue: number,
+  releaseValue: number,
+  decreaseOctave: Function,
+  envelopeSliderChange: Function,
+  filterValue: number,
+  increaseOctave: Function,
+  keyPress: Function,
+  lfoValue: number,
+  octave: number,
+  oscillator: string,
+  toggleOscillator: Function
+};
 
 function OuterCasing({
   attackValue,
@@ -17,7 +34,7 @@ function OuterCasing({
   octave,
   oscillator,
   toggleOscillator
-}) {
+}: Props) {
   return (
     <div className="outerCasing">
       <ControlPanel

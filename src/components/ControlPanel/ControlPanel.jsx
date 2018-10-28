@@ -1,3 +1,4 @@
+// @flow
 import FilterSliderBank from "./../FilterSliderBank";
 import OctaveContainer from "./../OctaveContainer";
 import OscillatorBtn from "./../OscillatorBtn";
@@ -5,6 +6,21 @@ import PropTypes from "prop-types";
 import React from "react";
 import SliderBank from "../SliderBank/SliderBank";
 import oscillatorTypes from "./../../oscillatorTypes.json";
+
+type Props = {
+  attackValue: number,
+  decayValue: number,
+  sustainValue: number,
+  releaseValue: number,
+  decreaseOctave: Function,
+  envelopeSliderChange: Function,
+  filterValue: number,
+  increaseOctave: Function,
+  lfoValue: number,
+  octave: number,
+  oscillator: string,
+  toggleOscillator: Function
+};
 
 function ControlPanel({
   attackValue,
@@ -19,7 +35,7 @@ function ControlPanel({
   octave,
   oscillator,
   toggleOscillator
-}) {
+}: Props) {
   return (
     <div className="controlPanel">
       <SliderBank

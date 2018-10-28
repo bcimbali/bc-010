@@ -1,8 +1,20 @@
+// @flow
 import PropTypes from "prop-types";
 import React from "react";
 import SliderLabel from "./../SliderLabel";
 import SliderNumberDisplay from "./../SliderNumberDisplay";
 import VerticalSlider from "./../VerticalSlider";
+
+type Props = {
+  abbr: string,
+  adsr: string,
+  envelopeSliderChange: Function,
+  max: number,
+  min: number,
+  step: number,
+  type: string,
+  value: string
+};
 
 function EnvelopeSlider({
   abbr,
@@ -13,7 +25,7 @@ function EnvelopeSlider({
   max,
   step,
   value
-}) {
+}: Props) {
   return (
     <div className="envelopeSlider">
       <SliderLabel abbr={abbr} adsr={type} />

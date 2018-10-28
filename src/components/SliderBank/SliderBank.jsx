@@ -1,7 +1,16 @@
+// @flow
 import EnvelopeSlider from "./../EnvelopeSlider";
 import PropTypes from "prop-types";
 import React from "react";
 import envelopeSliders from "./../../envelopeSliders.json";
+
+type Props = {
+  attackValue: number,
+  decayValue: number,
+  sustainValue: number,
+  releaseValue: number,
+  envelopeSliderChange: Function
+};
 
 function SliderBank({
   attackValue,
@@ -9,7 +18,7 @@ function SliderBank({
   sustainValue,
   releaseValue,
   envelopeSliderChange
-}) {
+}: Props) {
   return (
     <div className="slider-bank">
       {envelopeSliders.map(({ abbr, id, max, min, step, type }) => (

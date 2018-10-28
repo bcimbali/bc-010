@@ -1,5 +1,16 @@
+// @flow
 import PropTypes from "prop-types";
 import React from "react";
+
+type Props = {
+  displayOctave: number,
+  highlightKey: number,
+  id: number,
+  keyCode: number,
+  keyPress: Function,
+  letter: string,
+  note: string
+};
 
 function Key({
   displayOctave,
@@ -9,7 +20,7 @@ function Key({
   keyPress,
   letter,
   note
-}) {
+}: Props) {
   let octaveNote = note + displayOctave;
   return (
     <div
