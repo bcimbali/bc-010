@@ -128,7 +128,7 @@ class App extends Component<Props, State> {
       portamento
     } = this.state;
 
-    // Start of adding a filter to synth
+    // Add filter and connect to synth
     this.filter = new Tone.AutoFilter(filterParams).toMaster().start();
 
     // Create a new Tone.js synth on render & update synth timbre based on App.jsx state
