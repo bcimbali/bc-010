@@ -18,6 +18,7 @@ type State = {
 class Keyboard extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
+    // Can we get rid of some of these to cut down on boilerplate below?
     this.isObjUndefined = this.isObjUndefined.bind(this);
     this.keyboardLetterPress = this.keyboardLetterPress.bind(this);
     this.handleNoteObj = this.handleNoteObj.bind(this);
@@ -30,6 +31,9 @@ class Keyboard extends Component<Props, State> {
     };
   }
 
+  // The `Function` declaration is essentially `any` constrained down to just functions
+  // (meaning essentially resetHighlightedKey(...args: Array<any>) : any)
+  // can we do anything to get some more refined types here and in the other declarations?
   resetHighlightedKey: Function;
   resetHighlightedKey() {
     setTimeout(() => {
@@ -64,6 +68,7 @@ class Keyboard extends Component<Props, State> {
     this.props.keyPress(noteClicked);
   }
 
+  // Can we find a more clear name for this function?
   // See if the letter pressed object is undefined...
   isObjUndefined: Function;
   isObjUndefined(letterNote: Object) {
@@ -118,6 +123,7 @@ class Keyboard extends Component<Props, State> {
 
     return (
       <div className="keyboard">
+        // Could we deduplicate rendering code across the two key types here?
         <div className="black-keys">
           {blackKeysArray.map(
             ({ id, keyCode, letter, note, startingOctave }) => (
@@ -130,6 +136,7 @@ class Keyboard extends Component<Props, State> {
                 highlightKey={highlightKey}
                 letter={letter}
                 note={note}
+                // Is octave used in the component?
                 octave={octave}
               />
             )
