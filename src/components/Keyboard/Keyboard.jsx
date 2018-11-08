@@ -105,6 +105,7 @@ class Keyboard extends Component<Props, State> {
   }
 
   render() {
+    // Do we need to refilter these on every render?
     // Filter the keys data for just white keys
     const whiteKeysArray = keys.filter(key => {
       return key.type === "white";
