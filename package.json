@@ -6,7 +6,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
-    "react-scripts": "1.1.5",
+    "react-scripts": "^2.1.1",
     "tone": "^0.12.80"
   },
   "scripts": {
@@ -20,5 +20,11 @@
     "eslint-plugin-prettier": "^3.0.0",
     "flow-bin": "^0.84.0",
     "prettier": "1.14.3"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
