@@ -15,17 +15,24 @@ type State = {
   highlightKey: number
 };
 
+let boundMethods = [
+  "isObjUndefined",
+  "keyboardLetterPress",
+  "handleNoteObj",
+  "highlightKeyHandler",
+  "resetHighlightedKey",
+  "updateHighlightedKey",
+  "updateNoteOctave"
+];
+
 class Keyboard extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    // Can we get rid of some of these to cut down on boilerplate below?
-    this.isObjUndefined = this.isObjUndefined.bind(this);
-    this.keyboardLetterPress = this.keyboardLetterPress.bind(this);
-    this.handleNoteObj = this.handleNoteObj.bind(this);
-    this.highlightKeyHandler = this.highlightKeyHandler.bind(this);
-    this.resetHighlightedKey = this.resetHighlightedKey.bind(this);
-    this.updateHighlightedKey = this.updateHighlightedKey.bind(this);
-    this.updateNoteOctave = this.updateNoteOctave.bind(this);
+    // Dynamically bind methods from boundMethods array above
+    for (let methodName of boundMethods) {
+      // $FlowFixMe
+      this[methodName] = this[methodName].bind(this);
+    }
     this.state = {
       highlightKey: 0
     };
@@ -84,12 +91,10 @@ class Keyboard extends Component<Props, State> {
     let keyPressed = event.charCode;
 
     // Filter the array for the object that contains key pressed charCode
-    const result = keys.filter(key => {
+    // and return just the value
+    const letterNote = keys.find(key => {
       return key.keyCode === keyPressed;
     });
-
-    // Save the note object to this variable:
-    let letterNote = result[0];
 
     // Make sure the result from the filter isn't undefined. If it's not...
     // ... then call the synth keyPress function and pass in the keyboard note.
@@ -123,8 +128,9 @@ class Keyboard extends Component<Props, State> {
     const { highlightKey } = this.state;
 
     return (
+      // Could we deduplicate rendering code across the two key types here?
+      // Can use nth child for css so that it doesn't have to be computed
       <div className="keyboard">
-        // Could we deduplicate rendering code across the two key types here?
         <div className="black-keys">
           {blackKeysArray.map(
             ({ id, keyCode, letter, note, startingOctave }) => (
