@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import SliderLabel from "./../SliderLabel";
 import SliderNumberDisplay from "./../SliderNumberDisplay";
+import autoBind from "react-autobind";
 
 type Props = {
   abbr: string,
@@ -26,9 +27,7 @@ type State = {
 class FilterEnvelopeSlider extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.updateValue = this.updateValue.bind(this);
-    this.updateSynthValue = this.updateSynthValue.bind(this);
+    autoBind(this);
     this.state = {
       value: "1"
     };

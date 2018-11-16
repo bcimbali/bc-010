@@ -6,6 +6,7 @@ import React, { Component } from "react";
 
 import OuterCasing from "./components/OuterCasing";
 import Tone from "tone";
+import autoBind from "react-autobind";
 
 type Props = {};
 
@@ -23,11 +24,7 @@ type State = {
 class App extends Component<Props, State> {
   constructor() {
     super();
-    this.decreaseOctave = this.decreaseOctave.bind(this);
-    this.envelopeSliderChange = this.envelopeSliderChange.bind(this);
-    this.increaseOctave = this.increaseOctave.bind(this);
-    this.keyPress = this.keyPress.bind(this);
-    this.toggleOscillator = this.toggleOscillator.bind(this);
+    autoBind(this);
     this.state = {
       attack: 0.0001,
       decay: 0.2,
