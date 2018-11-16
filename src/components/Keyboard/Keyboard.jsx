@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import BlackKey from "./../BlackKey";
 import PropTypes from "prop-types";
 import WhiteKey from "./../WhiteKey";
+import autoBind from "react-autobind";
 import keys from "./../../keys.json";
 
 type Props = {
@@ -15,24 +16,10 @@ type State = {
   highlightKey: number
 };
 
-let boundMethods = [
-  "isObjUndefined",
-  "keyboardLetterPress",
-  "handleNoteObj",
-  "highlightKeyHandler",
-  "resetHighlightedKey",
-  "updateHighlightedKey",
-  "updateNoteOctave"
-];
-
 class Keyboard extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    // Dynamically bind methods from boundMethods array above
-    for (let methodName of boundMethods) {
-      // $FlowFixMe
-      this[methodName] = this[methodName].bind(this);
-    }
+    autoBind(this);
     this.state = {
       highlightKey: 0
     };
