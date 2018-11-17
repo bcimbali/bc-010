@@ -25,93 +25,91 @@ class Keyboard extends Component<Props, State> {
     };
   }
 
-  // The `Function` declaration is essentially `any` constrained down to just functions
-  // (meaning essentially resetHighlightedKey(...args: Array<any>) : any)
-  // can we do anything to get some more refined types here and in the other declarations?
-  resetHighlightedKey: Function;
-  resetHighlightedKey() {
+  /** Quickly remove the highlighted key in App.jsx state */
+  resetHighlightedKey(): void {
     setTimeout(() => {
       this.setState({ highlightKey: 0 });
     }, 90);
   }
 
-  updateHighlightedKey: Function;
-  updateHighlightedKey(keyPressed: number) {
+  /** Populate the highlighted key in App.jsx with the key pressed. */
+  updateHighlightedKey(keyPressed: number): void {
     this.setState({ highlightKey: keyPressed });
   }
 
-  // Fires both keyboard click/'highlightedKey' setState functions
-  highlightKeyHandler: Function;
-  highlightKeyHandler(keyPressed: number) {
+  /** Fires both keyboard click/'highlightedKey' setState functions */
+  highlightKeyHandler(keyPressed: number): void {
     this.updateHighlightedKey(keyPressed);
     this.resetHighlightedKey();
   }
 
-  // Make sure the correct octave is associated with the key note
-  updateNoteOctave: Function;
-  updateNoteOctave(letterNote: Object) {
-    let updatedOctave = letterNote.startingOctave + this.props.octave;
-    let updatedNote = letterNote.note + updatedOctave;
+  /** Make sure the correct octave is associated with the key note */
+  updateNoteOctave(letterNote: Object): string {
+    let updatedOctave: number = letterNote.startingOctave + this.props.octave;
+    let updatedNote: string = letterNote.note + updatedOctave;
     return updatedNote;
   }
 
-  // ...handler for the note object
-  handleNoteObj: Function;
-  handleNoteObj(letterNote: Object) {
-    let noteClicked = this.updateNoteOctave(letterNote);
+  /** ...handler for the note object */
+  handleNoteObj(letterNote: Object): void {
+    let noteClicked: string = this.updateNoteOctave(letterNote);
     this.props.keyPress(noteClicked);
   }
 
-  // Can we find a more clear name for this function?
-  // See if the letter pressed object is undefined...
-  isObjUndefined: Function;
-  isObjUndefined(letterNote: Object) {
+  /** See if the letter pressed object is undefined... */
+  checkForUndefined(letterNote: Object): void {
     if (typeof letterNote !== "undefined") {
       this.handleNoteObj(letterNote);
     }
   }
 
-  // Handle the (computer) keyboard letter presses:
-  keyboardLetterPress: Function;
-  keyboardLetterPress(event: SyntheticKeyboardEvent<*>) {
+  /** Handle the (computer) keyboard letter presses: */
+  keyboardLetterPress(event: SyntheticKeyboardEvent<*>): void {
     // Save character code in variable:
-    let keyPressed = event.charCode;
+    let keyPressed: number = event.charCode;
 
-    // Filter the array for the object that contains key pressed charCode
-    // and return just the value
-    const letterNote = keys.find(key => {
+    /** Filter the array for the object that contains key pressed charCode
+     and return the object for that keyboard note. */
+    const letterNote: Object = keys.find(key => {
       return key.keyCode === keyPressed;
     });
 
-    // Make sure the result from the filter isn't undefined. If it's not...
-    // ... then call the synth keyPress function and pass in the keyboard note.
-    this.isObjUndefined(letterNote);
+    /** Make sure the result from the filter isn't undefined. If it's not...
+     ... then call the synth keyPress function and pass in the keyboard note. */
+    this.checkForUndefined(letterNote);
 
-    // Call function to highlight the keyboard letter pressed
+    /** Call function to highlight the keyboard letter pressed */
     this.highlightKeyHandler(keyPressed);
   }
 
-  // Add the keypress event listener to the document before the component mounts.
+  /** Add the keypress event listener to the document before the component mounts. */
   componentWillMount() {
+    // $FlowFixMe
     document.addEventListener("keypress", this.keyboardLetterPress);
+  }
+
+  /** Remove keypress event listener to prevent potential errors and memory leaks. */
+  componentWillUnmount() {
+    // $FlowFixMe
+    document.removeEventListener("keypress", this.keyboardLetterPress);
   }
 
   render() {
     // Do we need to refilter these on every render?
-    // Filter the keys data for just white keys
+    /** Filter the keys data for just white keys */
     const whiteKeysArray = keys.filter(key => {
       return key.type === "white";
     });
 
-    // Filter the keys data for just black keys
+    /** Filter the keys data for just black keys */
     const blackKeysArray = keys.filter(key => {
       return key.type === "black";
     });
 
-    // Destructure props
+    /** Destructure props */
     const { keyPress, octave } = this.props;
 
-    // Destructure state
+    /** Destructure state */
     const { highlightKey } = this.state;
 
     return (
