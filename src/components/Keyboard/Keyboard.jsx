@@ -16,6 +16,16 @@ type State = {
   highlightKey: number
 };
 
+/** Filter the keys data for just white keys */
+const whiteKeysArray = keys.filter(key => {
+  return key.type === "white";
+});
+
+/** Filter the keys data for just black keys */
+const blackKeysArray = keys.filter(key => {
+  return key.type === "black";
+});
+
 class Keyboard extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -95,17 +105,6 @@ class Keyboard extends Component<Props, State> {
   }
 
   render() {
-    // Do we need to refilter these on every render?
-    /** Filter the keys data for just white keys */
-    const whiteKeysArray = keys.filter(key => {
-      return key.type === "white";
-    });
-
-    /** Filter the keys data for just black keys */
-    const blackKeysArray = keys.filter(key => {
-      return key.type === "black";
-    });
-
     /** Destructure props */
     const { keyPress, octave } = this.props;
 
