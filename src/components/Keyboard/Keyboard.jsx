@@ -120,15 +120,13 @@ class Keyboard extends Component<Props, State> {
             ({ id, keyCode, letter, note, startingOctave }) => (
               <BlackKey
                 displayOctave={octave + startingOctave}
+                highlightKey={highlightKey}
                 id={id}
                 key={`${id}-${note}`}
                 keyCode={keyCode}
                 keyPress={keyPress}
-                highlightKey={highlightKey}
                 letter={letter}
                 note={note}
-                // Is octave used in the component?
-                octave={octave}
               />
             )
           )}
@@ -139,6 +137,7 @@ class Keyboard extends Component<Props, State> {
               <WhiteKey
                 displayOctave={octave + startingOctave}
                 highlightKey={highlightKey}
+                id={id}
                 key={`${id}-${note}`}
                 keyCode={keyCode}
                 keyPress={keyPress}
