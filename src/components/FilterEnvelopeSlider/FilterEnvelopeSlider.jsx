@@ -17,7 +17,7 @@ type Props = {
   value: string
 };
 
-/* Most likely, this value should be a number. Currently, envelopeSliderChange in
+/** Most likely, this value should be a number. Currently, envelopeSliderChange in
 App.jsx uses ParseFloat to convert that to a number. However, it might be better to have it done in
 the Vertical Slider so that App.jsx gets the correct data type from the get go. */
 type State = {
@@ -33,21 +33,18 @@ class FilterEnvelopeSlider extends Component<Props, State> {
     };
   }
 
-  // Calls the function in App.jsx to update the synth timbre
-  updateSynthValue: Function;
-  updateSynthValue() {
+  /** Calls the function in App.jsx to update the synth timbre */
+  updateSynthValue(): void {
     this.props.envelopeSliderChange(this.props.adsr, this.state.value);
   }
 
-  // Actually updates state in this slider instance
-  updateValue: Function;
-  updateValue(event: SyntheticInputEvent<*>) {
-    this.setState({ value: event.target.value });
+  /** Actually updates state in this slider instance */
+  updateValue(event: SyntheticEvent<HTMLInputElement>) {
+    this.setState({ value: event.currentTarget.value });
   }
 
-  // Handles slider changes
-  handleChange: Function;
-  handleChange(event: Event) {
+  /** Handles slider changes */
+  handleChange(event: SyntheticEvent<HTMLInputElement>): void {
     this.updateValue(event);
     this.updateSynthValue();
   }
