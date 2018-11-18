@@ -24,6 +24,7 @@ type State = {
   value: string
 };
 
+/** Slider for the filter bank sliders. Holds SliderLabel and SliderNumberDisplay components. */
 class FilterEnvelopeSlider extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -33,17 +34,23 @@ class FilterEnvelopeSlider extends Component<Props, State> {
     };
   }
 
-  /** Calls the function in App.jsx to update the synth timbre */
+  /** Calls the function in App.jsx to update the synth timbre
+   * @public
+   */
   updateSynthValue(): void {
     this.props.envelopeSliderChange(this.props.adsr, this.state.value);
   }
 
-  /** Actually updates state in this slider instance */
+  /** Actually updates state in this slider instance
+   * @public
+   */
   updateValue(event: SyntheticEvent<HTMLInputElement>) {
     this.setState({ value: event.currentTarget.value });
   }
 
-  /** Handles slider changes */
+  /** Handles slider changes
+   * @public
+   */
   handleChange(event: SyntheticEvent<HTMLInputElement>): void {
     this.updateValue(event);
     this.updateSynthValue();

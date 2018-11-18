@@ -6,6 +6,7 @@ type Props = {
   value: string
 };
 
+/** Display component that shows the real-time value of the slider. */
 function SliderNumberDisplay({ value }: Props) {
   return (
     <div className="slider-number-container">

@@ -7,6 +7,7 @@ type Props = {
   adsr: string
 };
 
+/** Display component just shows the type of slider. */
 function SliderLabel({ abbr, adsr }: Props) {
   return (
     <div className="slider-label-container">

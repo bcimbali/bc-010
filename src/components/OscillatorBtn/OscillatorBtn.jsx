@@ -9,6 +9,7 @@ type Props = {
   type: string
 };
 
+/** Button component for toggling oscillators in the control panel. */
 function OscillatorBtn({ abbr, oscillator, toggleOscillator, type }: Props) {
   return (
     <div

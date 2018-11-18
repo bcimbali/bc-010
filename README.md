@@ -33,6 +33,11 @@ This is an audio synthesizer to be used right in your own web browser. You can p
 - Any errors will be logged to the console
   - If there aren't any errors, it will display as well
 
+## Documentation
+
+- Components, props, and methods all documented here:
+  - https://moldy-turkey.surge.sh/
+
 ## Built with:
 
 - React

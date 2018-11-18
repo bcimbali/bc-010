@@ -22,6 +22,7 @@ type Props = {
   toggleOscillator: Function
 };
 
+/** Component to hold all tweakable parameters (e.g. sliders, knobs etc.) for the synth. */
 function ControlPanel({
   attackValue,
   decayValue,

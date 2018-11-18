@@ -20,6 +20,7 @@ type Props = {
   toggleOscillator: Function
 };
 
+/** This holds everything. This is just one step down from App.jsx. */
 function OuterCasing({
   attackValue,
   decayValue,

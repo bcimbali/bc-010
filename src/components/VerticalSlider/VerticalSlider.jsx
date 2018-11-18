@@ -21,6 +21,7 @@ type State = {
   value: string
 };
 
+/** The slider component with the slider logic. */
 class VerticalSlider extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -30,17 +31,23 @@ class VerticalSlider extends Component<Props, State> {
     };
   }
 
-  /** Calls the function in App.jsx to update the synth timbre */
+  /** Calls the function in App.jsx to update the synth timbre
+   * @public
+   */
   updateSynthValue(): void {
     this.props.envelopeSliderChange(this.props.adsr, this.state.value);
   }
 
-  /** Actually updates state in this slider instance */
+  /** Actually updates state in this slider instance
+   * @public
+   */
   updateValue(event: SyntheticEvent<HTMLInputElement>) {
     this.setState({ value: event.currentTarget.value });
   }
 
-  /** Handles slider changes */
+  /** Handles slider changes
+   * @public
+   */
   handleChange(event: SyntheticEvent<HTMLInputElement>) {
     this.updateValue(event);
     this.updateSynthValue();

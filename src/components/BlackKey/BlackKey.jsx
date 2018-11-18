@@ -12,6 +12,7 @@ type Props = {
   note: string
 };
 
+/** Component for the black keys on keyboard. */
 function Key({
   displayOctave,
   highlightKey,

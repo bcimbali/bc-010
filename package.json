@@ -15,12 +15,15 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "flow": "flow"
+    "flow": "flow",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
   },
   "devDependencies": {
     "eslint-plugin-prettier": "^3.0.0",
     "flow-bin": "^0.84.0",
-    "prettier": "1.14.3"
+    "prettier": "1.14.3",
+    "react-styleguidist": "^8.0.5"
   },
   "browserslist": [
     ">0.2%",

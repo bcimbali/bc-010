@@ -16,6 +16,7 @@ type Props = {
   value: string
 };
 
+/** Holds all the slider components (SliderLabel, VerticalSlider, SliderNumberDisplay) */
 function EnvelopeSlider({
   abbr,
   adsr,

@@ -10,6 +10,8 @@ type Props = {
   lfoValue: number
 };
 
+/** Bank to hold all sliders for tweaking filter paramenters. Filter sliders
+ are dynamically created based off `filterSliders.json` file. */
 function FilterSliderBank({
   envelopeSliderChange,
   filterValue,

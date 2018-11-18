@@ -11,6 +11,7 @@ type Props = {
   note: string
 };
 
+/** Component for white keys on keyboard */
 function Key({
   displayOctave,
   highlightKey,

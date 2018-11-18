@@ -26,6 +26,8 @@ const blackKeysArray: Array<Object> = keys.filter(key => {
   return key.type === "black";
 });
 
+/** Holds all the white and black keys. Also holds the logic for registering
+ computer keyboard presses. */
 class Keyboard extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -35,45 +37,59 @@ class Keyboard extends Component<Props, State> {
     };
   }
 
-  /** Quickly remove the highlighted key in App.jsx state */
+  /** Quickly remove the highlighted key in App.jsx state
+   * @public
+   */
   resetHighlightedKey(): void {
     setTimeout(() => {
       this.setState({ highlightKey: 0 });
     }, 90);
   }
 
-  /** Populate the highlighted key in App.jsx with the key pressed. */
+  /** Populate the highlighted key in App.jsx with the key pressed.
+   * @public
+   */
   updateHighlightedKey(keyPressed: number): void {
     this.setState({ highlightKey: keyPressed });
   }
 
-  /** Fires both keyboard click/'highlightedKey' setState functions */
+  /** Fires both keyboard click/'highlightedKey' setState functions
+   * @public
+   */
   highlightKeyHandler(keyPressed: number): void {
     this.updateHighlightedKey(keyPressed);
     this.resetHighlightedKey();
   }
 
-  /** Make sure the correct octave is associated with the key note */
+  /** Make sure the correct octave is associated with the key note
+   * @public
+   */
   updateNoteOctave(letterNote: Object): string {
     let updatedOctave: number = letterNote.startingOctave + this.props.octave;
     let updatedNote: string = letterNote.note + updatedOctave;
     return updatedNote;
   }
 
-  /** ...handler for the note object */
+  /** ...handler for the note object
+   * @public
+   */
   handleNoteObj(letterNote: Object): void {
     let noteClicked: string = this.updateNoteOctave(letterNote);
     this.props.keyPress(noteClicked);
   }
 
-  /** See if the letter pressed object is undefined... */
+  /** See if the letter pressed object is undefined...
+   * @public
+   */
   checkForUndefined(letterNote: Object): void {
     if (typeof letterNote !== "undefined") {
       this.handleNoteObj(letterNote);
     }
   }
 
-  /** Handle the (computer) keyboard letter presses: */
+  /** Handle the (computer) keyboard letter presses:
+   * @public
+   */
   keyboardLetterPress(event: SyntheticKeyboardEvent<*>): void {
     // Save character code in variable:
     let keyPressed: number = event.charCode;

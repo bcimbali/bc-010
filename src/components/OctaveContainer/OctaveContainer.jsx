@@ -9,6 +9,7 @@ type Props = {
   octave: number
 };
 
+/** Holds the octave display in the control panel. */
 function OctaveContainer({ decreaseOctave, increaseOctave, octave }: Props) {
   return (
     <div className="octave-container">

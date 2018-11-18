@@ -12,6 +12,7 @@ type Props = {
   envelopeSliderChange: Function
 };
 
+/** Houses all the tweakable sliders. */
 function SliderBank({
   attackValue,
   decayValue,
