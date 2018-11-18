@@ -21,7 +21,7 @@ function Key({
   letter,
   note
 }: Props) {
-  let octaveNote = note + displayOctave;
+  let octaveNote: string = note + displayOctave;
   return (
     <div
       className={`key-black key 

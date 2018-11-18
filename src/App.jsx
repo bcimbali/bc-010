@@ -48,44 +48,42 @@ class App extends Component<Props, State> {
     };
   }
 
-  /* Flow would complain this.synth and this.filter weren't defined below, in keyPress(), 
-    so this solved it. Maybe this.synth and this.filter should be declared here first? */
-  synth = {};
-  filter = {};
+  /** Flow would complain this.synth and this.filter weren't defined below, in keyPress(),
+   so this solved it. Maybe this.synth and this.filter should be declared here first? */
+  synth: Object = {};
+  filter: Object = {};
 
-  // Actually plays the note on the synth:
-  keyPress: Function;
-  keyPress(note: string) {
+  /** Actually plays the note on the synth: */
+  keyPress(note: string): void {
     this.synth.triggerAttackRelease(note, "8n");
   }
 
-  // Handles change in oscillator type via btn clicks:
-  toggleOscillator: Function;
-  toggleOscillator(oscType: string) {
+  /** Handles change in oscillator type via btn clicks: */
+  toggleOscillator(oscType: string): void {
     this.setState({ oscillator: oscType });
   }
 
-  decreaseOctave: Function;
-  decreaseOctave() {
+  /** Lower keyboard octave */
+  decreaseOctave(): void {
     this.setState(prevState => ({
       octave: prevState.octave - 1
     }));
   }
 
-  // Start of function to raise keyboard octave
-  increaseOctave: Function;
-  increaseOctave() {
+  /** Raise keyboard octave */
+  increaseOctave(): void {
     this.setState(prevState => ({
       octave: prevState.octave + 1
     }));
   }
 
-  // Handles change in envelope sliders in control panel
-  envelopeSliderChange: Function;
-  envelopeSliderChange(envelopeType: string, sliderValue: number) {
-    // Make sure the number passed into Tone.Synth is a float. It will complain if it's a string.
-    let sliderValueNumber = parseFloat(sliderValue);
-    let filterParams = Object.assign({}, this.state.filterParams);
+  /** Handles change in envelope sliders in control panel */
+  envelopeSliderChange(envelopeType: string, sliderValue: number): void {
+    /** Make sure the number passed into Tone.Synth is a float.
+     It will complain if it's a string. */
+    let sliderValueNumber: number = parseFloat(sliderValue);
+
+    let filterParams: Object = Object.assign({}, this.state.filterParams);
 
     // Check the envelope type, and update the correct envelope state in App.jsx
     if (envelopeType === "attack") {
