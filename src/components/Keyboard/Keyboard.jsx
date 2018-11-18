@@ -16,13 +16,13 @@ type State = {
   highlightKey: number
 };
 
-/** Filter the keys data for just white keys */
-const whiteKeysArray = keys.filter(key => {
+/** Filter the keys json data for just white keys */
+const whiteKeysArray: Array<Object> = keys.filter(key => {
   return key.type === "white";
 });
 
-/** Filter the keys data for just black keys */
-const blackKeysArray = keys.filter(key => {
+/** Filter the keys json data for just black keys */
+const blackKeysArray: Array<Object> = keys.filter(key => {
   return key.type === "black";
 });
 
@@ -98,7 +98,8 @@ class Keyboard extends Component<Props, State> {
     document.addEventListener("keypress", this.keyboardLetterPress);
   }
 
-  /** Remove keypress event listener to prevent potential errors and memory leaks. */
+  /** Remove keypress event listener after component unmounts to prevent
+   potential errors and memory leaks. */
   componentWillUnmount() {
     // $FlowFixMe
     document.removeEventListener("keypress", this.keyboardLetterPress);
@@ -112,7 +113,7 @@ class Keyboard extends Component<Props, State> {
     const { highlightKey } = this.state;
 
     return (
-      // Could we deduplicate rendering code across the two key types here?
+      // Could we de-duplicate rendering code across the two key types here?
       // Can use nth child for css so that it doesn't have to be computed
       <div className="keyboard">
         <div className="black-keys">
