@@ -11,7 +11,9 @@ type Props = {
   note: string
 };
 
-/** Component for white keys on keyboard */
+/** Component for the keys on keyboard. This is reused to make
+ * both black and white keys.
+ */
 function Key({
   displayOctave,
   highlightKey,
@@ -23,8 +25,7 @@ function Key({
   let octaveNote: string = note + displayOctave;
   return (
     <div
-      className={`key key-white 
-                  ${highlightKey === keyCode ? "keyboard-click" : ""}`}
+      className={`key ${highlightKey === keyCode ? "keyboard-click" : ""}`}
       onClick={() => keyPress(octaveNote)}
     >
       <div className="key-display">

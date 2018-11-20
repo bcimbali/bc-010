@@ -1,9 +1,8 @@
 // @flow
 import React, { Component } from "react";
 
-import BlackKey from "./../BlackKey";
+import Key from "./../Key";
 import PropTypes from "prop-types";
-import WhiteKey from "./../WhiteKey";
 import autoBind from "react-autobind";
 import keys from "./../../keys.json";
 
@@ -135,10 +134,9 @@ class Keyboard extends Component<Props, State> {
         <div className="black-keys">
           {blackKeysArray.map(
             ({ id, keyCode, letter, note, startingOctave }) => (
-              <BlackKey
+              <Key
                 displayOctave={octave + startingOctave}
                 highlightKey={highlightKey}
-                id={id}
                 key={`${id}-${note}`}
                 keyCode={keyCode}
                 keyPress={keyPress}
@@ -151,10 +149,9 @@ class Keyboard extends Component<Props, State> {
         <div className="white-keys">
           {whiteKeysArray.map(
             ({ id, keyCode, letter, note, startingOctave }) => (
-              <WhiteKey
+              <Key
                 displayOctave={octave + startingOctave}
                 highlightKey={highlightKey}
-                id={id}
                 key={`${id}-${note}`}
                 keyCode={keyCode}
                 keyPress={keyPress}

@@ -271,6 +271,7 @@ body {
 
 .key {
   border: 2px solid black;
+  margin: 0.5vw;
   width: 10vw;
 }
 
@@ -282,7 +283,7 @@ body {
 /* Changes color for keyboard letter press */
 
 .keyboard-click {
-  background-color: rgb(135, 250, 160);
+  background-color: rgb(135, 250, 160) !important;
 }
 
 .key-display {
@@ -312,6 +313,11 @@ body {
 
 .black-keys :nth-child( 5n+3), .black-keys :nth-child( 5n+6) {
   margin-left: 12vw;
+}
+
+.black-keys>* {
+  background-color: #4e4e4e;
+  color: white;
 }
 
 .black-ky-bg {
