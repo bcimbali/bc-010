@@ -25,11 +25,9 @@ function Key({
   let octaveNote: string = note + displayOctave;
   return (
     <div
-      className={`key-black key 
-                  ${
-                    highlightKey === keyCode ? "keyboard-click" : "black-ky-bg"
-                  } 
-                  ${id === 7 ? "m-left-3" : id === 2 ? "m-left" : ""}`}
+      className={`key-black key ${
+        highlightKey === keyCode ? "keyboard-click" : "black-ky-bg"
+      }`}
       onClick={() => keyPress(octaveNote)}
     >
       <div className="key-display">

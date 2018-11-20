@@ -306,7 +306,12 @@ body {
   border: 2px solid yellowgreen;
   display: flex;
   height: 100vh;
+  padding-left: 5vw;
   width: 100%;
+}
+
+.black-keys :nth-child( 5n+3), .black-keys :nth-child( 5n+6) {
+  margin-left: 12vw;
 }
 
 .black-ky-bg {
