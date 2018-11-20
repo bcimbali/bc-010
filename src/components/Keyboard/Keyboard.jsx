@@ -127,40 +127,23 @@ class Keyboard extends Component<Props, State> {
     /** Destructure state */
     const { highlightKey } = this.state;
 
+    /** Logic for parameter of .map key generation below */
+    const generateKeys = ({ id, keyCode, letter, note, startingOctave }) => (
+      <Key
+        displayOctave={octave + startingOctave}
+        highlightKey={highlightKey}
+        key={`${id}-${note}`}
+        keyCode={keyCode}
+        keyPress={keyPress}
+        letter={letter}
+        note={note}
+      />
+    );
+
     return (
-      // Could we de-duplicate rendering code across the two key types here?
-      // Can use nth child for css so that it doesn't have to be computed
       <div className="keyboard">
-        <div className="black-keys">
-          {blackKeysArray.map(
-            ({ id, keyCode, letter, note, startingOctave }) => (
-              <Key
-                displayOctave={octave + startingOctave}
-                highlightKey={highlightKey}
-                key={`${id}-${note}`}
-                keyCode={keyCode}
-                keyPress={keyPress}
-                letter={letter}
-                note={note}
-              />
-            )
-          )}
-        </div>
-        <div className="white-keys">
-          {whiteKeysArray.map(
-            ({ id, keyCode, letter, note, startingOctave }) => (
-              <Key
-                displayOctave={octave + startingOctave}
-                highlightKey={highlightKey}
-                key={`${id}-${note}`}
-                keyCode={keyCode}
-                keyPress={keyPress}
-                letter={letter}
-                note={note}
-              />
-            )
-          )}
-        </div>
+        <div className="black-keys">{blackKeysArray.map(generateKeys)}</div>
+        <div className="white-keys">{whiteKeysArray.map(generateKeys)}</div>
       </div>
     );
   }
