@@ -72,18 +72,10 @@ class Keyboard extends Component<Props, State> {
   /** ...handler for the note object
    * @public
    */
-  handleNoteObj(letterNote: Object = {}): void {
-    if (Object.keys(letterNote).length !== 0) {
-      let noteClicked: string = this.updateNoteOctave(letterNote);
-      this.props.keyPress(noteClicked);
+  handleNoteObj(noteObj: Object | void): void {
+    if (noteObj) {
+      this.props.keyPress(this.updateNoteOctave(noteObj));
     }
-  }
-
-  /** Makes sure any undefined values are empty objects
-   *  @public
-   */
-  convertUndefToObj(searchResult: Object = {}): Object {
-    return searchResult;
   }
 
   /** Search an array of objects, that contain a `keyCode` property,
@@ -99,18 +91,15 @@ class Keyboard extends Component<Props, State> {
     });
   }
 
-  /** Handle the (computer) keyboard letter presses:
+  /** Handler for the (computer) keyboard letter presses:
    * @public
    */
   keyboardLetterPress(event: SyntheticKeyboardEvent<*>): void {
-    /** Find key object in keys array that matches key pressed charCode */
-    const keySearchResult = this.findKeyCodeMatch(event.charCode, keys);
+    /** If key pressed matches a key object in keys.json array,
+     * fire the keyPress() function to sound the synth. */
+    this.handleNoteObj(this.findKeyCodeMatch(event.charCode, keys));
 
-    const foundSynthKey = this.convertUndefToObj(keySearchResult);
-
-    this.handleNoteObj(keySearchResult);
-
-    /** Display - highlights the key on the keyboard */
+    /** Quickly highlights the key pressed to a bright green on the synth keyboard */
     this.highlightKeyHandler(event.charCode);
   }
 
