@@ -72,39 +72,46 @@ class Keyboard extends Component<Props, State> {
   /** ...handler for the note object
    * @public
    */
-  handleNoteObj(letterNote: Object): void {
-    let noteClicked: string = this.updateNoteOctave(letterNote);
-    this.props.keyPress(noteClicked);
+  handleNoteObj(letterNote: Object = {}): void {
+    if (Object.keys(letterNote).length !== 0) {
+      let noteClicked: string = this.updateNoteOctave(letterNote);
+      this.props.keyPress(noteClicked);
+    }
   }
 
-  /** See if the letter pressed object is undefined...
-   * @public
+  /** Makes sure any undefined values are empty objects
+   *  @public
    */
-  checkForUndefined(letterNote: Object): void {
-    if (typeof letterNote !== "undefined") {
-      this.handleNoteObj(letterNote);
-    }
+  convertUndefToObj(searchResult: Object = {}): Object {
+    return searchResult;
+  }
+
+  /** Search an array of objects, that contain a `keyCode` property,
+   *  to see if it matches a number.
+   *  @public
+   */
+  findKeyCodeMatch(
+    keyPressedCharCode: number,
+    listOfSynthKeys: Array<Object>
+  ): Object | void {
+    return listOfSynthKeys.find(synthKey => {
+      return synthKey.keyCode === keyPressedCharCode;
+    });
   }
 
   /** Handle the (computer) keyboard letter presses:
    * @public
    */
   keyboardLetterPress(event: SyntheticKeyboardEvent<*>): void {
-    // Save character code in variable:
-    let keyPressed: number = event.charCode;
+    /** Find key object in keys array that matches key pressed charCode */
+    const keySearchResult = this.findKeyCodeMatch(event.charCode, keys);
 
-    /** Filter the array for the object that contains key pressed charCode
-     and return the object for that keyboard note. */
-    const letterNote: Object = keys.find(key => {
-      return key.keyCode === keyPressed;
-    });
+    const foundSynthKey = this.convertUndefToObj(keySearchResult);
 
-    /** Make sure the result from the filter isn't undefined. If it's not...
-     ... then call the synth keyPress function and pass in the keyboard note. */
-    this.checkForUndefined(letterNote);
+    this.handleNoteObj(keySearchResult);
 
-    /** Call function to highlight the keyboard letter pressed */
-    this.highlightKeyHandler(keyPressed);
+    /** Display - highlights the key on the keyboard */
+    this.highlightKeyHandler(event.charCode);
   }
 
   /** Add the keypress event listener to the document before the component mounts. */
