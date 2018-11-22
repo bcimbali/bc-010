@@ -3,8 +3,8 @@ import React, { Component } from "react";
 
 import Key from "./../Key";
 import PropTypes from "prop-types";
+import arrOfKeyObjects from "./../../arrOfKeyObjects.json";
 import autoBind from "react-autobind";
-import keys from "./../../keys.json";
 
 type Props = {
   keyPress: Function,
@@ -16,12 +16,12 @@ type State = {
 };
 
 /** Filter the keys json data for just white keys */
-const whiteKeysArray: Array<Object> = keys.filter(key => {
+const whiteKeysArray: Array<Object> = arrOfKeyObjects.filter(key => {
   return key.type === "white";
 });
 
 /** Filter the keys json data for just black keys */
-const blackKeysArray: Array<Object> = keys.filter(key => {
+const blackKeysArray: Array<Object> = arrOfKeyObjects.filter(key => {
   return key.type === "black";
 });
 
@@ -60,7 +60,8 @@ class Keyboard extends Component<Props, State> {
     this.resetHighlightedKey();
   }
 
-  /** Make sure the correct octave is associated with the key note
+  /** Make sure the correct octave is associated with the synth
+   * keyboard key pressed note.
    * @public
    */
   updateNoteOctave(noteObj: Object | void): string | void {
@@ -84,18 +85,22 @@ class Keyboard extends Component<Props, State> {
     });
   }
 
-  /** Handler for the (computer) keyboard letter presses:
+  /** Handler for the (computer) keyboard letter press events:
    * @public
    */
   keyboardLetterPress(event: SyntheticKeyboardEvent<*>): void {
     /** If key pressed matches a key object in keys.json array,
-     * fire the keyPress() function to sound the synth. */
+     * fire the keyPress() function to sound the synth. Also,
+     highlight the keyboard key pressed a bright green. */
     this.props.keyPress(
-      this.updateNoteOctave(this.findKeyCodeMatch(event.charCode, keys))
+      this.updateNoteOctave(
+        this.findKeyCodeMatch(
+          event.charCode,
+          arrOfKeyObjects,
+          this.highlightKeyPressed(event.charCode)
+        )
+      )
     );
-
-    /** Quickly highlights the key pressed to a bright green on the synth keyboard */
-    this.highlightKeyPressed(event.charCode);
   }
 
   /** Add the keypress event listener to the document before the component mounts. */
