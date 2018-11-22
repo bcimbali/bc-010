@@ -54,7 +54,7 @@ class App extends Component<Props, State> {
   filter: Object = {};
 
   /** Actually plays the note on the synth: */
-  keyPress(note: string): void {
+  keyPress(note: string | void): void {
     this.synth.triggerAttackRelease(note, "8n");
   }
 
