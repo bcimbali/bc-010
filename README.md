@@ -36,7 +36,7 @@ This is an audio synthesizer to be used right in your own web browser. You can p
 ## Documentation
 
 - Components, props, and methods all documented here:
-  - https://moldy-turkey.surge.sh/
+  - slippery-girl.surge.sh
 
 ## Built with:
 
