@@ -89,18 +89,16 @@ class Keyboard extends Component<Props, State> {
    * @public
    */
   keyboardLetterPress(event: SyntheticKeyboardEvent<*>): void {
-    /** If key pressed matches a key object in keys.json array,
-     * fire the keyPress() function to sound the synth. Also,
-     highlight the keyboard key pressed a bright green. */
+    /** If key pressed matches a key object in arrOfKeyObjects.json array,
+     * fire the keyPress() function to sound the synth. */
     this.props.keyPress(
       this.updateNoteOctave(
-        this.findKeyCodeMatch(
-          event.charCode,
-          arrOfKeyObjects,
-          this.highlightKeyPressed(event.charCode)
-        )
+        this.findKeyCodeMatch(event.charCode, arrOfKeyObjects)
       )
     );
+
+    /** Also, highlight the keyboard key pressed a bright green.  */
+    this.highlightKeyPressed(event.charCode);
   }
 
   /** Add the keypress event listener to the document before the component mounts. */
