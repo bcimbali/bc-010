@@ -1,10 +1,11 @@
 // @flow
-import FilterSliderBank from "./../FilterSliderBank";
 import OctaveContainer from "./../OctaveContainer";
 import OscillatorBtn from "./../OscillatorBtn";
 import PropTypes from "prop-types";
 import React from "react";
 import SliderBank from "../SliderBank/SliderBank";
+import adsrSliders from "./../../envelopeSliders.json";
+import filterSliders from "./../../filterSliders.json";
 import oscillatorTypes from "./../../oscillatorTypes.json";
 
 type Props = {
@@ -44,12 +45,20 @@ function ControlPanel({
         decayValue={decayValue}
         sustainValue={sustainValue}
         releaseValue={releaseValue}
-        envelopeSliderChange={envelopeSliderChange}
-      />
-      <FilterSliderBank
-        envelopeSliderChange={envelopeSliderChange}
         filterValue={filterValue}
         lfoValue={lfoValue}
+        envelopeSliderChange={envelopeSliderChange}
+        sliderArray={adsrSliders}
+      />
+      <SliderBank
+        attackValue={attackValue}
+        decayValue={decayValue}
+        sustainValue={sustainValue}
+        releaseValue={releaseValue}
+        filterValue={filterValue}
+        lfoValue={lfoValue}
+        envelopeSliderChange={envelopeSliderChange}
+        sliderArray={filterSliders}
       />
       <OctaveContainer
         key="octave-container"

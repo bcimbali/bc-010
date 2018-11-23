@@ -2,14 +2,16 @@
 import EnvelopeSlider from "./../EnvelopeSlider";
 import PropTypes from "prop-types";
 import React from "react";
-import envelopeSliders from "./../../envelopeSliders.json";
 
 type Props = {
   attackValue: number,
   decayValue: number,
   sustainValue: number,
   releaseValue: number,
-  envelopeSliderChange: Function
+  filterValue: number,
+  lfoValue: number,
+  envelopeSliderChange: Function,
+  sliderArray: array
 };
 
 /** Houses all the tweakable sliders. */
@@ -18,11 +20,14 @@ function SliderBank({
   decayValue,
   sustainValue,
   releaseValue,
-  envelopeSliderChange
+  filterValue,
+  lfoValue,
+  envelopeSliderChange,
+  sliderArray
 }: Props) {
   return (
     <div className="slider-bank">
-      {envelopeSliders.map(({ abbr, id, max, min, step, type }) => (
+      {sliderArray.map(({ abbr, id, max, min, step, type }) => (
         <EnvelopeSlider
           abbr={abbr}
           adsr={type}
@@ -41,7 +46,11 @@ function SliderBank({
                   ? sustainValue
                   : type === "release"
                     ? releaseValue
-                    : ""
+                    : type === "filter"
+                      ? filterValue
+                      : type === "lfo"
+                        ? lfoValue
+                        : ""
           }`}
         />
       ))}
@@ -54,7 +63,8 @@ SliderBank.propTypes = {
   decayValue: PropTypes.number,
   sustainValue: PropTypes.number,
   releaseValue: PropTypes.number,
-  envelopeSliderChange: PropTypes.func
+  envelopeSliderChange: PropTypes.func,
+  sliderArray: PropTypes.array
 };
 
 export default SliderBank;
