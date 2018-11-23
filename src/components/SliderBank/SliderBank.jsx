@@ -11,7 +11,7 @@ type Props = {
   filterValue: number,
   lfoValue: number,
   envelopeSliderChange: Function,
-  sliderArray: array
+  sliderArray: Array<Object>
 };
 
 /** Houses all the tweakable sliders. */
