@@ -9,56 +9,42 @@ import filterSliders from "./../../filterSliders.json";
 import oscillatorTypes from "./../../oscillatorTypes.json";
 
 type Props = {
-  attackValue: number,
-  decayValue: number,
-  sustainValue: number,
-  releaseValue: number,
   decreaseOctave: Function,
   envelopeSliderChange: Function,
   filterValue: number,
   increaseOctave: Function,
   lfoValue: number,
   octave: number,
-  oscillator: string,
-  toggleOscillator: Function
+  toggleOscillator: Function,
+  synthParams: Object
 };
 
 /** Component to hold all tweakable parameters (e.g. sliders, knobs etc.) for the synth. */
 function ControlPanel({
-  attackValue,
-  decayValue,
-  sustainValue,
-  releaseValue,
   decreaseOctave,
   envelopeSliderChange,
   filterValue,
   increaseOctave,
   lfoValue,
   octave,
-  oscillator,
-  toggleOscillator
+  toggleOscillator,
+  synthParams
 }: Props) {
   return (
     <div className="controlPanel">
       <SliderBank
-        attackValue={attackValue}
-        decayValue={decayValue}
-        sustainValue={sustainValue}
-        releaseValue={releaseValue}
         filterValue={filterValue}
         lfoValue={lfoValue}
         envelopeSliderChange={envelopeSliderChange}
         sliderArray={adsrSliders}
+        synthParams={synthParams}
       />
       <SliderBank
-        attackValue={attackValue}
-        decayValue={decayValue}
-        sustainValue={sustainValue}
-        releaseValue={releaseValue}
         filterValue={filterValue}
         lfoValue={lfoValue}
         envelopeSliderChange={envelopeSliderChange}
         sliderArray={filterSliders}
+        synthParams={synthParams}
       />
       <OctaveContainer
         key="octave-container"
@@ -70,8 +56,8 @@ function ControlPanel({
         <OscillatorBtn
           abbr={abbr}
           key={`${id}-${type}`}
-          oscillator={oscillator}
           toggleOscillator={toggleOscillator}
+          synthParams={synthParams}
           type={type}
         />
       ))}
@@ -80,18 +66,14 @@ function ControlPanel({
 }
 
 ControlPanel.propTypes = {
-  attackValue: PropTypes.number,
-  decayValue: PropTypes.number,
-  sustainValue: PropTypes.number,
-  releaseValue: PropTypes.number,
   decreaseOctave: PropTypes.func,
   envelopeSliderChange: PropTypes.func,
   filterValue: PropTypes.number,
   increaseOctave: PropTypes.func,
   lfoValue: PropTypes.number,
   octave: PropTypes.number,
-  oscillator: PropTypes.string,
-  toggleOscillator: PropTypes.func
+  toggleOscillator: PropTypes.func,
+  synthParams: PropTypes.object
 };
 
 export default ControlPanel;

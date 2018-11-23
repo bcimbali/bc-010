@@ -11,13 +11,8 @@ import autoBind from "react-autobind";
 type Props = {};
 
 type State = {
-  attack: number,
-  decay: number,
-  sustain: number,
-  release: number,
   octave: number,
-  oscillator: string,
-  portamento: number,
+  synthParams: Object,
   filterParams: Object
 };
 
@@ -26,13 +21,19 @@ class App extends Component<Props, State> {
     super();
     autoBind(this);
     this.state = {
-      attack: 0.0001,
-      decay: 0.2,
-      sustain: 0.2,
-      release: 1,
       octave: 5,
-      oscillator: "sawtooth",
-      portamento: 0.05,
+      synthParams: {
+        oscillator: {
+          type: "sawtooth"
+        },
+        envelope: {
+          attack: 0.0001,
+          decay: 0.2,
+          sustain: 0.2,
+          release: 1
+        },
+        portamento: 0.05
+      },
       filterParams: {
         frequency: 0,
         type: "sine",
@@ -60,7 +61,9 @@ class App extends Component<Props, State> {
 
   /** Handles change in oscillator type via btn clicks: */
   toggleOscillator(oscType: string): void {
-    this.setState({ oscillator: oscType });
+    let synthParams: Object = Object.assign({}, this.state.synthParams);
+    synthParams.oscillator.type = oscType;
+    this.setState({ synthParams });
   }
 
   /** Lower keyboard octave */
@@ -85,18 +88,24 @@ class App extends Component<Props, State> {
 
     let filterParams: Object = Object.assign({}, this.state.filterParams);
 
+    let synthParams: Object = Object.assign({}, this.state.synthParams);
+
     // Check the envelope type, and update the correct envelope state in App.jsx
     if (envelopeType === "attack") {
-      this.setState({ attack: sliderValueNumber });
+      synthParams.envelope.attack = sliderValueNumber;
+      this.setState({ synthParams });
     }
     if (envelopeType === "decay") {
-      this.setState({ decay: sliderValueNumber });
+      synthParams.envelope.decay = sliderValueNumber;
+      this.setState({ synthParams });
     }
     if (envelopeType === "sustain") {
-      this.setState({ sustain: sliderValueNumber });
+      synthParams.envelope.sustain = sliderValueNumber;
+      this.setState({ synthParams });
     }
     if (envelopeType === "release") {
-      this.setState({ release: sliderValueNumber });
+      synthParams.envelope.release = sliderValueNumber;
+      this.setState({ synthParams });
     }
     if (envelopeType === "filter") {
       filterParams.baseFrequency = sliderValueNumber;
@@ -111,43 +120,23 @@ class App extends Component<Props, State> {
   render() {
     // Destructure state and pull out nested params in filterParams
     const {
-      attack,
-      decay,
-      sustain,
-      release,
       filterParams,
       filterParams: { baseFrequency },
       filterParams: { frequency },
-      octave,
-      oscillator,
-      portamento
+      synthParams,
+      octave
     } = this.state;
 
-    // Add filter and connect to synth
+    // Add filter, connect to synth, and route audio to master.
     this.filter = new Tone.AutoFilter(filterParams).toMaster().start();
 
     // Create a new Tone.js synth on render & update synth timbre based on App.jsx state
-    this.synth = new Tone.Synth({
-      oscillator: {
-        type: oscillator
-      },
-      envelope: {
-        attack: attack,
-        decay: decay,
-        sustain: sustain,
-        release: release
-      },
-      portamento: portamento
-    }).connect(this.filter);
+    this.synth = new Tone.Synth(synthParams).connect(this.filter);
 
     return (
       <div>
         <h1 className="header">bc-010</h1>
         <OuterCasing
-          attackValue={attack}
-          decayValue={decay}
-          sustainValue={sustain}
-          releaseValue={release}
           decreaseOctave={this.decreaseOctave}
           envelopeSliderChange={this.envelopeSliderChange}
           filterValue={baseFrequency}
@@ -156,7 +145,7 @@ class App extends Component<Props, State> {
           keyPress={this.keyPress}
           lfoValue={frequency}
           octave={octave}
-          oscillator={oscillator}
+          synthParams={synthParams}
           toggleOscillator={this.toggleOscillator}
         />
       </div>

@@ -5,10 +5,6 @@ import PropTypes from "prop-types";
 import React from "react";
 
 type Props = {
-  attackValue: number,
-  decayValue: number,
-  sustainValue: number,
-  releaseValue: number,
   decreaseOctave: Function,
   envelopeSliderChange: Function,
   filterValue: number,
@@ -16,16 +12,12 @@ type Props = {
   keyPress: Function,
   lfoValue: number,
   octave: number,
-  oscillator: string,
-  toggleOscillator: Function
+  toggleOscillator: Function,
+  synthParams: Object
 };
 
 /** This holds everything. This is just one step down from App.jsx. */
 function OuterCasing({
-  attackValue,
-  decayValue,
-  sustainValue,
-  releaseValue,
   decreaseOctave,
   envelopeSliderChange,
   filterValue,
@@ -33,16 +25,12 @@ function OuterCasing({
   keyPress,
   lfoValue,
   octave,
-  oscillator,
-  toggleOscillator
+  toggleOscillator,
+  synthParams
 }: Props) {
   return (
     <div className="outerCasing">
       <ControlPanel
-        attackValue={attackValue}
-        decayValue={decayValue}
-        sustainValue={sustainValue}
-        releaseValue={releaseValue}
         decreaseOctave={decreaseOctave}
         envelopeSliderChange={envelopeSliderChange}
         filterValue={filterValue}
@@ -50,8 +38,8 @@ function OuterCasing({
         key="control-panel"
         lfoValue={lfoValue}
         octave={octave}
-        oscillator={oscillator}
         toggleOscillator={toggleOscillator}
+        synthParams={synthParams}
       />
       <Keyboard key="keyboard" keyPress={keyPress} octave={octave} />
     </div>
@@ -59,10 +47,6 @@ function OuterCasing({
 }
 
 OuterCasing.propTypes = {
-  attackValue: PropTypes.number,
-  decayValue: PropTypes.number,
-  sustainValue: PropTypes.number,
-  releaseValue: PropTypes.number,
   decreaseOctave: PropTypes.func,
   envelopeSliderChange: PropTypes.func,
   filterValue: PropTypes.number,
@@ -70,8 +54,8 @@ OuterCasing.propTypes = {
   keyPress: PropTypes.func,
   lfoValue: PropTypes.number,
   octave: PropTypes.number,
-  oscillator: PropTypes.string,
-  toggleOscillator: PropTypes.func
+  toggleOscillator: PropTypes.func,
+  synthParams: PropTypes.object
 };
 
 export default OuterCasing;
