@@ -17,28 +17,28 @@ function SliderBank({
 }: Props) {
   return (
     <div className="slider-bank">
-      {sliderArray.map(({ abbr, id, max, min, step, type }) => (
+      {sliderArray.map(({ abbr, id, max, min, sliderName, step }) => (
         <EnvelopeSlider
           abbr={abbr}
-          adsr={type}
+          adsr={sliderName}
           envelopeSliderChange={envelopeSliderChange}
-          key={`${id}-${type}`}
+          key={`${id}-${sliderName}`}
           type="range"
           min={min}
           max={max}
           step={step}
           value={`${
-            type === "attack"
+            sliderName === "attack"
               ? sliderParams.envelope.attack
-              : type === "decay"
+              : sliderName === "decay"
                 ? sliderParams.envelope.decay
-                : type === "sustain"
+                : sliderName === "sustain"
                   ? sliderParams.envelope.sustain
-                  : type === "release"
+                  : sliderName === "release"
                     ? sliderParams.envelope.release
-                    : type === "filter"
+                    : sliderName === "filter"
                       ? sliderParams.baseFrequency
-                      : type === "lfo"
+                      : sliderName === "lfo"
                         ? sliderParams.frequency
                         : ""
           }`}
