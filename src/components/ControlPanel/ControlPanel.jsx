@@ -11,21 +11,19 @@ import oscillatorTypes from "./../../oscillatorTypes.json";
 type Props = {
   decreaseOctave: Function,
   envelopeSliderChange: Function,
-  filterValue: number,
+  filterParams: Object,
   increaseOctave: Function,
-  lfoValue: number,
   octave: number,
-  toggleOscillator: Function,
-  synthParams: Object
+  synthParams: Object,
+  toggleOscillator: Function
 };
 
 /** Component to hold all tweakable parameters (e.g. sliders, knobs etc.) for the synth. */
 function ControlPanel({
   decreaseOctave,
   envelopeSliderChange,
-  filterValue,
+  filterParams,
   increaseOctave,
-  lfoValue,
   octave,
   toggleOscillator,
   synthParams
@@ -33,18 +31,14 @@ function ControlPanel({
   return (
     <div className="controlPanel">
       <SliderBank
-        filterValue={filterValue}
-        lfoValue={lfoValue}
         envelopeSliderChange={envelopeSliderChange}
+        sliderParams={synthParams}
         sliderArray={adsrSliders}
-        synthParams={synthParams}
       />
       <SliderBank
-        filterValue={filterValue}
-        lfoValue={lfoValue}
         envelopeSliderChange={envelopeSliderChange}
+        sliderParams={filterParams}
         sliderArray={filterSliders}
-        synthParams={synthParams}
       />
       <OctaveContainer
         key="octave-container"
@@ -68,12 +62,11 @@ function ControlPanel({
 ControlPanel.propTypes = {
   decreaseOctave: PropTypes.func,
   envelopeSliderChange: PropTypes.func,
-  filterValue: PropTypes.number,
+  filterParams: PropTypes.object,
   increaseOctave: PropTypes.func,
-  lfoValue: PropTypes.number,
   octave: PropTypes.number,
-  toggleOscillator: PropTypes.func,
-  synthParams: PropTypes.object
+  synthParams: PropTypes.object,
+  toggleOscillator: PropTypes.func
 };
 
 export default ControlPanel;

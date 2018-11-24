@@ -119,13 +119,7 @@ class App extends Component<Props, State> {
 
   render() {
     // Destructure state and pull out nested params in filterParams
-    const {
-      filterParams,
-      filterParams: { baseFrequency },
-      filterParams: { frequency },
-      synthParams,
-      octave
-    } = this.state;
+    const { filterParams, synthParams, octave } = this.state;
 
     // Add filter, connect to synth, and route audio to master.
     this.filter = new Tone.AutoFilter(filterParams).toMaster().start();
@@ -139,11 +133,10 @@ class App extends Component<Props, State> {
         <OuterCasing
           decreaseOctave={this.decreaseOctave}
           envelopeSliderChange={this.envelopeSliderChange}
-          filterValue={baseFrequency}
+          filterParams={filterParams}
           increaseOctave={this.increaseOctave}
           key="outerCasing"
           keyPress={this.keyPress}
-          lfoValue={frequency}
           octave={octave}
           synthParams={synthParams}
           toggleOscillator={this.toggleOscillator}

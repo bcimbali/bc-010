@@ -4,20 +4,16 @@ import PropTypes from "prop-types";
 import React from "react";
 
 type Props = {
-  filterValue: number,
-  lfoValue: number,
   envelopeSliderChange: Function,
   sliderArray: Array<Object>,
-  synthParams: Object
+  sliderParams: Object
 };
 
 /** Houses all the tweakable sliders. */
 function SliderBank({
-  filterValue,
-  lfoValue,
   envelopeSliderChange,
   sliderArray,
-  synthParams
+  sliderParams
 }: Props) {
   return (
     <div className="slider-bank">
@@ -33,17 +29,17 @@ function SliderBank({
           step={step}
           value={`${
             type === "attack"
-              ? synthParams.envelope.attack
+              ? sliderParams.envelope.attack
               : type === "decay"
-                ? synthParams.envelope.decay
+                ? sliderParams.envelope.decay
                 : type === "sustain"
-                  ? synthParams.envelope.sustain
+                  ? sliderParams.envelope.sustain
                   : type === "release"
-                    ? synthParams.envelope.release
+                    ? sliderParams.envelope.release
                     : type === "filter"
-                      ? filterValue
+                      ? sliderParams.baseFrequency
                       : type === "lfo"
-                        ? lfoValue
+                        ? sliderParams.frequency
                         : ""
           }`}
         />
@@ -55,7 +51,7 @@ function SliderBank({
 SliderBank.propTypes = {
   envelopeSliderChange: PropTypes.func,
   sliderArray: PropTypes.array,
-  synthParams: PropTypes.object
+  sliderParams: PropTypes.object
 };
 
 export default SliderBank;
