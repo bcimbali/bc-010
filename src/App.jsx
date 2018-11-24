@@ -80,51 +80,50 @@ class App extends Component<Props, State> {
     }));
   }
 
-  /** Handles change in envelope sliders in control panel */
+  /** Updates state, for a filterParam or synthParam, based on the number
+   * passed in from the HTML slider in VerticalSlider.jsx.
+   * @public
+   */
   envelopeSliderChange(envelopeType: string, sliderValue: number): void {
-    /** Make sure the number passed into Tone.Synth is a float.
-     It will complain if it's a string. */
-    let sliderValueNumber: number = parseFloat(sliderValue);
-
     let filterParams: Object = Object.assign({}, this.state.filterParams);
 
     let synthParams: Object = Object.assign({}, this.state.synthParams);
 
     // Check the envelope type, and update the correct envelope state in App.jsx
     if (envelopeType === "attack") {
-      synthParams.envelope.attack = sliderValueNumber;
+      synthParams.envelope.attack = sliderValue;
       this.setState({ synthParams });
     }
     if (envelopeType === "decay") {
-      synthParams.envelope.decay = sliderValueNumber;
+      synthParams.envelope.decay = sliderValue;
       this.setState({ synthParams });
     }
     if (envelopeType === "sustain") {
-      synthParams.envelope.sustain = sliderValueNumber;
+      synthParams.envelope.sustain = sliderValue;
       this.setState({ synthParams });
     }
     if (envelopeType === "release") {
-      synthParams.envelope.release = sliderValueNumber;
+      synthParams.envelope.release = sliderValue;
       this.setState({ synthParams });
     }
     if (envelopeType === "baseFrequency") {
-      filterParams.baseFrequency = sliderValueNumber;
+      filterParams.baseFrequency = sliderValue;
       this.setState({ filterParams });
     }
     if (envelopeType === "frequency") {
-      filterParams.frequency = sliderValueNumber;
+      filterParams.frequency = sliderValue;
       this.setState({ filterParams });
     }
   }
 
   render() {
-    // Destructure state and pull out nested params in filterParams
+    // Destructure state
     const { filterParams, synthParams, octave } = this.state;
 
-    // Add filter, connect to synth, and route audio to master.
+    // Create a new Tone.js filter and route audio to master.
     this.filter = new Tone.AutoFilter(filterParams).toMaster().start();
 
-    // Create a new Tone.js synth on render & update synth timbre based on App.jsx state
+    // Create a new Tone.js synth and route audio to this.filter
     this.synth = new Tone.Synth(synthParams).connect(this.filter);
 
     return (
