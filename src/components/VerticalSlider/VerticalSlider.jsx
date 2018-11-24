@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import autoBind from "react-autobind";
 
 type Props = {
-  adsr: string,
+  sliderName: string,
   envelopeSliderChange: Function,
   max: number,
   min: number,
@@ -35,7 +35,7 @@ class VerticalSlider extends Component<Props, State> {
    * @public
    */
   updateSynthValue(): void {
-    this.props.envelopeSliderChange(this.props.adsr, this.state.value);
+    this.props.envelopeSliderChange(this.props.sliderName, this.state.value);
   }
 
   /** Actually updates state in this slider instance
@@ -54,12 +54,12 @@ class VerticalSlider extends Component<Props, State> {
   }
 
   render() {
-    const { adsr, max, min, step, value } = this.props;
+    const { sliderName, max, min, step, value } = this.props;
     return (
       <div className="slider-housing">
         <div className="slider-container">
           <input
-            adsr={adsr}
+            slider-name={sliderName}
             className="html-slider"
             type="range"
             min={min}
@@ -75,7 +75,7 @@ class VerticalSlider extends Component<Props, State> {
 }
 
 VerticalSlider.propTypes = {
-  adsr: PropTypes.string,
+  sliderName: PropTypes.string,
   envelopeSliderChange: PropTypes.func,
   max: PropTypes.number,
   min: PropTypes.number,

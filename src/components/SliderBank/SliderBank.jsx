@@ -20,7 +20,7 @@ function SliderBank({
       {sliderArray.map(({ abbr, id, max, min, sliderName, step }) => (
         <EnvelopeSlider
           abbr={abbr}
-          adsr={sliderName}
+          sliderName={sliderName}
           envelopeSliderChange={envelopeSliderChange}
           key={`${id}-${sliderName}`}
           type="range"

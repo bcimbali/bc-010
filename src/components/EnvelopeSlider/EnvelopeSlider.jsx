@@ -7,7 +7,7 @@ import VerticalSlider from "./../VerticalSlider";
 
 type Props = {
   abbr: string,
-  adsr: string,
+  sliderName: string,
   envelopeSliderChange: Function,
   max: number,
   min: number,
@@ -19,7 +19,7 @@ type Props = {
 /** Holds all the slider components (SliderLabel, VerticalSlider, SliderNumberDisplay) */
 function EnvelopeSlider({
   abbr,
-  adsr,
+  sliderName,
   envelopeSliderChange,
   type,
   min,
@@ -29,9 +29,9 @@ function EnvelopeSlider({
 }: Props) {
   return (
     <div className="envelopeSlider">
-      <SliderLabel abbr={abbr} adsr={type} />
+      <SliderLabel abbr={abbr} sliderName={type} />
       <VerticalSlider
-        adsr={adsr}
+        sliderName={sliderName}
         envelopeSliderChange={envelopeSliderChange}
         max={max}
         min={min}
@@ -46,7 +46,7 @@ function EnvelopeSlider({
 
 EnvelopeSlider.propTypes = {
   abbr: PropTypes.string,
-  adsr: PropTypes.string,
+  sliderName: PropTypes.string,
   envelopeSliderChange: PropTypes.func,
   max: PropTypes.number,
   min: PropTypes.number,
