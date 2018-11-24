@@ -13,7 +13,7 @@ type Props = {
   min: number,
   step: number,
   type: string,
-  value: string
+  value: number
 };
 
 /** Holds all the slider components (SliderLabel, VerticalSlider, SliderNumberDisplay) */
@@ -52,7 +52,7 @@ EnvelopeSlider.propTypes = {
   min: PropTypes.number,
   step: PropTypes.number,
   type: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.number
 };
 
 export default EnvelopeSlider;

@@ -107,11 +107,11 @@ class App extends Component<Props, State> {
       synthParams.envelope.release = sliderValueNumber;
       this.setState({ synthParams });
     }
-    if (envelopeType === "filter") {
+    if (envelopeType === "baseFrequency") {
       filterParams.baseFrequency = sliderValueNumber;
       this.setState({ filterParams });
     }
-    if (envelopeType === "lfo") {
+    if (envelopeType === "frequency") {
       filterParams.frequency = sliderValueNumber;
       this.setState({ filterParams });
     }

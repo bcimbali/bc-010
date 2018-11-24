@@ -4,7 +4,7 @@ import OscillatorBtn from "./../OscillatorBtn";
 import PropTypes from "prop-types";
 import React from "react";
 import SliderBank from "../SliderBank/SliderBank";
-import adsrSliders from "./../../envelopeSliders.json";
+import envelopeSliders from "./../../envelopeSliders.json";
 import filterSliders from "./../../filterSliders.json";
 import oscillatorTypes from "./../../oscillatorTypes.json";
 
@@ -33,7 +33,7 @@ function ControlPanel({
       <SliderBank
         envelopeSliderChange={envelopeSliderChange}
         sliderParams={synthParams}
-        sliderArray={adsrSliders}
+        sliderArray={envelopeSliders}
       />
       <SliderBank
         envelopeSliderChange={envelopeSliderChange}

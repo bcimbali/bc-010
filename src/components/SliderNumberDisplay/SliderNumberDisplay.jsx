@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 type Props = {
-  value: string
+  value: number
 };
 
 /** Display component that shows the real-time value of the slider. */
@@ -16,7 +16,7 @@ function SliderNumberDisplay({ value }: Props) {
 }
 
 SliderNumberDisplay.propTypes = {
-  value: PropTypes.string
+  value: PropTypes.number
 };
 
 export default SliderNumberDisplay;

@@ -11,7 +11,7 @@ type Props = {
   min: number,
   step: number,
   type: string,
-  value: string
+  value: number
 };
 
 /* Most likely, this value should be a number. Currently, envelopeSliderChange in
@@ -81,7 +81,7 @@ VerticalSlider.propTypes = {
   min: PropTypes.number,
   step: PropTypes.number,
   type: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.number
 };
 
 export default VerticalSlider;
