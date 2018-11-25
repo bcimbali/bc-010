@@ -18,7 +18,7 @@ function OctaveContainer({ decreaseOctave, increaseOctave, octave }: Props) {
         <div className="octave-btn" onClick={() => decreaseOctave()}>
           -
         </div>
-        <div className="octave-display">{octave}</div>
+        <div>{octave}</div>
         <div className="octave-btn" onClick={() => increaseOctave()}>
           +
         </div>

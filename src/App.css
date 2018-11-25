@@ -1,4 +1,5 @@
 body {
+  background-color: #40522D;
   box-sizing: border-box;
   font-family: 'Roboto Mono', monospace;
   /* width: 100%; */
@@ -11,6 +12,7 @@ body {
 *----------------------------------------------------------------------------------------------------*/
 
 .header {
+  color: white;
   font-size: 2vw;
   font-weight: bold;
 }
@@ -22,7 +24,7 @@ body {
 *----------------------------------------------------------------------------------------------------*/
 
 .outerCasing {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
   height: 90vh;
@@ -36,7 +38,8 @@ body {
 *----------------------------------------------------------------------------------------------------*/
 
 .controlPanel {
-  border: 2px solid purple;
+  background-color: #B2FF5A;
+  border: 2px solid #40522D;
   display: flex;
   height: 50vh;
   justify-content: space-evenly;
@@ -47,7 +50,8 @@ body {
 .btn-toggle {
   align-items: center;
   align-self: center;
-  border: 2px solid black;
+  border: 2px solid #40522D;
+  color: #40522D;
   display: flex;
   height: 5vh;
   justify-content: center;
@@ -58,13 +62,14 @@ body {
 }
 
 .btn-toggle:hover {
-  background-color: #5e5d5d;
+  background-color: #00BFA5;
   color: white;
   cursor: pointer;
 }
 
 .btn-selected {
-  background-color: #808080;
+  background-color: #00bb10;
+  color: white;
 }
 
 .btn-text {
@@ -76,32 +81,26 @@ body {
 
 .octave-container {
   align-self: center;
-  border: 2px solid greenyellow;
+  border: 2px solid #40522D;
   display: flex;
   flex-direction: column;
 }
 
 .octave-controls {
+  color: #40522D;
   display: flex;
   font-size: 2vw;
   justify-content: space-between;
 }
 
-.octave-btn {
-  border: 2px dashed rosybrown;
-}
-
 .octave-btn:hover {
-  background-color: #5e5d5d;
+  background-color: #00BFA5;
   color: white;
   cursor: pointer;
 }
 
-.octave-display {
-  border: 2px dashed rgb(138, 138, 255);
-}
-
 .octave-header {
+  color: #40522D;
   display: flex;
   font-size: 1.5vw;
   justify-content: center;
@@ -113,7 +112,7 @@ body {
 
 .slider-bank {
   align-self: flex-end;
-  border: 2px solid palevioletred;
+  border: 1px solid #40522D;
   display: flex;
   height: 40vh;
 }
@@ -121,7 +120,7 @@ body {
 /* Outer container for each slider strip */
 
 .envelopeSlider {
-  border: 2px solid brown;
+  border: 1px solid #40522D;
   display: flex;
   /* height: 30vh; */
   width: 5vw;
@@ -194,7 +193,7 @@ body {
   -ms-transform: rotate(270deg);
   -webkit-appearance: none;
   appearance: none;
-  background: burlywood;
+  background: #00bb10;
   /* Grey background */
   cursor: pointer;
   height: 0.75vw;
@@ -212,10 +211,10 @@ body {
   -webkit-appearance: none;
   /* Override default look */
   appearance: none;
-  background: #a8a8a8;
+  background: #00bb10;
   /* Green background */
-  border-left: 0.25vw solid #148a10;
-  border-right: 0.25vw solid #148a10;
+  border-left: 0.25vw solid #40522D;
+  border-right: 0.25vw solid #40522D;
   cursor: pointer;
   /* Cursor on hover */
   height: 1.75vw;
@@ -229,8 +228,8 @@ body {
 .html-slider::-moz-range-thumb {
   background: #353535;
   /* Green background */
-  border-left: 0.25vw solid #148a10;
-  border-right: 0.25vw solid #148a10;
+  border-left: 0.25vw solid #40522D;
+  border-right: 0.25vw solid #40522D;
   cursor: pointer;
   /* Cursor on hover */
   height: 2.25vh;
@@ -240,19 +239,27 @@ body {
 }
 
 .html-slider:hover::-webkit-slider-thumb {
-  background: #57ff09;
+  background: white;
+  border-left: 0.25vw solid #00BFA5;
+  border-right: 0.25vw solid #00BFA5;
 }
 
 .html-slider:active::-webkit-slider-thumb {
-  background: #57ff09;
+  background: white;
+  border-left: 0.25vw solid #00BFA5;
+  border-right: 0.25vw solid #00BFA5;
 }
 
 .html-slider:hover::-webkit-slider-thumb {
-  background: #57ff09;
+  background: white;
+  border-left: 0.25vw solid #00BFA5;
+  border-right: 0.25vw solid #00BFA5;
 }
 
 .html-slider:active::-moz-range-thumb {
-  background: #02e40e;
+  background: white;
+  border-left: 0.25vw solid #00BFA5;
+  border-right: 0.25vw solid #00BFA5;
 }
 
 /*--------------------------------------------------------------------------------------------------- 
@@ -262,7 +269,8 @@ body {
 *----------------------------------------------------------------------------------------------------*/
 
 .keyboard {
-  border: 2px solid green;
+  background-color: #B2FF5A;
+  border: 2px solid #40522D;
   display: flex;
   flex-direction: column;
   height: 40vh;
@@ -270,13 +278,13 @@ body {
 }
 
 .key {
-  border: 2px solid black;
+  border: 2px solid #40522D;
   margin: 0.5vw;
   width: 10vw;
 }
 
 .key:hover {
-  background-color: #cccccc;
+  background-color: #00BFA5;
   cursor: pointer;
 }
 
@@ -294,7 +302,7 @@ body {
 }
 
 .letter-name {
-  color: #aaaaaa;
+  color: #40522D;
   display: flex;
   font-size: 5vw;
   justify-content: center;
@@ -304,7 +312,6 @@ body {
 /********************************* Black Keys ************************************/
 
 .black-keys {
-  border: 2px solid yellowgreen;
   display: flex;
   height: 100vh;
   padding-left: 5vw;
@@ -316,14 +323,14 @@ body {
 }
 
 .black-keys>* {
-  background-color: #4e4e4e;
-  color: white;
+  /* background-color: #00BFA5; */
+  background-color: #00bb10;
+  /* color: white; */
 }
 
 /********************************* White Keys ************************************/
 
 .white-keys {
-  border: 2px solid paleturquoise;
   display: flex;
   height: 100vh;
   width: 100%;
