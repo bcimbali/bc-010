@@ -6,6 +6,10 @@ A browser based synthesizer. :musical_keyboard: :sound:
 
 This is an audio synthesizer to be used right in your own web browser. You can play the computer keyboard to sound the notes or click them in with the mouse. The tone of the synth can be changed by clicking and dragging the sliders in the control panel.
 
+## Screenshot:
+
+![Screenshot of synth](https://res.cloudinary.com/bcimbali/image/upload/dpr_auto,c_scale,f_auto,q_auto:eco,w_900/v1543174973/bc-010/bc-010_desktop.png)
+
 ## How to Use:
 
 - Open a Chrome web browser (ony Chrome supports all features of Web MIDI / Web Audio)
