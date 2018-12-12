@@ -66,17 +66,10 @@ class App extends Component<Props, State> {
     this.setState({ synthParams });
   }
 
-  /** Lower keyboard octave */
-  decreaseOctave(): void {
+  /** Handle octave adjustments */
+  adjustOctave(amount: number) {
     this.setState(prevState => ({
-      octave: prevState.octave - 1
-    }));
-  }
-
-  /** Raise keyboard octave */
-  increaseOctave(): void {
-    this.setState(prevState => ({
-      octave: prevState.octave + 1
+      octave: prevState.octave + amount
     }));
   }
 
@@ -85,34 +78,29 @@ class App extends Component<Props, State> {
    * @public
    */
   envelopeSliderChange(envelopeType: string, sliderValue: number): void {
-    let filterParams: Object = Object.assign({}, this.state.filterParams);
-
-    let synthParams: Object = Object.assign({}, this.state.synthParams);
-
     // Check the envelope type, and update the correct envelope state in App.jsx
-    if (envelopeType === "attack") {
-      synthParams.envelope.attack = sliderValue;
-      this.setState({ synthParams });
-    }
-    if (envelopeType === "decay") {
-      synthParams.envelope.decay = sliderValue;
-      this.setState({ synthParams });
-    }
-    if (envelopeType === "sustain") {
-      synthParams.envelope.sustain = sliderValue;
-      this.setState({ synthParams });
-    }
-    if (envelopeType === "release") {
-      synthParams.envelope.release = sliderValue;
-      this.setState({ synthParams });
-    }
-    if (envelopeType === "baseFrequency") {
-      filterParams.baseFrequency = sliderValue;
-      this.setState({ filterParams });
-    }
-    if (envelopeType === "frequency") {
-      filterParams.frequency = sliderValue;
-      this.setState({ filterParams });
+    switch (envelopeType) {
+      case "attack":
+      case "decay":
+      case "sustain":
+      case "release":
+        this.setState(prevState => {
+          let newState = { ...prevState };
+          newState.synthParams.envelope[envelopeType] = sliderValue;
+          return newState;
+        });
+        break;
+      case "baseFrequency":
+      case "frequency":
+        this.setState(prevState => {
+          let newState = { ...prevState };
+          newState.filterParams[envelopeType] = sliderValue;
+          return newState;
+        });
+        break;
+
+      default:
+        break;
     }
   }
 
@@ -130,10 +118,9 @@ class App extends Component<Props, State> {
       <div>
         <h1 className="header">bc-010</h1>
         <OuterCasing
-          decreaseOctave={this.decreaseOctave}
+          adjustOctave={this.adjustOctave}
           envelopeSliderChange={this.envelopeSliderChange}
           filterParams={filterParams}
-          increaseOctave={this.increaseOctave}
           key="outerCasing"
           keyPress={this.keyPress}
           octave={octave}

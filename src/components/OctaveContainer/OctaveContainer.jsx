@@ -4,22 +4,21 @@ import PropTypes from "prop-types";
 import React from "react";
 
 type Props = {
-  decreaseOctave: Function,
-  increaseOctave: Function,
+  adjustOctave: Function,
   octave: number
 };
 
 /** Holds the octave display in the control panel. */
-function OctaveContainer({ decreaseOctave, increaseOctave, octave }: Props) {
+function OctaveContainer({ adjustOctave, octave }: Props) {
   return (
     <div className="octave-container">
       <OctaveHeader />
       <div className="octave-controls">
-        <div className="octave-btn" onClick={() => decreaseOctave()}>
+        <div className="octave-btn" onClick={() => adjustOctave(-1)}>
           -
         </div>
         <div>{octave}</div>
-        <div className="octave-btn" onClick={() => increaseOctave()}>
+        <div className="octave-btn" onClick={() => adjustOctave(1)}>
           +
         </div>
       </div>
@@ -28,8 +27,7 @@ function OctaveContainer({ decreaseOctave, increaseOctave, octave }: Props) {
 }
 
 OctaveContainer.propTypes = {
-  decreaseOctave: PropTypes.func,
-  increaseOctave: PropTypes.func,
+  adjustOctave: PropTypes.func,
   octave: PropTypes.number
 };
 

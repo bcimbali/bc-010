@@ -9,21 +9,6 @@ type Props = {
   sliderParams: Object
 };
 
-/** Get the number value for the slider parameter, from the params object.
- * @public
- */
-function getSliderValue(
-  nameToFind: string,
-  objToSearch: Object
-): string | void {
-  if (objToSearch.envelope) {
-    return objToSearch.envelope[nameToFind];
-  }
-  if (objToSearch.filter) {
-    return objToSearch[nameToFind];
-  }
-}
-
 /** Houses all the tweakable sliders. */
 function SliderBank({
   envelopeSliderChange,
@@ -42,7 +27,7 @@ function SliderBank({
           min={min}
           max={max}
           step={step}
-          value={getSliderValue(sliderName, sliderParams)}
+          value={sliderParams[sliderName]}
         />
       ))}
     </div>

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 type Props = {
-  decreaseOctave: Function,
+  adjustOctave: Function,
   envelopeSliderChange: Function,
   filterParams: Object,
   increaseOctave: Function,
@@ -17,10 +17,9 @@ type Props = {
 
 /** This holds everything. This is just one step down from App.jsx. */
 function OuterCasing({
-  decreaseOctave,
+  adjustOctave,
   envelopeSliderChange,
   filterParams,
-  increaseOctave,
   keyPress,
   octave,
   synthParams,
@@ -29,10 +28,9 @@ function OuterCasing({
   return (
     <div className="outerCasing">
       <ControlPanel
-        decreaseOctave={decreaseOctave}
+        adjustOctave={adjustOctave}
         envelopeSliderChange={envelopeSliderChange}
         filterParams={filterParams}
-        increaseOctave={increaseOctave}
         key="control-panel"
         octave={octave}
         toggleOscillator={toggleOscillator}
@@ -44,10 +42,9 @@ function OuterCasing({
 }
 
 OuterCasing.propTypes = {
-  decreaseOctave: PropTypes.func,
+  adjustOctave: PropTypes.func,
   envelopeSliderChange: PropTypes.func,
   filterParams: PropTypes.object,
-  increaseOctave: PropTypes.func,
   keyPress: PropTypes.func,
   octave: PropTypes.number,
   synthParams: PropTypes.object,
