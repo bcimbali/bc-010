@@ -27,7 +27,9 @@ function OctaveContainer({ adjustOctave, octave }: Props) {
 }
 
 OctaveContainer.propTypes = {
+  /** Moves ocatve range of keyboard notes up or down */
   adjustOctave: PropTypes.func,
+  /** Current octave for the keyboard. Derived from App.jsx state. */
   octave: PropTypes.number
 };
 

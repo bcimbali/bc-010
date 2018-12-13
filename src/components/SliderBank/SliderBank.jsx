@@ -35,8 +35,10 @@ function SliderBank({
 }
 
 SliderBank.propTypes = {
+  /** Takes in a number & envelope name. Updates App.jsx state for the envelope name with the passed in number. */
   envelopeSliderChange: PropTypes.func,
   sliderArray: PropTypes.array,
+  /** All tweakable properties accessible in the slider bank.  */
   sliderParams: PropTypes.object
 };
 

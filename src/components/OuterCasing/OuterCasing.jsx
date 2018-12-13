@@ -42,12 +42,18 @@ function OuterCasing({
 }
 
 OuterCasing.propTypes = {
+  /** Moves ocatve range of keyboard notes up or down */
   adjustOctave: PropTypes.func,
+  /** Takes in a number & envelope name. Updates App.jsx state for the envelope name with the passed in number. */
   envelopeSliderChange: PropTypes.func,
+  /** Holds all tweakable properties for the Tone.js filter. */
   filterParams: PropTypes.object,
   keyPress: PropTypes.func,
+  /** Current octave for the keyboard. Derived from App.jsx state. */
   octave: PropTypes.number,
+  /** Holds all tweakable properties for the Tone.js synth. */
   synthParams: PropTypes.object,
+  /** Handles change in oscillator types for Tone.js synth. */
   toggleOscillator: PropTypes.func
 };
 

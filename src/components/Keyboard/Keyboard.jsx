@@ -145,6 +145,7 @@ class Keyboard extends Component<Props, State> {
 
 Keyboard.propTypes = {
   keyPress: PropTypes.func,
+  /** Current octave for the keyboard. Derived from App.jsx state. */
   octave: PropTypes.number
 };
 

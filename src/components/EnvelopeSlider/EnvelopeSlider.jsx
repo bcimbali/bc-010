@@ -47,6 +47,7 @@ function EnvelopeSlider({
 EnvelopeSlider.propTypes = {
   abbr: PropTypes.string,
   sliderName: PropTypes.string,
+  /** Takes in a number & envelope name. Updates App.jsx state for the envelope name with the passed in number. */
   envelopeSliderChange: PropTypes.func,
   max: PropTypes.number,
   min: PropTypes.number,
