@@ -39,7 +39,7 @@ This is an audio synthesizer to be used right in your own web browser. You can p
 
 ## Documentation
 
-- [Components, props, and methods all documented here](https://draconian-jewel.surge.sh/)
+- [Components, props, and methods all documented here](https://highfalutin-pigs.surge.sh/)
 
 ## Built with:
 
