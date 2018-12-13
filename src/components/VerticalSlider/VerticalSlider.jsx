@@ -73,13 +73,19 @@ class VerticalSlider extends Component<Props, State> {
 }
 
 VerticalSlider.propTypes = {
+  /** Full name of the parameter the slider changes (eg. "attack", "decay" etc.) */
   sliderName: PropTypes.string,
   /** Takes in a number & envelope name. Updates App.jsx state for the envelope name with the passed in number. */
   envelopeSliderChange: PropTypes.func,
+  /** Maximum value the slider can reach. */
   max: PropTypes.number,
+  /** Minimum value the slider can reach. */
   min: PropTypes.number,
+  /** Specifies the size of each movement for the slider control */
   step: PropTypes.number,
+  /** Always listed as "range" so that each HTML slider is of range type. */
   type: PropTypes.string,
+  /** Value for that parameter as it is in App.jsx state. */
   value: PropTypes.number
 };
 

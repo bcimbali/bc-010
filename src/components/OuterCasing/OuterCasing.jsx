@@ -8,7 +8,6 @@ type Props = {
   adjustOctave: Function,
   envelopeSliderChange: Function,
   filterParams: Object,
-  increaseOctave: Function,
   keyPress: Function,
   octave: number,
   synthParams: Object,
@@ -48,6 +47,7 @@ OuterCasing.propTypes = {
   envelopeSliderChange: PropTypes.func,
   /** Holds all tweakable properties for the Tone.js filter. */
   filterParams: PropTypes.object,
+  /** Actually plays/fires the note on the Tone.js synth. */
   keyPress: PropTypes.func,
   /** Current octave for the keyboard. Derived from App.jsx state. */
   octave: PropTypes.number,

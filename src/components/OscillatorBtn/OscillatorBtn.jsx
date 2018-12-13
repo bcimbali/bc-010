@@ -4,7 +4,6 @@ import React from "react";
 
 type Props = {
   abbr: string,
-  oscillator: string,
   synthParams: Object,
   toggleOscillator: Function,
   type: string
@@ -25,12 +24,13 @@ function OscillatorBtn({ abbr, synthParams, toggleOscillator, type }: Props) {
 }
 
 OscillatorBtn.propTypes = {
+  /** Abbreviation of the oscillator name (eg. "SIN", "SAW", etc.) */
   abbr: PropTypes.string,
-  oscillator: PropTypes.string,
   /** Holds all tweakable properties for the Tone.js synth. */
   synthParams: PropTypes.object,
   /** Handles change in oscillator types for Tone.js synth. */
   toggleOscillator: PropTypes.func,
+  /** Full name of the oscillator (eg. "sawtooth", "triangle", etc.) */
   type: PropTypes.string
 };
 

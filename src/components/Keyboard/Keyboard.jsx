@@ -45,7 +45,7 @@ class Keyboard extends Component<Props, State> {
     }, 90);
   }
 
-  /** Populate the highlighted key in App.jsx with the key pressed.
+  /** Populate the highlighted key in Keyboard.jsx state with the key pressed.
    * @public
    */
   updateHighlightedKey(keyPressed: number): void {
@@ -144,6 +144,7 @@ class Keyboard extends Component<Props, State> {
 }
 
 Keyboard.propTypes = {
+  /** Actually plays/fires the note on the Tone.js synth. */
   keyPress: PropTypes.func,
   /** Current octave for the keyboard. Derived from App.jsx state. */
   octave: PropTypes.number

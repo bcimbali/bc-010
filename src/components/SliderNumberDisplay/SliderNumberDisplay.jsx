@@ -16,6 +16,7 @@ function SliderNumberDisplay({ value }: Props) {
 }
 
 SliderNumberDisplay.propTypes = {
+  /** Value for that slider parameter as it is in App.jsx state. */
   value: PropTypes.number
 };
 

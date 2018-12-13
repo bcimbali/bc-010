@@ -42,11 +42,17 @@ function Key({
 }
 
 Key.propTypes = {
+  /** Display the correct octave after its been updated in with the adjustOctave function. */
   displayOctave: PropTypes.number,
+  /** Number of the Char Code for the currently pressed key on the keybaord - it's stored in Keyboard.jsx state. */
   highlightKey: PropTypes.number,
+  /** Char code that corresponds to that note on the synthesizer. */
   keyCode: PropTypes.number,
+  /** Actually plays/fires the note on the Tone.js synth. */
   keyPress: PropTypes.func.isRequired,
+  /** Letter on the computer keyboard that corresponds to that note on the synthesizer. */
   letter: PropTypes.string,
+  /** Musical note for that key (eg. "Db", "E", "Bb", etc.) */
   note: PropTypes.string
 };
 
