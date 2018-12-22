@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {
     "prop-types": "^15.6.2",
-    "react": "^16.6.3",
+    "react": "^16.7.0",
     "react-autobind": "^1.0.6",
-    "react-dom": "^16.6.3",
+    "react-dom": "^16.7.0",
     "react-scripts": "^2.1.1",
     "tone": "^0.12.80"
   },
@@ -23,7 +23,7 @@
     "eslint-plugin-prettier": "^3.0.0",
     "flow-bin": "^0.84.0",
     "prettier": "1.14.3",
-    "react-styleguidist": "^8.0.5"
+    "react-styleguidist": "^8.0.6"
   },
   "browserslist": [
     ">0.2%",
