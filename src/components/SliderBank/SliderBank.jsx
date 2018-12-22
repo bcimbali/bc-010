@@ -16,7 +16,7 @@ function SliderBank({
   sliderParams
 }: Props) {
   return (
-    <div className="slider-bank">
+    <section className="slider-bank">
       {sliderArray.map(({ abbr, id, max, min, sliderName, step }) => (
         <EnvelopeSlider
           abbr={abbr}
@@ -30,7 +30,7 @@ function SliderBank({
           value={sliderParams[sliderName]}
         />
       ))}
-    </div>
+    </section>
   );
 }
 

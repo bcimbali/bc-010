@@ -27,7 +27,7 @@ function ControlPanel({
   synthParams
 }: Props) {
   return (
-    <div className="controlPanel">
+    <section className="controlPanel">
       <SliderBank
         envelopeSliderChange={envelopeSliderChange}
         sliderParams={synthParams.envelope}
@@ -52,7 +52,7 @@ function ControlPanel({
           type={type}
         />
       ))}
-    </div>
+    </section>
   );
 }
 

@@ -9,9 +9,9 @@ type Props = {
 /** Display component just shows the type of slider. */
 function SliderLabel({ abbr }: Props) {
   return (
-    <div className="slider-label-container">
+    <header className="slider-label-container">
       <label className="slider-label">{abbr}</label>
-    </div>
+    </header>
   );
 }
 

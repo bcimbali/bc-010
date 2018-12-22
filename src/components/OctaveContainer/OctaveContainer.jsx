@@ -11,7 +11,7 @@ type Props = {
 /** Holds the octave display in the control panel. */
 function OctaveContainer({ adjustOctave, octave }: Props) {
   return (
-    <div className="octave-container">
+    <section className="octave-container">
       <OctaveHeader />
       <div className="octave-controls">
         <div className="octave-btn" onClick={() => adjustOctave(-1)}>
@@ -22,7 +22,7 @@ function OctaveContainer({ adjustOctave, octave }: Props) {
           +
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

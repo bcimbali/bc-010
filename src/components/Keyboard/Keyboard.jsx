@@ -135,10 +135,14 @@ class Keyboard extends Component<Props, State> {
     );
 
     return (
-      <div className="keyboard">
-        <div className="black-keys">{blackKeysArray.map(generateKeys)}</div>
-        <div className="white-keys">{whiteKeysArray.map(generateKeys)}</div>
-      </div>
+      <section className="keyboard">
+        <section className="black-keys">
+          {blackKeysArray.map(generateKeys)}
+        </section>
+        <section className="white-keys">
+          {whiteKeysArray.map(generateKeys)}
+        </section>
+      </section>
     );
   }
 }

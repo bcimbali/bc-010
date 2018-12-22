@@ -24,20 +24,20 @@ function Key({
 }: Props) {
   let octaveNote: string = note + displayOctave;
   return (
-    <div
+    <article
       className={`key ${highlightKey === keyCode ? "keyboard-click" : ""}`}
       onClick={() => keyPress(octaveNote)}
     >
       <div className="key-display">
-        <div>
+        <header>
           {note}
           {displayOctave}
-        </div>
+        </header>
         <div className="letter-name">
           <p>{letter}</p>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 

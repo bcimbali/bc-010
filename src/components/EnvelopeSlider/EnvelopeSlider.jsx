@@ -28,7 +28,7 @@ function EnvelopeSlider({
   value
 }: Props) {
   return (
-    <div className="envelopeSlider">
+    <article className="envelopeSlider">
       <SliderLabel abbr={abbr} sliderName={type} />
       <VerticalSlider
         sliderName={sliderName}
@@ -40,7 +40,7 @@ function EnvelopeSlider({
         value={value}
       />
       <SliderNumberDisplay value={value} />
-    </div>
+    </article>
   );
 }
 

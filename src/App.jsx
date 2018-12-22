@@ -115,8 +115,8 @@ class App extends Component<Props, State> {
     this.synth = new Tone.Synth(synthParams).connect(this.filter);
 
     return (
-      <div>
-        <h1 className="header">bc-010</h1>
+      <main>
+        <header className="header">bc-010</header>
         <OuterCasing
           adjustOctave={this.adjustOctave}
           envelopeSliderChange={this.envelopeSliderChange}
@@ -127,7 +127,7 @@ class App extends Component<Props, State> {
           synthParams={synthParams}
           toggleOscillator={this.toggleOscillator}
         />
-      </div>
+      </main>
     );
   }
 }
