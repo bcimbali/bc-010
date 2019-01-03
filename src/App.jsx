@@ -49,12 +49,11 @@ class App extends Component<Props, State> {
     };
   }
 
-  /** Flow would complain this.synth and this.filter weren't defined below, in keyPress(),
-   so this solved it. Maybe this.synth and this.filter should be declared here first? */
+  /** Declare synth and filter */
   synth: Object = {};
   filter: Object = {};
 
-  /** Actually plays the note on the synth: */
+  /** Actually plays/sounds the note on the synth: */
   keyPress(note: string | void): void {
     this.synth.triggerAttackRelease(note, "8n");
   }
@@ -74,11 +73,11 @@ class App extends Component<Props, State> {
   }
 
   /** Updates state, for a filterParam or synthParam, based on the number
-   * passed in from the HTML slider in VerticalSlider.jsx.
+   * passed in from the HTML slider in VerticalSlider.jsx. It checks
+   * envelope type, and update the correct envelope state in App.jsx.
    * @public
    */
   envelopeSliderChange(envelopeType: string, sliderValue: number): void {
-    // Check the envelope type, and update the correct envelope state in App.jsx
     switch (envelopeType) {
       case "attack":
       case "decay":
@@ -105,13 +104,12 @@ class App extends Component<Props, State> {
   }
 
   render() {
-    // Destructure state
     const { filterParams, synthParams, octave } = this.state;
 
-    // Create a new Tone.js filter and route audio to master.
+    /** Create a new Tone.js filter and route audio to master. */
     this.filter = new Tone.AutoFilter(filterParams).toMaster().start();
 
-    // Create a new Tone.js synth and route audio to this.filter
+    /** Create a new Tone.js synth and route audio to this.filter */
     this.synth = new Tone.Synth(synthParams).connect(this.filter);
 
     return (
