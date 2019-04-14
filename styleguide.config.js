@@ -1,4 +1,5 @@
 module.exports = {
+  webpackConfig: require("./node_modules/react-scripts/config/webpack.config"),
   components: "src/components/**/[A-Z]*.{js,jsx,ts,tsx}",
   theme: {
     color: {
