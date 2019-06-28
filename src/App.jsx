@@ -3,10 +3,29 @@ import "./reset.css";
 import "./App.css";
 
 import React, { Component } from "react";
+import { createStore, applyMiddleware } from "redux";
+import logger from 'redux-logger';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import OuterCasing from "./components/OuterCasing";
 import Tone from "tone";
 import autoBind from "react-autobind";
+
+const initialState = {
+  count: 0
+};
+
+const middleware = [logger];
+
+function reducer(state = initialState, action) {
+  console.log("reducer", state, action);
+  return state;
+}
+
+const store = createStore(
+  reducer,
+  composeWithDevTools(applyMiddleware(...middleware))
+);
 
 type Props = {};
 
