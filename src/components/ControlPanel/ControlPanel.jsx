@@ -41,7 +41,6 @@ function ControlPanel({
       <OctaveContainer
         key="octave-container"
         adjustOctave={adjustOctave}
-        octave={octave}
       />
       {oscillatorTypes.map(({ abbr, id, type }) => (
         <OscillatorBtn

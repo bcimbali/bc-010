@@ -1,9 +1,11 @@
 // @flow
 import "./reset.css";
 import "./App.css";
+import rootReducer from "./rootReducer";
 
 import React, { Component } from "react";
 import { createStore, applyMiddleware } from "redux";
+import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
@@ -12,7 +14,31 @@ import Tone from "tone";
 import autoBind from "react-autobind";
 
 const initialState = {
-  count: 0
+  octave: 5,
+  synthParams: {
+    oscillator: {
+      type: "sawtooth"
+    },
+    envelope: {
+      attack: 0.0001,
+      decay: 0.2,
+      sustain: 0.2,
+      release: 1
+    },
+    portamento: 0.05
+  },
+  filterParams: {
+    frequency: 0,
+    type: "sine",
+    depth: 1,
+    baseFrequency: 500,
+    octaves: 2.6,
+    filter: {
+      type: "lowpass",
+      rolloff: -12,
+      Q: 1
+    }
+  }
 };
 
 const middleware = [logger];
@@ -23,7 +49,7 @@ function reducer(state = initialState, action) {
 }
 
 const store = createStore(
-  reducer,
+  rootReducer,
   composeWithDevTools(applyMiddleware(...middleware))
 );
 
@@ -132,19 +158,21 @@ class App extends Component<Props, State> {
     this.synth = new Tone.Synth(synthParams).connect(this.filter);
 
     return (
-      <main>
-        <header className="header">bc-010</header>
-        <OuterCasing
-          adjustOctave={this.adjustOctave}
-          envelopeSliderChange={this.envelopeSliderChange}
-          filterParams={filterParams}
-          key="outerCasing"
-          keyPress={this.keyPress}
-          octave={octave}
-          synthParams={synthParams}
-          toggleOscillator={this.toggleOscillator}
-        />
-      </main>
+      <Provider store={store}>
+        <main>
+          <header className="header">bc-010</header>
+          <OuterCasing
+            adjustOctave={this.adjustOctave}
+            envelopeSliderChange={this.envelopeSliderChange}
+            filterParams={filterParams}
+            key="outerCasing"
+            keyPress={this.keyPress}
+            octave={octave}
+            synthParams={synthParams}
+            toggleOscillator={this.toggleOscillator}
+          />
+        </main>
+      </Provider>
     );
   }
 }
