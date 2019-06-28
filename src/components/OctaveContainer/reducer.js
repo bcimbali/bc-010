@@ -1,4 +1,4 @@
-import { INCREMENT_OCTAVE } from "./actions";
+import { DECREMENT_OCTAVE , INCREMENT_OCTAVE } from "./actions";
 
 const initialState = {
   octave: 5,
@@ -6,7 +6,12 @@ const initialState = {
 
 export default function(state = initialState, action) {
   const { type } = action;
-  switch(type) {
+  switch (type) {
+    case DECREMENT_OCTAVE:
+      return {
+        ...state,
+        octave: state.octave - 1,
+      };
     case INCREMENT_OCTAVE:
       return {
         ...state,
@@ -15,4 +20,4 @@ export default function(state = initialState, action) {
     default:
       return state;
   }
-};
+}

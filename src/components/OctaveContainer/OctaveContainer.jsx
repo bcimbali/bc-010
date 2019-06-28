@@ -3,7 +3,7 @@ import OctaveHeader from "./../OctaveHeader";
 import PropTypes from "prop-types";
 import React from "react";
 import { connect } from 'react-redux';
-import { incrementOctave } from './actions';
+import { decrementOctave, incrementOctave } from './actions';
 import { bindActionCreators } from 'redux';
 
 type Props = {
@@ -12,12 +12,17 @@ type Props = {
 };
 
 /** Holds the octave display in the control panel. */
-function OctaveContainer({ adjustOctave, octave, incrementOctave }: Props) {
+function OctaveContainer({
+  adjustOctave,
+  decrementOctave,
+  incrementOctave,
+  octave
+}: Props) {
   return (
     <section className="octave-container">
       <OctaveHeader />
       <div className="octave-controls">
-        <div className="octave-btn" onClick={incrementOctave}>
+        <div className="octave-btn" onClick={decrementOctave}>
           -
         </div>
         <div>{octave}</div>
@@ -34,6 +39,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
+  decrementOctave,
   incrementOctave,
 }, dispatch);
 
