@@ -11,7 +11,7 @@ type Props = {
   keyPress: Function,
   octave: number,
   synthParams: Object,
-  toggleOscillator: Function
+  toggleOscillator: Function,
 };
 
 /** This holds everything. This is just one step down from App.jsx. */
@@ -22,7 +22,7 @@ function OuterCasing({
   keyPress,
   octave,
   synthParams,
-  toggleOscillator
+  toggleOscillator,
 }: Props) {
   return (
     <div className="outerCasing">
@@ -54,7 +54,7 @@ OuterCasing.propTypes = {
   /** Holds all tweakable properties for the Tone.js synth. */
   synthParams: PropTypes.object,
   /** Handles change in oscillator types for Tone.js synth. */
-  toggleOscillator: PropTypes.func
+  toggleOscillator: PropTypes.func,
 };
 
 export default OuterCasing;
