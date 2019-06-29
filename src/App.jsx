@@ -17,7 +17,7 @@ const middleware = [logger];
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(...middleware))
+  composeWithDevTools(applyMiddleware(...middleware)),
 );
 
 type Props = {};
@@ -25,7 +25,7 @@ type Props = {};
 type State = {
   octave: number,
   synthParams: Object,
-  filterParams: Object
+  filterParams: Object,
 };
 
 class App extends Component<Props, State> {
@@ -80,7 +80,7 @@ class App extends Component<Props, State> {
   /** Handle octave adjustments */
   adjustOctave(amount: number) {
     this.setState(prevState => ({
-      octave: prevState.octave + amount
+      octave: prevState.octave + amount,
     }));
   }
 
