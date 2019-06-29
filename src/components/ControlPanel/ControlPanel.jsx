@@ -14,7 +14,7 @@ type Props = {
   filterParams: Object,
   octave: number,
   synthParams: Object,
-  toggleOscillator: Function
+  toggleOscillator: Function,
 };
 
 /** Component to hold all tweakable parameters (e.g. sliders, knobs etc.) for the synth. */
@@ -24,7 +24,7 @@ function ControlPanel({
   filterParams,
   octave,
   toggleOscillator,
-  synthParams
+  synthParams,
 }: Props) {
   return (
     <section className="controlPanel">
@@ -38,10 +38,7 @@ function ControlPanel({
         sliderParams={filterParams}
         sliderArray={filterSliders}
       />
-      <OctaveContainer
-        key="octave-container"
-        adjustOctave={adjustOctave}
-      />
+      <OctaveContainer key="octave-container" adjustOctave={adjustOctave} />
       {oscillatorTypes.map(({ abbr, id, type }) => (
         <OscillatorBtn
           abbr={abbr}
