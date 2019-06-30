@@ -11,11 +11,11 @@ type Props = {
   min: number,
   step: number,
   type: string,
-  value: number
+  value: number,
 };
 
 type State = {
-  value: number
+  value: number,
 };
 
 /** The slider component with the HTML input slider logic. */
@@ -24,7 +24,7 @@ class VerticalSlider extends Component<Props, State> {
     super(props);
     autoBind(this);
     this.state = {
-      value: 0
+      value: 0,
     };
   }
 
@@ -86,7 +86,7 @@ VerticalSlider.propTypes = {
   /** Always listed as "range" so that each HTML slider is of range type. */
   type: PropTypes.string,
   /** Value for that parameter as it is in App.jsx state. */
-  value: PropTypes.number
+  value: PropTypes.number,
 };
 
 export default VerticalSlider;
