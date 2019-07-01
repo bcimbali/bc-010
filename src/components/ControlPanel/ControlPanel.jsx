@@ -32,11 +32,13 @@ function ControlPanel({
         envelopeSliderChange={envelopeSliderChange}
         sliderParams={synthParams.envelope}
         sliderArray={envelopeSliders}
+        typeOfParams="synthParams"
       />
       <SliderBank
         envelopeSliderChange={envelopeSliderChange}
         sliderParams={filterParams}
         sliderArray={filterSliders}
+        typeOfParams="filterParams"
       />
       <OctaveContainer key="octave-container" adjustOctave={adjustOctave} />
       {oscillatorTypes.map(({ abbr, id, type }) => (

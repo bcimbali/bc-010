@@ -13,7 +13,8 @@ type Props = {
   min: number,
   step: number,
   type: string,
-  value: number
+  typeOfParams: string,
+  value: number,
 };
 
 /** Holds all the slider components (SliderLabel, VerticalSlider, SliderNumberDisplay) */
@@ -25,7 +26,8 @@ function EnvelopeSlider({
   min,
   max,
   step,
-  value
+  typeOfParams,
+  value,
 }: Props) {
   return (
     <article className="envelopeSlider">
@@ -37,6 +39,7 @@ function EnvelopeSlider({
         min={min}
         step={step}
         type={type}
+        typeOfParams={typeOfParams}
         value={value}
       />
       <SliderNumberDisplay value={value} />
@@ -59,6 +62,8 @@ EnvelopeSlider.propTypes = {
   step: PropTypes.number,
   /** Always listed as "range" so that each HTML slider is of range type. */
   type: PropTypes.string,
+  /** Name of the object for the parameter to be adjusted */
+  typeOfParams: PropTypes.string,
   /** Value for that parameter as it is in App.jsx state. */
   value: PropTypes.number
 };

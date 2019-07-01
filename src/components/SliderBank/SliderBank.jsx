@@ -6,14 +6,16 @@ import React from "react";
 type Props = {
   envelopeSliderChange: Function,
   sliderArray: Array<Object>,
-  sliderParams: Object
+  sliderParams: Object,
+  typeOfParams: string,
 };
 
 /** Houses all the tweakable sliders. */
 function SliderBank({
   envelopeSliderChange,
   sliderArray,
-  sliderParams
+  sliderParams,
+  typeOfParams,
 }: Props) {
   return (
     <section className="slider-bank">
@@ -24,6 +26,7 @@ function SliderBank({
           envelopeSliderChange={envelopeSliderChange}
           key={`${id}-${sliderName}`}
           type="range"
+          typeOfParams={typeOfParams}
           min={min}
           max={max}
           step={step}
@@ -40,7 +43,9 @@ SliderBank.propTypes = {
   /** List of sliders to be created. */
   sliderArray: PropTypes.array,
   /** All tweakable properties accessible in the slider bank.  */
-  sliderParams: PropTypes.object
+  sliderParams: PropTypes.object,
+  /** Name of the object of which envelope to be adjusted */
+  typeOfParams: PropTypes.string,
 };
 
 export default SliderBank;

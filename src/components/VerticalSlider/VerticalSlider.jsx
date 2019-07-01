@@ -14,6 +14,7 @@ type Props = {
   min: number,
   step: number,
   type: string,
+  typeOfParams: string,
   updateEnvelope: Function,
   value: number,
 };
@@ -36,8 +37,13 @@ class VerticalSlider extends Component<Props, State> {
    * @public
    */
   updateSynthValue(): void {
+    console.log("this.props.typeOfParams: ", this.props.typeOfParams);
     this.props.envelopeSliderChange(this.props.sliderName, this.state.value);
-    this.props.updateEnvelope(this.props.sliderName, this.state.value);
+    this.props.updateEnvelope(
+      this.props.sliderName,
+      this.state.value,
+      this.props.typeOfParams,
+    );
   }
 
   /** Actually updates state in this slider state.
@@ -102,6 +108,8 @@ VerticalSlider.propTypes = {
   step: PropTypes.number,
   /** Always listed as "range" so that each HTML slider is of range type. */
   type: PropTypes.string,
+  /** Name of object with parameters to be adjusted */
+  typeOfParams: PropTypes.string,
   /** Value for that parameter as it is in App.jsx state. */
   value: PropTypes.number,
 };

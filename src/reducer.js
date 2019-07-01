@@ -13,10 +13,22 @@ const initialState = {
     },
     portamento: 0.05,
   },
+  filterParams: {
+    frequency: 0,
+    type: "sine",
+    depth: 1,
+    baseFrequency: 500,
+    octaves: 2.6,
+    filter: {
+      type: "lowpass",
+      rolloff: -12,
+      Q: 1,
+    },
+  },
 };
 
 export default function(state = initialState, action) {
-  const { type, oscType, envelopeName, envelopeValue } = action;
+  const { type, oscType, envelopeName, envelopeValue, typeOfParams } = action;
   switch (type) {
     case TOGGLE_OSCILLATORS:
       return {
@@ -35,19 +47,28 @@ export default function(state = initialState, action) {
         },
       };
     case UPDATE_ENVELOPE:
-      return {
-        ...state,
-        synthParams: {
-          oscillator: {
-            type: oscType,
+      if (typeOfParams === "synthParams") {
+        return {
+          ...state,
+          synthParams: {
+            ...state.synthParams,
+            envelope: {
+              ...state.synthParams.envelope,
+              [envelopeName]: envelopeValue,
+            },
           },
-          envelope: {
-            ...state.synthParams.envelope,
+        };
+      }
+      if (typeOfParams === "filterParams") {
+        return {
+          ...state,
+          filterParams: {
+            ...state.filterParams,
             [envelopeName]: envelopeValue,
           },
-          portamento: 0.05,
-        },
-      };
+        };
+      }
+      return state;
     default:
       return state;
   }
