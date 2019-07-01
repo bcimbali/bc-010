@@ -34,16 +34,10 @@ export default function(state = initialState, action) {
       return {
         ...state,
         synthParams: {
+          ...state.synthParams,
           oscillator: {
             type: oscType,
           },
-          envelope: {
-            attack: 0.0001,
-            decay: 0.2,
-            sustain: 0.2,
-            release: 1,
-          },
-          portamento: 0.05,
         },
       };
     case UPDATE_ENVELOPE:
