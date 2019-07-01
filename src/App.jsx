@@ -117,12 +117,17 @@ class App extends Component<Props, State> {
 
   render() {
     const { filterParams, synthParams, octave } = this.state;
-
+    const {
+      filterParams: filterParamz,
+      synthParams: synthParamz,
+    } = store.getState().synthesizer;
+    console.log("filterParamz: ", filterParamz);
+    console.log("synthParamz: ", synthParamz);
     /** Create a new Tone.js filter and route audio to master. */
-    this.filter = new Tone.AutoFilter(filterParams).toMaster().start();
+    this.filter = new Tone.AutoFilter(filterParamz).toMaster().start();
 
     /** Create a new Tone.js synth and route audio to this.filter */
-    this.synth = new Tone.Synth(synthParams).connect(this.filter);
+    this.synth = new Tone.Synth(synthParamz).connect(this.filter);
 
     return (
       <Provider store={store}>
