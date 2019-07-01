@@ -3,6 +3,9 @@ import React, { Component } from "react";
 
 import PropTypes from "prop-types";
 import autoBind from "react-autobind";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { updateEnvelope } from "./../../actions.js";
 
 type Props = {
   sliderName: string,
@@ -11,6 +14,7 @@ type Props = {
   min: number,
   step: number,
   type: string,
+  updateEnvelope: Function,
   value: number,
 };
 
@@ -33,6 +37,7 @@ class VerticalSlider extends Component<Props, State> {
    */
   updateSynthValue(): void {
     this.props.envelopeSliderChange(this.props.sliderName, this.state.value);
+    this.props.updateEnvelope(this.props.sliderName, this.state.value);
   }
 
   /** Actually updates state in this slider state.
@@ -72,6 +77,18 @@ class VerticalSlider extends Component<Props, State> {
   }
 }
 
+const mapStateToProps = state => ({
+  envelope: state.synthesizer.synthParams.envelope,
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      updateEnvelope,
+    },
+    dispatch,
+  );
+
 VerticalSlider.propTypes = {
   /** Full name of the parameter the slider changes (eg. "attack", "decay" etc.) */
   sliderName: PropTypes.string,
@@ -89,4 +106,7 @@ VerticalSlider.propTypes = {
   value: PropTypes.number,
 };
 
-export default VerticalSlider;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(VerticalSlider);
