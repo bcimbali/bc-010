@@ -35,7 +35,7 @@ function OuterCasing({
         toggleOscillator={toggleOscillator}
         synthParams={synthParams}
       />
-      <Keyboard key="keyboard" keyPress={keyPress} octave={octave} />
+      <Keyboard key="keyboard" keyPress={keyPress} />
     </div>
   );
 }

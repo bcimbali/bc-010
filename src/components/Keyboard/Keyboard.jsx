@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import Key from "./../Key";
 import PropTypes from "prop-types";
@@ -8,11 +9,11 @@ import autoBind from "react-autobind";
 
 type Props = {
   keyPress: Function,
-  octave: number
+  octave: number,
 };
 
 type State = {
-  highlightKey: number
+  highlightKey: number,
 };
 
 /** Filter the keys json data for just white keys */
@@ -32,7 +33,7 @@ class Keyboard extends Component<Props, State> {
     super(props);
     autoBind(this);
     this.state = {
-      highlightKey: 0
+      highlightKey: 0,
     };
   }
 
@@ -78,7 +79,7 @@ class Keyboard extends Component<Props, State> {
    */
   findKeyCodeMatch(
     numberToFind: number,
-    arrayToSearch: Array<Object>
+    arrayToSearch: Array<Object>,
   ): Object | void {
     return arrayToSearch.find(keyObj => {
       return keyObj.keyCode === numberToFind;
@@ -93,8 +94,8 @@ class Keyboard extends Component<Props, State> {
      * fire the keyPress() function to sound the synth. */
     this.props.keyPress(
       this.updateNoteOctave(
-        this.findKeyCodeMatch(event.charCode, arrOfKeyObjects)
-      )
+        this.findKeyCodeMatch(event.charCode, arrOfKeyObjects),
+      ),
     );
 
     /** Also, highlight the keyboard key pressed a bright green.  */
@@ -147,11 +148,15 @@ class Keyboard extends Component<Props, State> {
   }
 }
 
+const mapStateToProps = state => ({
+  octave: state.octaveContainer.octave,
+});
+
 Keyboard.propTypes = {
   /** Actually plays/fires the note on the Tone.js synth. */
   keyPress: PropTypes.func,
   /** Current octave for the keyboard. Derived from App.jsx state. */
-  octave: PropTypes.number
+  octave: PropTypes.number,
 };
 
-export default Keyboard;
+export default connect(mapStateToProps)(Keyboard);
