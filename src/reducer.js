@@ -1,10 +1,7 @@
-import { TOGGLE_OSCILLATORS, UPDATE_ENVELOPE } from "./actions";
+import { UPDATE_ENVELOPE } from "./actions";
 
 const initialState = {
   synthParams: {
-    oscillator: {
-      type: "sawtooth",
-    },
     envelope: {
       attack: 0.0001,
       decay: 0.2,
@@ -28,18 +25,8 @@ const initialState = {
 };
 
 export default function(state = initialState, action) {
-  const { type, oscType, envelopeName, envelopeValue, typeOfParams } = action;
+  const { type, envelopeName, envelopeValue, typeOfParams } = action;
   switch (type) {
-    case TOGGLE_OSCILLATORS:
-      return {
-        ...state,
-        synthParams: {
-          ...state.synthParams,
-          oscillator: {
-            type: oscType,
-          },
-        },
-      };
     case UPDATE_ENVELOPE:
       if (typeOfParams === "synthParams") {
         return {

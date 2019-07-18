@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { toggleOscillators } from "./../../actions.js";
+import { toggleOscillators } from "./actions.js";
 
 type Props = {
   abbr: string,
@@ -32,7 +32,7 @@ function OscillatorBtn({
 }
 
 const mapStateToProps = state => ({
-  oscType: state.synthesizer.synthParams.oscillator.type,
+  oscType: state.synthReducer.oscillator.type,
 });
 
 const mapDispatchToProps = dispatch =>

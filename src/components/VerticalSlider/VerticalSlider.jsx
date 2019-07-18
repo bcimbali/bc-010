@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import autoBind from "react-autobind";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { updateEnvelope } from "./../../actions.js";
+import { updateEnvelope } from "./actions.js";
 
 type Props = {
   sliderName: string,
@@ -37,7 +37,6 @@ class VerticalSlider extends Component<Props, State> {
    * @public
    */
   updateSynthValue(): void {
-    console.log("this.props.typeOfParams: ", this.props.typeOfParams);
     this.props.envelopeSliderChange(this.props.sliderName, this.state.value);
     this.props.updateEnvelope(
       this.props.sliderName,
@@ -84,7 +83,7 @@ class VerticalSlider extends Component<Props, State> {
 }
 
 const mapStateToProps = state => ({
-  envelope: state.synthesizer.synthParams.envelope,
+  envelope: state.synthReducer.envelope,
 });
 
 const mapDispatchToProps = dispatch =>

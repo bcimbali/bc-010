@@ -30,17 +30,21 @@ function ControlPanel({
     <section className="controlPanel">
       <SliderBank
         envelopeSliderChange={envelopeSliderChange}
-        sliderParams={synthParams.envelope}
+        sliderParams={synthParams}
         sliderArray={envelopeSliders}
         typeOfParams="synthParams"
       />
-      <SliderBank
+      {/* <SliderBank
         envelopeSliderChange={envelopeSliderChange}
         sliderParams={filterParams}
         sliderArray={filterSliders}
         typeOfParams="filterParams"
+      /> */}
+      <OctaveContainer
+        key="octave-container"
+        adjustOctave={adjustOctave}
+        octave={octave}
       />
-      <OctaveContainer key="octave-container" adjustOctave={adjustOctave} />
       {oscillatorTypes.map(({ abbr, id, type }) => (
         <OscillatorBtn
           abbr={abbr}

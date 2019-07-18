@@ -65,7 +65,7 @@ EnvelopeSlider.propTypes = {
   /** Name of the object for the parameter to be adjusted */
   typeOfParams: PropTypes.string,
   /** Value for that parameter as it is in App.jsx state. */
-  value: PropTypes.number
+  value: PropTypes.number,
 };
 
 export default EnvelopeSlider;
