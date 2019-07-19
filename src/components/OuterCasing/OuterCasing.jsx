@@ -14,6 +14,7 @@ type Props = {
   keyPress: Function,
   octave: number,
   synthParams: Object,
+  synthesizer: Object,
   toggleOscillator: Function,
 };
 
@@ -94,14 +95,10 @@ class OuterCasing extends Component<Props, State> {
   render() {
     const {
       adjustOctave,
-      envelopeSliderChange,
       filterParams,
-      keyPress,
       octave,
-      oscType,
       synthParams,
       synthesizer,
-      toggleOscillator,
     } = this.props;
 
     /** Create a new Tone.js filter and route audio to master. */
@@ -118,7 +115,6 @@ class OuterCasing extends Component<Props, State> {
           filterParams={filterParams}
           key="control-panel"
           octave={octave}
-          // toggleOscillator={toggleOscillator}
           synthParams={synthParams}
         />
         <Keyboard key="keyboard" keyPress={this.keyPress} />
@@ -146,6 +142,8 @@ OuterCasing.propTypes = {
   keyPress: PropTypes.func,
   /** Current octave for the keyboard. Derived from App.jsx state. */
   octave: PropTypes.number,
+  /** All nested parameters for the Tone.js synth */
+  synthesizer: PropTypes.object,
   /** Holds all tweakable properties for the Tone.js synth. */
   synthParams: PropTypes.object,
   /** Handles change in oscillator types for Tone.js synth. */

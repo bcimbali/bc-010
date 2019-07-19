@@ -10,9 +10,8 @@ import logger from "redux-logger";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 import OuterCasing from "./components/OuterCasing";
-import autoBind from "react-autobind";
 
-const middleware = [];
+const middleware = [logger];
 
 const store = createStore(
   rootReducer,
@@ -20,30 +19,15 @@ const store = createStore(
 );
 
 type Props = {};
-
 type State = {};
 
 class App extends Component<Props, State> {
-  constructor() {
-    super();
-    autoBind(this);
-  }
-
   render() {
     return (
       <Provider store={store}>
         <main>
           <header className="header">bc-010</header>
-          <OuterCasing
-            // adjustOctave={this.adjustOctave}
-            // envelopeSliderChange={this.envelopeSliderChange}
-            // filterParams={filterParams}
-            key="outerCasing"
-            // keyPress={this.keyPress}
-            // octave={octave}
-            // synthParams={synthParams}
-            // toggleOscillator={this.toggleOscillator}
-          />
+          <OuterCasing key="outerCasing" />
         </main>
       </Provider>
     );
