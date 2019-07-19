@@ -8,7 +8,6 @@ import VerticalSlider from "./../VerticalSlider";
 type Props = {
   abbr: string,
   sliderName: string,
-  envelopeSliderChange: Function,
   max: number,
   min: number,
   step: number,
@@ -20,7 +19,6 @@ type Props = {
 /** Holds all the slider components (SliderLabel, VerticalSlider, SliderNumberDisplay) */
 function EnvelopeSlider({
   abbr,
-  envelopeSliderChange,
   min,
   max,
   sliderName,
@@ -34,7 +32,6 @@ function EnvelopeSlider({
       <SliderLabel abbr={abbr} sliderName={type} />
       <VerticalSlider
         sliderName={sliderName}
-        envelopeSliderChange={envelopeSliderChange}
         max={max}
         min={min}
         step={step}
@@ -52,8 +49,6 @@ EnvelopeSlider.propTypes = {
   abbr: PropTypes.string,
   /** Full name of the parameter the slider changes (eg. "attack", "decay" etc.) */
   sliderName: PropTypes.string,
-  /** Takes in a number & envelope name. Updates App.jsx state for the envelope name with the passed in number. */
-  envelopeSliderChange: PropTypes.func,
   /** Maximum value the slider can reach. */
   max: PropTypes.number,
   /** Minimum value the slider can reach. */

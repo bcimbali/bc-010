@@ -9,13 +9,13 @@ import { updateEnvelope, updateFilterEnvelope } from "./actions.js";
 
 type Props = {
   sliderName: string,
-  envelopeSliderChange: Function,
   max: number,
   min: number,
   step: number,
   type: string,
   typeOfParams: string,
   updateEnvelope: Function,
+  updateFilterEnvelope: Function,
   value: number,
 };
 
@@ -37,7 +37,6 @@ class VerticalSlider extends Component<Props, State> {
    * @public
    */
   updateSynthValue(): void {
-    this.props.envelopeSliderChange(this.props.sliderName, this.state.value);
     if (this.props.typeOfParams === "synthParams") {
       this.props.updateEnvelope(
         this.props.sliderName,
@@ -107,8 +106,6 @@ const mapDispatchToProps = dispatch =>
 VerticalSlider.propTypes = {
   /** Full name of the parameter the slider changes (eg. "attack", "decay" etc.) */
   sliderName: PropTypes.string,
-  /** Takes in a number & envelope name. Updates App.jsx state for the envelope name with the passed in number. */
-  envelopeSliderChange: PropTypes.func,
   /** Maximum value the slider can reach. */
   max: PropTypes.number,
   /** Minimum value the slider can reach. */
@@ -119,6 +116,8 @@ VerticalSlider.propTypes = {
   type: PropTypes.string,
   /** Name of object with parameters to be adjusted */
   typeOfParams: PropTypes.string,
+  /** Function to update the filter envelope */
+  updateFilterEnvelope: PropTypes.func,
   /** Value for that parameter as it is in App.jsx state. */
   value: PropTypes.number,
 };

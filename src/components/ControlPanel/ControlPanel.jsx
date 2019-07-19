@@ -10,7 +10,6 @@ import oscillatorTypes from "./../../oscillatorTypes.json";
 
 type Props = {
   adjustOctave: Function,
-  envelopeSliderChange: Function,
   filterParams: Object,
   octave: number,
   synthParams: Object,
@@ -20,7 +19,6 @@ type Props = {
 /** Component to hold all tweakable parameters (e.g. sliders, knobs etc.) for the synth. */
 function ControlPanel({
   adjustOctave,
-  envelopeSliderChange,
   filterParams,
   octave,
   toggleOscillator,
@@ -29,13 +27,11 @@ function ControlPanel({
   return (
     <section className="controlPanel">
       <SliderBank
-        envelopeSliderChange={envelopeSliderChange}
         sliderParams={synthParams}
         sliderArray={envelopeSliders}
         typeOfParams="synthParams"
       />
       <SliderBank
-        envelopeSliderChange={envelopeSliderChange}
         sliderParams={filterParams}
         sliderArray={filterSliders}
         typeOfParams="filterParams"
@@ -61,8 +57,6 @@ function ControlPanel({
 ControlPanel.propTypes = {
   /** Moves ocatve range of keyboard notes up or down */
   adjustOctave: PropTypes.func,
-  /** Takes in a number & envelope name. Updates App.jsx state for the envelope name with the passed in number. */
-  envelopeSliderChange: PropTypes.func,
   /** Holds all tweakable properties for the Tone.js filter. */
   filterParams: PropTypes.object,
   /** Current octave for the keyboard. Derived from App.jsx state. */

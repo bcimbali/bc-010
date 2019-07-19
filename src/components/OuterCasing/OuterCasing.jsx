@@ -61,37 +61,6 @@ class OuterCasing extends Component<Props, State> {
     this.synth.triggerAttackRelease(note, "8n");
   }
 
-  /** Updates state, for a filterParam or synthParam, based on the number
-   * passed in from the HTML slider in VerticalSlider.jsx. It checks
-   * envelope type, and update the correct envelope state in App.jsx.
-   * @public
-   */
-  envelopeSliderChange(envelopeType: string, sliderValue: number): void {
-    switch (envelopeType) {
-      case "attack":
-      case "decay":
-      case "sustain":
-      case "release":
-        this.setState(prevState => {
-          let newState = { ...prevState };
-          newState.synthParams.envelope[envelopeType] = sliderValue;
-          return newState;
-        });
-        break;
-      case "baseFrequency":
-      case "frequency":
-        this.setState(prevState => {
-          let newState = { ...prevState };
-          newState.filterParams[envelopeType] = sliderValue;
-          return newState;
-        });
-        break;
-
-      default:
-        break;
-    }
-  }
-
   render() {
     const {
       adjustOctave,
@@ -111,7 +80,6 @@ class OuterCasing extends Component<Props, State> {
       <div className="outerCasing">
         <ControlPanel
           adjustOctave={adjustOctave}
-          envelopeSliderChange={this.envelopeSliderChange}
           filterParams={filterParams}
           key="control-panel"
           octave={octave}
