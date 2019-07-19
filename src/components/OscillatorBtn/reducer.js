@@ -6,7 +6,6 @@ const initialState = {
 
 export default function(state = initialState, action) {
   const { type, oscType } = action;
-  console.log('oscType in reducer of OscillatorBtn: ', oscType);
   switch (type) {
     case TOGGLE_OSCILLATORS:
       return {

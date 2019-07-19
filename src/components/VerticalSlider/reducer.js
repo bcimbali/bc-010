@@ -1,4 +1,4 @@
-import { UPDATE_ENVELOPE } from "./actions";
+import { UPDATE_ENVELOPE, UPDATE_FILTER_ENVELOPE } from "./actions";
 
 const initialState = {
   attack: 0.0001,
@@ -8,29 +8,42 @@ const initialState = {
   portamento: 0.05,
 };
 
-export default function(state = initialState, action) {
-  const { type, envelopeName, envelopeValue, typeOfParams } = action;
+const initialFilterState = {
+  frequency: 0,
+  type: "sine",
+  depth: 1,
+  baseFrequency: 500,
+  octaves: 2.6,
+  filter: {
+    type: "lowpass",
+    rolloff: -12,
+    Q: 1,
+  },
+};
+
+export function envelope(state = initialState, action) {
+  const { type, envelopeName, envelopeValue } = action;
   switch (type) {
     case UPDATE_ENVELOPE:
-      if (typeOfParams === "synthParams") {
-        return {
-          ...state,
-          [envelopeName]: envelopeValue,
-        };
-      }
-      // if (typeOfParams === "filterParams") {
-      //   return {
-      //     ...state,
-      //     synthReducer: {
-      //       ...state.synthReducer,
-      //       envelope: {
-      //         [envelopeName]: envelopeValue,
-      //       },
-      //     },
-      //   };
-      // }
-      // return state;
-      break;
+      return {
+        ...state,
+        [envelopeName]: envelopeValue,
+      };
+    default:
+      return state;
+  }
+}
+
+export function filterParams(state = initialFilterState, action) {
+  const { type, envelopeName, envelopeValue } = action;
+  switch (type) {
+    case UPDATE_FILTER_ENVELOPE: {
+      console.log("IN UPDATE_FILTER_ENVELOPE");
+      return {
+        ...state,
+        [envelopeName]: envelopeValue,
+      };
+    }
     default:
       return state;
   }

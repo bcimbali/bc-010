@@ -100,18 +100,15 @@ class OuterCasing extends Component<Props, State> {
       octave,
       oscType,
       synthParams,
-      synthReducer,
+      synthesizer,
       toggleOscillator,
     } = this.props;
 
-    console.log('synthParams: ', synthParams);
-    console.log('synthReducer: ', synthReducer);
-
     /** Create a new Tone.js filter and route audio to master. */
-    // this.filter = new Tone.AutoFilter(filterParams).toMaster().start();
+    this.filter = new Tone.AutoFilter(filterParams).toMaster().start();
 
     /** Create a new Tone.js synth and route audio to this.filter */
-    this.synth = new Tone.Synth(synthReducer).toMaster();
+    this.synth = new Tone.Synth(synthesizer).connect(this.filter);
 
     return (
       <div className="outerCasing">
@@ -132,10 +129,10 @@ class OuterCasing extends Component<Props, State> {
 
 const mapStateToProps = state => ({
   octave: state.octaveContainer.octave,
-  synthParams: state.synthReducer.envelope,
-  filterParams: state.synthReducer.envelope.filterParams,
-  oscType: state.synthReducer.oscillator.type,
-  synthReducer: state.synthReducer,
+  synthParams: state.synthesizer.envelope,
+  filterParams: state.filterParams,
+  oscType: state.synthesizer.oscillator.type,
+  synthesizer: state.synthesizer,
 });
 
 OuterCasing.propTypes = {

@@ -20,12 +20,12 @@ type Props = {
 /** Holds all the slider components (SliderLabel, VerticalSlider, SliderNumberDisplay) */
 function EnvelopeSlider({
   abbr,
-  sliderName,
   envelopeSliderChange,
-  type,
   min,
   max,
+  sliderName,
   step,
+  type,
   typeOfParams,
   value,
 }: Props) {

@@ -10,7 +10,6 @@ import logger from "redux-logger";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 import OuterCasing from "./components/OuterCasing";
-import Tone from "tone";
 import autoBind from "react-autobind";
 
 const middleware = [];

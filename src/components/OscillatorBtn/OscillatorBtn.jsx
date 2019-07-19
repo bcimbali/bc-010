@@ -32,7 +32,7 @@ function OscillatorBtn({
 }
 
 const mapStateToProps = state => ({
-  oscType: state.synthReducer.oscillator.type,
+  oscType: state.synthesizer.oscillator.type,
 });
 
 const mapDispatchToProps = dispatch =>

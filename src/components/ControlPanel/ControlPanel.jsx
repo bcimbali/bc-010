@@ -34,12 +34,12 @@ function ControlPanel({
         sliderArray={envelopeSliders}
         typeOfParams="synthParams"
       />
-      {/* <SliderBank
+      <SliderBank
         envelopeSliderChange={envelopeSliderChange}
         sliderParams={filterParams}
         sliderArray={filterSliders}
         typeOfParams="filterParams"
-      /> */}
+      />
       <OctaveContainer
         key="octave-container"
         adjustOctave={adjustOctave}
