@@ -37,7 +37,7 @@ function OctaveContainer({
 }
 
 const mapStateToProps = state => ({
-  octave: state.octaveContainer.octave,
+  octave: state.octave.octave,
 });
 
 const mapDispatchToProps = dispatch =>

@@ -17,39 +17,11 @@ type Props = {
   synthesizer: Object,
   toggleOscillator: Function,
 };
-
 /** This holds everything. This is just one step down from App.jsx. */
-class OuterCasing extends Component<Props, State> {
+class OuterCasing extends Component<Props> {
   constructor(props: Props) {
     super(props);
     autoBind(this);
-    this.state = {
-      octave: 5,
-      synthParams: {
-        oscillator: {
-          type: "sawtooth",
-        },
-        envelope: {
-          attack: 0.0001,
-          decay: 0.2,
-          sustain: 0.2,
-          release: 1,
-        },
-        portamento: 0.05,
-      },
-      filterParams: {
-        frequency: 0,
-        type: "sine",
-        depth: 1,
-        baseFrequency: 500,
-        octaves: 2.6,
-        filter: {
-          type: "lowpass",
-          rolloff: -12,
-          Q: 1,
-        },
-      },
-    };
   }
 
   /** Declare synth and filter */
@@ -92,7 +64,7 @@ class OuterCasing extends Component<Props, State> {
 }
 
 const mapStateToProps = state => ({
-  octave: state.octaveContainer.octave,
+  octave: state.octave.octave,
   synthParams: state.synthesizer.envelope,
   filterParams: state.filterParams,
   oscType: state.synthesizer.oscillator.type,

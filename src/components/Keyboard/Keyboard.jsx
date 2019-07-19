@@ -149,7 +149,7 @@ class Keyboard extends Component<Props, State> {
 }
 
 const mapStateToProps = state => ({
-  octave: state.octaveContainer.octave,
+  octave: state.octave.octave,
 });
 
 Keyboard.propTypes = {
