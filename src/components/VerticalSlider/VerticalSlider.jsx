@@ -37,19 +37,13 @@ class VerticalSlider extends Component<Props, State> {
    * @public
    */
   updateSynthValue(): void {
+    const { sliderName, updateEnvelope, updateFilterEnvelope } = this.props;
+    const { value } = this.state;
     if (this.props.typeOfParams === "synthParams") {
-      this.props.updateEnvelope(
-        this.props.sliderName,
-        this.state.value,
-        this.props.typeOfParams,
-      );
+      updateEnvelope(sliderName, value);
     }
     if (this.props.typeOfParams === "filterParams") {
-      this.props.updateFilterEnvelope(
-        this.props.sliderName,
-        this.state.value,
-        this.props.typeOfParams,
-      );
+      updateFilterEnvelope(sliderName, value);
     }
   }
 

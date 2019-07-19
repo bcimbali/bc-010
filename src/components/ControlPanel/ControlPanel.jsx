@@ -64,7 +64,7 @@ ControlPanel.propTypes = {
   /** Holds all tweakable properties for the Tone.js synth. */
   synthParams: PropTypes.object,
   /** Handles change in oscillator types for Tone.js synth. */
-  toggleOscillator: PropTypes.func
+  toggleOscillator: PropTypes.func,
 };
 
 export default ControlPanel;

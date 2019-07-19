@@ -10,15 +10,10 @@ export function updateEnvelope(envelopeName, envelopeValue) {
   };
 }
 
-export function updateFilterEnvelope(
-  envelopeName,
-  envelopeValue,
-  typeOfParams,
-) {
+export function updateFilterEnvelope(envelopeName, envelopeValue) {
   return {
     type: "UPDATE_FILTER_ENVELOPE",
     envelopeName,
     envelopeValue,
-    typeOfParams,
   };
 }

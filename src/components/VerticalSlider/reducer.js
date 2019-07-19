@@ -1,6 +1,6 @@
 import { UPDATE_ENVELOPE, UPDATE_FILTER_ENVELOPE } from "./actions";
 
-const initialState = {
+const initialSynthState = {
   attack: 0.0001,
   decay: 0.2,
   sustain: 0.2,
@@ -21,7 +21,7 @@ const initialFilterState = {
   },
 };
 
-export function envelope(state = initialState, action) {
+export function envelope(state = initialSynthState, action) {
   const { type, envelopeName, envelopeValue } = action;
   switch (type) {
     case UPDATE_ENVELOPE:
@@ -38,7 +38,6 @@ export function filterParams(state = initialFilterState, action) {
   const { type, envelopeName, envelopeValue } = action;
   switch (type) {
     case UPDATE_FILTER_ENVELOPE: {
-      console.log("IN UPDATE_FILTER_ENVELOPE");
       return {
         ...state,
         [envelopeName]: envelopeValue,
