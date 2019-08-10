@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import autoBind from "react-autobind";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { updateEnvelope, updateFilterEnvelope } from "./actions.js";
+import { updateSynthEnvelope, updateFilterEnvelope } from "./actions.js";
 
 type Props = {
   sliderName: string,
@@ -14,8 +14,8 @@ type Props = {
   step: number,
   type: string,
   typeOfParams: string,
-  updateEnvelope: Function,
   updateFilterEnvelope: Function,
+  updateSynthEnvelope: Function,
   value: number,
 };
 
@@ -37,12 +37,17 @@ class VerticalSlider extends Component<Props, State> {
    * @public
    */
   updateSynthValue(): void {
-    const { sliderName, updateEnvelope, updateFilterEnvelope } = this.props;
+    const {
+      sliderName,
+      typeOfParams,
+      updateSynthEnvelope,
+      updateFilterEnvelope,
+    } = this.props;
     const { value } = this.state;
-    if (this.props.typeOfParams === "synthParams") {
-      updateEnvelope(sliderName, value);
+    if (typeOfParams === "synthParams") {
+      updateSynthEnvelope(sliderName, value);
     }
-    if (this.props.typeOfParams === "filterParams") {
+    if (typeOfParams === "filterParams") {
       updateFilterEnvelope(sliderName, value);
     }
   }
@@ -91,7 +96,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      updateEnvelope,
+      updateSynthEnvelope,
       updateFilterEnvelope,
     },
     dispatch,
@@ -112,6 +117,8 @@ VerticalSlider.propTypes = {
   typeOfParams: PropTypes.string,
   /** Function to update the filter envelope */
   updateFilterEnvelope: PropTypes.func,
+  /** Function to update the synth envelope */
+  updateSynthEnvelope: PropTypes.func,
   /** Value for that parameter as it is in App.jsx state. */
   value: PropTypes.number,
 };

@@ -1,11 +1,10 @@
-import { UPDATE_ENVELOPE, UPDATE_FILTER_ENVELOPE } from "./actions";
+import { UPDATE_SYNTH_ENVELOPE, UPDATE_FILTER_ENVELOPE } from "./actions";
 
 const initialSynthState = {
   attack: 0.0001,
   decay: 0.2,
   sustain: 0.2,
   release: 1,
-  portamento: 0.05,
 };
 
 const initialFilterState = {
@@ -21,10 +20,10 @@ const initialFilterState = {
   },
 };
 
-export function envelope(state = initialSynthState, action) {
+export function synthEnvelopeReducer(state = initialSynthState, action) {
   const { type, envelopeName, envelopeValue } = action;
   switch (type) {
-    case UPDATE_ENVELOPE:
+    case UPDATE_SYNTH_ENVELOPE:
       return {
         ...state,
         [envelopeName]: envelopeValue,
@@ -34,7 +33,7 @@ export function envelope(state = initialSynthState, action) {
   }
 }
 
-export function filterParams(state = initialFilterState, action) {
+export function filterParamsReducer(state = initialFilterState, action) {
   const { type, envelopeName, envelopeValue } = action;
   switch (type) {
     case UPDATE_FILTER_ENVELOPE: {

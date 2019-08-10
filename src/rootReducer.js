@@ -2,7 +2,10 @@ import { combineReducers } from "redux";
 import octave from "./components/OctaveContainer/reducer";
 // import synthesizer from "./reducer";
 import oscillator from "./components/OscillatorBtn/reducer";
-import { envelope, filterParams } from "./components/VerticalSlider/reducer";
+import {
+  synthEnvelopeReducer as envelope,
+  filterParamsReducer as filterParams,
+} from "./components/VerticalSlider/reducer";
 
 const synthesizer = combineReducers({
   oscillator,
