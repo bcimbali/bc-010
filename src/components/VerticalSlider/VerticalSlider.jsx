@@ -8,9 +8,9 @@ import { bindActionCreators } from "redux";
 import { updateSynthEnvelope, updateFilterEnvelope } from "./actions.js";
 
 type Props = {
-  sliderName: string,
   max: number,
   min: number,
+  sliderName: string,
   step: number,
   type: string,
   typeOfParams: string,
@@ -103,12 +103,12 @@ const mapDispatchToProps = dispatch =>
   );
 
 VerticalSlider.propTypes = {
-  /** Full name of the parameter the slider changes (eg. "attack", "decay" etc.) */
-  sliderName: PropTypes.string,
   /** Maximum value the slider can reach. */
   max: PropTypes.number,
   /** Minimum value the slider can reach. */
   min: PropTypes.number,
+  /** Full name of the parameter the slider changes (eg. "attack", "decay" etc.) */
+  sliderName: PropTypes.string,
   /** Specifies the size of each movement for the slider control */
   step: PropTypes.number,
   /** Always listed as "range" so that each HTML slider is of range type. */
