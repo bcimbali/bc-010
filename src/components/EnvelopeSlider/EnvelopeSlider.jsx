@@ -8,35 +8,35 @@ import VerticalSlider from "./../VerticalSlider";
 type Props = {
   abbr: string,
   sliderName: string,
-  envelopeSliderChange: Function,
   max: number,
   min: number,
   step: number,
   type: string,
-  value: number
+  typeOfParams: string,
+  value: number,
 };
 
 /** Holds all the slider components (SliderLabel, VerticalSlider, SliderNumberDisplay) */
 function EnvelopeSlider({
   abbr,
-  sliderName,
-  envelopeSliderChange,
-  type,
   min,
   max,
+  sliderName,
   step,
-  value
+  type,
+  typeOfParams,
+  value,
 }: Props) {
   return (
     <article className="envelopeSlider">
       <SliderLabel abbr={abbr} sliderName={type} />
       <VerticalSlider
         sliderName={sliderName}
-        envelopeSliderChange={envelopeSliderChange}
         max={max}
         min={min}
         step={step}
         type={type}
+        typeOfParams={typeOfParams}
         value={value}
       />
       <SliderNumberDisplay value={value} />
@@ -49,8 +49,6 @@ EnvelopeSlider.propTypes = {
   abbr: PropTypes.string,
   /** Full name of the parameter the slider changes (eg. "attack", "decay" etc.) */
   sliderName: PropTypes.string,
-  /** Takes in a number & envelope name. Updates App.jsx state for the envelope name with the passed in number. */
-  envelopeSliderChange: PropTypes.func,
   /** Maximum value the slider can reach. */
   max: PropTypes.number,
   /** Minimum value the slider can reach. */
@@ -59,8 +57,10 @@ EnvelopeSlider.propTypes = {
   step: PropTypes.number,
   /** Always listed as "range" so that each HTML slider is of range type. */
   type: PropTypes.string,
+  /** Name of the object for the parameter to be adjusted */
+  typeOfParams: PropTypes.string,
   /** Value for that parameter as it is in App.jsx state. */
-  value: PropTypes.number
+  value: PropTypes.number,
 };
 
 export default EnvelopeSlider;
