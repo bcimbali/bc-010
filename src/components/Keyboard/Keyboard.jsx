@@ -103,7 +103,7 @@ class Keyboard extends Component<Props, State> {
   }
 
   /** Add the keypress event listener to the document before the component mounts. */
-  componentWillMount() {
+  componentDidMount() {
     // $FlowFixMe
     document.addEventListener("keypress", this.keyboardLetterPress);
   }
