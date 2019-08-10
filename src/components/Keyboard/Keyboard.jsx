@@ -92,17 +92,18 @@ class Keyboard extends Component<Props, State> {
   keyboardLetterPress(event: SyntheticKeyboardEvent<*>): void {
     /** If key pressed matches a key object in arrOfKeyObjects.json array,
      * fire the keyPress() function to sound the synth. */
-    this.props.keyPress(
-      this.updateNoteOctave(
-        this.findKeyCodeMatch(event.charCode, arrOfKeyObjects),
-      ),
+    const matchedNoteObj = this.findKeyCodeMatch(
+      event.charCode,
+      arrOfKeyObjects,
     );
-
-    /** Also, highlight the keyboard key pressed a bright green.  */
-    this.highlightKeyPressed(event.charCode);
+    if (matchedNoteObj !== undefined) {
+      this.props.keyPress(this.updateNoteOctave(matchedNoteObj));
+      /** Also, highlight the keyboard key pressed a bright green.  */
+      this.highlightKeyPressed(matchedNoteObj.keyCode);
+    }
   }
 
-  /** Add the keypress event listener to the document before the component mounts. */
+  /** Add the keypress event listener to the document once the component mounts. */
   componentDidMount() {
     // $FlowFixMe
     document.addEventListener("keypress", this.keyboardLetterPress);
@@ -116,10 +117,7 @@ class Keyboard extends Component<Props, State> {
   }
 
   render() {
-    /** Destructure props */
     const { keyPress, octave } = this.props;
-
-    /** Destructure state */
     const { highlightKey } = this.state;
 
     /** Logic for parameter of .map key generation below */
