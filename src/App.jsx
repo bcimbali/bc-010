@@ -6,12 +6,12 @@ import rootReducer from "./rootReducer";
 import React, { Component } from "react";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import logger from "redux-logger";
+// import logger from "redux-logger";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 import OuterCasing from "./components/OuterCasing";
 
-const middleware = [logger];
+const middleware = [];
 
 const store = createStore(
   rootReducer,
