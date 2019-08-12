@@ -2,7 +2,7 @@
   {
     "id": 1,
     "note": "C",
-    "keyCode": 97,
+    "keyCode": 65,
     "letter": "A",
     "startingOctave": 0,
     "type": "white"
@@ -10,7 +10,7 @@
   {
     "id": 2,
     "note": "Db",
-    "keyCode": 119,
+    "keyCode": 87,
     "letter": "W",
     "startingOctave": 0,
     "type": "black"
@@ -18,7 +18,7 @@
   {
     "id": 3,
     "note": "D",
-    "keyCode": 115,
+    "keyCode": 83,
     "letter": "S",
     "startingOctave": 0,
     "type": "white"
@@ -26,7 +26,7 @@
   {
     "id": 4,
     "note": "Eb",
-    "keyCode": 101,
+    "keyCode": 69,
     "letter": "E",
     "startingOctave": 0,
     "type": "black"
@@ -34,7 +34,7 @@
   {
     "id": 5,
     "note": "E",
-    "keyCode": 100,
+    "keyCode": 68,
     "letter": "D",
     "startingOctave": 0,
     "type": "white"
@@ -42,7 +42,7 @@
   {
     "id": 6,
     "note": "F",
-    "keyCode": 102,
+    "keyCode": 70,
     "letter": "F",
     "startingOctave": 0,
     "type": "white"
@@ -50,7 +50,7 @@
   {
     "id": 7,
     "note": "Gb",
-    "keyCode": 116,
+    "keyCode": 84,
     "letter": "T",
     "startingOctave": 0,
     "type": "black"
@@ -58,7 +58,7 @@
   {
     "id": 8,
     "note": "G",
-    "keyCode": 103,
+    "keyCode": 71,
     "letter": "G",
     "startingOctave": 0,
     "type": "white"
@@ -66,7 +66,7 @@
   {
     "id": 9,
     "note": "Ab",
-    "keyCode": 121,
+    "keyCode": 89,
     "letter": "Y",
     "startingOctave": 0,
     "type": "black"
@@ -74,7 +74,7 @@
   {
     "id": 10,
     "note": "A",
-    "keyCode": 104,
+    "keyCode": 72,
     "letter": "H",
     "startingOctave": 0,
     "type": "white"
@@ -82,7 +82,7 @@
   {
     "id": 11,
     "note": "Bb",
-    "keyCode": 117,
+    "keyCode": 85,
     "letter": "U",
     "startingOctave": 0,
     "type": "black"
@@ -90,7 +90,7 @@
   {
     "id": 12,
     "note": "B",
-    "keyCode": 106,
+    "keyCode": 74,
     "letter": "J",
     "startingOctave": 0,
     "type": "white"
@@ -98,7 +98,7 @@
   {
     "id": 13,
     "note": "C",
-    "keyCode": 107,
+    "keyCode": 75,
     "letter": "K",
     "startingOctave": 1,
     "type": "white"

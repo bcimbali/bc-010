@@ -33,6 +33,15 @@ class OuterCasing extends Component<Props> {
     this.synth.triggerAttackRelease(note, "8n");
   }
 
+  /** Actually plays/sounds the note on the synth: */
+  keyPressDown(note: string | void): void {
+    this.synth.triggerAttack(note);
+  }
+
+  keyPressUp(note: string | void): void {
+    this.synth.triggerRelease();
+  }
+
   render() {
     const {
       adjustOctave,
@@ -57,7 +66,12 @@ class OuterCasing extends Component<Props> {
           octave={octave}
           synthParams={synthParams}
         />
-        <Keyboard key="keyboard" keyPress={this.keyPress} />
+        <Keyboard
+          key="keyboard"
+          keyPress={this.keyPress}
+          keyPressDown={this.keyPressDown}
+          keyPressUp={this.keyPressUp}
+        />
       </div>
     );
   }

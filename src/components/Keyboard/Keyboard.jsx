@@ -9,6 +9,8 @@ import autoBind from "react-autobind";
 
 type Props = {
   keyPress: Function,
+  keyPressDown: Function,
+  keyPressUp: Function,
   octave: number,
 };
 
@@ -34,6 +36,8 @@ class Keyboard extends Component<Props, State> {
     autoBind(this);
     this.state = {
       highlightKey: 0,
+      isKeyDown: false,
+      previousKeyPress: {},
     };
   }
 
@@ -92,28 +96,39 @@ class Keyboard extends Component<Props, State> {
   keyboardLetterPress(event: SyntheticKeyboardEvent<*>): void {
     /** If key pressed matches a key object in arrOfKeyObjects.json array,
      * fire the keyPress() function to sound the synth. */
-    const matchedNoteObj = this.findKeyCodeMatch(
-      event.charCode,
-      arrOfKeyObjects,
-    );
-    if (matchedNoteObj !== undefined) {
-      this.props.keyPress(this.updateNoteOctave(matchedNoteObj));
+    const matchedNoteObj = this.findKeyCodeMatch(event.which, arrOfKeyObjects);
+
+    if (matchedNoteObj !== undefined && !this.state.isKeyDown) {
+      this.props.keyPressDown(this.updateNoteOctave(matchedNoteObj));
+      this.setState({ isKeyDown: true });
       /** Also, highlight the keyboard key pressed a bright green.  */
       this.highlightKeyPressed(matchedNoteObj.keyCode);
     }
   }
 
+  keyUpHandler() {
+    this.props.keyPressUp();
+    this.setState({ isKeyDown: false });
+  }
+
   /** Add the keypress event listener to the document once the component mounts. */
   componentDidMount() {
+    // document.addEventListener("keypress", this.keyboardLetterPress);
     // $FlowFixMe
-    document.addEventListener("keypress", this.keyboardLetterPress);
+    document.addEventListener("keydown", this.keyboardLetterPress);
+    document.addEventListener("keyup", this.keyUpHandler);
   }
 
   /** Remove keypress event listener after component unmounts to prevent
    potential errors and memory leaks. */
   componentWillUnmount() {
     // $FlowFixMe
-    document.removeEventListener("keypress", this.keyboardLetterPress);
+    document.removeEventListener("keydown", this.keyboardLetterPress);
+    document.removeEventListener("keyup", this.props.keyPressUp);
+  }
+
+  testFunction(e) {
+    console.log('key down in testFunction()', e);
   }
 
   render() {
@@ -153,6 +168,10 @@ const mapStateToProps = state => ({
 Keyboard.propTypes = {
   /** Actually plays/fires the note on the Tone.js synth. */
   keyPress: PropTypes.func,
+  /** Actually plays/fires the note on the Tone.js synth. */
+  keyPressDown: PropTypes.func,
+  /** Stops the note on the Tone.js synth. */
+  keyPressUp: PropTypes.func,
   /** Current octave for the keyboard. Derived from App.jsx state. */
   octave: PropTypes.number,
 };
