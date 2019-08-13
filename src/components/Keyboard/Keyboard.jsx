@@ -36,7 +36,6 @@ class Keyboard extends Component<Props, State> {
     autoBind(this);
     this.state = {
       highlightKey: 0,
-      isKeyDown: false,
       pressedKey: {},
     };
   }
