@@ -37,7 +37,7 @@ class Keyboard extends Component<Props, State> {
     this.state = {
       highlightKey: 0,
       isKeyDown: false,
-      previousKeyPress: {},
+      pressedKey: {},
     };
   }
 
@@ -98,17 +98,23 @@ class Keyboard extends Component<Props, State> {
      * fire the keyPress() function to sound the synth. */
     const matchedNoteObj = this.findKeyCodeMatch(event.which, arrOfKeyObjects);
 
-    if (matchedNoteObj !== undefined && !this.state.isKeyDown) {
+    if (
+      matchedNoteObj !== undefined &&
+      this.state.pressedKey !== matchedNoteObj
+    ) {
       this.props.keyPressDown(this.updateNoteOctave(matchedNoteObj));
-      this.setState({ isKeyDown: true });
+      this.setState({ pressedKey: matchedNoteObj });
       /** Also, highlight the keyboard key pressed a bright green.  */
       this.highlightKeyPressed(matchedNoteObj.keyCode);
     }
   }
 
-  keyUpHandler() {
-    this.props.keyPressUp();
-    this.setState({ isKeyDown: false });
+  keyUpHandler(event: SyntheticKeyboardEvent<*>): void {
+    const matchedNoteObj = this.findKeyCodeMatch(event.which, arrOfKeyObjects);
+    if (matchedNoteObj === this.state.pressedKey) {
+      this.props.keyPressUp();
+      this.setState({ pressedKey: {} });
+    }
   }
 
   /** Add the keypress event listener to the document once the component mounts. */
