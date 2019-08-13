@@ -15,7 +15,7 @@ type Props = {
 };
 
 type State = {
-  highlightKey: number,
+  activeKeyPressed: Object,
 };
 
 /** Filter the keys json data for just white keys */
@@ -36,32 +36,8 @@ class Keyboard extends Component<Props, State> {
     autoBind(this);
     this.state = {
       highlightKey: 0,
-      pressedKey: {},
+      activeKeyPressed: {},
     };
-  }
-
-  /** Quickly remove the highlighted key in App.jsx state
-   * @public
-   */
-  resetHighlightedKey(): void {
-    setTimeout(() => {
-      this.setState({ highlightKey: 0 });
-    }, 90);
-  }
-
-  /** Populate the highlighted key in Keyboard.jsx state with the key pressed.
-   * @public
-   */
-  updateHighlightedKey(keyPressed: number): void {
-    this.setState({ highlightKey: keyPressed });
-  }
-
-  /** Fires both keyboard click/'highlightedKey' setState functions
-   * @public
-   */
-  highlightKeyPressed(keyPressed: number): void {
-    this.updateHighlightedKey(keyPressed);
-    this.resetHighlightedKey();
   }
 
   /** Make sure the correct octave is associated with the synth
@@ -99,26 +75,23 @@ class Keyboard extends Component<Props, State> {
 
     if (
       matchedNoteObj !== undefined &&
-      this.state.pressedKey !== matchedNoteObj
+      this.state.activeKeyPressed !== matchedNoteObj
     ) {
       this.props.keyPressDown(this.updateNoteOctave(matchedNoteObj));
-      this.setState({ pressedKey: matchedNoteObj });
-      /** Also, highlight the keyboard key pressed a bright green.  */
-      this.highlightKeyPressed(matchedNoteObj.keyCode);
+      this.setState({ activeKeyPressed: matchedNoteObj });
     }
   }
 
   keyUpHandler(event: SyntheticKeyboardEvent<*>): void {
     const matchedNoteObj = this.findKeyCodeMatch(event.which, arrOfKeyObjects);
-    if (matchedNoteObj === this.state.pressedKey) {
+    if (matchedNoteObj === this.state.activeKeyPressed) {
       this.props.keyPressUp();
-      this.setState({ pressedKey: {} });
+      this.setState({ activeKeyPressed: {} });
     }
   }
 
   /** Add the keypress event listener to the document once the component mounts. */
   componentDidMount() {
-    // document.addEventListener("keypress", this.keyboardLetterPress);
     // $FlowFixMe
     document.addEventListener("keydown", this.keyboardLetterPress);
     document.addEventListener("keyup", this.keyUpHandler);
@@ -132,19 +105,15 @@ class Keyboard extends Component<Props, State> {
     document.removeEventListener("keyup", this.props.keyPressUp);
   }
 
-  testFunction(e) {
-    console.log('key down in testFunction()', e);
-  }
-
   render() {
     const { keyPress, octave } = this.props;
-    const { highlightKey } = this.state;
+    const { activeKeyPressed } = this.state;
 
     /** Logic for parameter of .map key generation below */
     const generateKeys = ({ id, keyCode, letter, note, startingOctave }) => (
       <Key
         displayOctave={octave + startingOctave}
-        highlightKey={highlightKey}
+        highlightKey={activeKeyPressed.keyCode}
         key={`${id}-${note}`}
         keyCode={keyCode}
         keyPress={keyPress}
