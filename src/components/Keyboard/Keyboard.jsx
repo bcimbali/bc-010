@@ -8,7 +8,6 @@ import arrOfKeyObjects from "./../../arrOfKeyObjects.json";
 import autoBind from "react-autobind";
 
 type Props = {
-  keyPress: Function,
   keyPressDown: Function,
   keyPressUp: Function,
   octave: number,
@@ -70,7 +69,7 @@ class Keyboard extends Component<Props, State> {
    */
   keyboardLetterPress(event: SyntheticKeyboardEvent<*>): void {
     /** If key pressed matches a key object in arrOfKeyObjects.json array,
-     * fire the keyPress() function to sound the synth. */
+     * fire the keyPressDown() function to sound the synth. */
     const matchedNoteObj = this.findKeyCodeMatch(event.which, arrOfKeyObjects);
 
     if (
@@ -106,7 +105,7 @@ class Keyboard extends Component<Props, State> {
   }
 
   render() {
-    const { keyPress, octave } = this.props;
+    const { keyPressDown, keyPressUp, octave } = this.props;
     const { activeKeyPressed } = this.state;
 
     /** Logic for parameter of .map key generation below */
@@ -116,7 +115,8 @@ class Keyboard extends Component<Props, State> {
         highlightKey={activeKeyPressed.keyCode}
         key={`${id}-${note}`}
         keyCode={keyCode}
-        keyPress={keyPress}
+        keyPressDown={keyPressDown}
+        keyPressUp={keyPressUp}
         letter={letter}
         note={note}
       />
@@ -140,8 +140,6 @@ const mapStateToProps = state => ({
 });
 
 Keyboard.propTypes = {
-  /** Actually plays/fires the note on the Tone.js synth. */
-  keyPress: PropTypes.func,
   /** Actually plays/fires the note on the Tone.js synth. */
   keyPressDown: PropTypes.func,
   /** Stops the note on the Tone.js synth. */

@@ -6,9 +6,10 @@ type Props = {
   displayOctave: number,
   highlightKey: number,
   keyCode: number,
-  keyPress: Function,
+  keyPressDown: Function,
+  keyPressUp: Function,
   letter: string,
-  note: string
+  note: string,
 };
 
 /** Component for the keys on keyboard. This is reused to make
@@ -18,7 +19,8 @@ function Key({
   displayOctave,
   highlightKey,
   keyCode,
-  keyPress,
+  keyPressDown,
+  keyPressUp,
   letter,
   note
 }: Props) {
@@ -26,7 +28,8 @@ function Key({
   return (
     <article
       className={`key ${highlightKey === keyCode ? "keyboard-click" : ""}`}
-      onClick={() => keyPress(octaveNote)}
+      onMouseDown={() => keyPressDown(octaveNote)}
+      onMouseUp={() => keyPressUp(octaveNote)}
     >
       <div className="key-display">
         <header>
@@ -49,7 +52,9 @@ Key.propTypes = {
   /** Char code that corresponds to that note on the synthesizer. */
   keyCode: PropTypes.number,
   /** Actually plays/fires the note on the Tone.js synth. */
-  keyPress: PropTypes.func.isRequired,
+  keyPressDown: PropTypes.func.isRequired,
+  /** Stops the note on the Tone.js synth. */
+  keyPressUp: PropTypes.func.isRequired,
   /** Letter on the computer keyboard that corresponds to that note on the synthesizer. */
   letter: PropTypes.string,
   /** Musical note for that key (eg. "Db", "E", "Bb", etc.) */

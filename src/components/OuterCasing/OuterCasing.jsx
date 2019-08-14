@@ -29,11 +29,6 @@ class OuterCasing extends Component<Props> {
   filter: Object = {};
 
   /** Actually plays/sounds the note on the synth: */
-  keyPress(note: string | void): void {
-    this.synth.triggerAttackRelease(note, "8n");
-  }
-
-  /** Actually plays/sounds the note on the synth: */
   keyPressDown(note: string | void): void {
     this.synth.triggerAttack(note);
   }
@@ -68,7 +63,6 @@ class OuterCasing extends Component<Props> {
         />
         <Keyboard
           key="keyboard"
-          keyPress={this.keyPress}
           keyPressDown={this.keyPressDown}
           keyPressUp={this.keyPressUp}
         />
