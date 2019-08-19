@@ -8,12 +8,13 @@ import arrOfKeyObjects from "./../../arrOfKeyObjects.json";
 import autoBind from "react-autobind";
 
 type Props = {
-  keyPress: Function,
+  keyPressDown: Function,
+  keyPressUp: Function,
   octave: number,
 };
 
 type State = {
-  highlightKey: number,
+  activeKeyPressed: Object,
 };
 
 /** Filter the keys json data for just white keys */
@@ -34,31 +35,8 @@ class Keyboard extends Component<Props, State> {
     autoBind(this);
     this.state = {
       highlightKey: 0,
+      activeKeyPressed: {},
     };
-  }
-
-  /** Quickly remove the highlighted key in App.jsx state
-   * @public
-   */
-  resetHighlightedKey(): void {
-    setTimeout(() => {
-      this.setState({ highlightKey: 0 });
-    }, 90);
-  }
-
-  /** Populate the highlighted key in Keyboard.jsx state with the key pressed.
-   * @public
-   */
-  updateHighlightedKey(keyPressed: number): void {
-    this.setState({ highlightKey: keyPressed });
-  }
-
-  /** Fires both keyboard click/'highlightedKey' setState functions
-   * @public
-   */
-  highlightKeyPressed(keyPressed: number): void {
-    this.updateHighlightedKey(keyPressed);
-    this.resetHighlightedKey();
   }
 
   /** Make sure the correct octave is associated with the synth
@@ -91,43 +69,54 @@ class Keyboard extends Component<Props, State> {
    */
   keyboardLetterPress(event: SyntheticKeyboardEvent<*>): void {
     /** If key pressed matches a key object in arrOfKeyObjects.json array,
-     * fire the keyPress() function to sound the synth. */
-    const matchedNoteObj = this.findKeyCodeMatch(
-      event.charCode,
-      arrOfKeyObjects,
-    );
-    if (matchedNoteObj !== undefined) {
-      this.props.keyPress(this.updateNoteOctave(matchedNoteObj));
-      /** Also, highlight the keyboard key pressed a bright green.  */
-      this.highlightKeyPressed(matchedNoteObj.keyCode);
+     * fire the keyPressDown() function to sound the synth. */
+    const matchedNoteObj = this.findKeyCodeMatch(event.which, arrOfKeyObjects);
+
+    if (
+      matchedNoteObj !== undefined &&
+      this.state.activeKeyPressed !== matchedNoteObj
+    ) {
+      this.props.keyPressDown(this.updateNoteOctave(matchedNoteObj));
+      this.setState({ activeKeyPressed: matchedNoteObj });
+    }
+  }
+
+  keyUpHandler(event: SyntheticKeyboardEvent<*>): void {
+    const matchedNoteObj = this.findKeyCodeMatch(event.which, arrOfKeyObjects);
+    if (matchedNoteObj === this.state.activeKeyPressed) {
+      this.props.keyPressUp();
+      this.setState({ activeKeyPressed: {} });
     }
   }
 
   /** Add the keypress event listener to the document once the component mounts. */
   componentDidMount() {
     // $FlowFixMe
-    document.addEventListener("keypress", this.keyboardLetterPress);
+    document.addEventListener("keydown", this.keyboardLetterPress);
+    document.addEventListener("keyup", this.keyUpHandler);
   }
 
   /** Remove keypress event listener after component unmounts to prevent
    potential errors and memory leaks. */
   componentWillUnmount() {
     // $FlowFixMe
-    document.removeEventListener("keypress", this.keyboardLetterPress);
+    document.removeEventListener("keydown", this.keyboardLetterPress);
+    document.removeEventListener("keyup", this.props.keyPressUp);
   }
 
   render() {
-    const { keyPress, octave } = this.props;
-    const { highlightKey } = this.state;
+    const { keyPressDown, keyPressUp, octave } = this.props;
+    const { activeKeyPressed } = this.state;
 
     /** Logic for parameter of .map key generation below */
     const generateKeys = ({ id, keyCode, letter, note, startingOctave }) => (
       <Key
         displayOctave={octave + startingOctave}
-        highlightKey={highlightKey}
+        highlightKey={activeKeyPressed.keyCode}
         key={`${id}-${note}`}
         keyCode={keyCode}
-        keyPress={keyPress}
+        keyPressDown={keyPressDown}
+        keyPressUp={keyPressUp}
         letter={letter}
         note={note}
       />
@@ -152,7 +141,9 @@ const mapStateToProps = state => ({
 
 Keyboard.propTypes = {
   /** Actually plays/fires the note on the Tone.js synth. */
-  keyPress: PropTypes.func,
+  keyPressDown: PropTypes.func,
+  /** Stops the note on the Tone.js synth. */
+  keyPressUp: PropTypes.func,
   /** Current octave for the keyboard. Derived from App.jsx state. */
   octave: PropTypes.number,
 };
