@@ -1,6 +1,7 @@
 // @flow
 import PropTypes from "prop-types";
-import React from "react";
+import React, { Fragment } from "react";
+import { isMobile } from "react-device-detect";
 
 type Props = {
   displayOctave: number,
@@ -22,25 +23,41 @@ function Key({
   keyPressDown,
   keyPressUp,
   letter,
-  note
+  note,
 }: Props) {
   let octaveNote: string = note + displayOctave;
-  return (
-    <article
-      className={`key ${highlightKey === keyCode ? "keyboard-click" : ""}`}
-      onMouseDown={() => keyPressDown(octaveNote)}
-      onMouseUp={() => keyPressUp(octaveNote)}
-    >
-      <div className="key-display">
-        <header>
-          {note}
-          {displayOctave}
-        </header>
-        <div className="letter-name">
-          <p>{letter}</p>
-        </div>
+  const keyInnerDisplay = (
+    <div className="key-display">
+      <header>
+        {note}
+        {displayOctave}
+      </header>
+      <div className="letter-name">
+        <p>{letter}</p>
       </div>
-    </article>
+    </div>
+  );
+
+  return (
+    <Fragment>
+      {isMobile ? (
+        <article
+          className={`key ${highlightKey === keyCode ? "keyboard-click" : ""}`}
+          onTouchStart={() => keyPressDown(octaveNote)}
+          onTouchEnd={() => keyPressUp(octaveNote)}
+        >
+          {keyInnerDisplay}
+        </article>
+      ) : (
+        <article
+          className={`key ${highlightKey === keyCode ? "keyboard-click" : ""}`}
+          onMouseDown={() => keyPressDown(octaveNote)}
+          onMouseUp={() => keyPressUp(octaveNote)}
+        >
+          {keyInnerDisplay}
+        </article>
+      )}
+    </Fragment>
   );
 }
 
@@ -58,7 +75,7 @@ Key.propTypes = {
   /** Letter on the computer keyboard that corresponds to that note on the synthesizer. */
   letter: PropTypes.string,
   /** Musical note for that key (eg. "Db", "E", "Bb", etc.) */
-  note: PropTypes.string
+  note: PropTypes.string,
 };
 
 export default Key;
