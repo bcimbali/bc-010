@@ -3,9 +3,17 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import autoBind from "react-autobind";
 import Tone from "tone";
+import styled from "styled-components";
 import ControlPanel from "./../ControlPanel";
 import Keyboard from "./../Keyboard";
 import PropTypes from "prop-types";
+
+const OuterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  max-width: 100%;
+`;
 
 type Props = {
   adjustOctave: Function,
@@ -53,7 +61,7 @@ class OuterCasing extends Component<Props> {
     this.synth = new Tone.Synth(synthesizer).connect(this.filter);
 
     return (
-      <div className="outerCasing">
+      <OuterContainer>
         <ControlPanel
           adjustOctave={adjustOctave}
           filterParams={filterParams}
@@ -66,7 +74,7 @@ class OuterCasing extends Component<Props> {
           keyPressDown={this.keyPressDown}
           keyPressUp={this.keyPressUp}
         />
-      </div>
+      </OuterContainer>
     );
   }
 }

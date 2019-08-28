@@ -7,6 +7,7 @@ import React, { Component } from "react";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 // import logger from "redux-logger";
+import styled from "styled-components";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 import OuterCasing from "./components/OuterCasing";
@@ -18,6 +19,12 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(...middleware)),
 );
 
+const Header = styled.header`
+  color: white;
+  font-size: 2vw;
+  font-weight: bold;
+`;
+
 type Props = {};
 type State = {};
 
@@ -26,7 +33,7 @@ class App extends Component<Props, State> {
     return (
       <Provider store={store}>
         <main>
-          <header className="header">bc-010</header>
+          <Header>bc-010</Header>
           <OuterCasing key="outerCasing" />
         </main>
       </Provider>

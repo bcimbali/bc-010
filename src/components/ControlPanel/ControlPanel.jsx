@@ -3,10 +3,19 @@ import OctaveContainer from "./../OctaveContainer";
 import OscillatorBtn from "./../OscillatorBtn";
 import PropTypes from "prop-types";
 import React from "react";
+import styled from "styled-components";
 import SliderBank from "../SliderBank/SliderBank";
 import envelopeSliders from "./../../envelopeSliders.json";
 import filterSliders from "./../../filterSliders.json";
 import oscillatorTypes from "./../../oscillatorTypes.json";
+
+const ControlPanelContainer = styled.section`
+  background-color: #b2ff5a;
+  border: 2px solid #40522d;
+  display: flex;
+  height: 50vh;
+  justify-content: space-evenly;
+`;
 
 type Props = {
   adjustOctave: Function,
@@ -25,7 +34,7 @@ function ControlPanel({
   synthParams,
 }: Props) {
   return (
-    <section className="controlPanel">
+    <ControlPanelContainer>
       <SliderBank
         sliderParams={synthParams}
         sliderArray={envelopeSliders}
@@ -50,7 +59,7 @@ function ControlPanel({
           type={type}
         />
       ))}
-    </section>
+    </ControlPanelContainer>
   );
 }
 
