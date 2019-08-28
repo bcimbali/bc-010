@@ -10,38 +10,6 @@ body {
 *
 *----------------------------------------------------------------------------------------------------*/
 
-/********************************* Button Section ************************************/
-
-.btn-toggle {
-  align-items: center;
-  align-self: center;
-  border: 2px solid #40522D;
-  color: #40522D;
-  display: flex;
-  height: 5vh;
-  justify-content: center;
-  padding: 0.25vw;
-  text-align: center;
-  vertical-align: middle;
-  /* width: 5vw; */
-}
-
-.btn-toggle:hover {
-  background-color: #00BFA5;
-  color: white;
-  cursor: pointer;
-}
-
-.btn-selected {
-  background-color: #00bb10;
-  color: white;
-}
-
-.btn-text {
-  font-size: 1.5vw;
-  font-weight: bold;
-}
-
 /**************************** Octave Select Section *******************************/
 
 .octave-container {
