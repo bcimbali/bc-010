@@ -10,45 +10,7 @@ body {
 *
 *----------------------------------------------------------------------------------------------------*/
 
-/**************************** Octave Select Section *******************************/
-
-.octave-container {
-  align-self: center;
-  border: 2px solid #40522D;
-  display: flex;
-  flex-direction: column;
-}
-
-.octave-controls {
-  color: #40522D;
-  display: flex;
-  font-size: 2vw;
-  justify-content: space-between;
-}
-
-.octave-btn:hover {
-  background-color: #00BFA5;
-  color: white;
-  cursor: pointer;
-}
-
-.octave-header {
-  color: #40522D;
-  display: flex;
-  font-size: 1.5vw;
-  justify-content: center;
-}
-
 /**************************** Enveloper Slider Section *******************************/
-
-/* Slider bank to hold all the sliders */
-
-.slider-bank {
-  align-self: flex-end;
-  border: 1px solid #40522D;
-  display: flex;
-  height: 40vh;
-}
 
 /* Outer container for each slider strip */
 

@@ -2,6 +2,14 @@
 import EnvelopeSlider from "./../EnvelopeSlider";
 import PropTypes from "prop-types";
 import React from "react";
+import styled from "styled-components";
+
+const SliderContainer = styled.section`
+  align-self: flex-end;
+  border: 1px solid #40522D;
+  display: flex;
+  height: 40vh;
+`;
 
 type Props = {
   sliderArray: Array<Object>,
@@ -12,7 +20,7 @@ type Props = {
 /** Houses all the tweakable sliders. */
 function SliderBank({ sliderArray, sliderParams, typeOfParams }: Props) {
   return (
-    <section className="slider-bank">
+    <SliderContainer>
       {sliderArray.map(({ abbr, id, max, min, sliderName, step }) => (
         <EnvelopeSlider
           abbr={abbr}
@@ -26,7 +34,7 @@ function SliderBank({ sliderArray, sliderParams, typeOfParams }: Props) {
           value={sliderParams[sliderName]}
         />
       ))}
-    </section>
+    </SliderContainer>
   );
 }
 

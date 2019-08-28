@@ -1,15 +1,24 @@
 // @flow
 import PropTypes from "prop-types";
 import React from "react";
+import styled from "styled-components";
 import SliderLabel from "./../SliderLabel";
 import SliderNumberDisplay from "./../SliderNumberDisplay";
 import VerticalSlider from "./../VerticalSlider";
 
+const Container = styled.article`
+  border: 1px solid #40522d;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 5vw;
+`;
+
 type Props = {
   abbr: string,
-  sliderName: string,
   max: number,
   min: number,
+  sliderName: string,
   step: number,
   type: string,
   typeOfParams: string,
@@ -28,7 +37,7 @@ function EnvelopeSlider({
   value,
 }: Props) {
   return (
-    <article className="envelopeSlider">
+    <Container>
       <SliderLabel abbr={abbr} sliderName={type} />
       <VerticalSlider
         sliderName={sliderName}
@@ -40,19 +49,19 @@ function EnvelopeSlider({
         value={value}
       />
       <SliderNumberDisplay value={value} />
-    </article>
+    </Container>
   );
 }
 
 EnvelopeSlider.propTypes = {
   /** Abbreviation of the parameter the slider changes (eg. A,D,S,R). */
   abbr: PropTypes.string,
-  /** Full name of the parameter the slider changes (eg. "attack", "decay" etc.) */
-  sliderName: PropTypes.string,
   /** Maximum value the slider can reach. */
   max: PropTypes.number,
   /** Minimum value the slider can reach. */
   min: PropTypes.number,
+  /** Full name of the parameter the slider changes (eg. "attack", "decay" etc.) */
+  sliderName: PropTypes.string,
   /** Specifies the size of each movement for the slider control */
   step: PropTypes.number,
   /** Always listed as "range" so that each HTML slider is of range type. */

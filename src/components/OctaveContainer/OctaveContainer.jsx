@@ -2,9 +2,32 @@
 import OctaveHeader from "./../OctaveHeader";
 import PropTypes from "prop-types";
 import React from "react";
+import styled from "styled-components";
 import { connect } from "react-redux";
 import { decrementOctave, incrementOctave } from "./actions";
 import { bindActionCreators } from "redux";
+
+const Container = styled.section`
+  align-self: center;
+  border: 2px solid #40522d;
+  display: flex;
+  flex-direction: column;
+`;
+
+const OctaveButton = styled.div`
+  :hover {
+    background-color: #00bfa5;
+    color: white;
+    cursor: pointer;
+  }
+`;
+
+const OctaveControls = styled.div`
+  color: #40522d;
+  display: flex;
+  font-size: 2vw;
+  justify-content: space-between;
+`;
 
 type Props = {
   adjustOctave: Function,
@@ -21,18 +44,14 @@ function OctaveContainer({
   octave,
 }: Props) {
   return (
-    <section className="octave-container">
+    <Container>
       <OctaveHeader />
-      <div className="octave-controls">
-        <div className="octave-btn" onClick={decrementOctave}>
-          -
-        </div>
+      <OctaveControls>
+        <OctaveButton onClick={decrementOctave}>-</OctaveButton>
         <div>{octave}</div>
-        <div className="octave-btn" onClick={incrementOctave}>
-          +
-        </div>
-      </div>
-    </section>
+        <OctaveButton onClick={incrementOctave}>+</OctaveButton>
+      </OctaveControls>
+    </Container>
   );
 }
 

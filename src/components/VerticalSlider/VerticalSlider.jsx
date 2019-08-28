@@ -5,7 +5,18 @@ import PropTypes from "prop-types";
 import autoBind from "react-autobind";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import styled from "styled-components";
 import { updateSynthEnvelope, updateFilterEnvelope } from "./actions.js";
+
+const SliderContainer = styled.div`
+  align-self: center;
+`;
+
+const SliderHousing = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
 
 type Props = {
   max: number,
@@ -71,8 +82,8 @@ class VerticalSlider extends Component<Props, State> {
   render() {
     const { sliderName, max, min, step, value } = this.props;
     return (
-      <div className="slider-housing">
-        <div className="slider-container">
+      <SliderHousing>
+        <SliderContainer>
           <input
             slider-name={sliderName}
             className="html-slider"
@@ -83,8 +94,8 @@ class VerticalSlider extends Component<Props, State> {
             step={step}
             value={value}
           />
-        </div>
-      </div>
+        </SliderContainer>
+      </SliderHousing>
     );
   }
 }
