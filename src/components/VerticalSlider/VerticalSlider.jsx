@@ -8,6 +8,77 @@ import { bindActionCreators } from "redux";
 import styled from "styled-components";
 import { updateSynthEnvelope, updateFilterEnvelope } from "./actions.js";
 
+const InputSlider = styled.input`
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -webkit-appearance: none;
+  appearance: none;
+  background: #00bb10;
+  /* Grey background */
+  cursor: pointer;
+  height: 0.75vw;
+  /*  This is actually the fatness of the slider */
+  outline: none;
+  /* Remove outline */
+  transform: rotate(270deg);
+  width: 25vh;
+
+  ::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
+    appearance: none;
+    background: #00bb10;
+    /* Green background */
+    border-left: 0.25vw solid #40522d;
+    border-right: 0.25vw solid #40522d;
+    cursor: pointer;
+    /* Cursor on hover */
+    height: 1.75vw;
+    /* Slider handle height */
+    width: 1vw;
+    /* Set a specific slider handle width */
+  }
+
+  :hover::-webkit-slider-thumb {
+    background: white;
+    border-left: 0.25vw solid #00bfa5;
+    border-right: 0.25vw solid #00bfa5;
+  }
+
+  :active::-webkit-slider-thumb {
+    background: white;
+    border-left: 0.25vw solid #00bfa5;
+    border-right: 0.25vw solid #00bfa5;
+  }
+
+  :hover::-webkit-slider-thumb {
+    background: white;
+    border-left: 0.25vw solid #00bfa5;
+    border-right: 0.25vw solid #00bfa5;
+  }
+
+  ::-moz-range-thumb {
+    background: #353535;
+    /* Green background */
+    border-left: 0.25vw solid #40522d;
+    border-right: 0.25vw solid #40522d;
+    cursor: pointer;
+    /* Cursor on hover */
+    height: 2.25vh;
+    /* Slider handle height */
+    width: 1vw;
+    /* Set a specific slider handle width */
+  }
+
+  :active::-moz-range-thumb {
+    background: white;
+    border-left: 0.25vw solid #00bfa5;
+    border-right: 0.25vw solid #00bfa5;
+  }
+`;
+
 const SliderContainer = styled.div`
   align-self: center;
 `;
@@ -84,9 +155,8 @@ class VerticalSlider extends Component<Props, State> {
     return (
       <SliderHousing>
         <SliderContainer>
-          <input
+          <InputSlider
             slider-name={sliderName}
-            className="html-slider"
             type="range"
             min={min}
             max={max}
