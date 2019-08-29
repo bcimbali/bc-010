@@ -1,7 +1,40 @@
 // @flow
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
+import styled, { css } from "styled-components";
 import { isMobile } from "react-device-detect";
+
+const KeyContainer = styled.article`
+  border: 2px solid #40522d;
+  margin: 0.5vw;
+  width: 10vw;
+
+  :hover {
+    background-color: #00bfa5;
+    cursor: pointer;
+  }
+
+  ${({ isActive }) =>
+    isActive &&
+    css`
+      background-color: rgb(135, 250, 160) !important;
+    `};
+`;
+
+const Letter = styled.div`
+  color: #40522D;
+  display: flex;
+  font-size: 5vw;
+  justify-content: center;
+  width: 100%;
+`;
+
+const OuterLetterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+`;
 
 type Props = {
   displayOctave: number,
@@ -27,35 +60,35 @@ function Key({
 }: Props) {
   let octaveNote: string = note + displayOctave;
   const keyInnerDisplay = (
-    <div className="key-display">
+    <OuterLetterContainer>
       <header>
         {note}
         {displayOctave}
       </header>
-      <div className="letter-name">
+      <Letter>
         <p>{letter}</p>
-      </div>
-    </div>
+      </Letter>
+    </OuterLetterContainer>
   );
 
   return (
     <Fragment>
       {isMobile ? (
-        <article
-          className={`key ${highlightKey === keyCode ? "keyboard-click" : ""}`}
+        <KeyContainer
+          isActive={highlightKey === keyCode}
           onTouchStart={() => keyPressDown(octaveNote)}
           onTouchEnd={() => keyPressUp(octaveNote)}
         >
           {keyInnerDisplay}
-        </article>
+        </KeyContainer>
       ) : (
-        <article
-          className={`key ${highlightKey === keyCode ? "keyboard-click" : ""}`}
+        <KeyContainer
+          isActive={highlightKey === keyCode}
           onMouseDown={() => keyPressDown(octaveNote)}
           onMouseUp={() => keyPressUp(octaveNote)}
         >
           {keyInnerDisplay}
-        </article>
+        </KeyContainer>
       )}
     </Fragment>
   );
