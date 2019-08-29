@@ -10,15 +10,6 @@ body {
 *
 *----------------------------------------------------------------------------------------------------*/
 
-.keyboard {
-  background-color: #B2FF5A;
-  border: 2px solid #40522D;
-  display: flex;
-  flex-direction: column;
-  height: 40vh;
-  padding: 1vh;
-}
-
 .key {
   border: 2px solid #40522D;
   margin: 0.5vw;
@@ -48,33 +39,6 @@ body {
   display: flex;
   font-size: 5vw;
   justify-content: center;
-  width: 100%;
-}
-
-/********************************* Black Keys ************************************/
-
-.black-keys {
-  display: flex;
-  height: 100vh;
-  padding-left: 5vw;
-  width: 100%;
-}
-
-.black-keys :nth-child( 5n+3), .black-keys :nth-child( 5n+6) {
-  margin-left: 12vw;
-}
-
-.black-keys>* {
-  /* background-color: #00BFA5; */
-  background-color: #00bb10;
-  /* color: white; */
-}
-
-/********************************* White Keys ************************************/
-
-.white-keys {
-  display: flex;
-  height: 100vh;
   width: 100%;
 }
 

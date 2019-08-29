@@ -1,11 +1,42 @@
 // @flow
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
 
 import Key from "./../Key";
 import PropTypes from "prop-types";
 import arrOfKeyObjects from "./../../arrOfKeyObjects.json";
 import autoBind from "react-autobind";
+
+const BlackKeys = styled.section`
+  display: flex;
+  height: 100vh;
+  padding-left: 5vw;
+  width: 100%;
+
+  > :nth-child(5n + 3) {
+    margin-left: 12vw;
+  }
+
+  > * {
+    background-color: #00bb10;
+  }
+`;
+
+const Container = styled.section`
+  background-color: #b2ff5a;
+  border: 2px solid #40522d;
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+  padding: 1vh;
+`;
+
+const WhiteKeys = styled.section`
+  display: flex;
+  height: 100vh;
+  width: 100%;
+`;
 
 type Props = {
   keyPressDown: Function,
@@ -123,14 +154,10 @@ class Keyboard extends Component<Props, State> {
     );
 
     return (
-      <section className="keyboard">
-        <section className="black-keys">
-          {blackKeysArray.map(generateKeys)}
-        </section>
-        <section className="white-keys">
-          {whiteKeysArray.map(generateKeys)}
-        </section>
-      </section>
+      <Container>
+        <BlackKeys>{blackKeysArray.map(generateKeys)}</BlackKeys>
+        <WhiteKeys>{whiteKeysArray.map(generateKeys)}</WhiteKeys>
+      </Container>
     );
   }
 }
