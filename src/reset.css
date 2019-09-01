@@ -19,6 +19,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 body {
+  background-color: #40522D;
+  box-sizing: border-box;
+  font-family: 'Roboto Mono', monospace;
   line-height: 1;
 }
 

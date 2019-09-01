@@ -77,6 +77,26 @@ const InputSlider = styled.input`
     border-left: 0.25vw solid #00bfa5;
     border-right: 0.25vw solid #00bfa5;
   }
+
+  @media screen and (max-width: 768px) {
+    height: 4.5vw;
+    /* Responsive thumb slider styling for Chrome, Opera, Safari & Edge */
+    ::-webkit-slider-thumb {
+      border-left: 1.25vw solid #047000;
+      border-right: 1.25vw solid #047000;
+      width: 3vw;
+      /* Set a specific slider handle width */
+      height: 4.5vw;
+      /* Slider handle height */
+    }
+    /* Responsive thumb slider styling for Firefox */
+    ::-moz-range-thumb {
+      width: 0.5vw;
+      /* Set a specific slider handle width */
+      height: 1.75vw;
+      /* Slider handle height */
+    }
+  }
 `;
 
 const SliderContainer = styled.div`

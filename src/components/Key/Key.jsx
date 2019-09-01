@@ -27,6 +27,10 @@ const Letter = styled.div`
   font-size: 5vw;
   justify-content: center;
   width: 100%;
+
+  @media screen and (max-width: 768px) {
+    color: transparent;
+  }
 `;
 
 const OuterLetterContainer = styled.div`

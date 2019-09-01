@@ -1,6 +1,5 @@
 // @flow
 import "./reset.css";
-import "./App.css";
 import rootReducer from "./rootReducer";
 
 import React, { Component } from "react";
