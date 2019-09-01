@@ -124,6 +124,7 @@ class Keyboard extends Component<Props, State> {
   componentDidMount() {
     // $FlowFixMe
     document.addEventListener("keydown", this.keyboardLetterPress);
+    // $FlowFixMe
     document.addEventListener("keyup", this.keyUpHandler);
   }
 
