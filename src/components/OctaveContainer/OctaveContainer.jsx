@@ -30,19 +30,13 @@ const OctaveControls = styled.div`
 `;
 
 type Props = {
-  adjustOctave: Function,
   decrementOctave: Function,
   incrementOctave: Function,
   octave: number,
 };
 
 /** Holds the octave display in the control panel. */
-function OctaveContainer({
-  adjustOctave,
-  decrementOctave,
-  incrementOctave,
-  octave,
-}: Props) {
+function OctaveContainer({ decrementOctave, incrementOctave, octave }: Props) {
   return (
     <Container>
       <OctaveHeader />
@@ -69,8 +63,6 @@ const mapDispatchToProps = dispatch =>
   );
 
 OctaveContainer.propTypes = {
-  /** Moves ocatve range of keyboard notes up or down */
-  adjustOctave: PropTypes.func,
   /** Lowers octave by 1 */
   decrementOctave: PropTypes.func,
   /** Raises octave by 1 */

@@ -2,7 +2,6 @@ This is a stateless component that is a wrapper for the entire synthesizer/instr
 
 ```jsx static
 <OuterCasing
-  adjustOctave={this.adjustOctave}
   envelopeSliderChange={this.envelopeSliderChange}
   filterParams={filterParams}
   key="outerCasing"

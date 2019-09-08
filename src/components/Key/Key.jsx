@@ -99,7 +99,7 @@ function Key({
 }
 
 Key.propTypes = {
-  /** Display the correct octave after its been updated in with the adjustOctave function. */
+  /** Display the correct octave after its been updated. */
   displayOctave: PropTypes.number,
   /** Number of the Char Code for the currently pressed key on the keybaord - it's stored in Keyboard.jsx state. */
   highlightKey: PropTypes.number,

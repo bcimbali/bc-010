@@ -16,7 +16,6 @@ const OuterContainer = styled.div`
 `;
 
 type Props = {
-  adjustOctave: Function,
   envelopeSliderChange: Function,
   filterParams: Object,
   keyPress: Function,
@@ -47,7 +46,6 @@ class OuterCasing extends Component<Props> {
 
   render() {
     const {
-      adjustOctave,
       filterParams,
       octave,
       synthParams,
@@ -63,7 +61,6 @@ class OuterCasing extends Component<Props> {
     return (
       <OuterContainer>
         <ControlPanel
-          adjustOctave={adjustOctave}
           filterParams={filterParams}
           key="control-panel"
           octave={octave}
@@ -88,8 +85,6 @@ const mapStateToProps = state => ({
 });
 
 OuterCasing.propTypes = {
-  /** Moves ocatve range of keyboard notes up or down */
-  adjustOctave: PropTypes.func,
   /** Takes in a number & envelope name. Updates App.jsx state for the envelope name with the passed in number. */
   envelopeSliderChange: PropTypes.func,
   /** Holds all tweakable properties for the Tone.js filter. */

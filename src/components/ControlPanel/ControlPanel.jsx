@@ -18,7 +18,6 @@ const ControlPanelContainer = styled.section`
 `;
 
 type Props = {
-  adjustOctave: Function,
   filterParams: Object,
   octave: number,
   synthParams: Object,
@@ -27,7 +26,6 @@ type Props = {
 
 /** Component to hold all tweakable parameters (e.g. sliders, knobs etc.) for the synth. */
 function ControlPanel({
-  adjustOctave,
   filterParams,
   octave,
   toggleOscillator,
@@ -45,11 +43,7 @@ function ControlPanel({
         sliderArray={filterSliders}
         typeOfParams="filterParams"
       />
-      <OctaveContainer
-        key="octave-container"
-        adjustOctave={adjustOctave}
-        octave={octave}
-      />
+      <OctaveContainer key="octave-container" octave={octave} />
       {oscillatorTypes.map(({ abbr, id, type }) => (
         <OscillatorBtn
           abbr={abbr}
@@ -64,8 +58,6 @@ function ControlPanel({
 }
 
 ControlPanel.propTypes = {
-  /** Moves ocatve range of keyboard notes up or down */
-  adjustOctave: PropTypes.func,
   /** Holds all tweakable properties for the Tone.js filter. */
   filterParams: PropTypes.object,
   /** Current octave for the keyboard. Derived from App.jsx state. */

@@ -4,7 +4,6 @@ will hold all slider banks, knobs, switches, etc.
 
 ```jsx static
 <ControlPanel
-  adjustOctave={adjustOctave}
   envelopeSliderChange={envelopeSliderChange}
   filterParams={filterParams}
   key="control-panel"
