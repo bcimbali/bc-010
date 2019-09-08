@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import SliderBank from '../SliderBank/SliderBank';
-import envelopeSliders from './../../envelopeSliders.json';
-import filterSliders from './../../filterSliders.json';
-import oscillatorTypes from './../../oscillatorTypes.json';
+import envelopeSliders from './../../data/envelopeSliders.json';
+import filterSliders from './../../data/filterSliders.json';
+import oscillatorTypes from './../../data/oscillatorTypes.json';
 
 const ControlPanelContainer = styled.section`
   background-color: #b2ff5a;

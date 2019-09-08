@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import Key from './../Key';
 import PropTypes from 'prop-types';
-import arrOfKeyObjects from './../../arrOfKeyObjects.json';
+import arrOfKeyObjects from './../../data/arrOfKeyObjects.json';
 import autoBind from 'react-autobind';
 
 const BlackKeys = styled.section`
