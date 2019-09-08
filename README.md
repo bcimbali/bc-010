@@ -12,8 +12,8 @@ This is an audio synthesizer to be used right in your own web browser. You can p
 
 ## How to Use:
 
-- Open a Chrome web browser (ony Chrome supports all features of Web MIDI / Web Audio)
-- GO to the URL for the app/synth: https://frosty-swanson-669b64.netlify.com/
+- Open a Chrome web browser (only Chrome supports all features of Web MIDI / Web Audio)
+- Go to the URL for the app/synth: https://frosty-swanson-669b64.netlify.com/
 - Click on a musical key to play the synth
   - You can also use the "musical typing" feature of the computer keyboard to play notes
 - Click and drag the sliders to adjust the tone
@@ -46,6 +46,17 @@ This is an audio synthesizer to be used right in your own web browser. You can p
 - Make sure [React Styleguidist](https://react-styleguidist.js.org/docs/getting-started.html) is installed. (It should have been installed as a devDependency).
 - Then in the root directory of the project, run `npx styleguidist server`
 - View the documenatation in your web browser at `http://localhost:6060/`
+
+### Setting up AutoFix on save with VSCode :necktie:
+Having Prettier/Eslint autofix errors is very handy for development. This repo is 
+all set up to autofix errors. If you're using VSCode, make sure these
+settings below are in your workspace settings (below are the json version):
+```
+{
+  "editor.formatOnSave": true,
+  "eslint.autoFixOnSave": true,
+}
+```
 
 ## Built with:
 
