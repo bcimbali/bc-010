@@ -45,12 +45,7 @@ class OuterCasing extends Component<Props> {
   }
 
   render() {
-    const {
-      filterParams,
-      octave,
-      synthParams,
-      synthesizer,
-    } = this.props;
+    const { filterParams, octave, synthParams, synthesizer } = this.props;
 
     /** Create a new Tone.js filter and route audio to master. */
     this.filter = new Tone.AutoFilter(filterParams).toMaster().start();
