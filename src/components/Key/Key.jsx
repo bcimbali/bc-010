@@ -1,8 +1,8 @@
 // @flow
-import PropTypes from "prop-types";
-import React, { Fragment } from "react";
-import styled, { css } from "styled-components";
-import { isMobile } from "react-device-detect";
+import PropTypes from 'prop-types';
+import React, { Fragment } from 'react';
+import styled, { css } from 'styled-components';
+import { isMobile } from 'react-device-detect';
 
 const KeyContainer = styled.article`
   border: 2px solid #40522d;
@@ -22,7 +22,7 @@ const KeyContainer = styled.article`
 `;
 
 const Letter = styled.div`
-  color: #40522D;
+  color: #40522d;
   display: flex;
   font-size: 5vw;
   justify-content: center;

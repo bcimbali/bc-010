@@ -1,12 +1,12 @@
 // @flow
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import autoBind from "react-autobind";
-import Tone from "tone";
-import styled from "styled-components";
-import ControlPanel from "./../ControlPanel";
-import Keyboard from "./../Keyboard";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import autoBind from 'react-autobind';
+import Tone from 'tone';
+import styled from 'styled-components';
+import ControlPanel from './../ControlPanel';
+import Keyboard from './../Keyboard';
+import PropTypes from 'prop-types';
 
 const OuterContainer = styled.div`
   display: flex;

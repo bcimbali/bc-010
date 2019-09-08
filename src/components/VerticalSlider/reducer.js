@@ -1,4 +1,4 @@
-import { UPDATE_SYNTH_ENVELOPE, UPDATE_FILTER_ENVELOPE } from "./actions";
+import { UPDATE_SYNTH_ENVELOPE, UPDATE_FILTER_ENVELOPE } from './actions';
 
 const initialSynthState = {
   attack: 0.0001,
@@ -9,12 +9,12 @@ const initialSynthState = {
 
 const initialFilterState = {
   frequency: 0,
-  type: "sine",
+  type: 'sine',
   depth: 1,
   baseFrequency: 500,
   octaves: 2.6,
   filter: {
-    type: "lowpass",
+    type: 'lowpass',
     rolloff: -12,
     Q: 1,
   },

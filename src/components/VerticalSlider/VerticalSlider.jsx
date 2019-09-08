@@ -1,12 +1,12 @@
 // @flow
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import PropTypes from "prop-types";
-import autoBind from "react-autobind";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import styled from "styled-components";
-import { updateSynthEnvelope, updateFilterEnvelope } from "./actions.js";
+import PropTypes from 'prop-types';
+import autoBind from 'react-autobind';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import styled from 'styled-components';
+import { updateSynthEnvelope, updateFilterEnvelope } from './actions.js';
 
 const InputSlider = styled.input`
   -webkit-transform: rotate(270deg);
@@ -146,10 +146,10 @@ class VerticalSlider extends Component<Props, State> {
       updateFilterEnvelope,
     } = this.props;
     const { value } = this.state;
-    if (typeOfParams === "synthParams") {
+    if (typeOfParams === 'synthParams') {
       updateSynthEnvelope(sliderName, value);
     }
-    if (typeOfParams === "filterParams") {
+    if (typeOfParams === 'filterParams') {
       updateFilterEnvelope(sliderName, value);
     }
   }

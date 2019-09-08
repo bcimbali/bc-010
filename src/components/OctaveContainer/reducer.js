@@ -1,4 +1,4 @@
-import { DECREMENT_OCTAVE , INCREMENT_OCTAVE } from "./actions";
+import { DECREMENT_OCTAVE, INCREMENT_OCTAVE } from './actions';
 
 const initialState = {
   octave: 5,

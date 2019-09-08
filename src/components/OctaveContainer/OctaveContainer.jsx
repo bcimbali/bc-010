@@ -1,11 +1,11 @@
 // @flow
-import OctaveHeader from "./../OctaveHeader";
-import PropTypes from "prop-types";
-import React from "react";
-import styled from "styled-components";
-import { connect } from "react-redux";
-import { decrementOctave, incrementOctave } from "./actions";
-import { bindActionCreators } from "redux";
+import OctaveHeader from './../OctaveHeader';
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { decrementOctave, incrementOctave } from './actions';
+import { bindActionCreators } from 'redux';
 
 const Container = styled.section`
   align-self: center;

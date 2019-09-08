@@ -1,1 +1,1 @@
-export { default } from "./VerticalSlider.jsx";
+export { default } from './VerticalSlider.jsx';

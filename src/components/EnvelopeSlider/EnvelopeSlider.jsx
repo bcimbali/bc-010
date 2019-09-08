@@ -1,10 +1,10 @@
 // @flow
-import PropTypes from "prop-types";
-import React from "react";
-import styled from "styled-components";
-import SliderLabel from "./../SliderLabel";
-import SliderNumberDisplay from "./../SliderNumberDisplay";
-import VerticalSlider from "./../VerticalSlider";
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
+import SliderLabel from './../SliderLabel';
+import SliderNumberDisplay from './../SliderNumberDisplay';
+import VerticalSlider from './../VerticalSlider';
 
 const Container = styled.article`
   border: 1px solid #40522d;

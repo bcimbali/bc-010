@@ -1,4 +1,4 @@
-import { UPDATE_ENVELOPE } from "./actions";
+import { UPDATE_ENVELOPE } from './actions';
 
 const initialState = {
   synthParams: {
@@ -12,12 +12,12 @@ const initialState = {
   },
   filterParams: {
     frequency: 0,
-    type: "sine",
+    type: 'sine',
     depth: 1,
     baseFrequency: 500,
     octaves: 2.6,
     filter: {
-      type: "lowpass",
+      type: 'lowpass',
       rolloff: -12,
       Q: 1,
     },
@@ -28,7 +28,7 @@ export default function(state = initialState, action) {
   const { type, envelopeName, envelopeValue, typeOfParams } = action;
   switch (type) {
     case UPDATE_ENVELOPE:
-      if (typeOfParams === "synthParams") {
+      if (typeOfParams === 'synthParams') {
         return {
           ...state,
           synthParams: {
@@ -40,7 +40,7 @@ export default function(state = initialState, action) {
           },
         };
       }
-      if (typeOfParams === "filterParams") {
+      if (typeOfParams === 'filterParams') {
         return {
           ...state,
           filterParams: {

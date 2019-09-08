@@ -1,7 +1,7 @@
-import { TOGGLE_OSCILLATORS} from "./actions";
+import { TOGGLE_OSCILLATORS } from './actions';
 
 const initialState = {
-  type: "sawtooth",
+  type: 'sawtooth',
 };
 
 export default function(state = initialState, action) {

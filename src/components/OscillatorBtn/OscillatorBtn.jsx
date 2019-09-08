@@ -1,16 +1,16 @@
 // @flow
-import PropTypes from "prop-types";
-import React from "react";
-import { connect } from "react-redux";
-import styled, { css } from "styled-components";
-import { bindActionCreators } from "redux";
-import { toggleOscillators } from "./actions.js";
+import PropTypes from 'prop-types';
+import React from 'react';
+import { connect } from 'react-redux';
+import styled, { css } from 'styled-components';
+import { bindActionCreators } from 'redux';
+import { toggleOscillators } from './actions.js';
 
 const ButtonHousing = styled.div`
   align-items: center;
   align-self: center;
-  border: 2px solid #40522D;
-  color: #40522D;
+  border: 2px solid #40522d;
+  color: #40522d;
   display: flex;
   height: 5vh;
   justify-content: center;

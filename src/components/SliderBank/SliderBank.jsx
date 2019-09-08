@@ -1,12 +1,12 @@
 // @flow
-import EnvelopeSlider from "./../EnvelopeSlider";
-import PropTypes from "prop-types";
-import React from "react";
-import styled from "styled-components";
+import EnvelopeSlider from './../EnvelopeSlider';
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
 
 const SliderContainer = styled.section`
   align-self: flex-end;
-  border: 1px solid #40522D;
+  border: 1px solid #40522d;
   display: flex;
   height: 40vh;
 `;

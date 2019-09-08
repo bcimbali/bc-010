@@ -1,1 +1,1 @@
-export { default } from "./SliderLabel.jsx";
+export { default } from './SliderLabel.jsx';
