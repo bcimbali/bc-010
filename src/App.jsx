@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import OuterCasing from './components/OuterCasing';
+import Header from './components/Header';
 
 const middleware = [];
 
@@ -18,11 +19,11 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(...middleware)),
 );
 
-const Header = styled.header`
-  color: white;
-  font-size: 2vw;
-  font-weight: bold;
-`;
+// const Header = styled.header`
+//   color: white;
+//   font-size: 2vw;
+//   font-weight: bold;
+// `;
 
 type Props = {};
 type State = {};
