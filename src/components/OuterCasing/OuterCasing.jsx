@@ -56,7 +56,7 @@ class OuterCasing extends Component<Props> {
     if (!isEmpty(this.synth)) {
       this.synth.dispose();
     }
-    // /** Create a new Tone.js synth and route audio to this.filter */
+    /** Create a new Tone.js synth and route audio to this.filter */
     this.synth = new Tone.Synth(synthesizer).connect(this.filter);
 
     return (
