@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import autoBind from 'react-autobind';
 import Tone from 'tone';
 import styled from 'styled-components';
+import { isEmpty } from 'lodash';
 import ControlPanel from './../ControlPanel';
 import Keyboard from './../Keyboard';
 import PropTypes from 'prop-types';
@@ -46,11 +47,16 @@ class OuterCasing extends Component<Props> {
 
   render() {
     const { filterParams, octave, synthParams, synthesizer } = this.props;
-
+    if (!isEmpty(this.filter)) {
+      this.filter.dispose();
+    }
     /** Create a new Tone.js filter and route audio to master. */
     this.filter = new Tone.AutoFilter(filterParams).toMaster().start();
 
-    /** Create a new Tone.js synth and route audio to this.filter */
+    if (!isEmpty(this.synth)) {
+      this.synth.dispose();
+    }
+    // /** Create a new Tone.js synth and route audio to this.filter */
     this.synth = new Tone.Synth(synthesizer).connect(this.filter);
 
     return (
