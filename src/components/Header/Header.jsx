@@ -5,6 +5,10 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { toggleOscillators } from './../OscillatorBtn/actions.js';
+import {
+  updateFilterEnvelope,
+  updateSynthEnvelope,
+} from './../VerticalSlider/actions.js';
 
 const HeaderContainer = styled.header`
   color: white;
@@ -26,7 +30,14 @@ function Header(props) {
   return (
     <HeaderContainer>
       <div>bc-010</div>
-      <PresetsContainer onClick={() => props.toggleOscillators('sine')}>
+      <PresetsContainer
+        onClick={() => {
+          props.toggleOscillators('sine');
+          props.updateSynthEnvelope('attack', 0.5);
+          props.updateFilterEnvelope('frequency', 13);
+          props.updateFilterEnvelope('baseFrequency', 550);
+        }}
+      >
         <div />
       </PresetsContainer>
     </HeaderContainer>
@@ -37,6 +48,8 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       toggleOscillators,
+      updateFilterEnvelope,
+      updateSynthEnvelope,
     },
     dispatch,
   );
