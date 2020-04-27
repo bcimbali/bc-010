@@ -19,12 +19,6 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(...middleware)),
 );
 
-// const Header = styled.header`
-//   color: white;
-//   font-size: 2vw;
-//   font-weight: bold;
-// `;
-
 type Props = {};
 type State = {};
 
