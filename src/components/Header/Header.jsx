@@ -9,6 +9,7 @@ import {
   updateFilterEnvelope,
   updateSynthEnvelope,
 } from './../VerticalSlider/actions.js';
+import { updateSynthPatch } from './actions.js';
 
 const HeaderContainer = styled.header`
   color: white;
@@ -25,6 +26,13 @@ const PresetsContainer = styled.div`
   width: 40px;
 `;
 
+const newSynthPatch = {
+  attack: 0.5,
+  decay: 0.6,
+  sustain: 0.7,
+  release: 7,
+};
+
 function Header(props) {
   console.log('In Header.jsx, this is props: ', props);
   return (
@@ -32,10 +40,11 @@ function Header(props) {
       <div>bc-010</div>
       <PresetsContainer
         onClick={() => {
-          props.toggleOscillators('sine');
-          props.updateSynthEnvelope('attack', 0.5);
-          props.updateFilterEnvelope('frequency', 13);
-          props.updateFilterEnvelope('baseFrequency', 550);
+          props.updateSynthPatch(newSynthPatch);
+          // props.toggleOscillators('sine');
+          // props.updateSynthEnvelope('attack', 0.5);
+          // props.updateFilterEnvelope('frequency', 13);
+          // props.updateFilterEnvelope('baseFrequency', 550);
         }}
       >
         <div />
@@ -50,6 +59,7 @@ const mapDispatchToProps = dispatch =>
       toggleOscillators,
       updateFilterEnvelope,
       updateSynthEnvelope,
+      updateSynthPatch,
     },
     dispatch,
   );
