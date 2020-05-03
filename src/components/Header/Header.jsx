@@ -22,34 +22,47 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
 `;
 
+const Preset = styled.div`
+  border: 1px dotted black;
+  color: #111111;
+  height: auto;
+  margin-left: 5px;
+
+  :hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`;
+
 const PresetsContainer = styled.div`
-  background-color: orange;
-  border: 1px dotted red;
-  height: 10px;
-  width: 40px;
+  display: flex;
 `;
 
 function Header({
-  updateAllSynthEnvelopes,
-  toggleOscillators,
   setOctave,
+  toggleOscillators,
   updateAllFilterEnvelopes,
+  updateAllSynthEnvelopes,
 }) {
   return (
     <HeaderContainer>
       <div>bc-010</div>
-      {presets.map((preset, idx) => {
-        return (
-          <PresetsContainer
-            onClick={() => {
-              updateAllSynthEnvelopes(preset.synthesizer.envelope);
-              toggleOscillators(preset.synthesizer.oscillator.type);
-              setOctave(preset.octave.octave);
-              updateAllFilterEnvelopes(preset.filterParams);
-            }}
-          />
-        );
-      })}
+      <PresetsContainer>
+        {presets.map((preset, idx) => {
+          return (
+            <Preset
+              onClick={() => {
+                updateAllSynthEnvelopes(preset.synthesizer.envelope);
+                toggleOscillators(preset.synthesizer.oscillator.type);
+                setOctave(preset.octave.octave);
+                updateAllFilterEnvelopes(preset.filterParams);
+              }}
+            >
+              {preset.name}
+            </Preset>
+          );
+        })}
+      </PresetsContainer>
     </HeaderContainer>
   );
 }
@@ -57,12 +70,12 @@ function Header({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
+      setOctave,
       toggleOscillators,
+      updateAllSynthEnvelopes,
+      updateAllFilterEnvelopes,
       updateFilterEnvelope,
       updateSynthEnvelope,
-      updateAllSynthEnvelopes,
-      setOctave,
-      updateAllFilterEnvelopes,
     },
     dispatch,
   );
