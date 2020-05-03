@@ -11,6 +11,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import OuterCasing from './components/OuterCasing';
 import Header from './components/Header';
+import SideNav from './components/SideNav';
 
 const middleware = [];
 
@@ -29,6 +30,7 @@ class App extends Component<Props, State> {
         <main>
           <Header>bc-010</Header>
           <OuterCasing key="outerCasing" />
+          <SideNav />
         </main>
       </Provider>
     );

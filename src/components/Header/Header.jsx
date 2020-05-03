@@ -12,6 +12,7 @@ import {
   updateAllFilterEnvelopes,
 } from './../VerticalSlider/actions.js';
 import { setOctave } from './../OctaveContainer/actions.js';
+import { toggleSidenav } from './../SideNav/actions.js';
 import presets from './../../data/presets.json';
 
 const HeaderContainer = styled.header`
@@ -38,15 +39,25 @@ const PresetsContainer = styled.div`
   display: flex;
 `;
 
+const SideNavButton = styled.div`
+  border: 1px dotted #111111;
+  height: auto;
+`;
+
 function Header({
   setOctave,
   toggleOscillators,
   updateAllFilterEnvelopes,
   updateAllSynthEnvelopes,
+  toggleSidenav,
 }) {
   return (
     <HeaderContainer>
       <div>bc-010</div>
+
+      <SideNavButton onClick={() => toggleSidenav()}>
+        OPEN PRESETS
+      </SideNavButton>
       <PresetsContainer>
         {presets.map((preset, idx) => {
           return (
@@ -76,6 +87,7 @@ const mapDispatchToProps = dispatch =>
       updateAllFilterEnvelopes,
       updateFilterEnvelope,
       updateSynthEnvelope,
+      toggleSidenav,
     },
     dispatch,
   );

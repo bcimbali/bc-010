@@ -5,6 +5,7 @@ import {
   synthEnvelopeReducer as envelope,
   filterParamsReducer as filterParams,
 } from './components/VerticalSlider/reducer';
+import sideNav from './components/SideNav/reducer';
 
 const synthesizer = combineReducers({
   oscillator,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   octave,
   synthesizer,
   filterParams,
+  sideNav,
 });
 
 export default rootReducer;
