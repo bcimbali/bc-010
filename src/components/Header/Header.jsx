@@ -9,6 +9,7 @@ import {
   updateFilterEnvelope,
   updateSynthEnvelope,
   updateAllSynthEnvelopes,
+  updateAllFilterEnvelopes,
 } from './../VerticalSlider/actions.js';
 import { setOctave } from './../OctaveContainer/actions.js';
 
@@ -41,17 +42,17 @@ const newSynthPatch = {
     oscillator: {
       type: 'square',
     },
-    filterParams: {
-      frequency: 0,
-      type: 'sine',
-      depth: 1,
-      baseFrequency: 500,
-      octaves: 2.6,
-      filter: {
-        type: 'lowpass',
-        rolloff: -12,
-        Q: 1,
-      },
+  },
+  filterParams: {
+    frequency: 18,
+    type: 'sine',
+    depth: 1,
+    baseFrequency: 181,
+    octaves: 2.6,
+    filter: {
+      type: 'lowpass',
+      rolloff: -12,
+      Q: 1,
     },
   },
 };
@@ -66,6 +67,7 @@ function Header(props) {
           props.updateAllSynthEnvelopes(newSynthPatch.synthesizer.envelope);
           props.toggleOscillators(newSynthPatch.synthesizer.oscillator.type);
           props.setOctave(newSynthPatch.octave.octave);
+          props.updateAllFilterEnvelopes(newSynthPatch.filterParams);
         }}
       >
         <div />
@@ -82,6 +84,7 @@ const mapDispatchToProps = dispatch =>
       updateSynthEnvelope,
       updateAllSynthEnvelopes,
       setOctave,
+      updateAllFilterEnvelopes,
     },
     dispatch,
   );

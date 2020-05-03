@@ -1,6 +1,7 @@
 export const UPDATE_SYNTH_ENVELOPE = 'UPDATE_SYNTH_ENVELOPE';
 export const UPDATE_FILTER_ENVELOPE = 'UPDATE_FILTER_ENVELOPE';
 export const UPDATE_ALL_SYNTH_ENVELOPES = 'UPDATE_ALL_SYNTH_ENVELOPES';
+export const UPDATE_ALL_FILTER_ENVELOPES = 'UPDATE_ALL_FILTER_ENVELOPES';
 
 // TODO: pass in another argument to tell this what slider bank to update
 export function updateSynthEnvelope(envelopeName, envelopeValue) {
@@ -23,5 +24,12 @@ export function updateFilterEnvelope(envelopeName, envelopeValue) {
     type: 'UPDATE_FILTER_ENVELOPE',
     envelopeName,
     envelopeValue,
+  };
+}
+
+export function updateAllFilterEnvelopes(filterObj) {
+  return {
+    type: 'UPDATE_ALL_FILTER_ENVELOPES',
+    filterObj,
   };
 }
