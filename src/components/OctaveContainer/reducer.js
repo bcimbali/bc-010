@@ -1,11 +1,11 @@
-import { DECREMENT_OCTAVE, INCREMENT_OCTAVE } from './actions';
+import { DECREMENT_OCTAVE, INCREMENT_OCTAVE, SET_OCTAVE } from './actions';
 
 const initialState = {
   octave: 5,
 };
 
 export default function(state = initialState, action) {
-  const { type } = action;
+  const { type, newOctave } = action;
   switch (type) {
     case DECREMENT_OCTAVE:
       if (state.octave <= 0) {
@@ -22,6 +22,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         octave: state.octave + 1,
+      };
+    case SET_OCTAVE:
+      return {
+        ...state,
+        octave: newOctave,
       };
     default:
       return state;

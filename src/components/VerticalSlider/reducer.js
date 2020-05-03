@@ -1,4 +1,8 @@
-import { UPDATE_SYNTH_ENVELOPE, UPDATE_FILTER_ENVELOPE } from './actions';
+import {
+  UPDATE_SYNTH_ENVELOPE,
+  UPDATE_FILTER_ENVELOPE,
+  UPDATE_ALL_SYNTH_ENVELOPES,
+} from './actions';
 
 const initialSynthState = {
   attack: 0.0001,
@@ -21,12 +25,20 @@ const initialFilterState = {
 };
 
 export function synthEnvelopeReducer(state = initialSynthState, action) {
-  const { type, envelopeName, envelopeValue } = action;
+  const { type, envelopeName, envelopeValue, envelopeObj } = action;
   switch (type) {
     case UPDATE_SYNTH_ENVELOPE:
       return {
         ...state,
         [envelopeName]: envelopeValue,
+      };
+    case UPDATE_ALL_SYNTH_ENVELOPES:
+      return {
+        ...state,
+        attack: envelopeObj.attack,
+        decay: envelopeObj.decay,
+        sustain: envelopeObj.sustain,
+        release: envelopeObj.release,
       };
     default:
       return state;
