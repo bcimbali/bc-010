@@ -23,7 +23,7 @@ const OuterContainer = styled.div`
   right: 0;
   top: 0;
   transition: 0.5s;
-  width: ${props => (props.isSideNavOpen ? '250px' : '0')};
+  width: ${({ isSideNavOpen }) => (isSideNavOpen ? '25%' : '0')};
   z-index: 1;
 `;
 

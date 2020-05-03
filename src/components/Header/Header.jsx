@@ -42,6 +42,11 @@ const PresetsContainer = styled.div`
 const SideNavButton = styled.div`
   border: 1px dotted #111111;
   height: auto;
+
+  :hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 `;
 
 function Header({
