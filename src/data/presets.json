@@ -1,0 +1,60 @@
+[
+  {
+    "name": "chewy",
+    "octave": {
+      "octave": 3
+    },
+    "synthesizer": {
+      "oscillator": {
+        "type": "square"
+      },
+      "envelope": {
+        "attack": 0.5,
+        "decay": 0.6,
+        "sustain": 0.7,
+        "release": 7
+      }
+    },
+    "filterParams": {
+      "frequency": 18,
+      "type": "sine",
+      "depth": 1,
+      "baseFrequency": 181,
+      "octaves": 2.6,
+      "filter": {
+        "type": "lowpass",
+        "rolloff": -12,
+        "Q": 1
+      }
+    }
+  },
+  {
+    "name": "piccolo",
+    "octave": {
+      "octave": 6
+    },
+    "synthesizer": {
+      "oscillator": {
+        "type": "triangle"
+      },
+      "envelope": {
+        "attack": 0.2719,
+        "decay": 0.2,
+        "sustain": 0.2,
+        "release": 8
+      }
+    },
+    "filterParams": {
+      "frequency": 0,
+      "type": "sine",
+      "depth": 1,
+      "baseFrequency": 500,
+      "octaves": 2.6,
+      "filter": {
+        "type": "lowpass",
+        "rolloff": -12,
+        "Q": 1
+      }
+    }
+  }
+]

@@ -12,6 +12,7 @@ import {
   updateAllFilterEnvelopes,
 } from './../VerticalSlider/actions.js';
 import { setOctave } from './../OctaveContainer/actions.js';
+import presets from './../../data/presets.json';
 
 const HeaderContainer = styled.header`
   color: white;
@@ -28,50 +29,27 @@ const PresetsContainer = styled.div`
   width: 40px;
 `;
 
-const newSynthPatch = {
-  octave: {
-    octave: 3,
-  },
-  synthesizer: {
-    envelope: {
-      attack: 0.5,
-      decay: 0.6,
-      sustain: 0.7,
-      release: 7,
-    },
-    oscillator: {
-      type: 'square',
-    },
-  },
-  filterParams: {
-    frequency: 18,
-    type: 'sine',
-    depth: 1,
-    baseFrequency: 181,
-    octaves: 2.6,
-    filter: {
-      type: 'lowpass',
-      rolloff: -12,
-      Q: 1,
-    },
-  },
-};
-
-function Header(props) {
-  console.log('In Header.jsx, this is props: ', props);
+function Header({
+  updateAllSynthEnvelopes,
+  toggleOscillators,
+  setOctave,
+  updateAllFilterEnvelopes,
+}) {
   return (
     <HeaderContainer>
       <div>bc-010</div>
-      <PresetsContainer
-        onClick={() => {
-          props.updateAllSynthEnvelopes(newSynthPatch.synthesizer.envelope);
-          props.toggleOscillators(newSynthPatch.synthesizer.oscillator.type);
-          props.setOctave(newSynthPatch.octave.octave);
-          props.updateAllFilterEnvelopes(newSynthPatch.filterParams);
-        }}
-      >
-        <div />
-      </PresetsContainer>
+      {presets.map((preset, idx) => {
+        return (
+          <PresetsContainer
+            onClick={() => {
+              updateAllSynthEnvelopes(preset.synthesizer.envelope);
+              toggleOscillators(preset.synthesizer.oscillator.type);
+              setOctave(preset.octave.octave);
+              updateAllFilterEnvelopes(preset.filterParams);
+            }}
+          />
+        );
+      })}
     </HeaderContainer>
   );
 }
