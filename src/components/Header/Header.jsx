@@ -4,16 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { toggleOscillators } from './../OscillatorBtn/actions.js';
-import {
-  updateFilterEnvelope,
-  updateSynthEnvelope,
-  updateAllSynthEnvelopes,
-  updateAllFilterEnvelopes,
-} from './../VerticalSlider/actions.js';
-import { setOctave } from './../OctaveContainer/actions.js';
 import { toggleSidenav } from './../SideNav/actions.js';
-import presets from './../../data/presets.json';
 
 const HeaderContainer = styled.header`
   color: white;
@@ -35,10 +26,6 @@ const Preset = styled.div`
   }
 `;
 
-const PresetsContainer = styled.div`
-  display: flex;
-`;
-
 const SideNavButton = styled.div`
   border: 1px dotted #111111;
   height: auto;
@@ -49,36 +36,13 @@ const SideNavButton = styled.div`
   }
 `;
 
-function Header({
-  setOctave,
-  toggleOscillators,
-  updateAllFilterEnvelopes,
-  updateAllSynthEnvelopes,
-  toggleSidenav,
-}) {
+function Header({ toggleSidenav }) {
   return (
     <HeaderContainer>
       <div>bc-010</div>
-
       <SideNavButton onClick={() => toggleSidenav()}>
         OPEN PRESETS
       </SideNavButton>
-      <PresetsContainer>
-        {presets.map((preset, idx) => {
-          return (
-            <Preset
-              onClick={() => {
-                updateAllSynthEnvelopes(preset.synthesizer.envelope);
-                toggleOscillators(preset.synthesizer.oscillator.type);
-                setOctave(preset.octave.octave);
-                updateAllFilterEnvelopes(preset.filterParams);
-              }}
-            >
-              {preset.name}
-            </Preset>
-          );
-        })}
-      </PresetsContainer>
     </HeaderContainer>
   );
 }
@@ -86,12 +50,6 @@ function Header({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      setOctave,
-      toggleOscillators,
-      updateAllSynthEnvelopes,
-      updateAllFilterEnvelopes,
-      updateFilterEnvelope,
-      updateSynthEnvelope,
       toggleSidenav,
     },
     dispatch,

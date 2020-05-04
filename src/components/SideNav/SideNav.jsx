@@ -15,7 +15,8 @@ import { toggleSidenav } from './actions.js';
 import presets from './../../data/presets.json';
 
 const OuterContainer = styled.div`
-  background-color: green;
+  background-color: #b2ff5a;
+  border-left: 1px solid #111111;
   height: 100%;
   overflow-x: hidden;
   padding-top: 60px;
@@ -27,9 +28,53 @@ const OuterContainer = styled.div`
   z-index: 1;
 `;
 
-function SideNav({ isSideNavOpen }) {
+const PresetItem = styled.div`
+  border-bottom: 1px solid #111111;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  :hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`;
+
+const PresetsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+function SideNav({
+  isSideNavOpen,
+  setOctave,
+  toggleOscillators,
+  updateAllSynthEnvelopes,
+  updateAllFilterEnvelopes,
+  updateFilterEnvelope,
+  updateSynthEnvelope,
+  toggleSidenav,
+}) {
   return (
-    <OuterContainer isSideNavOpen={isSideNavOpen}>asdfsadfsda</OuterContainer>
+    <OuterContainer isSideNavOpen={isSideNavOpen}>
+      <PresetsContainer>
+        {presets.map((preset, idx) => {
+          return (
+            <PresetItem
+              onClick={() => {
+                updateAllSynthEnvelopes(preset.synthesizer.envelope);
+                toggleOscillators(preset.synthesizer.oscillator.type);
+                setOctave(preset.octave.octave);
+                updateAllFilterEnvelopes(preset.filterParams);
+                toggleSidenav();
+              }}
+            >
+              {preset.name}
+            </PresetItem>
+          );
+        })}
+      </PresetsContainer>
+    </OuterContainer>
   );
 }
 
