@@ -17,6 +17,8 @@ import presets from './../../data/presets.json';
 const OuterContainer = styled.div`
   background-color: #b2ff5a;
   border-left: 1px solid #111111;
+  box-shadow: ${({ isSideNavOpen }) =>
+    isSideNavOpen ? '-5px 0px 10px 1px rgba(1, 1, 1, 0.2)' : '0'};
   height: 100%;
   overflow-x: hidden;
   padding-top: 60px;
@@ -35,6 +37,8 @@ const PresetItem = styled.div`
   width: 100%;
 
   :hover {
+    background-color: #00bfa5;
+    color: white;
     cursor: pointer;
     opacity: 0.8;
   }
