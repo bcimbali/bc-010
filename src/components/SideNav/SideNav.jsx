@@ -34,6 +34,7 @@ const PresetItem = styled.div`
   border-bottom: 1px solid #111111;
   display: flex;
   justify-content: center;
+  padding: 20px 0;
   width: 100%;
 
   :hover {
@@ -45,6 +46,7 @@ const PresetItem = styled.div`
 `;
 
 const PresetsContainer = styled.div`
+  border-top: 1px solid #111111;
   display: flex;
   flex-direction: column;
 `;
