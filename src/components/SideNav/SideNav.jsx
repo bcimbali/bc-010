@@ -14,6 +14,18 @@ import { toggleOscillators } from './../OscillatorBtn/actions.js';
 import { toggleSidenav } from './actions.js';
 import presets from './../../data/presets.json';
 
+const CloseButton = styled.div`
+  color: #111111;
+  font-size: 2rem;
+  position: absolute;
+  right: 0.5rem;
+
+  :hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`;
+
 const OuterContainer = styled.div`
   background-color: #b2ff5a;
   border-left: 1px solid #111111;
@@ -21,7 +33,6 @@ const OuterContainer = styled.div`
     isSideNavOpen ? '-5px 0px 10px 1px rgba(1, 1, 1, 0.2)' : '0'};
   height: 100%;
   overflow-x: hidden;
-  padding-top: 60px;
   position: fixed;
   right: 0;
   top: 0;
@@ -51,6 +62,17 @@ const PresetsContainer = styled.div`
   flex-direction: column;
 `;
 
+const SideNavHeaderSection = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+`;
+
+const SideNavTitle = styled.div`
+  color: #111111;
+  font-size: 2rem;
+`;
+
 function SideNav({
   isSideNavOpen,
   setOctave,
@@ -63,6 +85,10 @@ function SideNav({
 }) {
   return (
     <OuterContainer isSideNavOpen={isSideNavOpen}>
+      <SideNavHeaderSection>
+        <SideNavTitle>Presets</SideNavTitle>
+        <CloseButton onClick={() => toggleSidenav()}>X</CloseButton>
+      </SideNavHeaderSection>
       <PresetsContainer>
         {presets.map((preset, idx) => {
           return (

@@ -15,7 +15,6 @@ const HeaderContainer = styled.header`
 `;
 
 const Preset = styled.div`
-  border: 1px dotted black;
   color: #111111;
   height: auto;
   margin-left: 5px;
@@ -27,7 +26,6 @@ const Preset = styled.div`
 `;
 
 const SideNavButton = styled.div`
-  border: 1px dotted #111111;
   height: auto;
 
   :hover {
