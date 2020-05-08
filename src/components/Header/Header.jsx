@@ -14,15 +14,8 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
 `;
 
-const Preset = styled.div`
-  color: #111111;
-  height: auto;
-  margin-left: 5px;
-
-  :hover {
-    cursor: pointer;
-    opacity: 0.8;
-  }
+const PresetNameDisplay = styled.div`
+  color: white;
 `;
 
 const SideNavButton = styled.div`
@@ -34,16 +27,21 @@ const SideNavButton = styled.div`
   }
 `;
 
-function Header({ toggleSidenav }) {
+function Header({ presetName, toggleSidenav }) {
   return (
     <HeaderContainer>
       <div>bc-010</div>
+      <PresetNameDisplay>{presetName}</PresetNameDisplay>
       <SideNavButton onClick={() => toggleSidenav()}>
         OPEN PRESETS
       </SideNavButton>
     </HeaderContainer>
   );
 }
+
+const mapStateToProps = state => ({
+  presetName: state.preset.name,
+});
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
@@ -54,6 +52,6 @@ const mapDispatchToProps = dispatch =>
   );
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(Header);

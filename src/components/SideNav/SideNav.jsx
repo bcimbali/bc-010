@@ -11,7 +11,7 @@ import {
 } from './../VerticalSlider/actions.js';
 import { setOctave } from './../OctaveContainer/actions.js';
 import { toggleOscillators } from './../OscillatorBtn/actions.js';
-import { toggleSidenav } from './actions.js';
+import { changePreset, toggleSidenav } from './actions.js';
 import presets from './../../data/presets.json';
 
 const CloseButton = styled.div`
@@ -82,6 +82,7 @@ function SideNav({
   updateFilterEnvelope,
   updateSynthEnvelope,
   toggleSidenav,
+  changePreset,
 }) {
   return (
     <OuterContainer isSideNavOpen={isSideNavOpen}>
@@ -99,6 +100,7 @@ function SideNav({
                 setOctave(preset.octave.octave);
                 updateAllFilterEnvelopes(preset.filterParams);
                 toggleSidenav();
+                changePreset(preset.name);
               }}
             >
               {preset.name}
@@ -124,6 +126,7 @@ const mapDispatchToProps = dispatch =>
       updateFilterEnvelope,
       updateSynthEnvelope,
       toggleSidenav,
+      changePreset,
     },
     dispatch,
   );
