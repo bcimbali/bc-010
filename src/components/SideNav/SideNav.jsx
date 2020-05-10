@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled, { css } from 'styled-components';
@@ -11,8 +11,9 @@ import {
 } from './../VerticalSlider/actions.js';
 import { setOctave } from './../OctaveContainer/actions.js';
 import { toggleOscillators } from './../OscillatorBtn/actions.js';
-import { changePreset, toggleSidenav } from './actions.js';
+import { changePreset, showSidenav, toggleSidenav } from './actions.js';
 import presets from './../../data/presets.json';
+import useOnClickOutside from './../../hooks/useOnClickOutside.js';
 
 const CloseButton = styled.div`
   color: #111111;
@@ -93,9 +94,14 @@ function SideNav({
   updateSynthEnvelope,
   toggleSidenav,
   changePreset,
+  showSidenav,
 }) {
+  const sideNavRef = useRef();
+
+  useOnClickOutside(sideNavRef, () => showSidenav(false));
+
   return (
-    <OuterContainer isSideNavOpen={isSideNavOpen}>
+    <OuterContainer isSideNavOpen={isSideNavOpen} ref={sideNavRef}>
       <SideNavHeaderSection>
         <SideNavTitle>Presets</SideNavTitle>
         <CloseButton onClick={() => toggleSidenav()}>X</CloseButton>
@@ -140,6 +146,7 @@ const mapDispatchToProps = dispatch =>
       updateSynthEnvelope,
       toggleSidenav,
       changePreset,
+      showSidenav,
     },
     dispatch,
   );

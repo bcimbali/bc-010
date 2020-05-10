@@ -1,4 +1,4 @@
-import { CHANGE_PRESET, TOGGLE_SIDENAV } from './actions';
+import { CHANGE_PRESET, SHOW_SIDENAV, TOGGLE_SIDENAV } from './actions';
 
 const initialPresetState = {
   name: 'init',
@@ -9,12 +9,17 @@ const initialSideNavState = {
 };
 
 export function sideNavReducer(state = initialSideNavState, action) {
-  const { type } = action;
+  const { type, isSidenavShown } = action;
   switch (type) {
     case TOGGLE_SIDENAV:
       return {
         ...state,
         isSideNavOpen: !state.isSideNavOpen,
+      };
+    case SHOW_SIDENAV:
+      return {
+        ...state,
+        isSideNavOpen: isSidenavShown,
       };
     default:
       return state;
