@@ -16,6 +16,8 @@ const HeaderContainer = styled.header`
 
 const PresetNameDisplay = styled.div`
   color: white;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 `;
 
 const SideNavButton = styled.div`

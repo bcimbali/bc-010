@@ -45,7 +45,9 @@ const PresetItem = styled.div`
   border-bottom: 1px solid #111111;
   display: flex;
   justify-content: center;
+  letter-spacing: 3px;
   padding: 20px 0;
+  text-transform: uppercase;
   width: 100%;
 
   :hover {
