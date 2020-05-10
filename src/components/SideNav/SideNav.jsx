@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   updateFilterEnvelope,
   updateSynthEnvelope,
@@ -56,6 +56,13 @@ const PresetItem = styled.div`
     cursor: pointer;
     opacity: 0.8;
   }
+
+  ${({ isActive }) =>
+    isActive &&
+    css`
+      background-color: #00bb10;
+      color: #ffffff;
+    `};
 `;
 
 const PresetsContainer = styled.div`
@@ -76,6 +83,7 @@ const SideNavTitle = styled.div`
 `;
 
 function SideNav({
+  activePreset,
   isSideNavOpen,
   setOctave,
   toggleOscillators,
@@ -96,6 +104,7 @@ function SideNav({
         {presets.map((preset, idx) => {
           return (
             <PresetItem
+              isActive={activePreset === preset.name}
               onClick={() => {
                 updateAllSynthEnvelopes(preset.synthesizer.envelope);
                 toggleOscillators(preset.synthesizer.oscillator.type);
@@ -115,6 +124,7 @@ function SideNav({
 }
 
 const mapStateToProps = state => ({
+  activePreset: state.preset.name,
   isSideNavOpen: state.sideNav.isSideNavOpen,
 });
 
