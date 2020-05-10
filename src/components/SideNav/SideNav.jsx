@@ -105,6 +105,7 @@ function SideNav({
           return (
             <PresetItem
               isActive={activePreset === preset.name}
+              key={preset.id}
               onClick={() => {
                 updateAllSynthEnvelopes(preset.synthesizer.envelope);
                 toggleOscillators(preset.synthesizer.oscillator.type);
