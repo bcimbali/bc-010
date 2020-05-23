@@ -7,11 +7,17 @@ import { bindActionCreators } from 'redux';
 import { toggleSidenav } from './../SideNav/actions.js';
 
 const HeaderContainer = styled.header`
+  align-items: center;
   color: white;
   display: flex;
   font-size: 2vw;
   font-weight: bold;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    min-height: 30px;
+  }
 `;
 
 const PresetNameDisplay = styled.div`

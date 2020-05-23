@@ -21,6 +21,10 @@ const CloseButton = styled.div`
   position: absolute;
   right: 0.5rem;
 
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+
   :hover {
     cursor: pointer;
     opacity: 0.8;
@@ -53,8 +57,13 @@ const PresetItem = styled.div`
   justify-content: center;
   letter-spacing: 3px;
   padding: 20px 0;
+  text-align: center;
   text-transform: uppercase;
   width: 100%;
+
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+  }
 
   :hover {
     background-color: #00bfa5;
@@ -86,6 +95,10 @@ const SideNavHeaderSection = styled.div`
 const SideNavTitle = styled.div`
   color: #111111;
   font-size: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 function SideNav({
