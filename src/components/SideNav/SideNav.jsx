@@ -3,6 +3,8 @@ import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled, { css } from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import {
   updateFilterEnvelope,
   updateSynthEnvelope,
@@ -15,17 +17,12 @@ import { changePreset, showSidenav, toggleSidenav } from './actions.js';
 import presets from './../../data/presets.json';
 import useOnClickOutside from './../../hooks/useOnClickOutside.js';
 
-const CloseButton = styled.div`
-  color: #111111;
-  font-size: 2rem;
-  position: absolute;
-  right: 0.5rem;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-
+const CloseButton = styled(FontAwesomeIcon)`
+  padding: 0 2px;
+  visibility: ${({ hidden }) => (hidden ? 'hidden' : 'visible')};
   :hover {
+    background-color: #00bfa5;
+    color: white;
     cursor: pointer;
     opacity: 0.8;
   }
@@ -43,7 +40,7 @@ const OuterContainer = styled.div`
   right: 0;
   top: 0;
   transition: 0.5s;
-  width: ${({ isSideNavOpen }) => (isSideNavOpen ? '25%' : '0')};
+  width: ${({ isSideNavOpen }) => (isSideNavOpen ? '30%' : '0')};
   z-index: 1;
 
   @media (max-width: 768px) {
@@ -87,18 +84,19 @@ const PresetsContainer = styled.div`
 `;
 
 const SideNavHeaderSection = styled.div`
+  align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding: 0.5rem;
-`;
-
-const SideNavTitle = styled.div`
-  color: #111111;
   font-size: 2rem;
 
   @media (max-width: 768px) {
     font-size: 1rem;
   }
+`;
+
+const SideNavTitle = styled.div`
+  color: #111111;
 `;
 
 function SideNav({
@@ -121,8 +119,9 @@ function SideNav({
   return (
     <OuterContainer isSideNavOpen={isSideNavOpen} ref={sideNavRef}>
       <SideNavHeaderSection>
+        <CloseButton hidden icon={faTimes} onClick={() => toggleSidenav()} />
         <SideNavTitle>Presets</SideNavTitle>
-        <CloseButton onClick={() => toggleSidenav()}>X</CloseButton>
+        <CloseButton icon={faTimes} onClick={() => toggleSidenav()} />
       </SideNavHeaderSection>
       <PresetsContainer>
         {presets.map((preset, idx) => {
