@@ -16,6 +16,7 @@ const HeaderContainer = styled.header`
   font-weight: bold;
   justify-content: space-between;
   padding: 0 10px;
+  position: relative;
 
   @media (max-width: 768px) {
     font-size: 14px;
@@ -26,6 +27,10 @@ const HeaderContainer = styled.header`
 const PresetNameDisplay = styled.div`
   color: white;
   letter-spacing: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-transform: uppercase;
 `;
 
@@ -34,7 +39,7 @@ const SideNavButton = styled.div`
   height: auto;
   padding: 5px;
 
-  @media (max-width: 610px) {
+  @media (max-width: 768px) {
     display: none;
   }
 
@@ -53,7 +58,7 @@ const HamburgerButton = styled(FontAwesomeIcon)`
     opacity: 0.8;
   }
 
-  @media (min-width: 610px) {
+  @media (min-width: 768px) {
     display: none;
   }
 `;
