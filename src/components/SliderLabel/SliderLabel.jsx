@@ -16,6 +16,7 @@ const Header = styled.header`
 
 const Label = styled.label`
   font-weight: bold;
+  overflow: hidden;
   text-align: center;
 `;
 

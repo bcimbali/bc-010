@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "abbr": "filter",
+    "abbr": "Q",
     "max": 1500,
     "min": 1,
     "step": 5,
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "abbr": "lfo",
+    "abbr": "LFO",
     "max": 20,
     "min": 0,
     "step": 1,
