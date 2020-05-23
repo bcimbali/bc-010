@@ -34,12 +34,17 @@ const OuterContainer = styled.div`
     isSideNavOpen ? '-5px 0px 10px 1px rgba(1, 1, 1, 0.2)' : '0'};
   height: 100%;
   overflow-x: hidden;
+  opacity: ${({ isSideNavOpen }) => (isSideNavOpen ? '1' : '0')};
   position: fixed;
   right: 0;
   top: 0;
   transition: 0.5s;
   width: ${({ isSideNavOpen }) => (isSideNavOpen ? '25%' : '0')};
   z-index: 1;
+
+  @media (max-width: 768px) {
+    width: ${({ isSideNavOpen }) => (isSideNavOpen ? '60%' : '0')};
+  }
 `;
 
 const PresetItem = styled.div`
