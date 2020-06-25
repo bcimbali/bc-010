@@ -11,7 +11,7 @@ const Container = styled.div`
 
 /** Header section for octave section of control panel. */
 function OctaveHeader() {
-  return <Container>Octave</Container>;
+  return <Container>OCTAVE</Container>;
 }
 
 export default OctaveHeader;

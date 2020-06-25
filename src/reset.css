@@ -3,6 +3,16 @@
    License: none (public domain)
 */
 
+@font-face {
+  font-family: "Cute Font";
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src: url("./fonts/CuteFont-Regular.woff2") format("woff2"), /* Super Modern Browsers */
+    url("./fonts/CuteFont-Regular.woff") format("woff"), /* Pretty Modern Browsers */
+    url("./fonts/CuteFont-Regular.ttf") format("truetype"); /* Safari, Android, iOS */
+}
+
 html, body, .app {
   display: flex;
   flex: 1 0 auto;
@@ -29,8 +39,30 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body {
   background-color: #40522D;
   box-sizing: border-box;
-  font-family: 'Roboto Mono', monospace;
-  line-height: 1;
+  font-display: swap;
+}
+
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
+
+#root {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease;
+  -moz-transition: opacity 0.5s ease;
+  -ms-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+  font-family: monospace;
+}
+
+#root.font-loaded {
+  font-family: 'Cute Font', monospace;
+  opacity: 1;
 }
 
 ol, ul {

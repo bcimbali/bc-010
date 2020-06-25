@@ -51,6 +51,7 @@ const OuterContainer = styled.div`
 const PresetItem = styled.div`
   border-bottom: 1px solid #111111;
   display: flex;
+  font-size: 2rem;
   justify-content: center;
   letter-spacing: 3px;
   padding: 20px 0;
@@ -120,7 +121,7 @@ function SideNav({
     <OuterContainer isSideNavOpen={isSideNavOpen} ref={sideNavRef}>
       <SideNavHeaderSection>
         <CloseButton hidden icon={faTimes} onClick={() => toggleSidenav()} />
-        <SideNavTitle>Presets</SideNavTitle>
+        <SideNavTitle>PRESETS</SideNavTitle>
         <CloseButton icon={faTimes} onClick={() => toggleSidenav()} />
       </SideNavHeaderSection>
       <PresetsContainer>

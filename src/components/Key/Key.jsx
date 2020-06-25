@@ -38,6 +38,10 @@ const OuterLetterContainer = styled.div`
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
+
+  header {
+    font-size: 2rem;
+  }
 `;
 
 type Props = {
