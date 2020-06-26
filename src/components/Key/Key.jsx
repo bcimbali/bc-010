@@ -24,8 +24,9 @@ const KeyContainer = styled.article`
 const Letter = styled.div`
   color: #40522d;
   display: flex;
-  font-size: 5vw;
+  font-size: 5.625rem;
   justify-content: center;
+  line-height: 0.7;
   width: 100%;
 
   @media screen and (max-width: 768px) {
@@ -38,9 +39,10 @@ const OuterLetterContainer = styled.div`
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
+  overflow: hidden;
 
   header {
-    font-size: 2rem;
+    font-size: 1.25rem;
   }
 `;
 
@@ -73,9 +75,7 @@ function Key({
         {note}
         {displayOctave}
       </header>
-      <Letter>
-        <p>{letter}</p>
-      </Letter>
+      <Letter>{letter}</Letter>
     </OuterLetterContainer>
   );
 
