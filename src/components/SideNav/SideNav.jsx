@@ -54,6 +54,7 @@ const PresetItem = styled.div`
   font-size: 2rem;
   justify-content: center;
   letter-spacing: 3px;
+  line-height: 70%;
   padding: 20px 0;
   text-align: center;
   text-transform: uppercase;
