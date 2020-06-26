@@ -42,6 +42,7 @@ const OuterLetterContainer = styled.div`
   overflow: hidden;
 
   header {
+    color: #40522d;
     font-size: 1.25rem;
   }
 `;

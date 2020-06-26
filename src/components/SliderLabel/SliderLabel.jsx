@@ -15,7 +15,9 @@ const Header = styled.header`
 `;
 
 const Label = styled.label`
-  font-weight: bold;
+  color: #40522d;
+  font-size: 1.5rem;
+  line-height: 75%;
   overflow: hidden;
   text-align: center;
 `;
