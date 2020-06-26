@@ -12,6 +12,10 @@ const Container = styled.article`
   flex-direction: column;
   justify-content: space-between;
   width: 5vw;
+
+  @media (max-width: 768px) {
+    width: 8vw;
+  }
 `;
 
 type Props = {

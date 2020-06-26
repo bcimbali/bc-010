@@ -20,6 +20,14 @@ const Label = styled.label`
   line-height: 75%;
   overflow: hidden;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 420px) {
+    font-size: 0.75rem;
+  }
 `;
 
 type Props = {

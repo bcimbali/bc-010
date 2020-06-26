@@ -15,8 +15,15 @@ const Container = styled.div`
 `;
 
 const NumberDisplay = styled.p`
+  color: #40522d;
+  font-size: 1rem;
   margin: 0;
+  overflow: hidden;
   text-align: center;
+
+  @media (max-width: 420px) {
+    font-size: 0.75rem;
+  }
 `;
 
 type Props = {

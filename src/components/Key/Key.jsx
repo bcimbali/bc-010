@@ -30,7 +30,7 @@ const Letter = styled.div`
   width: 100%;
 
   @media screen and (max-width: 768px) {
-    color: transparent;
+    display: none;
   }
 `;
 
