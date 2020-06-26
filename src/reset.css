@@ -42,24 +42,7 @@ body {
   font-display: swap;
 }
 
-.preload * {
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -ms-transition: none !important;
-  -o-transition: none !important;
-}
-
-
-#root {
-  opacity: 0;
-  -webkit-transition: opacity 0.5s ease;
-  -moz-transition: opacity 0.5s ease;
-  -ms-transition: opacity 0.5s ease;
-  -o-transition: opacity 0.5s ease;
-  transition: opacity 0.5s ease;
-  font-family: monospace;
-}
-
+/* Once font is loaded, set opacity to 1 and fade app in. */
 #root.font-loaded {
   font-family: 'Cute Font', monospace;
   opacity: 1;
@@ -81,4 +64,23 @@ blockquote:before, blockquote:after, q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+/* Prevent transitions. Used on the body until font is loaded and then it's removed. */
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
+/* Use fallback font and set opacity to 0 until font loaded */
+#root {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease;
+  -moz-transition: opacity 0.5s ease;
+  -ms-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+  font-family: monospace;
 }
