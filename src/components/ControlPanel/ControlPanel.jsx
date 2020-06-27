@@ -1,6 +1,7 @@
 // @flow
 import OctaveContainer from './../OctaveContainer';
 import OscillatorBtn from './../OscillatorBtn';
+import WaveformContainer from './../WaveformContainer';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -44,7 +45,8 @@ function ControlPanel({
         typeOfParams="filterParams"
       />
       <OctaveContainer key="octave-container" octave={octave} />
-      {oscillatorTypes.map(({ abbr, id, type }) => (
+      <WaveformContainer />
+      {/* {oscillatorTypes.map(({ abbr, id, type }) => (
         <OscillatorBtn
           abbr={abbr}
           key={`${id}-${type}`}
@@ -52,7 +54,7 @@ function ControlPanel({
           synthParams={synthParams}
           type={type}
         />
-      ))}
+      ))} */}
     </ControlPanelContainer>
   );
 }
