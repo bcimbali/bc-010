@@ -8,6 +8,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { toggleSidenav } from './../SideNav/actions.js';
 
+const HamburgerButton = styled(FontAwesomeIcon)`
+  font-size: 2rem;
+
+  :hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
 const HeaderContainer = styled.header`
   align-items: center;
   color: white;
@@ -26,12 +39,17 @@ const HeaderContainer = styled.header`
 
 const PresetNameDisplay = styled.div`
   color: white;
+  font-size: 2rem;
   letter-spacing: 3px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-transform: uppercase;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const SideNavButton = styled.div`
@@ -50,23 +68,20 @@ const SideNavButton = styled.div`
   }
 `;
 
-const HamburgerButton = styled(FontAwesomeIcon)`
-  font-size: 2rem;
+const SynthName = styled.h1`
+  color: #ffffff;
+  font-size: 3rem;
+  line-height: 2rem;
 
-  :hover {
-    cursor: pointer;
-    opacity: 0.8;
-  }
-
-  @media (min-width: 768px) {
-    display: none;
+  @media (max-width: 768px) {
+    font-size: 2rem;
   }
 `;
 
 function Header({ presetName, toggleSidenav }) {
   return (
     <HeaderContainer>
-      <div>bc-010</div>
+      <SynthName>bc-010</SynthName>
       <PresetNameDisplay>{presetName}</PresetNameDisplay>
       <SideNavButton onClick={() => toggleSidenav()}>
         OPEN PRESETS
@@ -87,6 +102,13 @@ const mapDispatchToProps = dispatch =>
     },
     dispatch,
   );
+
+Header.propTypes = {
+  /** Name of current synth preset. */
+  presetName: PropTypes.string,
+  /** Toggle the side nav bar. */
+  toggleSidenav: PropTypes.func,
+};
 
 export default connect(
   mapStateToProps,
