@@ -16,7 +16,7 @@ const HamburgerButton = styled(FontAwesomeIcon)`
     opacity: 0.8;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     display: none;
   }
 `;

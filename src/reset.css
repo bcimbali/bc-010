@@ -8,9 +8,12 @@
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+000-5FF;
+  /* Latin glyphs */
   src: url("./fonts/CuteFont-Regular.woff2") format("woff2"), /* Super Modern Browsers */
-    url("./fonts/CuteFont-Regular.woff") format("woff"), /* Pretty Modern Browsers */
-    url("./fonts/CuteFont-Regular.ttf") format("truetype"); /* Safari, Android, iOS */
+  url("./fonts/CuteFont-Regular.woff") format("woff"), /* Pretty Modern Browsers */
+  url("./fonts/CuteFont-Regular.ttf") format("truetype");
+  /* Safari, Android, iOS */
 }
 
 html, body, .app {
@@ -43,6 +46,7 @@ body {
 }
 
 /* Once font is loaded, set opacity to 1 and fade app in. */
+
 #root.font-loaded {
   font-family: 'Cute Font', monospace;
   opacity: 1;
@@ -67,6 +71,7 @@ table {
 }
 
 /* Prevent transitions. Used on the body until font is loaded and then it's removed. */
+
 .preload * {
   -webkit-transition: none !important;
   -moz-transition: none !important;
@@ -75,6 +80,7 @@ table {
 }
 
 /* Use fallback font and set opacity to 0 until font loaded */
+
 #root {
   opacity: 0;
   -webkit-transition: opacity 0.5s ease;
