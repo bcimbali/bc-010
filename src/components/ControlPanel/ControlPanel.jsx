@@ -1,6 +1,5 @@
 // @flow
 import OctaveContainer from './../OctaveContainer';
-import OscillatorBtn from './../OscillatorBtn';
 import WaveformContainer from './../WaveformContainer';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -8,7 +7,6 @@ import styled from 'styled-components';
 import SliderBank from '../SliderBank/SliderBank';
 import envelopeSliders from './../../data/envelopeSliders.json';
 import filterSliders from './../../data/filterSliders.json';
-import oscillatorTypes from './../../data/oscillatorTypes.json';
 
 const ControlPanelContainer = styled.section`
   background-color: #b2ff5a;
@@ -46,15 +44,6 @@ function ControlPanel({
       />
       <OctaveContainer key="octave-container" octave={octave} />
       <WaveformContainer />
-      {/* {oscillatorTypes.map(({ abbr, id, type }) => (
-        <OscillatorBtn
-          abbr={abbr}
-          key={`${id}-${type}`}
-          toggleOscillator={toggleOscillator}
-          synthParams={synthParams}
-          type={type}
-        />
-      ))} */}
     </ControlPanelContainer>
   );
 }
