@@ -7,10 +7,6 @@ import { bindActionCreators } from 'redux';
 import { toggleOscillators } from './../OscillatorBtn/actions.js';
 import Icon from './../Icon';
 import oscillatorTypes from './../../data/oscillatorTypes.json';
-import sawtoothIcon from './../../img/long-sawtooth.svg';
-import sineIcon from './../../img/long-sine.svg';
-import squareIcon from './../../img/long-square.svg';
-import triangleIcon from './../../img/long-triangle.svg';
 
 const ContainerHeader = styled.div`
   background-color: #40522d;
@@ -53,13 +49,6 @@ const WaveformSelectionBttn = styled.div`
   }
 `;
 
-const waveformIcons = {
-  sine: sineIcon,
-  square: squareIcon,
-  triangle: triangleIcon,
-  sawtooth: sawtoothIcon,
-};
-
 type Props = {
   abbr: string,
   synthParams: Object,
@@ -88,7 +77,7 @@ function WaveformContainer({
             type={type}
           >
             <Icon
-              icon="square"
+              icon={type}
               width="95%"
               strokeColor={isSelected ? '#ffffff' : '#40522d'}
             />
