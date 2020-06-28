@@ -14,14 +14,27 @@ const ContainerHeader = styled.div`
   display: flex;
   font-size: 2.25rem;
   justify-content: center;
+  overflow: hidden;
   text-transform: uppercase;
   width: 100%;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const OuterContainer = styled.section`
   align-self: center;
   border: 1px solid #40522d;
-  min-width: 192px;
+  max-width: 250px;
+
+  @media (max-width: 768px) {
+    max-width: 150px;
+  }
+
+  @media (max-width: 420px) {
+    max-width: 100px;
+  }
 `;
 
 const WaveformSelectionBttn = styled.div`
@@ -29,7 +42,11 @@ const WaveformSelectionBttn = styled.div`
   border-bottom: 1px solid #40522d;
   display: flex;
   justify-content: center;
-  padding: 10px 0;
+  padding: 5px 0;
+
+  @media (max-width: 768px) {
+    max-height: 18px;
+  }
 
   :hover {
     background-color: #00bfa5;
@@ -45,7 +62,7 @@ const WaveformSelectionBttn = styled.div`
     `};
 
   &:last-child {
-    /* border-bottom: none; */
+    border-bottom: none;
   }
 `;
 

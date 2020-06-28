@@ -24,7 +24,12 @@ const Icon = ({
   width,
 }: Props) => {
   return (
-    <svg width={width} height={height} viewBox={ICONS[icon].viewBox}>
+    <svg
+      width={width}
+      height={height}
+      viewBox={ICONS[icon].viewBox}
+      preserveAspectRatio="xMinYMin meet"
+    >
       <path
         d={ICONS[icon].path}
         fill={fillColor ? fillColor : 'transparent'}
