@@ -13,6 +13,8 @@ type Props = {
   width: string,
 };
 
+/** Re-usable component to handle SVGs & styling. Icons need to
+ be added to the icons.js for use in this component. */
 const Icon = ({
   icon,
   fillColor,
