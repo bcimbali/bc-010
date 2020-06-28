@@ -67,24 +67,15 @@ const WaveformSelectionBttn = styled.div`
 `;
 
 type Props = {
-  abbr: string,
-  synthParams: Object,
   toggleOscillators: Function,
-  type: string,
   oscType: string,
 };
 
-function WaveformContainer({
-  abbr,
-  oscType,
-  synthParams,
-  toggleOscillators,
-  type,
-}: Props) {
+function WaveformContainer({ oscType, toggleOscillators }: Props) {
   return (
     <OuterContainer>
       <ContainerHeader>Waveform</ContainerHeader>
-      {oscillatorTypes.map(({ abbr, icon, id, type }) => {
+      {oscillatorTypes.map(({ icon, id, type }) => {
         const isSelected = type === oscType;
         return (
           <WaveformSelectionBttn
@@ -95,8 +86,8 @@ function WaveformContainer({
           >
             <Icon
               icon={type}
-              width="95%"
               strokeColor={isSelected ? '#ffffff' : '#40522d'}
+              width="95%"
             />
           </WaveformSelectionBttn>
         );
@@ -116,6 +107,11 @@ const mapDispatchToProps = dispatch =>
     },
     dispatch,
   );
+
+WaveformContainer.propTypes = {
+  oscType: PropTypes.string,
+  toggleOscillators: PropTypes.func,
+};
 
 export default connect(
   mapStateToProps,
