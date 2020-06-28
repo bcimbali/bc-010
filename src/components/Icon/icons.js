@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const ICONS = {
   square: {
     viewBox: '0 0 176 31',
