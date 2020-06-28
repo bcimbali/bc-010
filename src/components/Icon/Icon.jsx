@@ -4,9 +4,23 @@ import PropTypes from 'prop-types';
 
 import { ICONS } from './icons.js';
 
-const Icon = props => {
-  const { icon, fillColor, width, height, strokeWidth, strokeColor } = props;
+type Props = {
+  icon: string,
+  fillColor: string,
+  height: string,
+  strokeColor: string,
+  strokeWidth: string,
+  width: string,
+};
 
+const Icon = ({
+  icon,
+  fillColor,
+  height,
+  strokeColor,
+  strokeWidth,
+  width,
+}: Props) => {
   return (
     <svg width={width} height={height} viewBox={ICONS[icon].viewBox}>
       <path
@@ -17,6 +31,26 @@ const Icon = props => {
       />
     </svg>
   );
+};
+
+Icon.defaultProps = {
+  strokeWidth: '2',
+  width: '100%',
+};
+
+Icon.propTypes = {
+  /** Name of the icon that's used as an object key in icons.js. */
+  icon: PropTypes.string,
+  /** String name for the svg fill color. */
+  fillColor: PropTypes.string,
+  /** Height of svg. */
+  height: PropTypes.string,
+  /** String name for the svg stroke color. */
+  strokeColor: PropTypes.string,
+  /** String value for the width of the svg stroke. */
+  strokeWidth: PropTypes.string,
+  /** Width of the svg. */
+  width: PropTypes.string,
 };
 
 export default Icon;
