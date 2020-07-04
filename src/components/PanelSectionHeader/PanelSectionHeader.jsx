@@ -10,6 +10,7 @@ const ContainerHeader = styled.div`
   font-size: 2.25rem;
   justify-content: center;
   overflow: hidden;
+  text-overflow: ellipsis;
   text-transform: uppercase;
   width: 100%;
 

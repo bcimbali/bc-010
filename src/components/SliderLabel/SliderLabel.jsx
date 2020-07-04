@@ -23,6 +23,7 @@ const Label = styled.label`
 
   @media (max-width: 768px) {
     font-size: 1rem;
+    margin-bottom: 0.125rem;
   }
 
   @media (max-width: 420px) {
