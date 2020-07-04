@@ -28,6 +28,7 @@ function PanelSectionHeader({ name }: Props) {
 }
 
 PanelSectionHeader.propTypes = {
+  /** Name used in panel section header. */
   name: PropTypes.string,
 };
 

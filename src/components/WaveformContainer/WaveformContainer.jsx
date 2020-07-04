@@ -9,21 +9,6 @@ import Icon from './../Icon';
 import PanelSectionHeader from './../PanelSectionHeader';
 import oscillatorTypes from './../../data/oscillatorTypes.json';
 
-const ContainerHeader = styled.div`
-  background-color: #40522d;
-  color: #ffffff;
-  display: flex;
-  font-size: 2.25rem;
-  justify-content: center;
-  overflow: hidden;
-  text-transform: uppercase;
-  width: 100%;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-`;
-
 const OuterContainer = styled.section`
   align-self: center;
   border: 1px solid #40522d;

@@ -1,13 +1,21 @@
 // @flow
-import EnvelopeSlider from './../EnvelopeSlider';
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import EnvelopeSlider from './../EnvelopeSlider';
+import PanelSectionHeader from './../PanelSectionHeader';
 
-const SliderContainer = styled.section`
+const InnerSliderContainer = styled.section`
   align-self: flex-end;
   border: 1px solid #40522d;
   display: flex;
+  height: 40vh;
+`;
+
+const OuterSliderContainer = styled.section`
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
   height: 40vh;
 `;
 
@@ -20,21 +28,24 @@ type Props = {
 /** Houses all the tweakable sliders. */
 function SliderBank({ sliderArray, sliderParams, typeOfParams }: Props) {
   return (
-    <SliderContainer>
-      {sliderArray.map(({ abbr, id, max, min, sliderName, step }) => (
-        <EnvelopeSlider
-          abbr={abbr}
-          sliderName={sliderName}
-          key={`${id}-${sliderName}`}
-          type="range"
-          typeOfParams={typeOfParams}
-          min={min}
-          max={max}
-          step={step}
-          value={sliderParams[sliderName]}
-        />
-      ))}
-    </SliderContainer>
+    <OuterSliderContainer>
+      <PanelSectionHeader name="Browse" />
+      <InnerSliderContainer>
+        {sliderArray.map(({ abbr, id, max, min, sliderName, step }) => (
+          <EnvelopeSlider
+            abbr={abbr}
+            sliderName={sliderName}
+            key={`${id}-${sliderName}`}
+            type="range"
+            typeOfParams={typeOfParams}
+            min={min}
+            max={max}
+            step={step}
+            value={sliderParams[sliderName]}
+          />
+        ))}
+      </InnerSliderContainer>
+    </OuterSliderContainer>
   );
 }
 
