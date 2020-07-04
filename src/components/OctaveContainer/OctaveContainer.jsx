@@ -36,6 +36,13 @@ const Container = styled.section`
     div.octave-controls > div {
       margin: 0 0 0.125rem 0;
     }
+
+    div.octave-controls > div:last-child {
+      order: -1;
+    }
+    div.octave-controls > div:first-child {
+      order: 2;
+    }
   }
 `;
 
