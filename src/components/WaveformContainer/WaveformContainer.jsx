@@ -6,6 +6,7 @@ import styled, { css } from 'styled-components';
 import { bindActionCreators } from 'redux';
 import { toggleOscillators } from './../OscillatorBtn/actions.js';
 import Icon from './../Icon';
+import PanelSectionHeader from './../PanelSectionHeader';
 import oscillatorTypes from './../../data/oscillatorTypes.json';
 
 const ContainerHeader = styled.div`
@@ -74,7 +75,7 @@ type Props = {
 function WaveformContainer({ oscType, toggleOscillators }: Props) {
   return (
     <OuterContainer>
-      <ContainerHeader>Waveform</ContainerHeader>
+      <PanelSectionHeader name="Waveform" />
       {oscillatorTypes.map(({ icon, id, type }) => {
         const isSelected = type === oscType;
         return (
