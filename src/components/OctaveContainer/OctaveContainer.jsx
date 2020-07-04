@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { decrementOctave, incrementOctave } from './actions';
 import { bindActionCreators } from 'redux';
-import OctaveHeader from './../OctaveHeader';
 import PanelSectionHeader from './../PanelSectionHeader';
 
 const Container = styled.section`
