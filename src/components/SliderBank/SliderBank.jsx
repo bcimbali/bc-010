@@ -13,10 +13,8 @@ const InnerSliderContainer = styled.section`
 `;
 
 const OuterSliderContainer = styled.section`
-  align-self: flex-end;
   display: flex;
   flex-direction: column;
-  height: 40vh;
 `;
 
 type Props = {

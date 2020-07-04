@@ -10,9 +10,9 @@ import PanelSectionHeader from './../PanelSectionHeader';
 import oscillatorTypes from './../../data/oscillatorTypes.json';
 
 const OuterContainer = styled.section`
-  align-self: center;
   border: 1px solid #40522d;
   max-width: 250px;
+  width: 100%;
 
   @media (max-width: 768px) {
     max-width: 150px;
@@ -31,7 +31,7 @@ const WaveformSelectionBttn = styled.div`
   padding: 5px 0;
 
   @media (max-width: 768px) {
-    max-height: 18px;
+    /* max-height: 18px; */
   }
 
   :hover {

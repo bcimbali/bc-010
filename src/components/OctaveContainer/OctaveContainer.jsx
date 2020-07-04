@@ -8,8 +8,7 @@ import { bindActionCreators } from 'redux';
 import PanelSectionHeader from './../PanelSectionHeader';
 
 const Container = styled.section`
-  align-self: center;
-  border: 2px solid #40522d;
+  border: 1px solid #40522d;
   display: flex;
   flex-direction: column;
 
@@ -19,6 +18,24 @@ const Container = styled.section`
 
   div.octave-controls > div:last-child {
     margin-right: 0;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 150px;
+    width: 68%;
+
+    div.octave-controls > div {
+      margin-right: 0.125rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    max-width: 100px;
+    width: auto;
+
+    div.octave-controls > div {
+      margin: 0 0 0.125rem 0;
+    }
   }
 `;
 
@@ -45,6 +62,10 @@ const CurrentOctaveDisplay = styled.div`
     font-size: 1.5rem;
     padding: 0.75rem;
   }
+
+  @media (max-width: 420px) {
+    padding: 0;
+  }
 `;
 
 const OctaveButton = styled.div`
@@ -69,6 +90,10 @@ const OctaveButton = styled.div`
     padding: 0.75rem;
   }
 
+  @media (max-width: 420px) {
+    padding: 0;
+  }
+
   :hover {
     background-color: #00bfa5;
     color: white;
@@ -89,6 +114,15 @@ const OctaveControls = styled.div`
   font-size: 2vw;
   justify-content: space-between;
   padding: 0.4375rem;
+
+  @media (max-width: 768px) {
+    padding: 0.125rem;
+  }
+
+  @media (max-width: 420px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 type Props = {

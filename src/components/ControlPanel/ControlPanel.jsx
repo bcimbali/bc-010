@@ -9,11 +9,14 @@ import envelopeSliders from './../../data/envelopeSliders.json';
 import filterSliders from './../../data/filterSliders.json';
 
 const ControlPanelContainer = styled.section`
+  align-items: flex-start;
   background-color: #b2ff5a;
   border: 2px solid #40522d;
+  border-top: 1px solid white;
   display: flex;
   height: 50vh;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  padding: 1%;
 `;
 
 type Props = {
@@ -32,6 +35,7 @@ function ControlPanel({
 }: Props) {
   return (
     <ControlPanelContainer>
+      <WaveformContainer />
       <SliderBank
         bankName="envelope"
         sliderParams={synthParams}
@@ -45,7 +49,6 @@ function ControlPanel({
         typeOfParams="filterParams"
       />
       <OctaveContainer key="octave-container" octave={octave} />
-      <WaveformContainer />
     </ControlPanelContainer>
   );
 }
