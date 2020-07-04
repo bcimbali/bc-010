@@ -20,16 +20,22 @@ const OuterSliderContainer = styled.section`
 `;
 
 type Props = {
+  bankName: string,
   sliderArray: Array<Object>,
   sliderParams: Object,
   typeOfParams: string,
 };
 
 /** Houses all the tweakable sliders. */
-function SliderBank({ sliderArray, sliderParams, typeOfParams }: Props) {
+function SliderBank({
+  bankName,
+  sliderArray,
+  sliderParams,
+  typeOfParams,
+}: Props) {
   return (
     <OuterSliderContainer>
-      <PanelSectionHeader name="Browse" />
+      <PanelSectionHeader name={bankName} />
       <InnerSliderContainer>
         {sliderArray.map(({ abbr, id, max, min, sliderName, step }) => (
           <EnvelopeSlider

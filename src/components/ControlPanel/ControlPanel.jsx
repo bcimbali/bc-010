@@ -33,11 +33,13 @@ function ControlPanel({
   return (
     <ControlPanelContainer>
       <SliderBank
+        bankName="envelope"
         sliderParams={synthParams}
         sliderArray={envelopeSliders}
         typeOfParams="synthParams"
       />
       <SliderBank
+        bankName="filter"
         sliderParams={filterParams}
         sliderArray={filterSliders}
         typeOfParams="filterParams"
