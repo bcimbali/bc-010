@@ -8,6 +8,7 @@ import {
 import {
   sideNavReducer as sideNav,
   presetReducer as preset,
+  themeReducer as theme,
 } from './components/SideNav/reducer';
 
 const synthesizer = combineReducers({
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   filterParams,
   sideNav,
   preset,
+  theme,
 });
 
 export default rootReducer;

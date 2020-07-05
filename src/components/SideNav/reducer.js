@@ -1,4 +1,9 @@
-import { CHANGE_PRESET, SHOW_SIDENAV, TOGGLE_SIDENAV } from './actions';
+import {
+  CHANGE_PRESET,
+  CHANGE_THEME,
+  SHOW_SIDENAV,
+  TOGGLE_SIDENAV,
+} from './actions';
 
 const initialPresetState = {
   name: 'init',
@@ -6,6 +11,10 @@ const initialPresetState = {
 
 const initialSideNavState = {
   isSideNavOpen: false,
+};
+
+const initialThemeState = {
+  name: 'nature',
 };
 
 export function sideNavReducer(state = initialSideNavState, action) {
@@ -33,6 +42,19 @@ export function presetReducer(state = initialPresetState, action) {
       return {
         ...state,
         name: presetName,
+      };
+    default:
+      return state;
+  }
+}
+
+export function themeReducer(state = initialThemeState, action) {
+  const { type, themeName } = action;
+  switch (type) {
+    case CHANGE_THEME:
+      return {
+        ...state,
+        name: themeName,
       };
     default:
       return state;

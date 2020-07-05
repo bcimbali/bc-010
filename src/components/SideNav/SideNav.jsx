@@ -13,7 +13,12 @@ import {
 } from './../VerticalSlider/actions.js';
 import { setOctave } from './../OctaveContainer/actions.js';
 import { toggleOscillators } from './../OscillatorBtn/actions.js';
-import { changePreset, showSidenav, toggleSidenav } from './actions.js';
+import {
+  changeTheme,
+  changePreset,
+  showSidenav,
+  toggleSidenav,
+} from './actions.js';
 import presets from './../../data/presets.json';
 import useOnClickOutside from './../../hooks/useOnClickOutside.js';
 
@@ -101,6 +106,13 @@ const SideNavTitle = styled.div`
   color: #111111;
 `;
 
+const ThemeSwitcher = styled.div`
+  background-color: red;
+  border: 1px solid #111111;
+  height: 30px;
+  width: 100%;
+`;
+
 function SideNav({
   activePreset,
   isSideNavOpen,
@@ -113,6 +125,7 @@ function SideNav({
   toggleSidenav,
   changePreset,
   showSidenav,
+  changeTheme,
 }) {
   const sideNavRef = useRef();
 
@@ -125,6 +138,11 @@ function SideNav({
         <SideNavTitle>PRESETS</SideNavTitle>
         <CloseButton icon={faTimes} onClick={() => toggleSidenav()} />
       </SideNavHeaderSection>
+      <ThemeSwitcher onClick={() => changeTheme('dark')}>dark</ThemeSwitcher>
+      <ThemeSwitcher onClick={() => changeTheme('light')}>light</ThemeSwitcher>
+      <ThemeSwitcher onClick={() => changeTheme('nature')}>
+        nature
+      </ThemeSwitcher>
       <PresetsContainer>
         {presets.map((preset, idx) => {
           return (
@@ -166,6 +184,7 @@ const mapDispatchToProps = dispatch =>
       toggleSidenav,
       changePreset,
       showSidenav,
+      changeTheme,
     },
     dispatch,
   );
