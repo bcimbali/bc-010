@@ -138,9 +138,28 @@ function SideNav({
         <SideNavTitle>PRESETS</SideNavTitle>
         <CloseButton icon={faTimes} onClick={() => toggleSidenav()} />
       </SideNavHeaderSection>
-      <ThemeSwitcher onClick={() => changeTheme('dark')}>dark</ThemeSwitcher>
-      <ThemeSwitcher onClick={() => changeTheme('light')}>light</ThemeSwitcher>
-      <ThemeSwitcher onClick={() => changeTheme('nature')}>
+      <ThemeSwitcher
+        onClick={() => {
+          changeTheme('dark');
+          toggleSidenav();
+        }}
+      >
+        dark
+      </ThemeSwitcher>
+      <ThemeSwitcher
+        onClick={() => {
+          changeTheme('light');
+          toggleSidenav();
+        }}
+      >
+        light
+      </ThemeSwitcher>
+      <ThemeSwitcher
+        onClick={() => {
+          changeTheme('nature');
+          toggleSidenav();
+        }}
+      >
         nature
       </ThemeSwitcher>
       <PresetsContainer>

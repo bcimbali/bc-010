@@ -10,8 +10,8 @@ import filterSliders from './../../data/filterSliders.json';
 
 const ControlPanelContainer = styled.section`
   align-items: flex-start;
-  background-color: #b2ff5a;
-  border: 2px solid #40522d;
+  background-color: ${props => props.theme.background};
+  border: 2px solid ${props => props.theme.primary};
   border-top: 1px solid white;
   display: flex;
   height: 50vh;

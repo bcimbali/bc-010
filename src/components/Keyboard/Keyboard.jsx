@@ -19,13 +19,13 @@ const BlackKeys = styled.section`
   }
 
   > * {
-    background-color: #00bb10;
+    background-color: ${props => props.theme.secondary};
   }
 `;
 
 const Container = styled.section`
-  background-color: #b2ff5a;
-  border: 2px solid #40522d;
+  background-color: ${props => props.theme.background};
+  border: 2px solid ${props => props.theme.primary};
   display: flex;
   flex-direction: column;
   height: 40vh;
