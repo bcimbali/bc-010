@@ -1,8 +1,24 @@
 // @flow
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
-const PresetItem = styled.div`
+const ItemContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.2s;
+
+  ${({ isOpen }) =>
+    isOpen &&
+    css`
+      max-height: 2000px;
+      opacity: 1;
+    `};
+`;
+
+const DropdownItem = styled.div`
   border-bottom: 1px solid ${props => props.theme.primary};
   color: ${props => props.theme.primary};
   display: flex;
@@ -34,7 +50,7 @@ const PresetItem = styled.div`
     `};
 `;
 
-const SubHeader = styled.div`
+const Header = styled.div`
   border-bottom: 1px solid ${props => props.theme.primary};
   border-top: 1px solid ${props => props.theme.primary};
   color: ${props => props.theme.primary};
@@ -47,6 +63,11 @@ const SubHeader = styled.div`
   text-align: center;
   text-transform: uppercase;
   width: 100%;
+
+  :hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 `;
 
 function SideNavDropdown({
@@ -56,23 +77,27 @@ function SideNavDropdown({
   items,
   clickHandler,
 }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
-      <SubHeader>{name}</SubHeader>
-      {items.map((item, idx) => {
-        const isActive = currentSelection(item);
-        return (
-          <PresetItem
-            isActive={isActive}
-            onClick={() => {
-              clickHandler(item);
-            }}
-            key={`${item}-${idx}`}
-          >
-            {typeof item === 'string' ? item : item.name}
-          </PresetItem>
-        );
-      })}
+      <Header onClick={() => setIsOpen(!isOpen)}>{name}</Header>
+      <ItemContainer isOpen={isOpen}>
+        {items.map((item, idx) => {
+          const isActive = currentSelection(item);
+          return (
+            <DropdownItem
+              isActive={isActive}
+              onClick={() => {
+                clickHandler(item);
+              }}
+              key={`${item}-${idx}`}
+            >
+              {typeof item === 'string' ? item : item.name}
+            </DropdownItem>
+          );
+        })}
+      </ItemContainer>
     </>
   );
 }
