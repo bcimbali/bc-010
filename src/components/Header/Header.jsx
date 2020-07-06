@@ -84,9 +84,7 @@ function Header({ presetName, toggleSidenav }) {
     <HeaderContainer>
       <SynthName>bc-010</SynthName>
       <PresetNameDisplay>{presetName}</PresetNameDisplay>
-      <SideNavButton onClick={() => toggleSidenav()}>
-        OPEN PRESETS
-      </SideNavButton>
+      <SideNavButton onClick={() => toggleSidenav()}>MENU</SideNavButton>
       <HamburgerButton icon={faBars} onClick={() => toggleSidenav()} />
     </HeaderContainer>
   );

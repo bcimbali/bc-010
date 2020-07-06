@@ -21,6 +21,7 @@ import {
 } from './actions.js';
 import presets from './../../data/presets.json';
 import useOnClickOutside from './../../hooks/useOnClickOutside.js';
+import Dropdown from './../SideNavDropdown';
 
 import themeObj from './../../styles/theme.js';
 
@@ -109,12 +110,29 @@ const SideNavTitle = styled.div`
   color: ${props => props.theme.primary};
 `;
 
+const SubHeader = styled.div`
+  border-bottom: 1px solid ${props => props.theme.primary};
+  border-top: 1px solid ${props => props.theme.primary};
+  color: ${props => props.theme.primary};
+  display: flex;
+  font-size: 2rem;
+  justify-content: flex-start;
+  letter-spacing: 3px;
+  line-height: 70%;
+  padding: 20px 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+`;
+
 const ThemeSwitcher = styled.div`
   background-color: ${props => props.theme.background};
-  border: 1px solid ${props => props.theme.primary};
+  border-bottom: 1px solid ${props => props.theme.primary};
+  border-left: 1px solid ${props => props.theme.primary};
   color: ${props => props.theme.primary};
   height: 30px;
-  width: 100%;
+  margin-left: auto;
+  width: 90%;
 
   :hover {
     cursor: pointer;
@@ -152,9 +170,21 @@ function SideNav({
     <OuterContainer isSideNavOpen={isSideNavOpen} ref={sideNavRef}>
       <SideNavHeaderSection>
         <CloseButton hidden icon={faTimes} onClick={() => toggleSidenav()} />
-        <SideNavTitle>PRESETS</SideNavTitle>
+        <SideNavTitle>MENU</SideNavTitle>
         <CloseButton icon={faTimes} onClick={() => toggleSidenav()} />
       </SideNavHeaderSection>
+      <Dropdown
+        currentSelection={selection =>
+          selection === currentTheme ? true : false
+        }
+        clickHandler={item => {
+          changeTheme(item);
+          toggleSidenav();
+        }}
+        items={Object.keys(themeObj).map(th => th)}
+        name="THEMES"
+      />
+      {/* <SubHeader>THEME</SubHeader>
       {Object.keys(themeObj).map((th, idx) => {
         return (
           <ThemeSwitcher
@@ -168,7 +198,7 @@ function SideNav({
             {th}
           </ThemeSwitcher>
         );
-      })}
+      })} */}
       <PresetsContainer>
         {presets.map((preset, idx) => {
           return (
