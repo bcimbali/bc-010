@@ -182,43 +182,24 @@ function SideNav({
           toggleSidenav();
         }}
         items={Object.keys(themeObj).map(th => th)}
-        name="THEMES"
+        name=">> THEMES"
       />
-      {/* <SubHeader>THEME</SubHeader>
-      {Object.keys(themeObj).map((th, idx) => {
-        return (
-          <ThemeSwitcher
-            key={`${th}-${idx}`}
-            isSelected={currentTheme === th}
-            onClick={() => {
-              changeTheme(th);
-              toggleSidenav();
-            }}
-          >
-            {th}
-          </ThemeSwitcher>
-        );
-      })} */}
-      <PresetsContainer>
-        {presets.map((preset, idx) => {
-          return (
-            <PresetItem
-              isActive={activePreset === preset.name}
-              key={preset.id}
-              onClick={() => {
-                updateAllSynthEnvelopes(preset.synthesizer.envelope);
-                toggleOscillators(preset.synthesizer.oscillator.type);
-                setOctave(preset.octave.octave);
-                updateAllFilterEnvelopes(preset.filterParams);
-                toggleSidenav();
-                changePreset(preset.name);
-              }}
-            >
-              {preset.name}
-            </PresetItem>
-          );
-        })}
-      </PresetsContainer>
+
+      <Dropdown
+        currentSelection={selection =>
+          selection.name === activePreset ? true : false
+        }
+        clickHandler={preset => {
+          updateAllSynthEnvelopes(preset.synthesizer.envelope);
+          toggleOscillators(preset.synthesizer.oscillator.type);
+          setOctave(preset.octave.octave);
+          updateAllFilterEnvelopes(preset.filterParams);
+          toggleSidenav();
+          changePreset(preset.name);
+        }}
+        items={presets}
+        name=">> PRESETS"
+      />
     </OuterContainer>
   );
 }

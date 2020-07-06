@@ -56,31 +56,20 @@ function SideNavDropdown({
   items,
   clickHandler,
 }) {
-  console.log(
-    'In SideNavDropdown.jsx, this is currentSelection: ',
-    currentSelection,
-  );
-  // console.log('In SideNavDropdown.jsx, this is activeItem: ', activeItem);
-  // console.log('In SideNavDropdown.jsx, this is items: ', items);
   return (
     <>
       <SubHeader>{name}</SubHeader>
       {items.map((item, idx) => {
-        console.log(
-          'currentSelection(item, activeItem)',
-          currentSelection(item, activeItem),
-        );
         const isActive = currentSelection(item);
         return (
           <PresetItem
             isActive={isActive}
             onClick={() => {
-              console.log('item', item);
               clickHandler(item);
             }}
             key={`${item}-${idx}`}
           >
-            {item}
+            {typeof item === 'string' ? item : item.name}
           </PresetItem>
         );
       })}
