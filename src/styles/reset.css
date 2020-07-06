@@ -10,9 +10,9 @@
   font-display: swap;
   unicode-range: U+000-5FF;
   /* Latin glyphs */
-  src: url("./fonts/CuteFont-Regular.woff2") format("woff2"), /* Super Modern Browsers */
-  url("./fonts/CuteFont-Regular.woff") format("woff"), /* Pretty Modern Browsers */
-  url("./fonts/CuteFont-Regular.ttf") format("truetype");
+  src: url("./../fonts/CuteFont-Regular.woff2") format("woff2"), /* Super Modern Browsers */
+  url("./../fonts/CuteFont-Regular.woff") format("woff"), /* Pretty Modern Browsers */
+  url("./../fonts/CuteFont-Regular.ttf") format("truetype");
   /* Safari, Android, iOS */
 }
 
