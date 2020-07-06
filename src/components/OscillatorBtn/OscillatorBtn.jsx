@@ -9,8 +9,8 @@ import { toggleOscillators } from './actions.js';
 const ButtonHousing = styled.div`
   align-items: center;
   align-self: center;
-  border: 2px solid #40522d;
-  color: #40522d;
+  border: 2px solid ${props => props.theme.primary};
+  color: ${props => props.theme.primary};
   display: flex;
   height: 5vh;
   justify-content: center;
@@ -19,7 +19,7 @@ const ButtonHousing = styled.div`
   vertical-align: middle;
 
   :hover {
-    background-color: #00bfa5;
+    background-color: ${props => props.theme.quaternary};
     color: white;
     cursor: pointer;
   }
@@ -27,7 +27,7 @@ const ButtonHousing = styled.div`
   ${({ isSelected }) =>
     isSelected &&
     css`
-      background-color: #00bb10;
+      background-color: ${props => props.theme.secondary};
       color: white;
     `};
 `;

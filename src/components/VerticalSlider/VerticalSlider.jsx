@@ -15,7 +15,7 @@ const InputSlider = styled.input`
   -ms-transform: rotate(270deg);
   -webkit-appearance: none;
   appearance: none;
-  background: #00bb10;
+  background: ${props => props.theme.secondary};
   /* Grey background */
   cursor: pointer;
   height: 0.75vw;
@@ -29,10 +29,10 @@ const InputSlider = styled.input`
     -webkit-appearance: none;
     /* Override default look */
     appearance: none;
-    background: #00bb10;
+    background: ${props => props.theme.secondary};
     /* Green background */
-    border-left: 0.25vw solid #40522d;
-    border-right: 0.25vw solid #40522d;
+    border-left: 0.25vw solid ${props => props.theme.primary};
+    border-right: 0.25vw solid ${props => props.theme.primary};
     cursor: pointer;
     /* Cursor on hover */
     height: 1.75vw;
@@ -43,27 +43,27 @@ const InputSlider = styled.input`
 
   :hover::-webkit-slider-thumb {
     background: white;
-    border-left: 0.25vw solid #00bfa5;
-    border-right: 0.25vw solid #00bfa5;
+    border-left: 0.25vw solid ${props => props.theme.quaternary};
+    border-right: 0.25vw solid ${props => props.theme.quaternary};
   }
 
   :active::-webkit-slider-thumb {
     background: white;
-    border-left: 0.25vw solid #00bfa5;
-    border-right: 0.25vw solid #00bfa5;
+    border-left: 0.25vw solid ${props => props.theme.quaternary};
+    border-right: 0.25vw solid ${props => props.theme.quaternary};
   }
 
   :hover::-webkit-slider-thumb {
     background: white;
-    border-left: 0.25vw solid #00bfa5;
-    border-right: 0.25vw solid #00bfa5;
+    border-left: 0.25vw solid ${props => props.theme.quaternary};
+    border-right: 0.25vw solid ${props => props.theme.quaternary};
   }
 
   ::-moz-range-thumb {
-    background: #353535;
+    background: ${props => props.theme.primary};
     /* Green background */
-    border-left: 0.25vw solid #40522d;
-    border-right: 0.25vw solid #40522d;
+    border-left: 0.25vw solid ${props => props.theme.primary};
+    border-right: 0.25vw solid ${props => props.theme.primary};
     cursor: pointer;
     /* Cursor on hover */
     height: 2.25vh;
@@ -74,16 +74,16 @@ const InputSlider = styled.input`
 
   :active::-moz-range-thumb {
     background: white;
-    border-left: 0.25vw solid #00bfa5;
-    border-right: 0.25vw solid #00bfa5;
+    border-left: 0.25vw solid ${props => props.theme.quaternary};
+    border-right: 0.25vw solid ${props => props.theme.quaternary};
   }
 
   @media screen and (max-width: 768px) {
     height: 4.5vw;
     /* Responsive thumb slider styling for Chrome, Opera, Safari & Edge */
     ::-webkit-slider-thumb {
-      border-left: 1.25vw solid #047000;
-      border-right: 1.25vw solid #047000;
+      border-left: 1.25vw solid ${props => props.theme.primary};
+      border-right: 1.25vw solid ${props => props.theme.primary};
       width: 3vw;
       /* Set a specific slider handle width */
       height: 4.5vw;

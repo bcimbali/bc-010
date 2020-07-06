@@ -15,7 +15,7 @@ const Container = styled.div`
 `;
 
 const NumberDisplay = styled.p`
-  color: #40522d;
+  color: ${props => props.theme.primary};
   font-size: 1rem;
   margin: 0;
   overflow: hidden;

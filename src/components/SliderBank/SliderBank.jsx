@@ -7,7 +7,7 @@ import PanelSectionHeader from './../PanelSectionHeader';
 
 const InnerSliderContainer = styled.section`
   align-self: flex-end;
-  border: 1px solid #40522d;
+  border: 1px solid ${props => props.theme.primary};
   display: flex;
   height: 40vh;
 `;

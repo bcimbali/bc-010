@@ -4,8 +4,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ContainerHeader = styled.div`
-  background-color: #40522d;
-  color: #ffffff;
+  background-color: ${props => props.theme.primary};
+  color: ${props => props.theme.tertiary};
   display: flex;
   font-size: 2.25rem;
   justify-content: center;

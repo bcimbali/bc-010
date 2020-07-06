@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 import PanelSectionHeader from './../PanelSectionHeader';
 
 const Container = styled.section`
-  border: 1px solid #40522d;
+  border: 1px solid ${props => props.theme.primary};
   display: flex;
   flex-direction: column;
 
@@ -48,8 +48,8 @@ const Container = styled.section`
 
 const CurrentOctaveDisplay = styled.div`
   align-items: center;
-  background-color: #00bb10;
-  border: 1.5px solid #40522d;
+  background-color: ${props => props.theme.secondary};
+  border: 1.5px solid ${props => props.theme.primary};
   color: #ffffff;
   display: flex;
   font-size: 2.5rem;
@@ -77,7 +77,7 @@ const CurrentOctaveDisplay = styled.div`
 
 const OctaveButton = styled.div`
   align-items: center;
-  border: 1.5px solid #40522d;
+  border: 1.5px solid ${props => props.theme.primary};
   display: flex;
   font-size: 3.25rem;
   justify-content: center;
@@ -102,7 +102,7 @@ const OctaveButton = styled.div`
   }
 
   :hover {
-    background-color: #00bfa5;
+    background-color: ${props => props.theme.quaternary};
     color: white;
     cursor: pointer;
   }
@@ -116,7 +116,7 @@ const OctaveContent = styled.div`
 `;
 
 const OctaveControls = styled.div`
-  color: #40522d;
+  color: ${props => props.theme.primary};
   display: flex;
   font-size: 2vw;
   justify-content: space-between;

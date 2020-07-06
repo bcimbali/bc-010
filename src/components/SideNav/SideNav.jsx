@@ -26,7 +26,7 @@ const CloseButton = styled(FontAwesomeIcon)`
   padding: 0 2px;
   visibility: ${({ hidden }) => (hidden ? 'hidden' : 'visible')};
   :hover {
-    background-color: #00bfa5;
+    background-color: ${props => props.theme.quaternary};
     color: white;
     cursor: pointer;
     opacity: 0.8;
@@ -34,8 +34,8 @@ const CloseButton = styled(FontAwesomeIcon)`
 `;
 
 const OuterContainer = styled.div`
-  background-color: #b2ff5a;
-  border-left: 1px solid #111111;
+  background-color: ${props => props.theme.background};
+  border-left: 1px solid ${props => props.theme.primary};
   box-shadow: ${({ isSideNavOpen }) =>
     isSideNavOpen ? '-5px 0px 10px 1px rgba(1, 1, 1, 0.2)' : '0'};
   height: 100%;
@@ -54,7 +54,8 @@ const OuterContainer = styled.div`
 `;
 
 const PresetItem = styled.div`
-  border-bottom: 1px solid #111111;
+  border-bottom: 1px solid ${props => props.theme.primary};
+  color: ${props => props.theme.primary};
   display: flex;
   font-size: 2rem;
   justify-content: center;
@@ -70,7 +71,7 @@ const PresetItem = styled.div`
   }
 
   :hover {
-    background-color: #00bfa5;
+    background-color: ${props => props.theme.quaternary};
     color: white;
     cursor: pointer;
     opacity: 0.8;
@@ -79,13 +80,13 @@ const PresetItem = styled.div`
   ${({ isActive }) =>
     isActive &&
     css`
-      background-color: #00bb10;
-      color: #ffffff;
+      background-color: ${props => props.theme.secondary};
+      color: ${props => props.theme.tertiary};
     `};
 `;
 
 const PresetsContainer = styled.div`
-  border-top: 1px solid #111111;
+  border-top: 1px solid ${props => props.theme.primary};
   display: flex;
   flex-direction: column;
 `;
@@ -103,12 +104,12 @@ const SideNavHeaderSection = styled.div`
 `;
 
 const SideNavTitle = styled.div`
-  color: #111111;
+  color: ${props => props.theme.primary};
 `;
 
 const ThemeSwitcher = styled.div`
   background-color: red;
-  border: 1px solid #111111;
+  border: 1px solid ${props => props.theme.primary};
   height: 30px;
   width: 100%;
 `;

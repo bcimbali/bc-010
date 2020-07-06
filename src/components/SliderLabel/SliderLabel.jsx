@@ -15,7 +15,7 @@ const Header = styled.header`
 `;
 
 const Label = styled.label`
-  color: #40522d;
+  color: ${props => props.theme.primary};
   font-size: 1.5rem;
   line-height: 75%;
   overflow: hidden;

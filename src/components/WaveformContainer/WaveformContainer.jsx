@@ -10,7 +10,7 @@ import PanelSectionHeader from './../PanelSectionHeader';
 import oscillatorTypes from './../../data/oscillatorTypes.json';
 
 const OuterContainer = styled.section`
-  border: 1px solid #40522d;
+  border: 1px solid ${props => props.theme.primary};
   max-width: 250px;
   width: 100%;
 
@@ -25,7 +25,7 @@ const OuterContainer = styled.section`
 
 const WaveformSelectionBttn = styled.div`
   align-items: center;
-  border-bottom: 1px solid #40522d;
+  border-bottom: 1px solid ${props => props.theme.primary};
   display: flex;
   justify-content: center;
   padding: 5px 0;
@@ -35,7 +35,7 @@ const WaveformSelectionBttn = styled.div`
   }
 
   :hover {
-    background-color: #00bfa5;
+    background-color: ${props => props.theme.quaternary};
     color: white;
     cursor: pointer;
   }
@@ -43,7 +43,7 @@ const WaveformSelectionBttn = styled.div`
   ${({ isSelected }) =>
     isSelected &&
     css`
-      background-color: #00bb10;
+      background-color: ${props => props.theme.secondary};
       color: white;
     `};
 

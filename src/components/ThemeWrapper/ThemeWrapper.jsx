@@ -18,7 +18,7 @@ const theme = {
   light: {
     background: 'gray',
     primary: '#FFFFFF',
-    secondary: 'gray',
+    secondary: '#222',
     tertiary: '#000000',
     quaternary: 'blue',
   },

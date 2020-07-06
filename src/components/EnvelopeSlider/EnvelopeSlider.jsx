@@ -7,7 +7,7 @@ import SliderNumberDisplay from './../SliderNumberDisplay';
 import VerticalSlider from './../VerticalSlider';
 
 const Container = styled.article`
-  border: 1px solid #40522d;
+  border: 1px solid ${props => props.theme.primary};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
