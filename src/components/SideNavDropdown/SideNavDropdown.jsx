@@ -1,6 +1,22 @@
 // @flow
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+const Chevron = styled(FontAwesomeIcon)`
+  color: ${props => props.theme.primary};
+  font-weight: 100;
+  margin-right: 5px;
+  transition: all 0.1s;
+
+  ${({ isOpen }) =>
+    isOpen &&
+    css`
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+    `};
+`;
 
 const ItemContainer = styled.div`
   display: flex;
@@ -56,7 +72,7 @@ const Header = styled.div`
   color: ${props => props.theme.primary};
   display: flex;
   font-size: 2rem;
-  justify-content: flex-start;
+  justify-content: space-between;
   letter-spacing: 3px;
   line-height: 70%;
   padding: 20px 0;
@@ -67,6 +83,10 @@ const Header = styled.div`
   :hover {
     cursor: pointer;
     opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
   }
 `;
 
@@ -81,7 +101,10 @@ function SideNavDropdown({
 
   return (
     <>
-      <Header onClick={() => setIsOpen(!isOpen)}>{name}</Header>
+      <Header onClick={() => setIsOpen(!isOpen)}>
+        {name}
+        <Chevron icon={faChevronDown} isOpen={isOpen} />
+      </Header>
       <ItemContainer isOpen={isOpen}>
         {items.map((item, idx) => {
           const isActive = currentSelection(item);

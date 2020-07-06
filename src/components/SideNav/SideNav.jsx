@@ -26,11 +26,12 @@ import Dropdown from './../SideNavDropdown';
 import themeObj from './../../styles/theme.js';
 
 const CloseButton = styled(FontAwesomeIcon)`
+  color: ${props => props.theme.primary};
   padding: 0 2px;
   visibility: ${({ hidden }) => (hidden ? 'hidden' : 'visible')};
   :hover {
     background-color: ${props => props.theme.quaternary};
-    color: white;
+    color: ${props => props.theme.tertiary};
     cursor: pointer;
     opacity: 0.8;
   }
