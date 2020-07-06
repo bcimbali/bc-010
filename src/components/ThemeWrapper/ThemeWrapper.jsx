@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import { connect } from 'react-redux';
 
 import OuterCasing from './../OuterCasing';
@@ -16,29 +16,34 @@ const theme = {
     quaternary: '#00bfa5',
   },
   light: {
-    background: 'gray',
-    primary: '#FFFFFF',
+    background: '#FFFFFF',
+    primary: 'gray',
     secondary: '#222',
     tertiary: '#000000',
     quaternary: 'blue',
   },
   dark: {
-    background: '#FEFEFE',
-    primary: '#111111',
-    secondary: '#4FFFFF',
+    background: '#111111',
+    primary: 'gray',
+    secondary: 'indigo',
     tertiary: 'chartreuse',
     quaternary: 'red',
   },
 };
 
+const Main = styled.main`
+  background-color: ${props => props.theme.primary};
+  min-height: 100vh;
+`;
+
 function ThemeWrapper({ currentTheme }) {
   return (
     <ThemeProvider theme={theme[currentTheme]}>
-      <main>
+      <Main>
         <Header>bc-010</Header>
         <OuterCasing key="outerCasing" />
         <SideNav />
-      </main>
+      </Main>
     </ThemeProvider>
   );
 }

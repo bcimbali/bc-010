@@ -1,8 +1,8 @@
 // @flow
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext } from 'react';
 import { connect } from 'react-redux';
-import styled, { css } from 'styled-components';
+import styled, { css, ThemeContext } from 'styled-components';
 import { bindActionCreators } from 'redux';
 import { toggleOscillators } from './../OscillatorBtn/actions.js';
 import Icon from './../Icon';
@@ -58,6 +58,7 @@ type Props = {
 };
 
 function WaveformContainer({ oscType, toggleOscillators }: Props) {
+  const themeContext = useContext(ThemeContext);
   return (
     <OuterContainer>
       <PanelSectionHeader name="Waveform" />
@@ -72,7 +73,9 @@ function WaveformContainer({ oscType, toggleOscillators }: Props) {
           >
             <Icon
               icon={type}
-              strokeColor={isSelected ? '#ffffff' : '#40522d'}
+              strokeColor={
+                isSelected ? themeContext.tertiary : themeContext.primary
+              }
               width="95%"
             />
           </WaveformSelectionBttn>
