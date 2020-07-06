@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,8 +11,8 @@ const Chevron = styled(FontAwesomeIcon)`
   margin-right: 5px;
   transition: all 0.1s;
 
-  ${({ isOpen }) =>
-    isOpen &&
+  ${({ isopen }) =>
+    isopen === 'true' &&
     css`
       -webkit-transform: rotate(180deg);
       transform: rotate(180deg);
@@ -26,8 +27,8 @@ const ItemContainer = styled.div`
   overflow: hidden;
   transition: all 0.2s;
 
-  ${({ isOpen }) =>
-    isOpen &&
+  ${({ isopen }) =>
+    isopen === 'true' &&
     css`
       max-height: 2000px;
       opacity: 1;
@@ -90,33 +91,42 @@ const Header = styled.div`
   }
 `;
 
+const getItemName = item => (typeof item === 'string' ? item : item.name);
+
+type Props = {
+  clickHandler: Function,
+  currentSelection: Function,
+  items: Array<string | Object>,
+  name: string,
+};
+
 function SideNavDropdown({
-  activeItem,
-  currentSelection,
-  name,
-  items,
   clickHandler,
-}) {
+  currentSelection,
+  items,
+  name,
+}: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <Header onClick={() => setIsOpen(!isOpen)}>
         {name}
-        <Chevron icon={faChevronDown} isOpen={isOpen} />
+        <Chevron icon={faChevronDown} isopen={isOpen.toString()} />
       </Header>
-      <ItemContainer isOpen={isOpen}>
+      <ItemContainer isopen={isOpen.toString()}>
         {items.map((item, idx) => {
           const isActive = currentSelection(item);
+          const itemName = getItemName(item);
           return (
             <DropdownItem
               isActive={isActive}
               onClick={() => {
                 clickHandler(item);
               }}
-              key={`${item}-${idx}`}
+              key={`${itemName}-${idx}`}
             >
-              {typeof item === 'string' ? item : item.name}
+              {itemName}
             </DropdownItem>
           );
         })}
@@ -124,5 +134,16 @@ function SideNavDropdown({
     </>
   );
 }
+
+SideNavDropdown.propTypes = {
+  /** Function that runs when dropdown item is clicked. */
+  clickHandler: PropTypes.func,
+  /** Determines if current dropdown item is active, mostly used for styling active state. */
+  currentSelection: PropTypes.func,
+  /** Array of items to be listed in dropdown. */
+  items: PropTypes.array,
+  /** Header name of the dropdown. */
+  name: PropTypes.string,
+};
 
 export default SideNavDropdown;
