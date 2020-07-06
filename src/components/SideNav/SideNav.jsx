@@ -22,6 +22,8 @@ import {
 import presets from './../../data/presets.json';
 import useOnClickOutside from './../../hooks/useOnClickOutside.js';
 
+import themeObj from './../../styles/theme.js';
+
 const CloseButton = styled(FontAwesomeIcon)`
   padding: 0 2px;
   visibility: ${({ hidden }) => (hidden ? 'hidden' : 'visible')};
@@ -108,10 +110,23 @@ const SideNavTitle = styled.div`
 `;
 
 const ThemeSwitcher = styled.div`
-  background-color: red;
+  background-color: ${props => props.theme.background};
   border: 1px solid ${props => props.theme.primary};
+  color: ${props => props.theme.primary};
   height: 30px;
   width: 100%;
+
+  :hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  ${({ isSelected }) =>
+    isSelected &&
+    css`
+      background-color: ${props => props.theme.primary};
+      color: ${props => props.theme.background};
+    `};
 `;
 
 function SideNav({
@@ -127,6 +142,7 @@ function SideNav({
   changePreset,
   showSidenav,
   changeTheme,
+  currentTheme,
 }) {
   const sideNavRef = useRef();
 
@@ -139,30 +155,20 @@ function SideNav({
         <SideNavTitle>PRESETS</SideNavTitle>
         <CloseButton icon={faTimes} onClick={() => toggleSidenav()} />
       </SideNavHeaderSection>
-      <ThemeSwitcher
-        onClick={() => {
-          changeTheme('dark');
-          toggleSidenav();
-        }}
-      >
-        dark
-      </ThemeSwitcher>
-      <ThemeSwitcher
-        onClick={() => {
-          changeTheme('light');
-          toggleSidenav();
-        }}
-      >
-        light
-      </ThemeSwitcher>
-      <ThemeSwitcher
-        onClick={() => {
-          changeTheme('nature');
-          toggleSidenav();
-        }}
-      >
-        nature
-      </ThemeSwitcher>
+      {Object.keys(themeObj).map((th, idx) => {
+        return (
+          <ThemeSwitcher
+            key={`${th}-${idx}`}
+            isSelected={currentTheme === th}
+            onClick={() => {
+              changeTheme(th);
+              toggleSidenav();
+            }}
+          >
+            {th}
+          </ThemeSwitcher>
+        );
+      })}
       <PresetsContainer>
         {presets.map((preset, idx) => {
           return (
@@ -189,6 +195,7 @@ function SideNav({
 
 const mapStateToProps = state => ({
   activePreset: state.preset.name,
+  currentTheme: state.theme.name,
   isSideNavOpen: state.sideNav.isSideNavOpen,
 });
 
