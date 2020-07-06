@@ -71,6 +71,11 @@ const SideNavHeaderSection = styled.div`
 
 const SideNavTitle = styled.div`
   color: ${props => props.theme.primary};
+  font-size: 3rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 function SideNav({
