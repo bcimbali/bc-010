@@ -14,7 +14,7 @@ const initialSideNavState = {
 };
 
 const initialThemeState = {
-  name: 'nature',
+  name: 'verdant',
 };
 
 export function sideNavReducer(state = initialSideNavState, action) {
