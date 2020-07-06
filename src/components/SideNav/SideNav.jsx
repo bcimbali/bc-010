@@ -2,7 +2,7 @@
 import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -56,44 +56,6 @@ const OuterContainer = styled.div`
   }
 `;
 
-const PresetItem = styled.div`
-  border-bottom: 1px solid ${props => props.theme.primary};
-  color: ${props => props.theme.primary};
-  display: flex;
-  font-size: 2rem;
-  justify-content: center;
-  letter-spacing: 3px;
-  line-height: 70%;
-  padding: 20px 0;
-  text-align: center;
-  text-transform: uppercase;
-  width: 100%;
-
-  @media (max-width: 768px) {
-    font-size: 0.75rem;
-  }
-
-  :hover {
-    background-color: ${props => props.theme.quaternary};
-    color: white;
-    cursor: pointer;
-    opacity: 0.8;
-  }
-
-  ${({ isActive }) =>
-    isActive &&
-    css`
-      background-color: ${props => props.theme.secondary};
-      color: ${props => props.theme.tertiary};
-    `};
-`;
-
-const PresetsContainer = styled.div`
-  border-top: 1px solid ${props => props.theme.primary};
-  display: flex;
-  flex-direction: column;
-`;
-
 const SideNavHeaderSection = styled.div`
   align-items: center;
   display: flex;
@@ -108,43 +70,6 @@ const SideNavHeaderSection = styled.div`
 
 const SideNavTitle = styled.div`
   color: ${props => props.theme.primary};
-`;
-
-const SubHeader = styled.div`
-  border-bottom: 1px solid ${props => props.theme.primary};
-  border-top: 1px solid ${props => props.theme.primary};
-  color: ${props => props.theme.primary};
-  display: flex;
-  font-size: 2rem;
-  justify-content: flex-start;
-  letter-spacing: 3px;
-  line-height: 70%;
-  padding: 20px 0;
-  text-align: center;
-  text-transform: uppercase;
-  width: 100%;
-`;
-
-const ThemeSwitcher = styled.div`
-  background-color: ${props => props.theme.background};
-  border-bottom: 1px solid ${props => props.theme.primary};
-  border-left: 1px solid ${props => props.theme.primary};
-  color: ${props => props.theme.primary};
-  height: 30px;
-  margin-left: auto;
-  width: 90%;
-
-  :hover {
-    cursor: pointer;
-    opacity: 0.8;
-  }
-
-  ${({ isSelected }) =>
-    isSelected &&
-    css`
-      background-color: ${props => props.theme.primary};
-      color: ${props => props.theme.background};
-    `};
 `;
 
 function SideNav({
