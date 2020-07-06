@@ -6,30 +6,7 @@ import { connect } from 'react-redux';
 import OuterCasing from './../OuterCasing';
 import Header from './../Header';
 import SideNav from './../SideNav';
-
-const theme = {
-  nature: {
-    background: '#B2FF5A',
-    primary: '#40522D',
-    secondary: '#00BB10',
-    tertiary: '#FFFFFF',
-    quaternary: '#00bfa5',
-  },
-  light: {
-    background: '#FFFFFF',
-    primary: 'gray',
-    secondary: '#222',
-    tertiary: '#000000',
-    quaternary: 'blue',
-  },
-  dark: {
-    background: '#111111',
-    primary: 'gray',
-    secondary: 'indigo',
-    tertiary: 'chartreuse',
-    quaternary: 'red',
-  },
-};
+import theme from './../../styles/theme.js';
 
 const Main = styled.main`
   background-color: ${props => props.theme.primary};
