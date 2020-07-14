@@ -8,11 +8,11 @@ This is an audio synthesizer to be used right in your own web browser. You can p
 
 ## Screenshot:
 
-![Screenshot of synth](https://res.cloudinary.com/bcimbali/image/upload/dpr_auto,c_scale,f_auto,q_auto:eco,w_900/v1543174973/bc-010/bc-010_desktop.png)
+![Screenshot of synth](https://res.cloudinary.com/bcimbali/image/upload/dpr_auto,c_scale,f_auto,q_auto:eco,w_900/v1593900403/bc-010/bc-010-07-04-2020.png)
 
 ## How to Use:
 
-- Open a Chrome web browser (only Chrome supports all features of Web MIDI / Web Audio)
+- Open a Chrome web browser (so far, only Chrome supports all features of Web MIDI / Web Audio)
 - Go to the URL for the app/synth: https://frosty-swanson-669b64.netlify.com/
 - Click on a musical key to play the synth
   - You can also use the "musical typing" feature of the computer keyboard to play notes
