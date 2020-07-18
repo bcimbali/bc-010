@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import { connect } from 'react-redux';
 import styled, { css, ThemeContext } from 'styled-components';
 import { bindActionCreators } from 'redux';
-import { toggleOscillators } from './../OscillatorBtn/actions.js';
+import { toggleOscillators } from './actions.js';
 import Icon from './../Icon';
 import PanelSectionHeader from './../PanelSectionHeader';
 import oscillatorTypes from './../../data/oscillatorTypes.json';
