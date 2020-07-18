@@ -12,7 +12,7 @@ import {
   updateAllFilterEnvelopes,
 } from './../VerticalSlider/actions.js';
 import { setOctave } from './../OctaveContainer/actions.js';
-import { toggleOscillators } from './../OscillatorBtn/actions.js';
+import { toggleOscillators } from './../WaveformContainer/actions.js';
 import {
   changeTheme,
   changePreset,

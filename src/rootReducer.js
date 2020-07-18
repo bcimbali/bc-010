@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import octave from './components/OctaveContainer/reducer';
-import oscillator from './components/OscillatorBtn/reducer';
+import oscillator from './components/WaveformContainer/reducer';
 import {
   synthEnvelopeReducer as envelope,
   filterParamsReducer as filterParams,
