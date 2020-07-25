@@ -60,22 +60,29 @@ const InputSlider = styled.input`
   }
 
   ::-moz-range-thumb {
-    background: ${props => props.theme.primary};
+    background: ${props => props.theme.secondary};
     /* Green background */
-    border-left: 0.25vw solid ${props => props.theme.primary};
-    border-right: 0.25vw solid ${props => props.theme.primary};
+    border-bottom: 0;
+    border-left: 0.35vw solid ${props => props.theme.primary};
+    border-right: 0.35vw solid ${props => props.theme.primary};
+    border-top: 0;
+    border-radius: 0;
     cursor: pointer;
     /* Cursor on hover */
-    height: 2.25vh;
+    height: 2.55vh;
     /* Slider handle height */
-    width: 1vw;
+    width: 0.25vw;
     /* Set a specific slider handle width */
   }
 
   :active::-moz-range-thumb {
     background: white;
-    border-left: 0.25vw solid ${props => props.theme.quaternary};
-    border-right: 0.25vw solid ${props => props.theme.quaternary};
+    border-color: ${props => props.theme.quaternary};
+  }
+
+  :hover::-moz-range-thumb {
+    background: white;
+    border-color: ${props => props.theme.quaternary};
   }
 
   @media screen and (max-width: 768px) {
@@ -91,9 +98,11 @@ const InputSlider = styled.input`
     }
     /* Responsive thumb slider styling for Firefox */
     ::-moz-range-thumb {
+      border-left: 1vw solid ${props => props.theme.primary};
+      border-right: 1vw solid ${props => props.theme.primary};
       width: 0.5vw;
       /* Set a specific slider handle width */
-      height: 1.75vw;
+      height: 4.75vw;
       /* Slider handle height */
     }
   }
