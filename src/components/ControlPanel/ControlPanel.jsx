@@ -12,7 +12,6 @@ const ControlPanelContainer = styled.section`
   align-items: flex-start;
   background-color: ${props => props.theme.background};
   border: 2px solid ${props => props.theme.primary};
-  border-top: 1px solid white;
   display: flex;
   height: 50vh;
   justify-content: space-between;
