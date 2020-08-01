@@ -57,6 +57,7 @@ type Props = {
   oscType: string,
 };
 
+/** Component to toggle the 4 waveform types: sine, sawtooth, triangle, and square. */
 function WaveformContainer({ oscType, toggleOscillators }: Props) {
   const themeContext = useContext(ThemeContext);
   return (
