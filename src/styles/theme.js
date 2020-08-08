@@ -6,6 +6,13 @@ const theme = {
     tertiary: '#FFFFFF',
     quaternary: '#c2b280',
   },
+  crescent: {
+    background: '#222831',
+    primary: '#393e46',
+    secondary: '#4b5d67',
+    tertiary: '#32e0c4',
+    quaternary: '#d54062',
+  },
   grayscale: {
     background: '#FFFFFF',
     primary: 'gray',
