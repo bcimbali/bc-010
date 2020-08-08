@@ -29,7 +29,7 @@ const theme = {
   },
   icy: {
     background: '#9DD1F1',
-    primary: '#031927',
+    primary: '#759EDC',
     secondary: '#8cc',
     tertiary: '#C8E0F4',
     quaternary: '#508AA8',
