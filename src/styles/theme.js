@@ -41,6 +41,13 @@ const theme = {
     tertiary: '#FFFFFF',
     quaternary: '#031927',
   },
+  rad: {
+    background: '#9F00FF',
+    primary: '#F70D1A',
+    secondary: '#00AAEE',
+    tertiary: '#FFE302',
+    quaternary: '#FF5F00',
+  },
 };
 
 export default theme;
