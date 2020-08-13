@@ -20,6 +20,13 @@ const theme = {
     tertiary: '#C8E0F4',
     quaternary: '#508AA8',
   },
+  rad: {
+    background: '#9F00FF',
+    primary: '#F70D1A',
+    secondary: '#00AAEE',
+    tertiary: '#FFE302',
+    quaternary: '#FF5F00',
+  },
   sapphire: {
     background: 'blue',
     primary: '#67d',
@@ -40,13 +47,6 @@ const theme = {
     secondary: '#444',
     tertiary: '#000000',
     quaternary: '#5c5c5c',
-  },
-  rad: {
-    background: '#9F00FF',
-    primary: '#F70D1A',
-    secondary: '#00AAEE',
-    tertiary: '#FFE302',
-    quaternary: '#FF5F00',
   },
 };
 
