@@ -13,14 +13,7 @@ const theme = {
     tertiary: '#32e0c4',
     quaternary: '#d54062',
   },
-  grayscale: {
-    background: '#FFFFFF',
-    primary: 'gray',
-    secondary: '#444',
-    tertiary: '#000000',
-    quaternary: 'blue',
-  },
-  dark: {
+  arcade: {
     background: '#111111',
     primary: '#3d266b',
     secondary: 'chartreuse',
@@ -40,6 +33,13 @@ const theme = {
     secondary: '#4ae',
     tertiary: '#FFFFFF',
     quaternary: '#031927',
+  },
+  grayscale: {
+    background: '#FFFFFF',
+    primary: 'gray',
+    secondary: '#444',
+    tertiary: '#000000',
+    quaternary: '#5c5c5c',
   },
   rad: {
     background: '#9F00FF',
