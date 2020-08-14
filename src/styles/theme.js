@@ -41,7 +41,7 @@ const theme = {
     tertiary: '#961414',
     quaternary: '#336590',
   },
-  grayscale: {
+  winter: {
     background: '#FFFFFF',
     primary: 'gray',
     secondary: '#444',
