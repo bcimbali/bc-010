@@ -27,6 +27,13 @@ const theme = {
     tertiary: '#FFE302',
     quaternary: '#FF5F00',
   },
+  spring: {
+    background: '#3D3B30',
+    primary: '#5C80BC',
+    secondary: '#E7E247',
+    tertiary: '#3D3B30',
+    quaternary: '#FFC09F',
+  },
   sapphire: {
     background: 'blue',
     primary: '#67d',
