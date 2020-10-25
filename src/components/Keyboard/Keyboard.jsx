@@ -10,7 +10,7 @@ import autoBind from 'react-autobind';
 
 const BlackKeys = styled.section`
   display: flex;
-  height: 100%;
+  flex: 1 0 auto;
   padding-left: 5vw;
   width: 100%;
 
@@ -34,7 +34,7 @@ const Container = styled.section`
 
 const WhiteKeys = styled.section`
   display: flex;
-  height: 100%;
+  flex: 1 0 auto;
   width: 100%;
 `;
 
