@@ -55,6 +55,13 @@ const theme = {
     tertiary: '#000000',
     quaternary: '#5c5c5c',
   },
+  desert: {
+    background: '#ffcdb2',
+    primary: '#6d6875',
+    secondary: '#b5838d',
+    tertiary: '#e5989b',
+    quaternary: '#ffb4a2',
+  },
 };
 
 export default theme;
