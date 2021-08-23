@@ -31,6 +31,7 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   padding: 0 10px;
   position: relative;
+  transition: all ${({ theme }) => theme.globalTransition};
 
   @media (max-width: 768px) {
     font-size: 14px;

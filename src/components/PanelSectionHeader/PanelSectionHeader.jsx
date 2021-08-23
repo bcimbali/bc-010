@@ -12,6 +12,7 @@ const ContainerHeader = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   text-transform: uppercase;
+  transition: all ${({ theme }) => theme.globalTransition};
   width: 100%;
 
   @media (max-width: 768px) {

@@ -10,12 +10,13 @@ import filterSliders from './../../data/filterSliders.json';
 
 const ControlPanelContainer = styled.section`
   align-items: flex-start;
-  background-color: ${props => props.theme.background};
-  border: 2px solid ${props => props.theme.primary};
+  background-color: ${({ theme }) => theme.background};
+  border: 2px solid ${({ theme }) => theme.primary};
   display: flex;
   height: 50vh;
   justify-content: space-between;
   padding: 1%;
+  transition: all ${({ theme }) => theme.globalTransition};
 `;
 
 type Props = {

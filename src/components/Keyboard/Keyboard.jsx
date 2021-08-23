@@ -19,17 +19,18 @@ const BlackKeys = styled.section`
   }
 
   > * {
-    background-color: ${props => props.theme.secondary};
+    background-color: ${({ theme }) => theme.secondary};
   }
 `;
 
 const Container = styled.section`
-  background-color: ${props => props.theme.background};
-  border: 2px solid ${props => props.theme.primary};
+  background-color: ${({ theme }) => theme.background};
+  border: 2px solid ${({ theme }) => theme.primary};
   display: flex;
   flex-direction: column;
   height: 40vh;
   padding: 1vh;
+  transition: all ${({ theme }) => theme.globalTransition};
 `;
 
 const WhiteKeys = styled.section`

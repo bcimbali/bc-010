@@ -11,6 +11,7 @@ import theme from './../../styles/theme.js';
 const Main = styled.main`
   background-color: ${props => props.theme.primary};
   min-height: 100vh;
+  transition: all ${({ theme }) => theme.globalTransition};
 `;
 
 function ThemeWrapper({ currentTheme }) {
