@@ -23,8 +23,8 @@ const HamburgerButton = styled(FontAwesomeIcon)`
 
 const HeaderContainer = styled.header`
   align-items: center;
-  background: ${props => props.theme.primary};
-  color: ${props => props.theme.tertiary};
+  background: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.tertiary};
   display: flex;
   font-size: 2vw;
   font-weight: bold;
@@ -39,7 +39,7 @@ const HeaderContainer = styled.header`
 `;
 
 const PresetNameDisplay = styled.div`
-  color: ${props => props.theme.tertiary};
+  color: ${({ theme }) => theme.tertiary};
   font-size: 2rem;
   letter-spacing: 3px;
   position: absolute;
@@ -54,23 +54,24 @@ const PresetNameDisplay = styled.div`
 `;
 
 const SideNavButton = styled.div`
-  border: 1px solid ${props => props.theme.tertiary};
+  border: 1px solid ${({ theme }) => theme.tertiary};
   height: auto;
   padding: 5px;
+  transition: all ${({ theme }) => theme.globalTransition};
 
   @media (max-width: 768px) {
     display: none;
   }
 
   :hover {
-    background-color: ${props => props.theme.quaternary};
+    background-color: ${({ theme }) => theme.quaternary};
     cursor: pointer;
     opacity: 0.8;
   }
 `;
 
 const SynthName = styled.h1`
-  color: ${props => props.theme.tertiary};
+  color: ${({ theme }) => theme.tertiary};
   font-size: 3rem;
   line-height: 2rem;
 

@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 import PanelSectionHeader from './../PanelSectionHeader';
 
 const Container = styled.section`
-  border: 1px solid ${props => props.theme.primary};
+  border: 1px solid ${({ theme }) => theme.primary};
   display: flex;
   flex-direction: column;
 
@@ -48,8 +48,8 @@ const Container = styled.section`
 
 const CurrentOctaveDisplay = styled.div`
   align-items: center;
-  background-color: ${props => props.theme.secondary};
-  border: 1.5px solid ${props => props.theme.primary};
+  background-color: ${({ theme }) => theme.secondary};
+  border: 1.5px solid ${({ theme }) => theme.primary};
   color: #ffffff;
   display: flex;
   font-size: 2.5rem;
@@ -77,13 +77,14 @@ const CurrentOctaveDisplay = styled.div`
 
 const OctaveButton = styled.div`
   align-items: center;
-  border: 1.5px solid ${props => props.theme.primary};
+  border: 1.5px solid ${({ theme }) => theme.primary};
   display: flex;
   font-size: 3.25rem;
   justify-content: center;
   overflow: hidden;
   padding: 1rem;
   position: relative;
+  transition: all ${({ theme }) => theme.globalTransition};
   width: 60%;
 
   &:after {
@@ -102,7 +103,7 @@ const OctaveButton = styled.div`
   }
 
   :hover {
-    background-color: ${props => props.theme.quaternary};
+    background-color: ${({ theme }) => theme.quaternary};
     color: white;
     cursor: pointer;
   }
@@ -116,7 +117,7 @@ const OctaveContent = styled.div`
 `;
 
 const OctaveControls = styled.div`
-  color: ${props => props.theme.primary};
+  color: ${({ theme }) => theme.primary};
   display: flex;
   font-size: 2vw;
   justify-content: space-between;

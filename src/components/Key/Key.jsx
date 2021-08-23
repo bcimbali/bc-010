@@ -5,24 +5,25 @@ import styled, { css } from 'styled-components';
 import { isMobile } from 'react-device-detect';
 
 const KeyContainer = styled.article`
-  border: 2px solid ${props => props.theme.primary};
+  border: 2px solid ${({ theme }) => theme.primary};
   margin: 0.5vw;
+  transition: all ${({ theme }) => theme.globalTransition};
   width: 10vw;
 
   :hover {
-    background-color: ${props => props.theme.quaternary};
+    background-color: ${({ theme }) => theme.quaternary};
     cursor: pointer;
   }
 
   ${({ isActive }) =>
     isActive &&
     css`
-      background-color: ${props => props.theme.quaternary} !important;
+      background-color: ${({ theme }) => theme.quaternary} !important;
     `};
 `;
 
 const Letter = styled.div`
-  color: ${props => props.theme.primary};
+  color: ${({ theme }) => theme.primary};
   display: flex;
   font-size: 5.625rem;
   justify-content: center;
@@ -42,7 +43,7 @@ const OuterLetterContainer = styled.div`
   overflow: hidden;
 
   header {
-    color: ${props => props.theme.primary};
+    color: ${({ theme }) => theme.primary};
     font-size: 1.25rem;
   }
 `;

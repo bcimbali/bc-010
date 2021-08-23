@@ -15,7 +15,7 @@ const InputSlider = styled.input`
   -ms-transform: rotate(270deg);
   -webkit-appearance: none;
   appearance: none;
-  background: ${props => props.theme.secondary};
+  background: ${({ theme }) => theme.secondary};
   /* Grey background */
   cursor: pointer;
   height: 0.75vw;
@@ -23,74 +23,77 @@ const InputSlider = styled.input`
   outline: none;
   /* Remove outline */
   transform: rotate(270deg);
+  transition: all ${({ theme }) => theme.globalTransition};
   width: 25vh;
 
   ::-webkit-slider-thumb {
     -webkit-appearance: none;
     /* Override default look */
     appearance: none;
-    background: ${props => props.theme.secondary};
+    background: ${({ theme }) => theme.secondary};
     /* Green background */
-    border-left: 0.25vw solid ${props => props.theme.primary};
-    border-right: 0.25vw solid ${props => props.theme.primary};
-    cursor: pointer;
+    border-left: 0.25vw solid ${({ theme }) => theme.primary};
+    border-right: 0.25vw solid ${({ theme }) => theme.primary};
     /* Cursor on hover */
-    height: 1.75vw;
+    cursor: pointer;
     /* Slider handle height */
-    width: 1vw;
+    height: 1.75vw;
     /* Set a specific slider handle width */
+    transition: all ${({ theme }) => theme.globalTransition};
+    width: 1vw;
   }
 
   :hover::-webkit-slider-thumb {
     background: white;
-    border-left: 0.25vw solid ${props => props.theme.quaternary};
-    border-right: 0.25vw solid ${props => props.theme.quaternary};
+    border-left: 0.25vw solid ${({ theme }) => theme.quaternary};
+    border-right: 0.25vw solid ${({ theme }) => theme.quaternary};
   }
 
   :active::-webkit-slider-thumb {
     background: white;
-    border-left: 0.25vw solid ${props => props.theme.quaternary};
-    border-right: 0.25vw solid ${props => props.theme.quaternary};
+    border-left: 0.25vw solid ${({ theme }) => theme.quaternary};
+    border-right: 0.25vw solid ${({ theme }) => theme.quaternary};
   }
 
   :hover::-webkit-slider-thumb {
     background: white;
-    border-left: 0.25vw solid ${props => props.theme.quaternary};
-    border-right: 0.25vw solid ${props => props.theme.quaternary};
+    border-left: 0.25vw solid ${({ theme }) => theme.quaternary};
+    border-right: 0.25vw solid ${({ theme }) => theme.quaternary};
   }
 
   ::-moz-range-thumb {
-    background: ${props => props.theme.secondary};
+    background: ${({ theme }) => theme.secondary};
     /* Green background */
     border-bottom: 0;
-    border-left: 0.35vw solid ${props => props.theme.primary};
-    border-right: 0.35vw solid ${props => props.theme.primary};
+    border-left: 0.35vw solid ${({ theme }) => theme.primary};
+    border-right: 0.35vw solid ${({ theme }) => theme.primary};
     border-top: 0;
     border-radius: 0;
-    cursor: pointer;
     /* Cursor on hover */
-    height: 2.55vh;
+    cursor: pointer;
     /* Slider handle height */
-    width: 0.25vw;
+    height: 2.55vh;
+    transition: all ${({ theme }) => theme.globalTransition};
     /* Set a specific slider handle width */
+    width: 0.25vw;
   }
 
   :active::-moz-range-thumb {
     background: white;
-    border-color: ${props => props.theme.quaternary};
+    border-color: ${({ theme }) => theme.quaternary};
   }
 
   :hover::-moz-range-thumb {
     background: white;
-    border-color: ${props => props.theme.quaternary};
+    border-color: ${({ theme }) => theme.quaternary};
   }
 
   @media screen and (max-width: 768px) {
     height: 4.5vw;
     /* Responsive thumb slider styling for Chrome, Opera, Safari & Edge */
     ::-webkit-slider-thumb {
-      border-left: 1.25vw solid ${props => props.theme.primary};
-      border-right: 1.25vw solid ${props => props.theme.primary};
+      border-left: 1.25vw solid ${({ theme }) => theme.primary};
+      border-right: 1.25vw solid ${({ theme }) => theme.primary};
       width: 3vw;
       /* Set a specific slider handle width */
       height: 4.5vw;
@@ -98,8 +101,8 @@ const InputSlider = styled.input`
     }
     /* Responsive thumb slider styling for Firefox */
     ::-moz-range-thumb {
-      border-left: 1vw solid ${props => props.theme.primary};
-      border-right: 1vw solid ${props => props.theme.primary};
+      border-left: 1vw solid ${({ theme }) => theme.primary};
+      border-right: 1vw solid ${({ theme }) => theme.primary};
       width: 0.5vw;
       /* Set a specific slider handle width */
       height: 4.75vw;

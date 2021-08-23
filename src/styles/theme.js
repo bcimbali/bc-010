@@ -1,3 +1,5 @@
+const globalTransition = "0.25s";
+
 const theme = {
   verdant: {
     background: '#B2FF5A',
@@ -5,6 +7,7 @@ const theme = {
     secondary: '#00BB10',
     tertiary: '#FFFFFF',
     quaternary: '#c2b280',
+    globalTransition,
   },
   crescent: {
     background: '#222831',
@@ -12,6 +15,7 @@ const theme = {
     secondary: '#4b5d67',
     tertiary: '#32e0c4',
     quaternary: '#d54062',
+    globalTransition,
   },
   icy: {
     background: '#9DD1F1',
@@ -19,6 +23,7 @@ const theme = {
     secondary: '#8cc',
     tertiary: '#C8E0F4',
     quaternary: '#508AA8',
+    globalTransition,
   },
   rad: {
     background: '#9F00FF',
@@ -26,6 +31,7 @@ const theme = {
     secondary: '#00AAEE',
     tertiary: '#FFE302',
     quaternary: '#FF5F00',
+    globalTransition,
   },
   spring: {
     background: '#3D3B30',
@@ -33,6 +39,7 @@ const theme = {
     secondary: '#E7E247',
     tertiary: '#3D3B30',
     quaternary: '#FFC09F',
+    globalTransition,
   },
   sapphire: {
     background: 'blue',
@@ -40,6 +47,7 @@ const theme = {
     secondary: '#4ae',
     tertiary: '#FFFFFF',
     quaternary: '#031927',
+    globalTransition,
   },
   arcade: {
     background: '#111111',
@@ -47,6 +55,7 @@ const theme = {
     secondary: 'chartreuse',
     tertiary: '#961414',
     quaternary: '#336590',
+    globalTransition,
   },
   winter: {
     background: '#FFFFFF',
@@ -54,6 +63,7 @@ const theme = {
     secondary: '#444',
     tertiary: '#000000',
     quaternary: '#5c5c5c',
+    globalTransition,
   },
   desert: {
     background: '#ffcdb2',
@@ -61,6 +71,7 @@ const theme = {
     secondary: '#b5838d',
     tertiary: '#e5989b',
     quaternary: '#ffb4a2',
+    globalTransition,
   },
 };
 

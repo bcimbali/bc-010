@@ -6,7 +6,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Chevron = styled(FontAwesomeIcon)`
-  color: ${props => props.theme.primary};
+  color: ${({ theme }) => theme.primary};
   font-weight: 100;
   margin-right: 5px;
   transition: all 0.1s;
@@ -36,8 +36,8 @@ const ItemContainer = styled.div`
 `;
 
 const DropdownItem = styled.div`
-  border-bottom: 1px solid ${props => props.theme.primary};
-  color: ${props => props.theme.primary};
+  border-bottom: 1px solid ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.primary};
   display: flex;
   font-size: 2rem;
   justify-content: center;
@@ -46,6 +46,7 @@ const DropdownItem = styled.div`
   padding: 20px 0;
   text-align: center;
   text-transform: uppercase;
+  transition: all ${({ theme }) => theme.globalTransition};
   width: 100%;
 
   @media (max-width: 768px) {
@@ -53,7 +54,7 @@ const DropdownItem = styled.div`
   }
 
   :hover {
-    background-color: ${props => props.theme.quaternary};
+    background-color: ${({ theme }) => theme.quaternary};
     color: white;
     cursor: pointer;
     opacity: 0.8;
@@ -62,15 +63,15 @@ const DropdownItem = styled.div`
   ${({ isActive }) =>
     isActive &&
     css`
-      background-color: ${props => props.theme.secondary};
-      color: ${props => props.theme.tertiary};
+      background-color: ${({ theme }) => theme.secondary};
+      color: ${({ theme }) => theme.tertiary};
     `};
 `;
 
 const Header = styled.div`
-  border-bottom: 1px solid ${props => props.theme.primary};
-  border-top: 1px solid ${props => props.theme.primary};
-  color: ${props => props.theme.primary};
+  border-bottom: 1px solid ${({ theme }) => theme.primary};
+  border-top: 1px solid ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.primary};
   display: flex;
   font-size: 2rem;
   justify-content: space-between;
@@ -79,6 +80,7 @@ const Header = styled.div`
   padding: 20px 0;
   text-align: center;
   text-transform: uppercase;
+  transition: all ${({ theme }) => theme.globalTransition};
   width: 100%;
 
   :hover {

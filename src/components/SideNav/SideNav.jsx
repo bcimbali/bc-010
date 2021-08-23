@@ -28,6 +28,7 @@ import themeObj from './../../styles/theme.js';
 const CloseButton = styled(FontAwesomeIcon)`
   color: ${props => props.theme.primary};
   padding: 0 2px;
+  transition: all ${({ theme }) => theme.globalTransition};
   visibility: ${({ hidden }) => (hidden ? 'hidden' : 'visible')};
   :hover {
     background-color: ${props => props.theme.quaternary};
