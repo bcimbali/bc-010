@@ -1,9 +1,10 @@
 // @flow
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled, { css, withTheme } from 'styled-components';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import tc from "tinycolor2";
 
 const Chevron = styled(FontAwesomeIcon)`
   color: ${({ theme }) => theme.primary};
@@ -36,8 +37,9 @@ const ItemContainer = styled.div`
 `;
 
 const DropdownItem = styled.div`
+  background-color: ${({ bgColor }) => bgColor};
   border-bottom: 1px solid ${({ theme }) => theme.primary};
-  color: ${({ theme }) => theme.primary};
+  color: ${({ textColor }) => textColor};
   display: flex;
   font-size: 2rem;
   justify-content: center;
@@ -100,6 +102,7 @@ type Props = {
   currentSelection: Function,
   items: Array<string | Object>,
   name: string,
+  theme: Object,
 };
 
 function SideNavDropdown({
@@ -107,8 +110,12 @@ function SideNavDropdown({
   currentSelection,
   items,
   name,
+  theme,
 }: Props) {
   const [isOpen, setIsOpen] = useState(false);
+  const tcBackground = tc(theme.background);
+  const tcPrimary = tc(theme.primary);
+  const isBackgroundLight = tcBackground.isLight();
 
   return (
     <>
@@ -118,15 +125,18 @@ function SideNavDropdown({
       </Header>
       <ItemContainer isopen={isOpen.toString()}>
         {items.map((item, idx) => {
+          const idxOffset = idx / 2;
           const isActive = currentSelection(item);
           const itemName = getItemName(item);
           return (
             <DropdownItem
+              bgColor={isBackgroundLight ? tcBackground.darken(idxOffset).toString() : tcBackground.lighten(idxOffset).toString()}
               isActive={isActive}
               onClick={() => {
                 clickHandler(item);
               }}
               key={`${itemName}-${idx}`}
+              textColor={isBackgroundLight ? tcPrimary.lighten(idxOffset).toString() : tcPrimary.darken(idxOffset).toString() }
             >
               {itemName}
             </DropdownItem>
@@ -146,6 +156,8 @@ SideNavDropdown.propTypes = {
   items: PropTypes.array,
   /** Header name of the dropdown. */
   name: PropTypes.string,
+  /** Selected theme object */
+  theme: PropTypes.object,
 };
 
-export default SideNavDropdown;
+export default withTheme(SideNavDropdown);

@@ -31,7 +31,6 @@ const CloseButton = styled(FontAwesomeIcon)`
   transition: all ${({ theme }) => theme.globalTransition};
   visibility: ${({ hidden }) => (hidden ? 'hidden' : 'visible')};
   :hover {
-    background-color: ${props => props.theme.quaternary};
     color: ${props => props.theme.tertiary};
     cursor: pointer;
     opacity: 0.8;
