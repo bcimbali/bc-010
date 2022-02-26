@@ -14,11 +14,20 @@ const Main = styled.main`
   transition: all ${({ theme }) => theme.globalTransition};
 `;
 
-function ThemeWrapper({ currentTheme }) {
+const Overlay = styled.div`
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  position: absolute;
+  width: 100vw;
+  z-index: 1;
+`;
+
+function ThemeWrapper({ currentTheme, isSideNavOpen }) {
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <Main>
         <Header>bc-010</Header>
+        {isSideNavOpen && <Overlay />}
         <OuterCasing key="outerCasing" />
         <SideNav />
       </Main>
@@ -28,6 +37,7 @@ function ThemeWrapper({ currentTheme }) {
 
 const mapStateToProps = state => ({
   currentTheme: state.theme.name,
+  isSideNavOpen: state.sideNav.isSideNavOpen,
 });
 
 export default connect(
