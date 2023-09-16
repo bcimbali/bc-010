@@ -35,7 +35,7 @@ const WaveformSelectionBttn = styled.div`
     /* max-height: 18px; */
   }
 
-  :hover {
+  &:hover {
     background-color: ${({ theme }) => theme.quaternary};
     color: white;
     cursor: pointer;

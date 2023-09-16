@@ -26,11 +26,12 @@ const InputSlider = styled.input`
   transition: all ${({ theme }) => theme.globalTransition};
   width: 25vh;
 
-  ::-webkit-slider-thumb {
+  &::-webkit-slider-thumb {
     -webkit-appearance: none;
     /* Override default look */
     appearance: none;
     background: ${({ theme }) => theme.secondary};
+    color: red;
     /* Green background */
     border-left: 0.25vw solid ${({ theme }) => theme.primary};
     border-right: 0.25vw solid ${({ theme }) => theme.primary};
@@ -43,25 +44,25 @@ const InputSlider = styled.input`
     width: 1vw;
   }
 
-  :hover::-webkit-slider-thumb {
+  &:hover::-webkit-slider-thumb {
     background: white;
     border-left: 0.25vw solid ${({ theme }) => theme.quaternary};
     border-right: 0.25vw solid ${({ theme }) => theme.quaternary};
   }
 
-  :active::-webkit-slider-thumb {
+  &:active::-webkit-slider-thumb {
     background: white;
     border-left: 0.25vw solid ${({ theme }) => theme.quaternary};
     border-right: 0.25vw solid ${({ theme }) => theme.quaternary};
   }
 
-  :hover::-webkit-slider-thumb {
+  &:hover::-webkit-slider-thumb {
     background: white;
     border-left: 0.25vw solid ${({ theme }) => theme.quaternary};
     border-right: 0.25vw solid ${({ theme }) => theme.quaternary};
   }
 
-  ::-moz-range-thumb {
+  &::-moz-range-thumb {
     background: ${({ theme }) => theme.secondary};
     /* Green background */
     border-bottom: 0;
@@ -78,12 +79,12 @@ const InputSlider = styled.input`
     width: 0.25vw;
   }
 
-  :active::-moz-range-thumb {
+  &:active::-moz-range-thumb {
     background: white;
     border-color: ${({ theme }) => theme.quaternary};
   }
 
-  :hover::-moz-range-thumb {
+  &:hover::-moz-range-thumb {
     background: white;
     border-color: ${({ theme }) => theme.quaternary};
   }
@@ -91,7 +92,7 @@ const InputSlider = styled.input`
   @media screen and (max-width: 768px) {
     height: 4.5vw;
     /* Responsive thumb slider styling for Chrome, Opera, Safari & Edge */
-    ::-webkit-slider-thumb {
+    &::-webkit-slider-thumb {
       border-left: 1.25vw solid ${({ theme }) => theme.primary};
       border-right: 1.25vw solid ${({ theme }) => theme.primary};
       width: 3vw;
@@ -100,7 +101,7 @@ const InputSlider = styled.input`
       /* Slider handle height */
     }
     /* Responsive thumb slider styling for Firefox */
-    ::-moz-range-thumb {
+    &::-moz-range-thumb {
       border-left: 1vw solid ${({ theme }) => theme.primary};
       border-right: 1vw solid ${({ theme }) => theme.primary};
       width: 0.5vw;

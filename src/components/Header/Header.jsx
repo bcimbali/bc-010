@@ -64,7 +64,7 @@ const SideNavButton = styled.div`
     display: none;
   }
 
-  :hover {
+  &:hover {
     background-color: ${({ theme }) => theme.quaternary};
     cursor: pointer;
     opacity: 0.8;
