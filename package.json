@@ -31,8 +31,8 @@
     "styleguide:build": "styleguidist build"
   },
   "devDependencies": {
-    "flow-bin": "^0.214.0",
-    "prettier": "3.0.1",
+    "flow-bin": "^0.216.0",
+    "prettier": "3.0.3",
     "react-styleguidist": "^13.1.1"
   },
   "browserslist": [
