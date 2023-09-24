@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import autoBind from 'react-autobind';
-import Tone from 'tone';
+import * as Tone from 'tone';
 import styled from 'styled-components';
 import { isEmpty } from 'lodash';
 import ControlPanel from './../ControlPanel';

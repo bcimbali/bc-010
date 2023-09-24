@@ -53,7 +53,7 @@ const DropdownItem = styled.div`
     font-size: 0.75rem;
   }
 
-  :hover {
+  &:hover {
     background-color: ${({ theme }) => theme.quaternary};
     color: white;
     cursor: pointer;
@@ -83,7 +83,7 @@ const Header = styled.div`
   transition: all ${({ theme }) => theme.globalTransition};
   width: 100%;
 
-  :hover {
+  &:hover {
     cursor: pointer;
     opacity: 0.8;
   }
