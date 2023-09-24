@@ -30,7 +30,7 @@ const CloseButton = styled(FontAwesomeIcon)`
   padding: 0 2px;
   transition: all ${({ theme }) => theme.globalTransition};
   visibility: ${({ hidden }) => (hidden ? 'hidden' : 'visible')};
-  :hover {
+  &:hover {
     background-color: ${props => props.theme.quaternary};
     color: ${props => props.theme.tertiary};
     cursor: pointer;
