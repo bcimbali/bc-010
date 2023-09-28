@@ -1,5 +1,7 @@
 # bc-010
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4896724f-ab51-488c-98ea-e17c0b0b2dc9/deploy-status)](https://app.netlify.com/sites/frosty-swanson-669b64/deploys)
+
 A browser based synthesizer. :musical_keyboard: :sound:
 
 ## What is this?
@@ -48,9 +50,11 @@ This is an audio synthesizer to be used right in your own web browser. You can p
 - View the documenatation in your web browser at `http://localhost:6060/`
 
 ### Setting up AutoFix on save with VSCode :necktie:
-Having Prettier/Eslint autofix errors is very handy for development. This repo is 
+
+Having Prettier/Eslint autofix errors is very handy for development. This repo is
 all set up to autofix errors. If you're using VSCode, make sure these
 settings below are in your workspace settings (below are the json version):
+
 ```
 {
   "editor.formatOnSave": true,
